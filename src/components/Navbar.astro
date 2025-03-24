@@ -1,4 +1,5 @@
 ---
+const { registrationLink } = Astro.props;
 import '../styles/global.css';
 ---
 
@@ -20,8 +21,8 @@ import '../styles/global.css';
     
     <!-- Botones de acción -->
     <div class="hidden md:flex items-center space-x-3">
-      <a href="#login" class="text-casino-gold hover:text-casino-gold-light font-semibold transition duration-300">Ingresar</a>
-      <a href="#registro" class="btn-primary text-sm py-2">REGISTRATE</a>
+      <a href={registrationLink} target="_blank" rel="noopener" class="text-casino-gold hover:text-casino-gold-light font-semibold transition duration-300">Ingresar</a>
+      <a href={registrationLink} target="_blank" rel="noopener" class="btn-primary text-sm py-2">REGISTRATE</a>
     </div>
     
     <!-- Botón de menú para móviles -->
@@ -41,8 +42,8 @@ import '../styles/global.css';
       <a href="#vip" class="text-white hover:text-casino-gold transition duration-300 py-2 px-3 border-b border-white/10">VIP</a>
       <a href="#soporte" class="text-white hover:text-casino-gold transition duration-300 py-2 px-3 border-b border-white/10">Soporte</a>
       <div class="flex flex-col space-y-3 pt-3">
-        <a href="#login" class="text-casino-gold hover:text-casino-gold-light font-semibold transition duration-300 py-2 px-3">INGRESAR</a>
-        <a href="#registro" class="btn-primary text-sm py-2">REGISTRATE</a>
+        <a href={registrationLink} target="_blank" rel="noopener" class="text-casino-gold hover:text-casino-gold-light font-semibold transition duration-300 py-2 px-3">INGRESAR</a>
+        <a href={registrationLink} target="_blank" rel="noopener" class="btn-primary text-sm py-2">REGISTRATE</a>
       </div>
     </div>
   </div>

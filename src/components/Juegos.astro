@@ -1,4 +1,5 @@
 ---
+const { registrationLink } = Astro.props;
 import '../styles/global.css';
 ---
 
@@ -20,7 +21,7 @@ import '../styles/global.css';
         <div class="absolute inset-0 flex flex-col justify-end p-6">
           <h3 class="text-2xl font-display text-white mb-2">Slots</h3>
           <p class="text-white/80 mb-4 text-sm">Más de 500 títulos de las mejores desarrolladoras del mundo, con jackpots progresivos y temáticas variadas.</p>
-          <a href="#slots" class="btn-primary text-sm py-2 self-start">JUGAR SLOTS</a>
+          <a href={registrationLink} target="_blank" rel="noopener" class="btn-primary text-sm py-2 self-start">JUGAR SLOTS</a>
         </div>
       </div>
       
@@ -31,7 +32,7 @@ import '../styles/global.css';
         <div class="absolute inset-0 flex flex-col justify-end p-6">
           <h3 class="text-2xl font-display text-white mb-2">Ruleta</h3>
           <p class="text-white/80 mb-4 text-sm">Disfruta de la clásica y emocionante ruleta en sus variantes europea, americana y francesa.</p>
-          <a href="#ruleta" class="btn-primary text-sm py-2 self-start">JUGAR RULETA</a>
+          <a href={registrationLink} target="_blank" rel="noopener" class="btn-primary text-sm py-2 self-start">JUGAR RULETA</a>
         </div>
       </div>
       
@@ -42,7 +43,7 @@ import '../styles/global.css';
         <div class="absolute inset-0 flex flex-col justify-end p-6">
           <h3 class="text-2xl font-display text-white mb-2">Poker</h3>
           <p class="text-white/80 mb-4 text-sm">Compite en mesas de Texas Hold'em, Omaha y más variantes con jugadores de todo el mundo.</p>
-          <a href="#poker" class="btn-primary text-sm py-2 self-start">JUGAR POKER</a>
+          <a href={registrationLink} target="_blank" rel="noopener" class="btn-primary text-sm py-2 self-start">JUGAR POKER</a>
         </div>
       </div>
       
@@ -53,7 +54,7 @@ import '../styles/global.css';
         <div class="absolute inset-0 flex flex-col justify-end p-6">
           <h3 class="text-2xl font-display text-white mb-2">Blackjack</h3>
           <p class="text-white/80 mb-4 text-sm">El clásico juego de cartas donde la estrategia y la suerte se combinan para brindarte grandes premios.</p>
-          <a href="#blackjack" class="btn-primary text-sm py-2 self-start">JUGAR BLACKJACK</a>
+          <a href={registrationLink} target="_blank" rel="noopener" class="btn-primary text-sm py-2 self-start">JUGAR BLACKJACK</a>
         </div>
       </div>
       
@@ -64,7 +65,7 @@ import '../styles/global.css';
         <div class="absolute inset-0 flex flex-col justify-end p-6">
           <h3 class="text-2xl font-display text-white mb-2">En Vivo</h3>
           <p class="text-white/80 mb-4 text-sm">Experimenta la emoción del juego con crupiers reales transmitiendo en tiempo real desde estudios profesionales.</p>
-          <a href="#en-vivo" class="btn-primary text-sm py-2 self-start">JUEGO EN VIVO</a>
+          <a href={registrationLink} target="_blank" rel="noopener" class="btn-primary text-sm py-2 self-start">JUEGO EN VIVO</a>
         </div>
       </div>
       
@@ -75,7 +76,7 @@ import '../styles/global.css';
         <div class="absolute inset-0 flex flex-col justify-end p-6">
           <h3 class="text-2xl font-display text-white mb-2">Jackpots</h3>
           <p class="text-white/80 mb-4 text-sm">Prueba tu suerte con nuestros jackpots progresivos y ganá premios que cambian vidas.</p>
-          <a href="#jackpots" class="btn-primary text-sm py-2 self-start">JUGAR JACKPOTS</a>
+          <a href={registrationLink} target="_blank" rel="noopener" class="btn-primary text-sm py-2 self-start">JUGAR JACKPOTS</a>
         </div>
       </div>
     </div>
@@ -88,7 +89,7 @@ import '../styles/global.css';
       <p class="text-white/80 max-w-2xl mx-auto mb-8">
         Registrate ahora y comenzá a disfrutar de la mejor experiencia de juego con bonos exclusivos para nuevos usuarios.
       </p>
-      <a href="#registro" class="btn-primary">REGISTRATE Y JUGÁ</a>
+      <a href={registrationLink} target="_blank" rel="noopener" class="btn-primary">REGISTRATE Y JUGÁ</a>
     </div>
   </div>
   

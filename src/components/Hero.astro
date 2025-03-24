@@ -1,7 +1,7 @@
 ---
+const { registrationLink } = Astro.props;
 import '../styles/global.css';
 ---
-
 <section class="relative min-h-screen flex items-center bg-casino-purple overflow-hidden w-full">
   <!-- Elementos flotantes decorativos -->
   <div class="absolute inset-0 pointer-events-none">
@@ -18,7 +18,6 @@ import '../styles/global.css';
       <img src="/images/card-diamond.svg" alt="" class="w-full h-full" />
     </div>
   </div>
-
   <div class="w-full px-4 md:px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between relative z-10">
     <!-- Columna de texto -->
     <div class="w-full md:w-1/2 text-center md:text-left md:pr-8 mb-10 md:mb-0">
@@ -30,13 +29,20 @@ import '../styles/global.css';
         Jugá en la plataforma más confiable
       </h2>
       
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a href="#registro" class="btn-primary text-lg py-4 px-8 shadow-lg shadow-casino-gold/30 hover:shadow-casino-gold/50 transition-all hover:scale-105">
+      <div class="flex flex-col gap-4 w-full">
+        <a href={registrationLink} target="_blank" rel="noopener" class="btn-primary text-lg py-4 px-8 shadow-lg shadow-casino-gold/30 hover:shadow-casino-gold/50 transition-all hover:scale-105 w-full text-center">
           Crear Cuenta
         </a>
-        <a href="#bonos" class="btn-secondary text-lg py-4 px-8 transition-all hover:scale-105">
-          Reclamar Bono
-        </a>
+        <div class="countdown-container bg-casino-purple border-2 border-casino-gold/70 rounded-lg py-4 px-4 sm:px-8 flex items-center justify-center w-full transition-all hover:scale-105 shadow-lg shadow-casino-gold/20">
+          <div class="flex flex-row items-center gap-2 sm:gap-4 whitespace-nowrap">
+            <span class="text-white uppercase font-bold text-sm sm:text-lg">BONO EXPIRA EN:</span>
+            <div class="countdown-timer inline-flex items-center">
+              <span id="minutes" class="text-casino-gold text-xl sm:text-2xl font-bold">15</span>
+              <span class="text-casino-gold text-xl sm:text-2xl font-bold">:</span>
+              <span id="seconds" class="text-casino-gold text-xl sm:text-2xl font-bold">00</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     
@@ -58,8 +64,6 @@ import '../styles/global.css';
   <!-- Textura de fondo -->
   <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
   
-  <!-- Efecto de luz en la parte inferior que se extiende a la siguiente sección -->
-  <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-casino-gold/30 to-transparent"></div>
 </section>
 
 <style>
@@ -69,4 +73,55 @@ import '../styles/global.css';
       linear-gradient(90deg, rgba(255, 193, 7, 0.1) 1px, transparent 1px);
     background-size: 25px 25px;
   }
-</style> 
+  
+  .countdown-container {
+    background: linear-gradient(to bottom, rgba(40, 20, 70, 0.9), rgba(30, 15, 55, 0.9));
+  }
+  
+  .countdown-timer {
+    position: relative;
+    display: inline-flex !important;
+  }
+  
+  .countdown-timer::before {
+    content: '';
+    position: absolute;
+    inset: -0.5rem;
+    background: linear-gradient(45deg, transparent, rgba(255, 193, 7, 0.2), transparent);
+    border-radius: 0.5rem;
+    z-index: -1;
+    animation: pulse-glow 2s infinite;
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+  }
+</style>
+
+<script>
+  // Cuenta regresiva de 15 minutos
+  let totalSeconds = 15 * 60;
+  const minutesElement = document.getElementById('minutes');
+  const secondsElement = document.getElementById('seconds');
+  
+  function updateTimer() {
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    
+    minutesElement.textContent = minutes.toString().padStart(2, '0');
+    secondsElement.textContent = seconds.toString().padStart(2, '0');
+    
+    if (totalSeconds > 0) {
+      totalSeconds--;
+      setTimeout(updateTimer, 1000);
+    } else {
+      // Opcional: redirigir o mostrar mensaje cuando termine la cuenta regresiva
+      document.querySelector('.countdown-container').innerHTML = 
+        '<div class="text-center w-full"><span class="text-white font-bold text-lg">¡BONO EXPIRADO!</span></div>';
+    }
+  }
+  
+  // Iniciar la cuenta regresiva cuando se carga la página
+  window.addEventListener('load', updateTimer);
+</script>
