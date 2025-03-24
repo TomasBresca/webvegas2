@@ -1,22 +1,86 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+	title = "Vegas 2 | Tu plataforma de juegos en línea", 
+	description = "Disfruta de los mejores juegos en línea, promociones exclusivas y bonos increíbles. ¡Jugá y ganá premios reales ahora!" 
+} = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="description" content={description} />
+		
+		<!-- Fuentes personalizadas -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Exo+2:wght@400;600;800&display=swap" rel="stylesheet">
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		
+		<title>{title}</title>
 	</head>
-	<body>
+	<body class="min-h-screen bg-casino-purple text-white overflow-x-hidden w-full">
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
-	body {
+<style is:global>
+	:root {
+		--casino-purple: #350b2d;
+		--casino-purple-light: #4a1040;
+		--casino-purple-dark: #260820;
+		--casino-gold: #ffc107;
+		--casino-gold-light: #ffdb58;
+		--casino-gold-dark: #d4af37;
+	}
+	
+	html, body {
 		margin: 0;
-		width: 100%;
-		height: 100%;
+		padding: 0;
+		width: 100vw;
+		overflow-x: hidden;
+		box-sizing: border-box;
+		scroll-behavior: smooth;
+	}
+	
+	*, *:before, *:after {
+		box-sizing: inherit;
+	}
+	
+	body {
+		font-family: 'Exo 2', sans-serif;
+		background: linear-gradient(135deg, var(--casino-purple-dark), var(--casino-purple), var(--casino-purple-light));
+		background-size: 400% 400%;
+		animation: gradientAnimation 15s ease infinite;
+	}
+	
+	@keyframes gradientAnimation {
+		0% { background-position: 0% 50% }
+		50% { background-position: 100% 50% }
+		100% { background-position: 0% 50% }
+	}
+	
+	h1, h2, h3, h4, h5, h6, .display-font, .btn-primary, .btn-secondary {
+		font-family: 'Josefin Sans', sans-serif;
+		font-weight: 700;
 	}
 </style>

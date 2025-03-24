@@ -1,0 +1,72 @@
+---
+import '../styles/global.css';
+---
+
+<section class="relative min-h-screen flex items-center bg-casino-purple overflow-hidden w-full">
+  <!-- Elementos flotantes decorativos -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="floating-element absolute top-1/4 left-10 w-12 h-12 opacity-30 animate-spin-slow">
+      <img src="/images/chip-gold.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute top-2/3 right-12 w-16 h-16 opacity-20 animate-pulse-slow" style="animation-delay: 1s;">
+      <img src="/images/card-spade.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute bottom-1/4 left-1/3 w-14 h-14 opacity-25" style="animation-delay: 0.5s;">
+      <img src="/images/chip-silver.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute top-1/3 right-1/4 w-10 h-10 opacity-20" style="animation-delay: 1.5s;">
+      <img src="/images/card-diamond.svg" alt="" class="w-full h-full" />
+    </div>
+  </div>
+
+  <div class="w-full px-4 md:px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between relative z-10">
+    <!-- Columna de texto -->
+    <div class="w-full md:w-1/2 text-center md:text-left md:pr-8 mb-10 md:mb-0">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl mb-4 text-white uppercase hero-title">
+        RECLAMÁ TU <span class="gradient-text font-bold">BONO</span> DE <span class="gradient-text font-bold">BIENVENIDA</span>
+      </h1>
+      
+      <h2 class="text-xl md:text-2xl lg:text-3xl font-accent text-white/80 mb-8 hero-subtitle">
+        Jugá en la plataforma más confiable
+      </h2>
+      
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#registro" class="btn-primary text-lg py-4 px-8 shadow-lg shadow-casino-gold/30 hover:shadow-casino-gold/50 transition-all hover:scale-105">
+          Crear Cuenta
+        </a>
+        <a href="#bonos" class="btn-secondary text-lg py-4 px-8 transition-all hover:scale-105">
+          Reclamar Bono
+        </a>
+      </div>
+    </div>
+    
+    <!-- Columna de imagen -->
+    <div class="w-full md:w-1/2">
+      <div class="relative">
+        <!-- Efecto de brillo detrás de la imagen -->
+        <div class="absolute -inset-4 bg-casino-gold/20 rounded-full blur-xl"></div>
+        
+        <img 
+          src="/images/thumb.png" 
+          alt="Vegas 2 Casino" 
+          class="relative z-10 w-full max-w-lg mx-auto md:max-w-full"
+        />
+      </div>
+    </div>
+  </div>
+  
+  <!-- Textura de fondo -->
+  <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+  
+  <!-- Efecto de luz en la parte inferior que se extiende a la siguiente sección -->
+  <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-casino-gold/30 to-transparent"></div>
+</section>
+
+<style>
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(rgba(255, 193, 7, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 193, 7, 0.1) 1px, transparent 1px);
+    background-size: 25px 25px;
+  }
+</style> 

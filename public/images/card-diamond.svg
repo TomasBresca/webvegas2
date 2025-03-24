@@ -1,0 +1,6 @@
+<svg width="100" height="120" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="5" y="5" width="90" height="110" rx="5" fill="white" stroke="#333333" stroke-width="2"/>
+  <path d="M50 25L65 50L50 75L35 50L50 25Z" fill="#FF0000"/>
+  <text x="10" y="20" font-family="Arial" font-size="14" fill="#FF0000">K</text>
+  <text x="85" y="115" font-family="Arial" font-size="14" fill="#FF0000">K</text>
+</svg> 

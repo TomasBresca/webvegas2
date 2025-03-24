@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-casino-gold hover:bg-casino-gold-light text-black font-bold py-3 px-6 rounded-lg uppercase tracking-wider transition-all duration-300 shadow-lg hover:shadow-xl text-center inline-block;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border-2 border-casino-gold hover:bg-casino-gold/20 text-casino-gold font-bold py-3 px-6 rounded-lg uppercase tracking-wider transition-all duration-300 text-center inline-block;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl text-white mb-6 text-center;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-casino-gold to-casino-gold-light text-transparent bg-clip-text;
+  }
+  
+  .card {
+    @apply bg-casino-purple-light/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-casino-purple-light;
+  }
+
+  .container-fluid {
+    @apply w-full px-4 md:px-6 max-w-7xl mx-auto;
+  }
+}
+
+/* Animaciones para elementos flotantes */
+.floating-element {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}

@@ -1,0 +1,153 @@
+---
+import '../styles/global.css';
+---
+
+<section id="registro" class="py-16 px-4 relative">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="section-title">
+      <span class="gradient-text">Comenzá a Jugar Ahora</span>
+    </h2>
+    <p class="text-center text-white/80 max-w-3xl mx-auto mb-12 text-lg">
+      Registrate en menos de 2 minutos y empezá a disfrutar de la mejor experiencia de juego en línea.
+    </p>
+
+    <div class="flex flex-col md:flex-row gap-8 items-center justify-center">
+      <!-- Formulario de registro -->
+      <div class="w-full md:w-1/2 max-w-md" data-aos="fade-right">
+        <div class="card border-casino-gold/30 backdrop-blur-md relative z-10">
+          <h3 class="text-2xl font-display text-center mb-6">Creá tu cuenta</h3>
+          
+          <form class="space-y-4">
+            <div>
+              <label for="name" class="block text-white/90 mb-1 text-sm">Nombre completo</label>
+              <input 
+                type="text" 
+                id="name" 
+                class="w-full bg-white/10 border border-casino-gold/30 focus:border-casino-gold rounded-lg px-4 py-2 text-white outline-none transition-all"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+            
+            <div>
+              <label for="email" class="block text-white/90 mb-1 text-sm">Correo electrónico</label>
+              <input 
+                type="email" 
+                id="email" 
+                class="w-full bg-white/10 border border-casino-gold/30 focus:border-casino-gold rounded-lg px-4 py-2 text-white outline-none transition-all"
+                placeholder="tucorreo@ejemplo.com"
+                required
+              />
+            </div>
+            
+            <div>
+              <label for="phone" class="block text-white/90 mb-1 text-sm">Teléfono</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                class="w-full bg-white/10 border border-casino-gold/30 focus:border-casino-gold rounded-lg px-4 py-2 text-white outline-none transition-all"
+                placeholder="+54 9 11 XXXX XXXX"
+                required
+              />
+            </div>
+            
+            <div>
+              <label for="password" class="block text-white/90 mb-1 text-sm">Contraseña</label>
+              <input 
+                type="password" 
+                id="password" 
+                class="w-full bg-white/10 border border-casino-gold/30 focus:border-casino-gold rounded-lg px-4 py-2 text-white outline-none transition-all"
+                placeholder="Mínimo 8 caracteres"
+                required
+              />
+            </div>
+            
+            <div class="flex items-start">
+              <input type="checkbox" id="terms" class="mt-1 mr-2" required />
+              <label for="terms" class="text-white/70 text-sm">
+                Acepto los <a href="#" class="text-casino-gold hover:underline">Términos y Condiciones</a> y la <a href="#" class="text-casino-gold hover:underline">Política de Privacidad</a>
+              </label>
+            </div>
+            
+            <button type="submit" class="btn-primary w-full">
+              REGISTRARME AHORA
+            </button>
+          </form>
+          
+          <div class="mt-6 text-center text-white/70 text-sm">
+            ¿Ya tenés una cuenta? <a href="#login" class="text-casino-gold hover:underline">Iniciá sesión</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Ventajas de registro -->
+      <div class="w-full md:w-1/2 max-w-md" data-aos="fade-left">
+        <div class="mb-8">
+          <h3 class="text-2xl font-display mb-4 text-casino-gold">¿Por qué registrarte?</h3>
+          
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <div class="text-casino-gold mr-3 mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-accent font-semibold">Bono de Bienvenida Exclusivo</h4>
+                <p class="text-white/70 text-sm">Recibí hasta $50.000 y 50 giros gratis en tu primer depósito.</p>
+              </div>
+            </li>
+            
+            <li class="flex items-start">
+              <div class="text-casino-gold mr-3 mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-accent font-semibold">Acceso a Promociones Semanales</h4>
+                <p class="text-white/70 text-sm">Descubrí promociones y bonos exclusivos que actualizamos cada semana.</p>
+              </div>
+            </li>
+            
+            <li class="flex items-start">
+              <div class="text-casino-gold mr-3 mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-accent font-semibold">Pagos Rápidos y Seguros</h4>
+                <p class="text-white/70 text-sm">Retirá tus ganancias de forma rápida, segura y sin complicaciones.</p>
+              </div>
+            </li>
+            
+            <li class="flex items-start">
+              <div class="text-casino-gold mr-3 mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-accent font-semibold">Programa VIP</h4>
+                <p class="text-white/70 text-sm">Accedé al programa VIP con beneficios exclusivos y atención personalizada.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="text-center">
+          <a href="#juegos" class="btn-secondary">CONOCER JUEGOS</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Elementos flotantes decorativos -->
+  <div class="absolute top-24 right-12 w-20 h-20 opacity-10 floating-element">
+    <img src="/images/poker-chips.svg" alt="" class="w-full h-full" />
+  </div>
+  <div class="absolute bottom-16 left-16 w-16 h-16 opacity-10 floating-element" style="animation-delay: 0.8s;">
+    <img src="/images/cards.svg" alt="" class="w-full h-full" />
+  </div>
+</section> 

@@ -1,0 +1,79 @@
+---
+import '../styles/global.css';
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-casino-purple-dark/80 backdrop-blur-md shadow-lg py-3 px-4">
+  <div class="max-w-6xl mx-auto flex justify-between items-center">
+    <!-- Logo -->
+    <a href="#" class="flex items-center">
+      <h1 class="text-2xl font-display gradient-text ml-2">Vegas 2</h1>
+    </a>
+    
+    <!-- Menú de navegación para escritorio -->
+    <div class="hidden md:flex items-center space-x-8">
+      <a href="#beneficios" class="text-white hover:text-casino-gold transition duration-300">Beneficios</a>
+      <a href="#promociones" class="text-white hover:text-casino-gold transition duration-300">Promociones</a>
+      <a href="#juegos" class="text-white hover:text-casino-gold transition duration-300">Juegos</a>
+      <a href="#vip" class="text-white hover:text-casino-gold transition duration-300">VIP</a>
+      <a href="#soporte" class="text-white hover:text-casino-gold transition duration-300">Soporte</a>
+    </div>
+    
+    <!-- Botones de acción -->
+    <div class="hidden md:flex items-center space-x-3">
+      <a href="#login" class="text-casino-gold hover:text-casino-gold-light font-semibold transition duration-300">Ingresar</a>
+      <a href="#registro" class="btn-primary text-sm py-2">REGISTRATE</a>
+    </div>
+    
+    <!-- Botón de menú para móviles -->
+    <button id="menuButton" class="md:hidden text-white focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+  
+  <!-- Menú móvil -->
+  <div id="mobileMenu" class="hidden md:hidden w-full mt-4 bg-casino-purple py-4 absolute left-0 right-0 top-full shadow-lg">
+    <div class="flex flex-col space-y-3 px-4">
+      <a href="#beneficios" class="text-white hover:text-casino-gold transition duration-300 py-2 px-3 border-b border-white/10">Beneficios</a>
+      <a href="#promociones" class="text-white hover:text-casino-gold transition duration-300 py-2 px-3 border-b border-white/10">Promociones</a>
+      <a href="#juegos" class="text-white hover:text-casino-gold transition duration-300 py-2 px-3 border-b border-white/10">Juegos</a>
+      <a href="#vip" class="text-white hover:text-casino-gold transition duration-300 py-2 px-3 border-b border-white/10">VIP</a>
+      <a href="#soporte" class="text-white hover:text-casino-gold transition duration-300 py-2 px-3 border-b border-white/10">Soporte</a>
+      <div class="flex flex-col space-y-3 pt-3">
+        <a href="#login" class="text-casino-gold hover:text-casino-gold-light font-semibold transition duration-300 py-2 px-3">INGRESAR</a>
+        <a href="#registro" class="btn-primary text-sm py-2">REGISTRATE</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Toggle del menú móvil
+  const menuButton = document.getElementById('menuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+  
+  menuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+  
+  // Cerrar el menú cuando se hace clic en un enlace
+  const mobileLinks = mobileMenu?.querySelectorAll('a');
+  mobileLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+  
+  // Cambiar estilo del menú al hacer scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav?.classList.add('py-2');
+      nav?.classList.remove('py-3');
+    } else {
+      nav?.classList.add('py-3');
+      nav?.classList.remove('py-2');
+    }
+  });
+</script> 

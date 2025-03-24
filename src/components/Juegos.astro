@@ -1,0 +1,102 @@
+---
+import '../styles/global.css';
+---
+
+<section id="juegos" class="py-16 px-4 relative">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="section-title">
+      <span class="gradient-text">Nuestros Juegos</span>
+    </h2>
+    <p class="text-center text-white/80 max-w-3xl mx-auto mb-12 text-lg">
+      Disfrutá de la más amplia variedad de juegos diseñados para brindarte la mejor experiencia de entretenimiento online.
+    </p>
+
+    <!-- Categorías de juegos -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Slots -->
+      <div class="relative overflow-hidden rounded-xl group" data-aos="fade-up" data-aos-delay="0">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-casino-purple-dark group-hover:from-casino-gold/20 transition-all duration-300"></div>
+        <img src="/images/slots.jpg" alt="Slots" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 flex flex-col justify-end p-6">
+          <h3 class="text-2xl font-display text-white mb-2">Slots</h3>
+          <p class="text-white/80 mb-4 text-sm">Más de 500 títulos de las mejores desarrolladoras del mundo, con jackpots progresivos y temáticas variadas.</p>
+          <a href="#slots" class="btn-primary text-sm py-2 self-start">JUGAR SLOTS</a>
+        </div>
+      </div>
+      
+      <!-- Ruleta -->
+      <div class="relative overflow-hidden rounded-xl group" data-aos="fade-up" data-aos-delay="100">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-casino-purple-dark group-hover:from-casino-gold/20 transition-all duration-300"></div>
+        <img src="/images/roulette.jpg" alt="Ruleta" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 flex flex-col justify-end p-6">
+          <h3 class="text-2xl font-display text-white mb-2">Ruleta</h3>
+          <p class="text-white/80 mb-4 text-sm">Disfruta de la clásica y emocionante ruleta en sus variantes europea, americana y francesa.</p>
+          <a href="#ruleta" class="btn-primary text-sm py-2 self-start">JUGAR RULETA</a>
+        </div>
+      </div>
+      
+      <!-- Poker -->
+      <div class="relative overflow-hidden rounded-xl group" data-aos="fade-up" data-aos-delay="200">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-casino-purple-dark group-hover:from-casino-gold/20 transition-all duration-300"></div>
+        <img src="/images/poker.jpg" alt="Poker" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 flex flex-col justify-end p-6">
+          <h3 class="text-2xl font-display text-white mb-2">Poker</h3>
+          <p class="text-white/80 mb-4 text-sm">Compite en mesas de Texas Hold'em, Omaha y más variantes con jugadores de todo el mundo.</p>
+          <a href="#poker" class="btn-primary text-sm py-2 self-start">JUGAR POKER</a>
+        </div>
+      </div>
+      
+      <!-- Blackjack -->
+      <div class="relative overflow-hidden rounded-xl group" data-aos="fade-up" data-aos-delay="300">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-casino-purple-dark group-hover:from-casino-gold/20 transition-all duration-300"></div>
+        <img src="/images/blackjack.jpg" alt="Blackjack" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 flex flex-col justify-end p-6">
+          <h3 class="text-2xl font-display text-white mb-2">Blackjack</h3>
+          <p class="text-white/80 mb-4 text-sm">El clásico juego de cartas donde la estrategia y la suerte se combinan para brindarte grandes premios.</p>
+          <a href="#blackjack" class="btn-primary text-sm py-2 self-start">JUGAR BLACKJACK</a>
+        </div>
+      </div>
+      
+      <!-- En vivo -->
+      <div class="relative overflow-hidden rounded-xl group" data-aos="fade-up" data-aos-delay="400">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-casino-purple-dark group-hover:from-casino-gold/20 transition-all duration-300"></div>
+        <img src="/images/live-dealers.jpg" alt="Juegos en Vivo" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 flex flex-col justify-end p-6">
+          <h3 class="text-2xl font-display text-white mb-2">En Vivo</h3>
+          <p class="text-white/80 mb-4 text-sm">Experimenta la emoción del juego con crupiers reales transmitiendo en tiempo real desde estudios profesionales.</p>
+          <a href="#en-vivo" class="btn-primary text-sm py-2 self-start">JUEGO EN VIVO</a>
+        </div>
+      </div>
+      
+      <!-- Jackpots -->
+      <div class="relative overflow-hidden rounded-xl group" data-aos="fade-up" data-aos-delay="500">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-casino-purple-dark group-hover:from-casino-gold/20 transition-all duration-300"></div>
+        <img src="/images/jackpots.jpg" alt="Jackpots" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 flex flex-col justify-end p-6">
+          <h3 class="text-2xl font-display text-white mb-2">Jackpots</h3>
+          <p class="text-white/80 mb-4 text-sm">Prueba tu suerte con nuestros jackpots progresivos y ganá premios que cambian vidas.</p>
+          <a href="#jackpots" class="btn-primary text-sm py-2 self-start">JUGAR JACKPOTS</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- CTA -->
+    <div class="mt-16 text-center" data-aos="fade-up">
+      <h3 class="text-2xl md:text-3xl font-display mb-4">
+        <span class="gradient-text">¿Listo para comenzar?</span>
+      </h3>
+      <p class="text-white/80 max-w-2xl mx-auto mb-8">
+        Registrate ahora y comenzá a disfrutar de la mejor experiencia de juego con bonos exclusivos para nuevos usuarios.
+      </p>
+      <a href="#registro" class="btn-primary">REGISTRATE Y JUGÁ</a>
+    </div>
+  </div>
+  
+  <!-- Elementos flotantes decorativos -->
+  <div class="absolute top-1/4 right-10 w-16 h-16 opacity-10 floating-element">
+    <img src="/images/dice-gold.svg" alt="" class="w-full h-full" />
+  </div>
+  <div class="absolute bottom-1/3 left-10 w-20 h-20 opacity-10 floating-element" style="animation-delay: 0.7s;">
+    <img src="/images/chips-stack.svg" alt="" class="w-full h-full" />
+  </div>
+</section> 
