@@ -12,71 +12,41 @@ import '../styles/global.css';
       Disfrutá de la más amplia variedad de juegos diseñados para brindarte la mejor experiencia de entretenimiento online.
     </p>
 
-    <!-- Categorías de juegos -->
+    <!-- Juegos destacados -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Slots -->
+      <!-- Jokers Jewels -->
       <div class="relative overflow-hidden rounded-xl group" data-aos="fade-up" data-aos-delay="0">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-casino-purple-dark group-hover:from-casino-gold/20 transition-all duration-300"></div>
-        <img src="/images/slots.jpg" alt="Slots" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-casino-purple-dark"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-casino-gold/30 to-transparent opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100"></div>
+        <img src="/images/jokers-jewels.png" alt="Jokers Jewels" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
         <div class="absolute inset-0 flex flex-col justify-end p-6">
-          <h3 class="text-2xl font-display text-white mb-2">Slots</h3>
-          <p class="text-white/80 mb-4 text-sm">Más de 500 títulos de las mejores desarrolladoras del mundo, con jackpots progresivos y temáticas variadas.</p>
-          <a href={registrationLink} target="_blank" rel="noopener" class="btn-primary text-sm py-2 self-start">JUGAR SLOTS</a>
+          <h3 class="text-2xl font-display text-white mb-2">Jokers Jewels</h3>
+          <p class="text-white/80 mb-4 text-sm">Descubre las gemas del bufón en este emocionante slot con gráficos vibrantes y múltiples formas de ganar grandes premios.</p>
+          <a href={registrationLink} target="_blank" rel="noopener" class="btn-primary text-sm py-2 self-start">JUGAR AHORA</a>
         </div>
       </div>
       
-      <!-- Ruleta -->
+      <!-- 6 Jokers -->
       <div class="relative overflow-hidden rounded-xl group" data-aos="fade-up" data-aos-delay="100">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-casino-purple-dark group-hover:from-casino-gold/20 transition-all duration-300"></div>
-        <img src="/images/roulette.jpg" alt="Ruleta" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-casino-purple-dark"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-casino-gold/30 to-transparent opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100"></div>
+        <img src="/images/6jokers.webp" alt="6 Jokers" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
         <div class="absolute inset-0 flex flex-col justify-end p-6">
-          <h3 class="text-2xl font-display text-white mb-2">Ruleta</h3>
-          <p class="text-white/80 mb-4 text-sm">Disfruta de la clásica y emocionante ruleta en sus variantes europea, americana y francesa.</p>
-          <a href={registrationLink} target="_blank" rel="noopener" class="btn-primary text-sm py-2 self-start">JUGAR RULETA</a>
+          <h3 class="text-2xl font-display text-white mb-2">6 Jokers</h3>
+          <p class="text-white/80 mb-4 text-sm">Seis comodines te esperan en esta aventura llena de bonificaciones, giros gratis y una emocionante mecánica de multiplicadores.</p>
+          <a href={registrationLink} target="_blank" rel="noopener" class="btn-primary text-sm py-2 self-start">JUGAR AHORA</a>
         </div>
       </div>
       
-      <!-- Poker -->
+      <!-- Zeus vs Hades -->
       <div class="relative overflow-hidden rounded-xl group" data-aos="fade-up" data-aos-delay="200">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-casino-purple-dark group-hover:from-casino-gold/20 transition-all duration-300"></div>
-        <img src="/images/poker.jpg" alt="Poker" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-casino-purple-dark"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-casino-gold/30 to-transparent opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100"></div>
+        <img src="/images/zeus-vs-hades.webp" alt="Zeus vs Hades" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
         <div class="absolute inset-0 flex flex-col justify-end p-6">
-          <h3 class="text-2xl font-display text-white mb-2">Poker</h3>
-          <p class="text-white/80 mb-4 text-sm">Compite en mesas de Texas Hold'em, Omaha y más variantes con jugadores de todo el mundo.</p>
-          <a href={registrationLink} target="_blank" rel="noopener" class="btn-primary text-sm py-2 self-start">JUGAR POKER</a>
-        </div>
-      </div>
-      
-      <!-- Blackjack -->
-      <div class="relative overflow-hidden rounded-xl group" data-aos="fade-up" data-aos-delay="300">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-casino-purple-dark group-hover:from-casino-gold/20 transition-all duration-300"></div>
-        <img src="/images/blackjack.jpg" alt="Blackjack" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
-        <div class="absolute inset-0 flex flex-col justify-end p-6">
-          <h3 class="text-2xl font-display text-white mb-2">Blackjack</h3>
-          <p class="text-white/80 mb-4 text-sm">El clásico juego de cartas donde la estrategia y la suerte se combinan para brindarte grandes premios.</p>
-          <a href={registrationLink} target="_blank" rel="noopener" class="btn-primary text-sm py-2 self-start">JUGAR BLACKJACK</a>
-        </div>
-      </div>
-      
-      <!-- En vivo -->
-      <div class="relative overflow-hidden rounded-xl group" data-aos="fade-up" data-aos-delay="400">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-casino-purple-dark group-hover:from-casino-gold/20 transition-all duration-300"></div>
-        <img src="/images/live-dealers.jpg" alt="Juegos en Vivo" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
-        <div class="absolute inset-0 flex flex-col justify-end p-6">
-          <h3 class="text-2xl font-display text-white mb-2">En Vivo</h3>
-          <p class="text-white/80 mb-4 text-sm">Experimenta la emoción del juego con crupiers reales transmitiendo en tiempo real desde estudios profesionales.</p>
-          <a href={registrationLink} target="_blank" rel="noopener" class="btn-primary text-sm py-2 self-start">JUEGO EN VIVO</a>
-        </div>
-      </div>
-      
-      <!-- Jackpots -->
-      <div class="relative overflow-hidden rounded-xl group" data-aos="fade-up" data-aos-delay="500">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-casino-purple-dark group-hover:from-casino-gold/20 transition-all duration-300"></div>
-        <img src="/images/jackpots.jpg" alt="Jackpots" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
-        <div class="absolute inset-0 flex flex-col justify-end p-6">
-          <h3 class="text-2xl font-display text-white mb-2">Jackpots</h3>
-          <p class="text-white/80 mb-4 text-sm">Prueba tu suerte con nuestros jackpots progresivos y ganá premios que cambian vidas.</p>
-          <a href={registrationLink} target="_blank" rel="noopener" class="btn-primary text-sm py-2 self-start">JUGAR JACKPOTS</a>
+          <h3 class="text-2xl font-display text-white mb-2">Zeus vs Hades</h3>
+          <p class="text-white/80 mb-4 text-sm">Únete a la batalla de los dioses en este épico slot donde el poder del cielo y el inframundo se enfrentan con increíbles recompensas.</p>
+          <a href={registrationLink} target="_blank" rel="noopener" class="btn-primary text-sm py-2 self-start">JUGAR AHORA</a>
         </div>
       </div>
     </div>
@@ -95,9 +65,9 @@ import '../styles/global.css';
   
   <!-- Elementos flotantes decorativos -->
   <div class="absolute top-1/4 right-10 w-16 h-16 opacity-10 floating-element">
-    <img src="/images/dice-gold.svg" alt="" class="w-full h-full" />
+    <img src="/images/dice.svg" alt="" class="w-full h-full" />
   </div>
   <div class="absolute bottom-1/3 left-10 w-20 h-20 opacity-10 floating-element" style="animation-delay: 0.7s;">
-    <img src="/images/chips-stack.svg" alt="" class="w-full h-full" />
+    <img src="/images/yellow-chip.svg" alt="" class="w-full h-full" />
   </div>
 </section> 
