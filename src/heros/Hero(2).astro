@@ -1,0 +1,598 @@
+---
+//Hero(2).astro
+const { whatsappLink1, whatsappLink2, pixelEvent } = Astro.props;
+import '../styles/global.css';
+---
+<section class="relative min-h-screen flex flex-col items-center pt-20 md:pt-24 pb-10 bg-gradient-to-b from-casino-purple via-[#241554] to-[#1A0F36] overflow-hidden w-full">
+  <!-- Elementos flotantes decorativos -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="floating-element absolute top-1/4 left-10 w-12 h-12 opacity-30 animate-spin-slow">
+      <img src="/images/chips.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute top-2/3 right-12 w-16 h-16 opacity-20 animate-pulse-slow" style="animation-delay: 1s;">
+      <img src="/images/ace.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute bottom-1/4 left-1/3 w-14 h-14 opacity-25" style="animation-delay: 0.5s;">
+      <img src="/images/gambling.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute top-1/3 right-1/4 w-10 h-10 opacity-20" style="animation-delay: 1.5s;">
+      <img src="/images/ace.svg" alt="" class="w-full h-full" />
+    </div>
+  </div>
+  
+  <!-- Efecto de luz de fondo -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-lg max-h-lg bg-casino-gold/10 blur-[100px] rounded-full"></div>
+  
+  <!-- Textura de fondo unificada -->
+  <div class="absolute inset-0 bg-felt-pattern opacity-10"></div>
+  <div class="absolute inset-0 bg-dots-pattern opacity-5"></div>
+  
+  <div class="w-full px-5 max-w-4xl mx-auto flex flex-col items-center justify-start relative z-10 text-center flex-grow">
+    <!-- Título profesional y elegante -->
+    <div class="title-container mb-6 md:mb-10 px-4 py-2 border-b-2 border-t-2 border-casino-gold/50 relative">
+      <div class="absolute inset-0 bg-black/30 backdrop-blur-sm -z-10 rounded-md"></div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl text-white uppercase font-bold tracking-wide leading-tight">
+        <span class="block mb-1">GIRA LA RULETA</span>
+        <span class="pro-gradient-text block mt-1">GANA TU BONO!</span>
+      </h1>
+    </div>
+    
+    <!-- Ruleta - ajustada para diferentes tamaños -->
+    <div class="roulette-container relative w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[420px] md:h-[420px] lg:w-[500px] lg:h-[500px] transition-all duration-700 my-4">
+      <!-- Indicador de selección corregido - ahora en la parte superior apuntando hacia abajo -->
+      <div class="selector absolute -top-8 left-1/2 -translate-x-1/2 w-6 h-8 z-20">
+        <svg viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 32L0 20H24L12 32Z" fill="#FFD700"/>
+          <rect x="10" y="0" width="4" height="20" fill="#FFD700"/>
+        </svg>
+      </div>
+      
+      <!-- Ruleta exterior -->
+      <div id="roulette-wheel" class="roulette-wheel absolute w-full h-full rounded-full transition-all duration-[5000ms] ease-out">
+        <!-- Segmentos de la ruleta -->
+        <div class="segment" data-bonus="5% de bono" data-card-name="diamante" style="--rotation: 0deg; --color: #ffbe0b;">
+          <span class="segment-text">5%</span>
+        </div>
+        <div class="segment" data-bonus="7% de bono" data-card-name="espada" style="--rotation: 45deg; --color: #fb5607;">
+          <span class="segment-text">7%</span>
+        </div>
+        <div class="segment" data-bonus="10% de bono" data-card-name="corazon" style="--rotation: 90deg; --color: #ff006e;">
+          <span class="segment-text">10%</span>
+        </div>
+        <div class="segment" data-bonus="5% de bono" data-card-name="diamante" style="--rotation: 135deg; --color: #8338ec;">
+          <span class="segment-text">5%</span>
+        </div>
+        <div class="segment" data-bonus="7% de bono" data-card-name="espada" style="--rotation: 180deg; --color: #3a86ff;">
+          <span class="segment-text">7%</span>
+        </div>
+        <div class="segment" data-bonus="10% de bono" data-card-name="corazon" style="--rotation: 225deg; --color: #ffbe0b;">
+          <span class="segment-text">10%</span>
+        </div>
+        <div class="segment" data-bonus="5% de bono" data-card-name="diamante" style="--rotation: 270deg; --color: #fb5607;">
+          <span class="segment-text">5%</span>
+        </div>
+        <div class="segment" data-bonus="7% de bono" data-card-name="espada" style="--rotation: 315deg; --color: #ff006e;">
+          <span class="segment-text">7%</span>
+        </div>
+      </div>
+      
+      <!-- Botón central para girar -->
+      <button id="spin-button" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-gradient-to-br from-casino-gold to-yellow-500 shadow-lg flex items-center justify-center text-casino-purple font-bold text-xl cursor-pointer z-10 transform transition-all hover:scale-105 active:scale-95">
+        <span class="relative z-10">GIRAR</span>
+        <div class="absolute inset-0 rounded-full bg-white opacity-10 animate-pulse-slow"></div>
+      </button>
+    </div>
+    
+    <!-- Texto debajo de la ruleta -->
+    <p class="text-white text-lg mt-8 max-w-2xl mx-auto">
+      Al girar y ganar, podras obtener tu usuario totalmente gratis y contactarnos por whatsapp en la mejor plataforma
+    </p>
+
+    <!-- Botones de WhatsApp -->
+    <div class="flex flex-col sm:flex-row gap-3 mt-4 sm:w-full sm:max-w-xl mx-auto">
+      <a href={whatsappLink1} target="_blank" rel="noopener" class="whatsapp-btn flex-1 flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 sm:px-6 rounded-lg shadow-lg hover:shadow-green-500/30 transition-all hover:scale-105 sm:min-w-[160px] whitespace-nowrap">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline" fill="white" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Vegas #1
+      </a>
+      <a href={whatsappLink2} target="_blank" rel="noopener" class="whatsapp-btn flex-1 flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 sm:px-6 rounded-lg shadow-lg hover:shadow-green-500/30 transition-all hover:scale-105 sm:min-w-[160px] whitespace-nowrap">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline" fill="white" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Vegas #2
+      </a>
+    </div>
+  </div>
+  
+  <!-- Modal de bono a pantalla completa -->
+  <div id="bonus-modal" class="fixed inset-0 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-500">
+    <div class="modal-backdrop absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+    <div class="modal-card-container relative w-full h-full flex items-center justify-center">
+      <!-- Carta central animada -->
+      <div class="modal-card transform transition-all duration-700 scale-0">
+        <div class="modal-card-inner relative bg-gradient-to-b from-[#281552] to-[#1A0F36] rounded-xl border-4 border-casino-gold/60 shadow-2xl overflow-hidden w-full max-w-lg mx-auto">
+          <!-- Cabecera del modal -->
+          <div class="modal-header bg-gradient-to-r from-[#281552] to-[#1E1040] p-4 text-center border-b border-casino-gold/30">
+            <h2 id="modal-title" class="text-2xl font-bold text-white">¡<span class="bonus-name">BONO</span>!</h2>
+          </div>
+          
+          <!-- Contenido del modal compactado -->
+          <div class="modal-content p-4">
+            <div class="flex items-start">
+              <div class="bonus-icon-container mr-4">
+                <div class="bonus-icon w-16 h-16 rounded-full bg-gradient-to-br from-casino-gold/30 to-casino-gold/10 flex items-center justify-center">
+                  <div id="modal-icon" class="text-4xl">🎁</div>
+                </div>
+              </div>
+              
+              <div class="bonus-details flex-1">
+                <h3 id="modal-subtitle" class="text-lg text-white font-bold mb-2">¡Felicidades has ganado tu bono!</h3>
+                <p id="modal-description" class="text-white/90 text-base mb-3">Hablanos al whatsapp pulsando el boton y crea tu usuario al instante</p>
+                
+                <div class="bonus-features space-y-2 text-left mb-4">
+                  <div class="feature flex items-center">
+                    <div class="feature-icon w-6 h-6 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div id="feature-1" class="feature-text text-white/90 text-sm">Característica 1</div>
+                  </div>
+                  
+                  <div class="feature flex items-center">
+                    <div class="feature-icon w-6 h-6 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div id="feature-2" class="feature-text text-white/90 text-sm">Característica 2</div>
+                  </div>
+                  
+                  <div class="feature flex items-center">
+                    <div class="feature-icon w-6 h-6 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div id="feature-3" class="feature-text text-white/90 text-sm">Característica 3</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Botones de acción -->
+            <div class="modal-actions mt-2">
+              <a id="modal-cta" href={whatsappLink1} target="_blank" rel="noopener" class="cta-button w-full flex items-center justify-center gap-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-600 text-white text-lg font-bold py-3 px-6 rounded-xl transition-all hover:scale-105 shadow-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="white" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                </svg>
+                CREAR USUARIO
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Textura de fondo de mesa de casino */
+  .bg-felt-pattern {
+    background-image: 
+      radial-gradient(circle, rgba(25, 17, 45, 0.6) 1px, transparent 1px),
+      radial-gradient(circle, rgba(25, 17, 45, 0.6) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+  }
+
+  /* Patrón de puntos para fondo unificado */
+  .bg-dots-pattern {
+    background-image: 
+      radial-gradient(circle, rgba(255, 208, 112, 0.15) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+  
+  /* Estilos profesionales para el título */
+  .title-container {
+    position: relative;
+    max-width: 80%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .pro-gradient-text {
+    background: linear-gradient(to right, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  }
+  
+  /* Estilos de la ruleta */
+  .roulette-container {
+    perspective: 1000px;
+  }
+  
+  .roulette-container.spinning {
+    transform: scale(1.15);
+  }
+  
+  .roulette-wheel {
+    border: 8px solid #FFD700;
+    box-shadow: 
+      0 0 0 4px rgba(0, 0, 0, 0.8),
+      0 0 20px rgba(255, 215, 0, 0.5),
+      inset 0 0 20px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    transform: rotateZ(0deg);
+    transform-origin: center;
+    background: #281552;
+  }
+  
+  .segment {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 50%);
+    transform: rotate(var(--rotation));
+    transform-origin: center;
+    background: var(--color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .segment-text {
+    position: absolute;
+    top: 15%;
+    left: 75%;
+    transform: translate(-50%, -50%) rotate(22.5deg);
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+  }
+  
+  .selector {
+    filter: drop-shadow(0px 0px 5px rgba(255, 215, 0, 0.8));
+  }
+  
+  #spin-button {
+    border: 3px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 
+      0 0 15px rgba(255, 215, 0, 0.5),
+      inset 0 0 10px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  
+  #spin-button.hidden-button {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    pointer-events: none;
+  }
+  
+  #spin-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+  }
+  
+  /* Animaciones */
+  @keyframes shine {
+    0% {
+      left: -100%;
+      top: -100%;
+    }
+    100% {
+      left: 100%;
+      top: 100%;
+    }
+  }
+  
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  /* Modal de bono mejorado */
+  .modal-backdrop {
+    transition: opacity 0.5s ease;
+  }
+  
+  .modal-card {
+    transform-origin: center;
+    transform: scale(0);
+    transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 95%;
+    max-width: 600px;
+  }
+  
+  .modal-card.scale-100 {
+    transform: scale(1);
+  }
+  
+  .modal-card-inner {
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
+  }
+  
+  .bonus-icon {
+    animation: pulse-glow 2s infinite alternate;
+  }
+  
+  @keyframes pulse-glow {
+    0% {
+      box-shadow: 0 0 10px rgba(255, 208, 112, 0.5);
+    }
+    100% {
+      box-shadow: 0 0 30px rgba(255, 208, 112, 0.8);
+    }
+  }
+  
+  /* Botón de acción */
+  .cta-button {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(22, 163, 74, 0.5);
+  }
+  
+  .cta-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .segment-text {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .segment-text {
+      font-size: 0.9rem;
+    }
+    
+    #spin-button {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<script define:vars={{ pixelEvent }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const wheel = document.getElementById('roulette-wheel');
+    const spinButton = document.getElementById('spin-button');
+    const bonusModal = document.getElementById('bonus-modal');
+    const modalCard = document.querySelector('.modal-card');
+    const mainWhatsappLink = document.querySelector('#modal-cta')?.getAttribute('href') || '';
+    const rouletteContainer = document.querySelector('.roulette-container');
+    
+    let isSpinning = false;
+    
+    // Para depuración
+    console.log('Pixel event disponible:', pixelEvent);
+    
+    // Obtener el botón CTA
+    const ctaButton = document.getElementById('modal-cta');
+    
+    if (ctaButton) {
+      ctaButton.addEventListener('click', (e) => {
+        // Prevenir navegación inmediata
+        e.preventDefault();
+        
+        // Usar una variable local para el evento
+        const eventToTrack = pixelEvent || 'Lead';
+        
+        // Imprimir para depuración
+        console.log('Tracking event:', eventToTrack);
+        
+        // Enviar el evento si fbq está disponible
+        if (typeof fbq === 'function') {
+          fbq('track', eventToTrack);
+        }
+        
+        // Navegar después de un pequeño retraso
+        setTimeout(() => {
+          window.location.href = ctaButton.href;
+        }, 300);
+      });
+    }
+    
+    // Datos de los bonos
+    const bonusData = {
+      'diamante': {
+        name: '5% BONO',
+        icon: '💎',
+        subtitle: '¡Felicidades has ganado tu bono!',
+        description: 'Hablanos al whatsapp pulsando el boton y crea tu usuario al instante',
+        features: [
+          'Válido para cualquier monto de carga',
+          'Sin requisitos de apuesta adicionales',
+          'Actívalo inmediatamente al crear tu usuario'
+        ]
+      },
+      'espada': {
+        name: '7% BONO',
+        icon: '👑',
+        subtitle: '¡Felicidades has ganado tu bono!',
+        description: 'Hablanos al whatsapp pulsando el boton y crea tu usuario al instante',
+        features: [
+          'Válido para cualquier monto de carga',
+          'Sin requisitos de apuesta adicionales',
+          'Actívalo inmediatamente al crear tu usuario'
+        ]
+      },
+      'corazon': {
+        name: '10% BONO',
+        icon: '🎰',
+        subtitle: '¡Felicidades has ganado tu bono!',
+        description: 'Hablanos al whatsapp pulsando el boton y crea tu usuario al instante',
+        features: [
+          'Válido para cualquier monto de carga',
+          'Sin requisitos de apuesta adicionales',
+          'Actívalo inmediatamente al crear tu usuario'
+        ]
+      }
+    };
+    
+    // Función para mostrar el modal con los detalles del bono
+    function showBonusModal(cardName) {
+      const bonus = bonusData[cardName];
+      
+      if (!bonus) return;
+      
+      // Actualizar contenido del modal
+      const bonusNameElement = document.querySelector('.bonus-name');
+      if (bonusNameElement) bonusNameElement.textContent = bonus.name;
+      
+      const modalIcon = document.getElementById('modal-icon');
+      const modalSubtitle = document.getElementById('modal-subtitle');
+      const modalDescription = document.getElementById('modal-description');
+      const feature1 = document.getElementById('feature-1');
+      const feature2 = document.getElementById('feature-2');
+      const feature3 = document.getElementById('feature-3');
+      
+      if (modalIcon) modalIcon.textContent = bonus.icon;
+      if (modalSubtitle) modalSubtitle.textContent = bonus.subtitle;
+      if (modalDescription) modalDescription.textContent = bonus.description;
+      if (feature1) feature1.textContent = bonus.features[0];
+      if (feature2) feature2.textContent = bonus.features[1];
+      if (feature3) feature3.textContent = bonus.features[2];
+      
+      // Actualizar link de CTA (ahora usamos el enlace original sin modificaciones)
+      const ctaButton = document.getElementById('modal-cta');
+      if (ctaButton) {
+        ctaButton.href = mainWhatsappLink;
+      }
+      
+      // Mostrar el modal con animación
+      if (bonusModal) {
+        bonusModal.classList.remove('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          if (modalCard) modalCard.classList.add('scale-100');
+        }, 100);
+      }
+      
+      // Restaurar la ruleta y el botón
+      setTimeout(() => {
+        if (rouletteContainer) {
+          rouletteContainer.classList.remove('spinning');
+        }
+        if (spinButton) {
+          spinButton.classList.remove('hidden-button');
+        }
+      }, 1000);
+    }
+    
+    // Función para girar la ruleta
+    function spinWheel() {
+      if (isSpinning) return;
+      
+      isSpinning = true;
+      
+      // Ocultar botón y agrandar la ruleta
+      spinButton.classList.add('hidden-button');
+      rouletteContainer.classList.add('spinning');
+      
+      // Sonido de ruleta (opcional)
+      playSpinSound();
+      
+      // Generar un ángulo aleatorio (entre 5 y 10 vueltas completas)
+      const minSpins = 5;
+      const maxSpins = 10;
+      const spinCount = minSpins + Math.random() * (maxSpins - minSpins);
+      const spinAngle = spinCount * 360;
+      
+      // Decidir qué segmento ganará (0-7 para los 8 segmentos)
+      const segments = document.querySelectorAll('.segment');
+      const winningIndex = Math.floor(Math.random() * segments.length);
+      
+      // Calcular el ángulo final para que el segmento elegido quede en la parte superior
+      // Cada segmento es de 45 grados (360/8)
+      const segmentAngle = 45;
+      const segmentOffset = 22.5; // La mitad del ángulo del segmento para centrar
+      const finalAngle = spinAngle + (winningIndex * segmentAngle) + segmentOffset;
+      
+      // Aplicar la animación de giro
+      if (wheel) {
+        wheel.style.transition = `transform 5s cubic-bezier(0.32, 0.94, 0.6, 1)`;
+        wheel.style.transform = `rotate(${finalAngle}deg)`;
+        
+        // Obtener el bono ganador
+        const winningSegment = segments[winningIndex];
+        const cardName = winningSegment.getAttribute('data-card-name');
+        
+        // Esperar a que termine la animación
+        setTimeout(() => {
+          // Mostrar el modal con el bono
+          if (cardName) {
+            showBonusModal(cardName);
+          }
+          
+          // Resetear para el próximo giro
+          isSpinning = false;
+        }, 5500); // Un poco más que la duración de la animación
+      }
+    }
+    
+    // Evento de clic en el botón de girar
+    if (spinButton) {
+      spinButton.addEventListener('click', spinWheel);
+    }
+    
+    // Función para reproducir sonido de giro (opcional)
+    function playSpinSound() {
+      // Implementación del sonido si se desea
+    }
+    
+    // Añadir un efecto de resplandor al botón de girar
+    function pulseSpinButton() {
+      if (spinButton && !isSpinning) {
+        spinButton.classList.add('scale-105');
+        setTimeout(() => {
+          if (spinButton) spinButton.classList.remove('scale-105');
+        }, 800);
+      }
+    }
+    
+    // Pulsar el botón periódicamente para atraer la atención
+    setInterval(pulseSpinButton, 3000);
+  });
+</script>

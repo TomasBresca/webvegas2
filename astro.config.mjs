@@ -4,5 +4,16 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()]
+  integrations: [tailwind()],
+  output: 'static',
+  build: {
+    format: 'directory'
+  },
+  trailingSlash: 'never',
+  site: 'https://timbaya.com',
+  vite: {
+    ssr: {
+      noExternal: ['@astrojs/*']
+    }
+  }
 });

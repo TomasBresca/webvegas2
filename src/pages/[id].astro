@@ -1,0 +1,185 @@
+---
+// Importamos los componentes necesarios
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Beneficios from '../components/Beneficios.astro';
+import Promociones from '../components/Promociones.astro';
+import Juegos from '../components/Juegos.astro';
+import Registro from '../components/Registro.astro';
+import Soporte from '../components/Soporte.astro';
+import Footer from '../components/Footer.astro';
+
+// Importamos todos los Heroes disponibles
+import Hero01 from '../Heros/Hero(1).astro';
+import Hero02 from '../Heros/Hero(2).astro';
+import Hero03 from '../Heros/Hero(3).astro';
+import Hero04 from '../Heros/Hero(4).astro';
+import Hero05 from '../Heros/Hero(5).astro';
+import Hero06 from '../Heros/Hero(6).astro';
+import Hero07 from '../Heros/Hero(7).astro';
+import Hero08 from '../Heros/Hero(8).astro';
+import Hero09 from '../Heros/Hero.astro';
+
+// Definimos las rutas estáticas que se generarán
+export function getStaticPaths() {
+  return [
+    { params: { id: '01' } },
+    { params: { id: '02' } },
+    { params: { id: '03' } },
+    { params: { id: '04' } },
+    { params: { id: '05' } },
+    { params: { id: '06' } },
+    { params: { id: '07' } },
+    { params: { id: '08' } },
+    { params: { id: '09' } }
+  ];
+}
+
+
+
+// Obtener el parámetro de la URL
+const { id } = Astro.params;
+
+// Tipo de versión válida
+type VersionId = '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09';
+
+// Comprobar si el ID es una versión válida
+function isValidVersion(id: string | undefined): id is VersionId {
+  return Boolean(
+    id && ['01', '02', '03', '04', '05', '06', '07', '08', '09'].includes(id)
+  );
+}
+
+// Si el ID no es válido, redirigir a la versión predeterminada
+if (!isValidVersion(id)) {
+  return Astro.redirect('/01');
+}
+
+// Configuración para cada versión
+const versions = {
+  '01': {
+    hero: Hero01,
+    whatsappLink1: 'https://wa.me/5492233464125?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    whatsappLink2: 'https://wa.me/5491123716937?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    registrationLink: 'https://wa.me/5491123716937?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    pixelEvent: 'Lead01'
+  },
+  '02': {
+    hero: Hero02,
+    whatsappLink1: 'https://wa.me/5491131582726?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    whatsappLink2: 'https://wa.me/5491134943198?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    registrationLink: 'https://wa.me/5491134943198?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    pixelEvent: 'Lead02'
+  },
+  '03': {
+    hero: Hero03,
+    whatsappLink1: 'https://wa.me/5491155608678?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    whatsappLink2: 'https://wa.me/5491126092243?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    registrationLink: 'https://wa.me/5491126092243?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    pixelEvent: 'Lead03'
+  },
+  '04': {
+    hero: Hero04,
+    whatsappLink1: 'https://wa.me/5493442684863?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    whatsappLink2: 'https://wa.me/5493442684863?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    registrationLink: 'https://wa.me/5493442684863?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    pixelEvent: 'Lead04'
+  },
+  '05': {
+    hero: Hero05,
+    whatsappLink1: 'https://wa.me/5491126737466?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    whatsappLink2: 'https://wa.me/5491126737466?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    registrationLink: 'https://wa.me/5491126737466?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    pixelEvent: 'Lead05'
+  },
+  '06': {
+    hero: Hero06,
+    whatsappLink1: 'https://wa.me/5491130994384?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    whatsappLink2: 'https://wa.me/5491130994384?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    registrationLink: 'https://wa.me/5491130994384?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    pixelEvent: 'Lead06'
+  },
+  '07': {
+    hero: Hero07,
+    whatsappLink1: 'https://wa.me/5492216921136?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    whatsappLink2: 'https://wa.me/5492216815409?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    registrationLink: 'https://wa.me/5492216815409?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    pixelEvent: 'Lead07'
+  },
+  '08': {
+    hero: Hero08,
+    whatsappLink1: 'https://wa.me/5491155837639?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    whatsappLink2: 'https://wa.me/5493584443572?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    registrationLink: 'https://wa.me/5493584443572?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    pixelEvent: 'Lead08'
+  },
+  '09': {
+    hero: Hero09,
+    whatsappLink1: 'https://wa.me/5492252449304?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    whatsappLink2: 'https://wa.me/5491135198071?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    registrationLink: 'https://wa.me/5491135198071?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    pixelEvent: 'Lead09'
+  }
+};
+
+// Obtener la configuración para la versión actual (ahora sabemos que es válida)
+const version = versions[id];
+const { hero: HeroComponent, whatsappLink1, whatsappLink2, registrationLink, pixelEvent } = version;
+
+// Token de Facebook Pixel
+const pixelToken = '1654651481848094';
+---
+
+<Layout title={`Las Vegas ${id} - Plataforma Premium`}>
+  <!-- Facebook Pixel Code -->
+  <script define:vars={{ pixelToken, pixelEvent }}>
+    // Verificar si es un entorno de prueba
+    function checkForTestMode() {
+      // Buscar el parámetro fbpixel_test en la URL actual
+      const params = new URLSearchParams(window.location.search);
+      const testCode = params.get('fbpixel_test');
+      return testCode === 'TEST8130';
+    }
+
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', pixelToken);
+
+    // Activar modo de prueba si se detecta el parámetro
+    if (checkForTestMode()) {
+      fbq('set', 'autoConfig', false, pixelToken);
+      console.log('Facebook Pixel Test Mode: TEST8130 activated');
+    }
+     
+    fbq('track', pixelEvent);
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src={`https://www.facebook.com/tr?id=${pixelToken}&ev=${pixelEvent}&noscript=1`}
+    />
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+
+  <Navbar registrationLink={registrationLink} />
+  
+  <!-- Renderiza el Hero específico para esta versión -->
+  <HeroComponent whatsappLink1={whatsappLink1} whatsappLink2={whatsappLink2} pixelEvent={pixelEvent}/>
+  
+  <Beneficios />
+  
+  <Promociones registrationLink={registrationLink} />
+  
+  <Juegos registrationLink={registrationLink} />
+  
+  <Registro registrationLink={registrationLink} />
+  
+  <Soporte whatsappLink1={whatsappLink1} whatsappLink2={whatsappLink2} />
+  
+  <Footer registrationLink={registrationLink} whatsappLink1={whatsappLink1} whatsappLink2={whatsappLink2} />
+</Layout> 

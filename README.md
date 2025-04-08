@@ -1,4 +1,53 @@
-# Astro Starter Kit: Basics
+# Timbaya - Sitio Web con Versiones Múltiples
+
+Este proyecto utiliza Astro para crear un sitio web con múltiples versiones, cada una con su propio componente Hero y configuración específica de WhatsApp y Facebook Pixel.
+
+## Estructura de Versiones
+
+El sitio tiene 9 versiones diferentes, accesibles a través de diferentes URL:
+
+- `/01` - Versión 1 (Hero(1).astro)
+- `/02` - Versión 2 (Hero(2).astro)
+- ...y así sucesivamente hasta `/09`
+
+## Configuración específica por versión
+
+Cada versión tiene su propia configuración para:
+
+1. **Componente Hero**: Cada versión usa un Hero diferente de la carpeta `src/heros/`
+2. **Enlaces de WhatsApp**: Cada versión tiene sus propios enlaces de WhatsApp (`whatsappLink1` y `whatsappLink2`)
+3. **Enlace de Registro**: Cada versión tiene su propio enlace de registro (`registrationLink`)
+4. **Evento de Facebook Pixel**: Cada versión utiliza el mismo token de Pixel pero con un evento diferente
+
+## Cómo funciona
+
+El sistema usa rutas dinámicas en Astro (archivo `[id].astro`) que detecta el parámetro en la URL y carga la configuración específica para esa versión.
+
+La configuración de todas las versiones se encuentra en el archivo `src/pages/[id].astro`, donde hay un objeto `versions` que contiene la configuración para cada versión.
+
+## Desarrollo
+
+Para ejecutar el proyecto en desarrollo:
+
+```bash
+npm run dev
+```
+
+## Despliegue
+
+Al construir el proyecto, se generarán todas las versiones como rutas estáticas:
+
+```bash
+npm run build
+```
+
+## Personalización
+
+Para modificar la configuración de una versión específica:
+
+1. Edita el objeto `versions` en `src/pages/[id].astro`
+2. Actualiza los enlaces de WhatsApp, registro y el evento de Pixel según necesites
+3. Si necesitas cambiar un Hero, modifica el archivo correspondiente en `src/heros/`
 
 ```sh
 npm create astro@latest -- --template basics

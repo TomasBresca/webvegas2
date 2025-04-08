@@ -1,30 +1,19 @@
 ---
-// Enlaces configurables para cada build
-// Estos son los enlaces que cambiarán para cada dominio
-const whatsappLink1 = "https://wa.me/5492233464125?text=Holaa%20quiero%20crear%20mi%20cuenta"; // Reemplazar según el dominio
-const whatsappLink2 = "https://wa.me/5492233464125?text=Holaa%20quiero%20crear%20mi%20cuenta"; // Reemplazar según el dominio
-const registrationLink = "https://wa.me/5492233464125?text=Holaa%20quiero%20crear%20mi%20cuenta"; // Enlace para registros
-
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
-import Hero from '../components/Hero.astro';
-import Beneficios from '../components/Beneficios.astro';
-import Promociones from '../components/Promociones.astro';
-import Juegos from '../components/Juegos.astro';
-import Registro from '../components/Registro.astro';
-import Soporte from '../components/Soporte.astro';
-import Footer from '../components/Footer.astro';
-
+// Redirección a la versión por defecto (01)
+const defaultVersion = '01';
 ---
 
-<Layout>
-	<Navbar registrationLink={registrationLink} />
-	<main class="pt-16 w-full"> <!-- Padding para compensar la navbar fija -->
-		<Hero registrationLink={registrationLink} whatsappLink1={whatsappLink1} whatsappLink2={whatsappLink2} />
-		<Beneficios registrationLink={registrationLink} />
-		<Juegos registrationLink={registrationLink} />
-		<Soporte whatsappLink1={whatsappLink1} whatsappLink2={whatsappLink2} />
-		<Registro registrationLink={registrationLink} />
-	</main>
-	<Footer registrationLink={registrationLink} whatsappLink1={whatsappLink1} whatsappLink2={whatsappLink2} />
-</Layout>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Redireccionando a Timbaya</title>
+  <meta http-equiv="refresh" content={`0;url=/${defaultVersion}`}>
+</head>
+<body>
+  <p>Redireccionando a la página principal...</p>
+  
+  <script define:vars={{ defaultVersion }}>
+    window.location.href = `/${defaultVersion}`;
+  </script>
+</body>
+</html>

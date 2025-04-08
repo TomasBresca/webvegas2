@@ -1,0 +1,44 @@
+---
+// Página de error 404 que redirecciona a la versión por defecto
+const defaultVersion = '01';
+---
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Página no encontrada - Redireccionando</title>
+  <meta http-equiv="refresh" content={`0;url=/${defaultVersion}`}>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #350b2d;
+      color: white;
+      text-align: center;
+    }
+    .container {
+      padding: 2rem;
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+    p {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Página no encontrada</h1>
+    <p>Redireccionando a la página principal...</p>
+  </div>
+  
+  <script define:vars={{ defaultVersion }}>
+    window.location.href = `/${defaultVersion}`;
+  </script>
+</body>
+</html> 

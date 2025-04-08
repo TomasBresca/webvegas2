@@ -128,11 +128,11 @@ import '../styles/global.css';
     const seconds = totalSeconds % 60;
     
     if (minutesElement) {
-    minutesElement.textContent = minutes.toString().padStart(2, '0');
+      minutesElement.textContent = minutes.toString().padStart(2, '0');
     }
     
     if (secondsElement) {
-    secondsElement.textContent = seconds.toString().padStart(2, '0');
+      secondsElement.textContent = seconds.toString().padStart(2, '0');
     }
     
     if (totalSeconds > 0) {
@@ -143,7 +143,7 @@ import '../styles/global.css';
       const countdownContainer = document.querySelector('.countdown-container');
       if (countdownContainer) {
         countdownContainer.innerHTML = 
-        '<div class="text-center w-full"><span class="text-white font-bold text-lg">¡BONO EXPIRADO!</span></div>';
+          '<div class="text-center w-full"><span class="text-white font-bold text-lg">¡BONO EXPIRADO!</span></div>';
       }
     }
   }
