@@ -1,0 +1,763 @@
+---
+//heros/Hero(1).astro
+const { whatsappLink1, whatsappLink2, pixelEvent } = Astro.props;
+import '../styles/global.css';
+---
+
+<section class="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-casino-purple via-[#241554] to-[#1A0F36] overflow-hidden w-full py-8">
+  <!-- Elementos flotantes decorativos -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="floating-element absolute top-1/4 left-10 w-12 h-12 opacity-30 animate-spin-slow">
+      <img src="/images/chips.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute top-2/3 right-12 w-16 h-16 opacity-20 animate-pulse-slow" style="animation-delay: 1s;">
+      <img src="/images/ace.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute bottom-1/4 left-1/3 w-14 h-14 opacity-25" style="animation-delay: 0.5s;">
+      <img src="/images/gambling.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute top-1/3 right-1/4 w-10 h-10 opacity-20" style="animation-delay: 1.5s;">
+      <img src="/images/ace.svg" alt="" class="w-full h-full" />
+    </div>
+  </div>
+  
+  <!-- Efecto de luz de fondo -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-lg max-h-lg bg-casino-gold/10 blur-[100px] rounded-full"></div>
+  
+  <!-- Textura de fondo unificada -->
+  <div class="absolute inset-0 bg-felt-pattern opacity-10"></div>
+  <div class="absolute inset-0 bg-dots-pattern opacity-5"></div>
+  
+  <div class="w-full px-4 max-w-4xl mx-auto flex flex-col items-center justify-center relative z-10 text-center">
+    <!-- TITLE -->
+    <h1 class="text-4xl sm:text-5xl md:text-6xl mb-8 text-white uppercase hero-title font-extrabold tracking-wide">
+      APROVECHA Y <span class="gradient-text">GANA TU BONO!</span>
+    </h1>
+    
+    <!-- Botón de WhatsApp visible arriba -->
+    <div class="mb-8 w-full max-w-xs sm:max-w-sm mx-auto">
+      <a id="whatsapp-top-button" href={whatsappLink1} target="_blank" rel="noopener" class="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-5 px-6 rounded-xl transition-all hover:scale-105 shadow-lg w-full text-xl">
+        <svg width="28" height="28" viewBox="0 0 308 308" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458C233.168,179.508,230.845,178.393,227.904,176.981z" />
+          <path d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867C276.546,215.678,222.799,268.994,156.734,268.994z" />
+        </svg>
+        CREAR USUARIO AHORA
+      </a>
+    </div>
+    
+    <!-- Contenedor de rasca y gana -->
+    <div class="scratch-container w-full flex flex-col items-center justify-center mb-8">
+      <h2 class="text-3xl sm:text-4xl mb-6 font-bold text-white text-center">¡RASCA Y GANA TU BONO!</h2>
+      
+      <div id="scratch-card" class="relative w-full max-w-[280px] mx-auto rounded-xl overflow-hidden animate-float shadow-glow">
+        <div class="scratch-content bg-yellow-400 p-8 flex flex-col items-center justify-center text-center">
+          <h3 class="text-[#281552] text-3xl font-bold mb-3">¡BONO DEL 10%!</h3>
+          <p class="text-[#281552] text-lg font-semibold">¡Felicidades! Has ganado un bono</p>
+        </div>
+        <canvas id="scratch-canvas" class="absolute top-0 left-0 w-full h-full cursor-grab"></canvas>
+        <!-- Marca del rasguño para indicación visual -->
+        <div class="absolute top-1/2 right-4 w-8 h-8 pointer-events-none animate-scratch opacity-70">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#FFD700">
+            <path d="M6 18L18 6M8 6H18V16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      
+      <!-- Texto con marco para mejor visibilidad -->
+      <div class="mt-4 text-white text-center">
+        <div class="instruction-box bg-[#1A0F36]/80 backdrop-blur-sm border border-casino-gold/30 rounded-lg px-4 py-2 inline-block shadow-md">
+          <p class="text-base">Rasca con el dedo o el mouse para revelar tu premio</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal de bono a pantalla completa -->
+  <div id="bonus-modal" class="fixed inset-0 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-500">
+    <div class="modal-backdrop absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+    <div class="modal-card-container relative w-full h-full flex items-center justify-center">
+      <!-- Carta central animada -->
+      <div class="modal-card transform transition-all duration-700 scale-0">
+        <div class="modal-card-inner relative bg-gradient-to-b from-[#281552] to-[#1A0F36] rounded-xl border-4 border-casino-gold/60 shadow-2xl overflow-hidden w-full max-w-lg mx-auto">
+          <!-- Cabecera del modal -->
+          <div class="modal-header bg-gradient-to-r from-[#281552] to-[#1E1040] p-6 text-center border-b border-casino-gold/30 relative">
+            <button id="close-modal" class="absolute right-4 top-4 text-white hover:text-casino-gold transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <h2 id="modal-title" class="text-3xl font-bold text-white">¡<span class="bonus-name">BONO</span>!</h2>
+          </div>
+          
+          <!-- Contenido del modal -->
+          <div class="modal-content p-6">
+            <div class="bonus-icon-container flex justify-center mb-6">
+              <div class="bonus-icon w-24 h-24 rounded-full bg-gradient-to-br from-casino-gold/30 to-casino-gold/10 flex items-center justify-center">
+                <div id="modal-icon" class="text-5xl">🎁</div>
+              </div>
+            </div>
+            
+            <div class="bonus-details text-center mb-8">
+              <h3 id="modal-subtitle" class="text-xl text-white font-bold mb-4">¡Felicidades has ganado tu bono!</h3>
+              <p id="modal-description" class="text-white/90 text-lg mb-6">Hablanos al whatsapp pulsando el boton y crea tu usuario al instante</p>
+              
+              <div class="bonus-features space-y-4 text-left mb-8">
+                <div class="feature flex items-center">
+                  <div class="feature-icon w-10 h-10 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div id="feature-1" class="feature-text text-white/90">Característica 1</div>
+                </div>
+                
+                <div class="feature flex items-center">
+                  <div class="feature-icon w-10 h-10 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div id="feature-2" class="feature-text text-white/90">Característica 2</div>
+                </div>
+                
+                <div class="feature flex items-center">
+                  <div class="feature-icon w-10 h-10 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div id="feature-3" class="feature-text text-white/90">Característica 3</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Botones de acción -->
+            <div class="modal-actions flex flex-col space-y-4">
+              <a id="modal-cta" href={whatsappLink1} target="_blank" rel="noopener" class="cta-button w-full flex items-center justify-center gap-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-600 text-white text-xl font-bold py-4 px-6 rounded-xl transition-all hover:scale-105 shadow-xl">
+                <svg width="24" height="24" viewBox="0 0 308 308" fill="white" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458C233.168,179.508,230.845,178.393,227.904,176.981z" />
+                  <path d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867C276.546,215.678,222.799,268.994,156.734,268.994z" />
+                </svg>
+                CREAR USUARIO
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ pixelEvent }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Referencias a elementos del DOM
+    const bonusModal = document.getElementById('bonus-modal');
+    const modalCard = document.querySelector('.modal-card');
+    const closeModalBtn = document.getElementById('close-modal');
+    const mainWhatsappLink = document.querySelector('#modal-cta')?.getAttribute('href') || '';
+    
+    console.log('Inicializando componente...');
+    
+    // Configurar el botón de WhatsApp superior
+    const topWhatsappButton = document.getElementById('whatsapp-top-button');
+    if (topWhatsappButton) {
+      topWhatsappButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        const eventToTrack = pixelEvent || 'Lead';
+        console.log('Tracking event desde botón superior:', eventToTrack);
+        
+        if (typeof fbq === 'function') {
+          fbq('track', eventToTrack);
+        }
+        
+        setTimeout(() => {
+          window.open(topWhatsappButton.href, '_blank');
+        }, 300);
+      });
+    }
+    
+    // Obtener el botón CTA
+    const ctaButton = document.getElementById('modal-cta');
+    if (ctaButton) {
+      ctaButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        const eventToTrack = pixelEvent || 'Lead';
+        console.log('Tracking event:', eventToTrack);
+        
+        if (typeof fbq === 'function') {
+          fbq('track', eventToTrack);
+        }
+        
+        setTimeout(() => {
+          window.location.href = ctaButton.href;
+        }, 300);
+      });
+    }
+    
+    // Datos de los bonos
+    const bonusData = {
+      'default': {
+        name: '10% BONO',
+        icon: '🎁',
+        subtitle: '¡Felicidades has ganado tu bono!',
+        description: 'Hablanos al whatsapp pulsando el boton y crea tu usuario al instante',
+        features: [
+          'Válido para cualquier monto de carga',
+          'Sin requisitos adicionales',
+          'Actívalo inmediatamente al crear tu usuario'
+        ],
+        ctaLink: ''
+      }
+    };
+    
+    // Función para mostrar el modal con los detalles del bono
+    function showBonusModal() {
+      const bonus = bonusData['default'];
+      
+      // Actualizar contenido del modal
+      const bonusNameElement = document.querySelector('.bonus-name');
+      if (bonusNameElement) bonusNameElement.textContent = bonus.name;
+      
+      const modalIcon = document.getElementById('modal-icon');
+      const modalSubtitle = document.getElementById('modal-subtitle');
+      const modalDescription = document.getElementById('modal-description');
+      const feature1 = document.getElementById('feature-1');
+      const feature2 = document.getElementById('feature-2');
+      const feature3 = document.getElementById('feature-3');
+      
+      if (modalIcon) modalIcon.textContent = bonus.icon;
+      if (modalSubtitle) modalSubtitle.textContent = bonus.subtitle;
+      if (modalDescription) modalDescription.textContent = bonus.description;
+      if (feature1) feature1.textContent = bonus.features[0];
+      if (feature2) feature2.textContent = bonus.features[1];
+      if (feature3) feature3.textContent = bonus.features[2];
+      
+      // Actualizar link de CTA
+      const ctaButton = document.getElementById('modal-cta');
+      if (ctaButton) {
+        ctaButton.href = mainWhatsappLink;
+      }
+      
+      // Mostrar el modal con animación
+      if (bonusModal) {
+        bonusModal.classList.remove('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          if (modalCard) modalCard.classList.add('scale-100');
+        }, 100);
+      }
+    }
+    
+    // Cerrar el modal
+    function closeModal() {
+      if (modalCard) modalCard.classList.remove('scale-100');
+      
+      setTimeout(() => {
+        if (bonusModal) bonusModal.classList.add('opacity-0', 'pointer-events-none');
+      }, 300);
+    }
+    
+    // Evento para cerrar el modal
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener('click', closeModal);
+    }
+    
+    // Inicializar la funcionalidad de rasca y gana
+    initializeScratchCard();
+    
+    // Función para inicializar el rasca y gana
+    function initializeScratchCard() {
+      const canvas = document.getElementById('scratch-canvas');
+      const scratchCard = document.getElementById('scratch-card');
+      
+      if (!canvas || !scratchCard) {
+        console.error('No se encontraron elementos del rasca y gana');
+        return;
+      }
+      
+      console.log('Inicializando rasca y gana');
+      
+      const ctx = canvas.getContext('2d');
+      let isDrawing = false;
+      let lastX = 0;
+      let lastY = 0;
+      let scratchPercentage = 0;
+      let revealTriggered = false;
+      
+      // Definir altura del rasca y gana
+      scratchCard.style.height = '180px';
+      
+      // Ajustar dimensiones del canvas
+      function setCanvasDimensions() {
+        const rect = scratchCard.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+        
+        console.log(`Canvas dimensiones: ${canvas.width}x${canvas.height}`);
+        
+        // Rellenar con el color de rasca
+        ctx.fillStyle = '#281552';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        // Añadir texto y diseño al overlay
+        ctx.fillStyle = '#FFD700';
+        ctx.font = 'bold 32px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('¡RASCA AQUÍ!', canvas.width / 2, canvas.height / 2);
+        
+        // Añadir elementos decorativos
+        for (let i = 0; i < 20; i++) {
+          const x = Math.random() * canvas.width;
+          const y = Math.random() * canvas.height;
+          const size = Math.random() * 15 + 5;
+          
+          ctx.beginPath();
+          ctx.arc(x, y, size, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(255, 215, 0, 0.2)';
+          ctx.fill();
+        }
+      }
+      
+      // Manejar acción de rascar
+      function scratch(x, y) {
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.beginPath();
+        ctx.arc(x, y, 30, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Calcular porcentaje rascado
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const pixelData = imageData.data;
+        let transparentPixels = 0;
+        
+        for (let i = 3; i < pixelData.length; i += 4) {
+          if (pixelData[i] === 0) {
+            transparentPixels++;
+          }
+        }
+        
+        const totalPixels = pixelData.length / 4;
+        scratchPercentage = (transparentPixels / totalPixels) * 100;
+        
+        // Si se ha rascado suficiente, revelar el bono
+        if (scratchPercentage > 25 && !revealTriggered) {
+          console.log(`Revelando bono - porcentaje rascado: ${scratchPercentage.toFixed(2)}%`);
+          revealBonus();
+        }
+      }
+      
+      // Revelar el bono completo
+      function revealBonus() {
+        revealTriggered = true;
+        
+        // Limpiar todo el canvas
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        // Mostrar efecto de celebración
+        showCelebrationEffect();
+        
+        // Mostrar el modal del bono después de un breve retraso
+        setTimeout(() => {
+          showBonusModal();
+        }, 800);
+      }
+      
+      // Mostrar efecto de celebración
+      function showCelebrationEffect() {
+        const celebrationEl = document.createElement('div');
+        celebrationEl.className = 'scratch-celebration';
+        scratchCard.appendChild(celebrationEl);
+        
+        setTimeout(() => {
+          if (celebrationEl && celebrationEl.parentNode) {
+            celebrationEl.parentNode.removeChild(celebrationEl);
+          }
+        }, 2000);
+      }
+      
+      // Event listeners para mouse y táctil
+      function startDrawing(e) {
+        isDrawing = true;
+        e.preventDefault();
+        
+        const rect = canvas.getBoundingClientRect();
+        lastX = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
+        lastY = (e.clientY || (e.touches && e.touches[0].clientY)) - rect.top;
+        
+        scratch(lastX, lastY);
+      }
+      
+      function draw(e) {
+        if (!isDrawing) return;
+        e.preventDefault();
+        
+        const rect = canvas.getBoundingClientRect();
+        const currentX = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
+        const currentY = (e.clientY || (e.touches && e.touches[0].clientY)) - rect.top;
+        
+        ctx.lineWidth = 60;
+        ctx.lineCap = 'round';
+        ctx.globalCompositeOperation = 'destination-out';
+        
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(currentX, currentY);
+        ctx.stroke();
+        
+        lastX = currentX;
+        lastY = currentY;
+        
+        scratch(currentX, currentY);
+      }
+      
+      function stopDrawing() {
+        isDrawing = false;
+      }
+      
+      // Eventos de mouse
+      canvas.addEventListener('mousedown', startDrawing);
+      canvas.addEventListener('mousemove', draw);
+      canvas.addEventListener('mouseup', stopDrawing);
+      canvas.addEventListener('mouseout', stopDrawing);
+      
+      // Eventos táctiles
+      canvas.addEventListener('touchstart', startDrawing);
+      canvas.addEventListener('touchmove', draw);
+      canvas.addEventListener('touchend', stopDrawing);
+      
+      // Inicializar canvas
+      setCanvasDimensions();
+      
+      // Manejador de redimensionamiento
+      window.addEventListener('resize', setCanvasDimensions);
+    }
+  });
+</script>
+
+<style>
+  /* Textura de fondo de mesa de casino */
+  .bg-felt-pattern {
+    background-image: 
+      radial-gradient(circle, rgba(25, 17, 45, 0.6) 1px, transparent 1px),
+      radial-gradient(circle, rgba(25, 17, 45, 0.6) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+  }
+
+  /* Patrón de puntos para fondo unificado */
+  .bg-dots-pattern {
+    background-image: 
+      radial-gradient(circle, rgba(255, 208, 112, 0.15) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+  
+  .gradient-text {
+    background-image: linear-gradient(45deg, #FFD700, #FFB627);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .gradient-text::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-image: linear-gradient(45deg, #FFD700, #FFB627);
+    border-radius: 2px;
+  }
+  
+  .hero-title {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.05em;
+  }
+  
+  /* Estilos para el rasca y gana */
+  .scratch-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #scratch-card {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Animación de flotamiento */
+  .animate-float {
+    animation: floating 3s ease-in-out infinite;
+    transform-origin: center center;
+  }
+  
+  @keyframes floating {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  /* Animación de rasguño */
+  .animate-scratch {
+    animation: scratch 2s ease-in-out infinite;
+  }
+  
+  @keyframes scratch {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    20% {
+      transform: translate(-3px, -3px) rotate(-5deg);
+    }
+    40% {
+      transform: translate(3px, 3px) rotate(5deg);
+    }
+    60% {
+      transform: translate(-3px, 3px) rotate(-5deg);
+    }
+    80% {
+      transform: translate(3px, -3px) rotate(5deg);
+    }
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+  }
+  
+  /* Shadow glow para tarjeta */
+  .shadow-glow {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3), 
+                0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  #scratch-card:hover .shadow-glow {
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.5), 
+                0 10px 30px -5px rgba(0, 0, 0, 0.7);
+  }
+  
+  .scratch-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+  }
+  
+  #scratch-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: grabbing;
+    z-index: 10;
+    touch-action: none;
+  }
+  
+  .scratch-celebration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+    background: 
+      radial-gradient(circle, rgba(255, 215, 0, 0.8) 10%, transparent 10%),
+      radial-gradient(circle, rgba(255, 215, 0, 0.6) 15%, transparent 15%),
+      radial-gradient(circle, rgba(255, 215, 0, 0.4) 20%, transparent 20%);
+    background-size: 30px 30px;
+    animation: celebrate 2s ease-out forwards;
+    mix-blend-mode: screen;
+  }
+  
+  /* Estilo para el marco de instrucciones */
+  .instruction-box {
+    transition: all 0.3s ease;
+  }
+  
+  .instruction-box:hover {
+    border-color: rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+  }
+  
+  @keyframes celebrate {
+    0% {
+      background-position: 0 0;
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      background-position: 100px 100px;
+      opacity: 0;
+    }
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce-slow 2s infinite;
+  }
+  
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+  
+  /* Modal de bono mejorado */
+  .modal-backdrop {
+    transition: opacity 0.5s ease;
+  }
+  
+  .modal-card {
+    transform-origin: center;
+    transform: scale(0);
+    transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 95%;
+    max-width: 600px;
+  }
+  
+  .modal-card.scale-100 {
+    transform: scale(1);
+  }
+  
+  .modal-card-inner {
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
+  }
+  
+  .bonus-icon {
+    animation: pulse-glow 2s infinite alternate;
+  }
+  
+  @keyframes pulse-glow {
+    0% {
+      box-shadow: 0 0 10px rgba(255, 208, 112, 0.5);
+    }
+    100% {
+      box-shadow: 0 0 30px rgba(255, 208, 112, 0.8);
+    }
+  }
+  
+  .casino-gold {
+    color: #FFD700;
+  }
+  
+  .text-casino-gold {
+    color: #FFD700;
+  }
+  
+  /* Botón de acción */
+  .cta-button {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(22, 163, 74, 0.5);
+    font-size: 1.2rem;
+    padding: 0.8rem;
+  }
+  
+  .cta-button svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  
+  .cta-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+  }
+  
+  /* Animaciones */
+  @keyframes shine {
+    0% {
+      left: -100%;
+      top: -100%;
+    }
+    100% {
+      left: 100%;
+      top: 100%;
+    }
+  }
+  
+  @keyframes pop-in {
+    0% {
+      transform: scale(0);
+    }
+    70% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse-slow 2s infinite;
+  }
+  
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .animate-pop-in {
+    animation: pop-in 0.5s forwards;
+  }
+  
+  /* Botón de cierre del modal */
+  #close-modal {
+    transition: transform 0.2s ease;
+  }
+  
+  #close-modal:hover {
+    transform: scale(1.1);
+  }
+</style>
