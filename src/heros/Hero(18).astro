@@ -1,0 +1,1317 @@
+---
+//heros/Hero(1).astro
+const { whatsappLink1, whatsappLink2, pixelEvent } = Astro.props;
+import '../styles/global.css';
+---
+
+<section class="relative min-h-screen pt-32 sm:pt-36 md:pt-40 flex flex-col items-center bg-gradient-to-b from-casino-purple via-[#241554] to-[#1A0F36] overflow-hidden w-full">
+  <!-- Elementos flotantes decorativos -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="floating-element absolute top-1/4 left-10 w-12 h-12 opacity-30 animate-spin-slow">
+      <img src="/images/chips.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute top-2/3 right-12 w-16 h-16 opacity-20 animate-pulse-slow" style="animation-delay: 1s;">
+      <img src="/images/ace.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute bottom-1/4 left-1/3 w-14 h-14 opacity-25" style="animation-delay: 0.5s;">
+      <img src="/images/gambling.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute top-1/3 right-1/4 w-10 h-10 opacity-20" style="animation-delay: 1.5s;">
+      <img src="/images/ace.svg" alt="" class="w-full h-full" />
+    </div>
+  </div>
+  
+  <!-- Efecto de luz de fondo -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-lg max-h-lg bg-casino-gold/10 blur-[100px] rounded-full"></div>
+  
+  <!-- Textura de fondo unificada -->
+  <div class="absolute inset-0 bg-felt-pattern opacity-10"></div>
+  <div class="absolute inset-0 bg-dots-pattern opacity-5"></div>
+  
+  <div class="w-full px-5 max-w-4xl mx-auto flex flex-col items-center justify-center relative z-10 text-center">
+    <!-- TITLE -->
+    <h1 class="text-3xl sm:text-4xl md:text-5xl mb-10 text-white uppercase hero-title font-extrabold tracking-wide">
+      APROVECHA Y <span class="gradient-text">GANA TU BONO!</span>
+    </h1>
+    
+    <!-- Botón de WhatsApp visible arriba -->
+    <div class="mb-8 w-full max-w-sm mx-auto">
+      <a id="whatsapp-top-button" href={whatsappLink1} target="_blank" rel="noopener" class="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-xl transition-all hover:scale-105 shadow-lg w-full text-xl">
+        <svg width="28" height="28" viewBox="0 0 308 308" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458C233.168,179.508,230.845,178.393,227.904,176.981z" />
+          <path d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867C276.546,215.678,222.799,268.994,156.734,268.994z" />
+        </svg>
+        CREAR USUARIO AHORA
+      </a>
+    </div>
+    
+    <!-- Juego de Tiro al Blanco -->
+    <div class="target-game-container relative h-[450px] sm:h-[500px] md:h-[550px] w-full flex flex-col items-center justify-center">
+      
+      <div class="target-wrapper relative">
+        <!-- Overlay para cuando el juego ha finalizado -->
+        <div id="game-complete-overlay" class="game-complete-overlay display-none">
+          <div class="overlay-content">
+            <div class="win-icon">🎯</div>
+            <div class="win-message">¡Felicidades! Has ganado el bono del 10%</div>
+            <div class="game-over-message">Juego completado</div>
+          </div>
+        </div>
+        
+        <div class="target">
+          <div class="ring ring-1"></div>
+          <div class="ring ring-2"></div>
+          <div class="ring ring-3"></div>
+        </div>
+        
+        <!-- Flecha que aparecerá cuando gane -->
+        <div id="game-arrow" class="game-arrow display-none">
+          <div class="arrow-shaft"></div>
+          <div class="arrow-head"></div>
+          <div class="arrow-fletching"></div>
+        </div>
+        
+        <div id="crosshair" class="crosshair">+</div>
+        <div id="hit-marker" class="hit-marker display-none">💥</div>
+      </div>
+      
+      <div class="game-controls mt-8">
+        <button id="shoot-button" class="shoot-button bg-gradient-to-r from-casino-gold to-yellow-500 text-casino-purple hover:from-yellow-500 hover:to-casino-gold text-xl sm:text-2xl font-bold py-4 px-8 rounded-xl transition-all hover:scale-105 shadow-2xl flex items-center justify-center gap-3">
+          <span class="aim-icon">🎯</span>
+          DISPARAR
+        </button>
+      </div>
+      
+      <div id="game-instructions" class="game-instructions text-white/80 mt-4 text-sm sm:text-base">
+        Pulsa DISPARAR cuando la mira esté sobre el centro rojo para ganar tu bono
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal de bono a pantalla completa -->
+  <div id="bonus-modal" class="fixed inset-0 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-500">
+    <div class="modal-backdrop absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+    <div class="modal-card-container relative w-full h-full flex items-center justify-center">
+      <!-- Carta central animada -->
+      <div class="modal-card transform transition-all duration-700 scale-0">
+        <div class="modal-card-inner relative bg-gradient-to-b from-[#281552] to-[#1A0F36] rounded-xl border-4 border-casino-gold/60 shadow-2xl overflow-hidden w-full max-w-lg mx-auto">
+          <!-- Cabecera del modal -->
+          <div class="modal-header bg-gradient-to-r from-[#281552] to-[#1E1040] p-6 text-center border-b border-casino-gold/30 relative">
+            <button id="close-modal" class="absolute right-4 top-4 text-white hover:text-casino-gold transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <h2 id="modal-title" class="text-3xl font-bold text-white">¡<span class="bonus-name">BONO</span>!</h2>
+          </div>
+          
+          <!-- Contenido del modal -->
+          <div class="modal-content p-6">
+            <div class="bonus-icon-container flex justify-center mb-6">
+              <div class="bonus-icon w-24 h-24 rounded-full bg-gradient-to-br from-casino-gold/30 to-casino-gold/10 flex items-center justify-center">
+                <div id="modal-icon" class="text-5xl">🎁</div>
+              </div>
+            </div>
+            
+            <div class="bonus-details text-center mb-8">
+              <h3 id="modal-subtitle" class="text-xl text-white font-bold mb-4">¡Felicidades has ganado tu bono!</h3>
+              <p id="modal-description" class="text-white/90 text-lg mb-6">Hablanos al whatsapp pulsando el boton y crea tu usuario al instante</p>
+              
+              <div class="bonus-features space-y-4 text-left mb-8">
+                <div class="feature flex items-center">
+                  <div class="feature-icon w-10 h-10 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div id="feature-1" class="feature-text text-white/90">Válido para cualquier monto de carga</div>
+                </div>
+                
+                <div class="feature flex items-center">
+                  <div class="feature-icon w-10 h-10 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div id="feature-2" class="feature-text text-white/90">Sin requisitos adicionales</div>
+                </div>
+                
+                <div class="feature flex items-center">
+                  <div class="feature-icon w-10 h-10 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div id="feature-3" class="feature-text text-white/90">Actívalo inmediatamente al crear tu usuario</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Botones de acción -->
+            <div class="modal-actions flex flex-col space-y-4">
+              <a id="modal-cta" href={whatsappLink1} target="_blank" rel="noopener" class="cta-button w-full flex items-center justify-center gap-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-600 text-white text-xl font-bold py-4 px-6 rounded-xl transition-all hover:scale-105 shadow-xl">
+                <svg width="24" height="24" viewBox="0 0 308 308" fill="white" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458C233.168,179.508,230.845,178.393,227.904,176.981z" />
+                  <path d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867C276.546,215.678,222.799,268.994,156.734,268.994z" />
+                </svg>
+                CREAR USUARIO
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ pixelEvent }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Referencias a elementos del DOM
+    const bonusModal = document.getElementById('bonus-modal');
+    const modalCard = document.querySelector('.modal-card');
+    const closeModalBtn = document.getElementById('close-modal');
+    const mainWhatsappLink = document.querySelector('#modal-cta')?.getAttribute('href') || '';
+    const shootButton = document.getElementById('shoot-button');
+    const target = document.querySelector('.target');
+    const crosshair = document.getElementById('crosshair');
+    const hitMarker = document.getElementById('hit-marker');
+    const gameCompleteOverlay = document.getElementById('game-complete-overlay');
+    const gameArrow = document.getElementById('game-arrow');
+    const gameInstructions = document.getElementById('game-instructions');
+    
+    // Variables de juego
+    let attemptCount = 0;
+    let isGameActive = true;
+    let gameCompleted = false;
+    let crosshairPosition = { x: 0, y: 0 };
+    let animationId = null;
+    
+    // Configuración de la animación del crosshair
+    const crosshairSpeed = 2; // Velocidad de la mira (pixels por frame)
+    const animationDuration = 2000; // Duración de un ciclo completo en ms
+    let direction = 1; // 1 = derecha, -1 = izquierda
+    
+    // Para depuración
+    console.log('Pixel event disponible:', pixelEvent);
+    console.log('Juego de tiro al blanco inicializado');
+    
+    // Asegurarse de que los elementos del juego estén en el estado correcto al iniciar
+    function initGameState() {
+      console.log('Inicializando estado del juego');
+      
+      // Forzar que el overlay esté oculto al iniciar
+      if (gameCompleteOverlay) {
+        gameCompleteOverlay.style.display = 'none';
+        gameCompleteOverlay.classList.add('display-none');
+      }
+      
+      // Asegurar que la flecha esté oculta
+      if (gameArrow) {
+        gameArrow.style.display = 'none';
+        gameArrow.classList.add('display-none');
+      }
+      
+      // Asegurar que el marcador de impacto esté oculto
+      if (hitMarker) {
+        hitMarker.style.display = 'none';
+        hitMarker.classList.add('display-none');
+      }
+      
+      // Iniciar la animación automática del crosshair
+      startCrosshairAnimation();
+      
+      console.log('Estado del juego inicializado correctamente');
+    }
+    
+    // Función para mover automáticamente el crosshair
+    function startCrosshairAnimation() {
+      if (!target || !crosshair || !isGameActive) return;
+      
+      const targetRect = target.getBoundingClientRect();
+      const maxDistance = targetRect.width / 2;
+      let startTime = null;
+      
+      function animateCrosshair(timestamp) {
+        if (!startTime) startTime = timestamp;
+        if (!isGameActive || gameCompleted) return;
+        
+        const elapsed = timestamp - startTime;
+        const progress = (elapsed % animationDuration) / animationDuration;
+        
+        // Movimiento sinusoidal para mayor suavidad
+        const position = Math.sin(progress * Math.PI * 2) * maxDistance * 0.8;
+        
+        // Aplicar posición
+        crosshair.style.transform = `translate(${position}px, 0px)`;
+        
+        // Actualizar la posición actual para el disparo
+        crosshairPosition = {
+          x: position,
+          y: 0,
+          distance: Math.abs(position),
+          maxDistance: maxDistance
+        };
+        
+        // Continuar la animación
+        animationId = requestAnimationFrame(animateCrosshair);
+      }
+      
+      // Iniciar la animación
+      animationId = requestAnimationFrame(animateCrosshair);
+      console.log('Animación del crosshair iniciada');
+    }
+    
+    // Función para disparar
+    const shoot = () => {
+      if (!isGameActive || gameCompleted) {
+        console.log('Juego inactivo o ya completado, no se puede disparar');
+        return;
+      }
+      
+      attemptCount++;
+      console.log(`Disparo ${attemptCount} realizado en posición: ${crosshairPosition.x.toFixed(2)}`);
+      
+      // Detener la animación del crosshair
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+      
+      // Mostrar marcador de impacto
+      if (hitMarker) {
+        hitMarker.style.transform = crosshair.style.transform;
+        hitMarker.style.display = 'block';
+        hitMarker.classList.remove('display-none');
+      }
+      
+      // Determinar si el disparo acertó
+      let hit = false;
+      
+      // En el primer intento, se acierta si está cerca del centro (dentro del 20% del centro)
+      if (attemptCount === 1) {
+        hit = isBullseye();
+      } 
+      // En el segundo intento, aumentar probabilidad (dentro del 30% del centro)
+      else if (attemptCount === 2) {
+        hit = isBullseye(0.3);
+      }
+      // En el tercer intento, acertar siempre
+      else if (attemptCount >= 3) {
+        hit = true;
+      }
+      
+      // Añadir efecto visual de disparo
+      target.classList.add('target-shot');
+      setTimeout(() => {
+        target.classList.remove('target-shot');
+      }, 300);
+      
+      if (hit) {
+        console.log('¡Diana acertada! Mostrando modal de bono');
+        
+        // Marcar el juego como completado
+        gameCompleted = true;
+        
+        // Reproducir animación de éxito
+        playSuccessAnimation();
+        
+        // Desactivar el juego
+        isGameActive = false;
+        
+        // Mostrar overlay y mensaje de victoria
+        if (gameCompleteOverlay) {
+          gameCompleteOverlay.style.display = 'flex';
+          gameCompleteOverlay.classList.remove('display-none');
+        }
+        
+        // Mostrar la flecha en el centro
+        if (gameArrow) {
+          gameArrow.style.display = 'block';
+          gameArrow.classList.remove('display-none');
+        }
+        
+        // Desactivar visualmente el botón de disparar
+        if (shootButton) {
+          shootButton.classList.add('shoot-button-disabled');
+          shootButton.disabled = true;
+          shootButton.innerHTML = '<span class="check-icon">✓</span> ¡BONO GANADO!';
+        }
+        
+        // Actualizar las instrucciones para indicar que el juego ha terminado
+        if (gameInstructions) {
+          gameInstructions.textContent = "¡Juego completado! Ya no puedes volver a jugar. Reclama tu bono ahora.";
+          gameInstructions.classList.add('game-over-instructions');
+        }
+        
+        // Mostrar modal después de un corto retraso
+        setTimeout(() => {
+          showBonusModal();
+        }, 1200);
+      } else {
+        // Reproducir animación de fallo
+        playMissAnimation();
+        
+        // Esperar a que termine la animación y ocultar el marcador
+        setTimeout(() => {
+          if (hitMarker) {
+            hitMarker.style.display = 'none';
+            hitMarker.classList.add('display-none');
+          }
+          
+          // Reiniciar la animación del crosshair después de un fallo
+          if (isGameActive) {
+            startCrosshairAnimation();
+          }
+        }, 600);
+      }
+    };
+    
+    // Función para determinar si el disparo dio en el centro
+    const isBullseye = (threshold = 0.2) => {
+      if (!crosshairPosition.maxDistance) return false;
+      
+      // Centro si está dentro del umbral proporcionado del centro
+      const bullseyeRadius = crosshairPosition.maxDistance * threshold;
+      return crosshairPosition.distance < bullseyeRadius;
+    };
+    
+    // Animaciones de disparo
+    const playSuccessAnimation = () => {
+      // Animar hit marker
+      if (hitMarker) {
+        hitMarker.textContent = '🎯';
+        hitMarker.classList.add('hit-success');
+      }
+      
+      // Efecto en la diana
+      target.classList.add('target-success');
+      
+      // Añadir partículas de celebración
+      addConfettiEffect();
+    };
+    
+    const playMissAnimation = () => {
+      if (hitMarker) {
+        hitMarker.textContent = '💥';
+        hitMarker.classList.add('hit-miss');
+        
+        // Restablecer clase después de la animación
+        setTimeout(() => {
+          hitMarker.classList.remove('hit-miss');
+        }, 500);
+      }
+    };
+    
+    // Efecto de confeti simplificado
+    const addConfettiEffect = () => {
+      const container = document.querySelector('.target-wrapper');
+      if (!container) return;
+      
+      for (let i = 0; i < 30; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti-piece';
+        confetti.style.setProperty('--x', Math.random() * 100 + 'px');
+        confetti.style.setProperty('--y', Math.random() * 100 - 50 + 'px');
+        confetti.style.setProperty('--rotation', Math.random() * 360 + 'deg');
+        confetti.style.backgroundColor = ['#FFD700', '#FF9900', '#FF0000', '#9900FF', '#0099FF'][Math.floor(Math.random() * 5)];
+        container.appendChild(confetti);
+        
+        // Eliminar el confeti después de la animación
+        setTimeout(() => {
+          confetti.remove();
+        }, 2000);
+      }
+    };
+    
+    // Configurar el botón de WhatsApp superior
+    const topWhatsappButton = document.getElementById('whatsapp-top-button');
+    if (topWhatsappButton) {
+      topWhatsappButton.addEventListener('click', (e) => {
+        // Prevenir navegación inmediata
+        e.preventDefault();
+        
+        // Usar una variable local para el evento
+        const eventToTrack = pixelEvent || 'Lead';
+        
+        // Imprimir para depuración
+        console.log('Tracking event desde botón superior:', eventToTrack);
+        
+        // Enviar el evento si fbq está disponible
+        if (typeof fbq === 'function') {
+          fbq('track', eventToTrack);
+        }
+        
+        // Navegar después de un pequeño retraso
+        setTimeout(() => {
+          window.open(topWhatsappButton.href, '_blank');
+        }, 300);
+      });
+    }
+    
+    // Función para mostrar el modal con los detalles del bono
+    function showBonusModal() {
+      const bonus = {
+        name: '10% BONO',
+        icon: '🎁',
+        subtitle: '¡Felicidades has ganado tu bono!',
+        description: 'Hablanos al whatsapp pulsando el boton y crea tu usuario al instante',
+        features: [
+          'Válido para cualquier monto de carga',
+          'Sin requisitos adicionales',
+          'Actívalo inmediatamente al crear tu usuario'
+        ],
+        ctaLink: ''
+      };
+      
+      // Actualizar contenido del modal
+      const bonusNameElement = document.querySelector('.bonus-name');
+      if (bonusNameElement) bonusNameElement.textContent = bonus.name;
+      
+      const modalIcon = document.getElementById('modal-icon');
+      const modalSubtitle = document.getElementById('modal-subtitle');
+      const modalDescription = document.getElementById('modal-description');
+      const feature1 = document.getElementById('feature-1');
+      const feature2 = document.getElementById('feature-2');
+      const feature3 = document.getElementById('feature-3');
+      
+      if (modalIcon) modalIcon.textContent = bonus.icon;
+      if (modalSubtitle) modalSubtitle.textContent = bonus.subtitle;
+      if (modalDescription) modalDescription.textContent = bonus.description;
+      if (feature1) feature1.textContent = bonus.features[0];
+      if (feature2) feature2.textContent = bonus.features[1];
+      if (feature3) feature3.textContent = bonus.features[2];
+      
+      // Actualizar link de CTA
+      const ctaButton = document.getElementById('modal-cta');
+      if (ctaButton) {
+        ctaButton.href = mainWhatsappLink;
+      }
+      
+      // Mostrar el modal con animación
+      if (bonusModal) {
+        bonusModal.classList.remove('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          if (modalCard) modalCard.classList.add('scale-100');
+        }, 100);
+      }
+    }
+    
+    // Cerrar el modal
+    function closeModal() {
+      if (modalCard) modalCard.classList.remove('scale-100');
+      
+      setTimeout(() => {
+        if (bonusModal) bonusModal.classList.add('opacity-0', 'pointer-events-none');
+      }, 300);
+    }
+    
+    // Obtener el botón CTA
+    const ctaButton = document.getElementById('modal-cta');
+    
+    if (ctaButton) {
+      ctaButton.addEventListener('click', (e) => {
+        // Prevenir navegación inmediata
+        e.preventDefault();
+        
+        // Usar una variable local para el evento
+        const eventToTrack = pixelEvent || 'Lead';
+        
+        // Imprimir para depuración
+        console.log('Tracking event:', eventToTrack);
+        
+        // Enviar el evento si fbq está disponible
+        if (typeof fbq === 'function') {
+          fbq('track', eventToTrack);
+        }
+        
+        // Navegar después de un pequeño retraso
+        setTimeout(() => {
+          window.open(ctaButton.href, '_blank');
+        }, 300);
+      });
+    }
+    
+    // Evento para cerrar el modal
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener('click', closeModal);
+    }
+    
+    // Configurar evento de clic para el botón de disparar
+    if (shootButton) {
+      shootButton.addEventListener('click', shoot);
+    }
+    
+    // Inicializar el estado del juego
+    initGameState();
+  });
+</script>
+
+<style>
+  /* Textura de fondo de mesa de casino */
+  .bg-felt-pattern {
+    background-image: 
+      radial-gradient(circle, rgba(25, 17, 45, 0.6) 1px, transparent 1px),
+      radial-gradient(circle, rgba(25, 17, 45, 0.6) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+  }
+
+  /* Patrón de puntos para fondo unificado */
+  .bg-dots-pattern {
+    background-image: 
+      radial-gradient(circle, rgba(255, 208, 112, 0.15) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+  
+  /* Clase robusta para ocultar elementos */
+  .display-none {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  
+  .gradient-text {
+    background-image: linear-gradient(45deg, #FFD700, #FFB627);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .gradient-text::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-image: linear-gradient(45deg, #FFD700, #FFB627);
+    border-radius: 2px;
+  }
+  
+  .hero-title {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.05em;
+  }
+  
+  /* Estilos del juego de tiro al blanco */
+  .target-game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .target-wrapper {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    cursor: crosshair;
+    overflow: visible;
+  }
+  
+  /* Mobile-first: Aumentar tamaño en móviles */
+  @media (max-width: 767px) {
+    .target-wrapper {
+      width: 300px;
+      height: 300px;
+    }
+  }
+  
+  .target {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.15s;
+    background: #E00;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+  }
+  
+  /* Mobile-first: Aumentar tamaño en móviles */
+  @media (max-width: 767px) {
+    .target {
+      width: 280px;
+      height: 280px;
+    }
+  }
+  
+  /* Anillos de la diana al estilo clásico rojo y blanco */
+  .ring {
+    position: absolute;
+    border-radius: 50%;
+  }
+  
+  .ring-1 {
+    width: 33%;
+    height: 33%;
+    background-color: #E00;
+    z-index: 3;
+  }
+  
+  .ring-2 {
+    width: 66%;
+    height: 66%;
+    background-color: white;
+    z-index: 2;
+  }
+  
+  .ring-3 {
+    width: 100%;
+    height: 100%;
+    background-color: #E00;
+    z-index: 1;
+  }
+  
+  /* Overlay para cuando el juego se completa */
+  .game-complete-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+  }
+  
+  .overlay-content {
+    text-align: center;
+    color: white;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    max-width: 80%;
+  }
+  
+  .win-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+  
+  .win-message {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  
+  .game-over-message {
+    font-size: 12px;
+    color: #FFD700;
+    font-weight: bold;
+  }
+  
+  .game-over-instructions {
+    color: #FFD700 !important;
+    font-weight: bold;
+  }
+  
+  /* Flecha que aparece al ganar */
+  .game-arrow {
+    position: absolute;
+    z-index: 15;
+    transform: rotate(-45deg);
+    transform-origin: center center;
+    pointer-events: none;
+  }
+  
+  .arrow-shaft {
+    position: absolute;
+    width: 150px;
+    height: 6px;
+    background: linear-gradient(to right, #333333, #555555);
+    border-radius: 3px;
+    transform-origin: right center;
+    right: 0;
+  }
+  
+  .arrow-head {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 6px 12px 6px;
+    border-color: transparent transparent #333333 transparent;
+    transform: rotate(90deg);
+    left: -12px;
+    top: -3px;
+  }
+  
+  .arrow-fletching {
+    position: absolute;
+    right: -10px;
+    top: -12px;
+    width: 20px;
+    height: 30px;
+    background: linear-gradient(to right, #FFCC00, #FF9900);
+    clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+  }
+  
+  /* Crosshair negro y más visible */
+  .crosshair {
+    position: absolute;
+    font-size: 35px;  /* Aumentado de 30px */
+    color: black;  /* Cambiado de red a black */
+    text-shadow: 
+      0 0 2px white,
+      0 0 4px white,
+      0 0 6px white;  /* Contorno blanco para mayor visibilidad */
+    transform: translate(0, 0);
+    transition: transform 0.01s linear;
+    pointer-events: none;
+    z-index: 10;
+    font-weight: bold;
+  }
+  
+  /* Mobile-first: Hacer el crosshair más grande en móviles */
+  @media (max-width: 767px) {
+    .crosshair {
+      font-size: 40px;
+    }
+  }
+  
+  .hit-marker {
+    position: absolute;
+    font-size: 40px;
+    transform: translate(0, 0);
+    z-index: 15;
+    pointer-events: none;
+    transition: all 0.3s ease-out;
+  }
+  
+  /* Mobile-first: Hacer el hit marker más grande en móviles */
+  @media (max-width: 767px) {
+    .hit-marker {
+      font-size: 45px;
+    }
+  }
+  
+  .hit-success {
+    animation: success-pulse 1s forwards;
+  }
+  
+  .hit-miss {
+    animation: miss-animation 0.5s forwards;
+  }
+  
+  @keyframes success-pulse {
+    0% {
+      transform: scale(0.5);
+      opacity: 0.5;
+    }
+    50% {
+      transform: scale(2);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes miss-animation {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1.2);
+      opacity: 0;
+    }
+  }
+  
+  .target-shot {
+    transform: scale(0.95);
+  }
+  
+  .target-success {
+    animation: target-success-animation 0.8s forwards;
+  }
+  
+  @keyframes target-success-animation {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 rgba(255, 215, 0, 0);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    }
+  }
+  
+  /* Confeti para la animación de éxito */
+  .confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #FFD700;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    border-radius: 2px;
+    animation: confetti-fly 2s forwards;
+    transform-origin: center center;
+  }
+  
+  @keyframes confetti-fly {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(var(--x), var(--y)) rotate(var(--rotation));
+      opacity: 0;
+    }
+  }
+  
+  /* Botón para disparar */
+  .shoot-button {
+    background: linear-gradient(45deg, #FFD700, #FFB627);
+    color: #241554;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 15px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(255, 215, 0, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  /* Mobile-first: Hacer el botón más grande en móviles */
+  @media (max-width: 767px) {
+    .shoot-button {
+      padding: 18px 35px;
+      font-size: 1.6rem;
+    }
+  }
+  
+  .shoot-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 30px -5px rgba(255, 215, 0, 0.5);
+  }
+  
+  .shoot-button:active {
+    transform: translateY(1px);
+  }
+  
+  .shoot-button-disabled {
+    background: linear-gradient(45deg, #888888, #666666);
+    color: white;
+    transform: none;
+    cursor: not-allowed;
+    opacity: 0.8;
+    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.3);
+    position: relative;
+  }
+  
+  .shoot-button-disabled::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 11;
+    pointer-events: none;
+  }
+  
+  .shoot-button-disabled:hover {
+    transform: none;
+    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .check-icon {
+    color: #66FF66;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  .aim-icon {
+    font-size: 1.8rem;
+    animation: bounce 2s infinite;
+  }
+  
+  /* Mobile-first: Icono de mira más grande en móviles */
+  @media (max-width: 767px) {
+    .aim-icon {
+      font-size: 2rem;
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+  
+  .shoot-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+  }
+  
+  /* Mejorar legibilidad de instrucciones en móvil */
+  .game-instructions {
+    margin-top: 1rem;
+    max-width: 320px;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 767px) {
+    .game-instructions {
+      font-size: 1rem !important;
+      margin-top: 1.25rem;
+      max-width: 280px;
+    }
+  }
+  
+  /* Modal de bono mejorado */
+  .modal-backdrop {
+    transition: opacity 0.5s ease;
+  }
+  
+  .modal-card {
+    transform-origin: center;
+    transform: scale(0);
+    transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 95%;
+    max-width: 600px;
+  }
+  
+  .modal-card.scale-100 {
+    transform: scale(1);
+  }
+  
+  .modal-card-inner {
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
+  }
+  
+  .bonus-icon {
+    animation: pulse-glow 2s infinite alternate;
+  }
+  
+  @keyframes pulse-glow {
+    0% {
+      box-shadow: 0 0 10px rgba(255, 208, 112, 0.5);
+    }
+    100% {
+      box-shadow: 0 0 30px rgba(255, 208, 112, 0.8);
+    }
+  }
+  
+  .casino-gold {
+    color: #FFD700;
+  }
+  
+  .text-casino-gold {
+    color: #FFD700;
+  }
+  
+  /* Botón de acción */
+  .cta-button {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(22, 163, 74, 0.5);
+    font-size: 1.2rem;
+    padding: 0.8rem;
+  }
+  
+  /* Mobile-first: Botón CTA más grande en móviles */
+  @media (max-width: 767px) {
+    .cta-button {
+      font-size: 1.3rem;
+      padding: 1rem;
+    }
+  }
+  
+  .cta-button svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  
+  /* Mobile-first: Iconos de WhatsApp más grandes en móviles */
+  @media (max-width: 767px) {
+    .cta-button svg {
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+  }
+  
+  .cta-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+  }
+  
+  /* Animaciones */
+  @keyframes shine {
+    0% {
+      left: -100%;
+      top: -100%;
+    }
+    100% {
+      left: 100%;
+      top: 100%;
+    }
+  }
+  
+  @keyframes pop-in {
+    0% {
+      transform: scale(0);
+    }
+    70% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse-slow 2s infinite;
+  }
+  
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .animate-pop-in {
+    animation: pop-in 0.5s forwards;
+  }
+  
+  /* Botón de cierre del modal */
+  #close-modal {
+    transition: transform 0.2s ease;
+  }
+  
+  #close-modal:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Adaptación responsive */
+  @media (max-width: 768px) {
+    .target-wrapper {
+      width: 300px;
+      height: 300px;
+    }
+    
+    .target {
+      width: 280px;
+      height: 280px;
+    }
+    
+    .crosshair {
+      font-size: 40px;
+    }
+    
+    .hit-marker {
+      font-size: 45px;
+    }
+    
+    .shoot-button {
+      font-size: 1.6rem;
+      padding: 18px 35px;
+    }
+    
+    .aim-icon {
+      font-size: 2rem;
+    }
+    
+    .win-message {
+      font-size: 14px;
+    }
+    
+    .game-arrow .arrow-shaft {
+      width: 120px;
+      height: 5px;
+    }
+    
+    .game-arrow .arrow-fletching {
+      width: 16px;
+      height: 24px;
+      right: -8px;
+      top: -10px;
+    }
+    
+    .modal-card-inner {
+      width: 90%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .modal-content {
+      padding: 1.2rem;
+    }
+    
+    .bonus-icon {
+      width: 5rem;
+      height: 5rem;
+    }
+    
+    .cta-button {
+      padding: 1rem;
+      font-size: 1.3rem;
+    }
+    
+    .cta-button svg {
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .target-wrapper {
+      width: 280px;
+      height: 280px;
+    }
+    
+    .target {
+      width: 250px;
+      height: 250px;
+    }
+    
+    .crosshair {
+      font-size: 38px;
+    }
+    
+    .hit-marker {
+      font-size: 42px;
+    }
+    
+    .shoot-button {
+      font-size: 1.4rem;
+      padding: 16px 28px;
+    }
+    
+    .aim-icon {
+      font-size: 1.8rem;
+    }
+    
+    .win-message {
+      font-size: 13px;
+    }
+    
+    .game-arrow .arrow-shaft {
+      width: 100px;
+      height: 4px;
+    }
+    
+    .game-arrow .arrow-fletching {
+      width: 14px;
+      height: 20px;
+      right: -7px;
+      top: -8px;
+    }
+    
+    .game-arrow .arrow-head {
+      border-width: 0 4px 8px 4px;
+      left: -8px;
+      top: -2px;
+    }
+    
+    .modal-content {
+      padding: 1rem;
+    }
+    
+    .bonus-icon {
+      width: 4rem;
+      height: 4rem;
+    }
+    
+    #modal-title {
+      font-size: 1.6rem;
+    }
+    
+    #modal-subtitle {
+      font-size: 1.3rem;
+    }
+    
+    #modal-description {
+      font-size: 1rem;
+    }
+    
+    .feature-text {
+      font-size: 0.9rem;
+    }
+    
+    .cta-button {
+      padding: 0.8rem;
+      font-size: 1.2rem;
+    }
+    
+    .cta-button svg {
+      width: 1.3rem;
+      height: 1.3rem;
+    }
+  }
+</style>
