@@ -1,0 +1,966 @@
+---
+//heros/Hero(1).astro
+const { whatsappLink1, whatsappLink2, pixelEvent } = Astro.props;
+import '../styles/global.css';
+---
+
+<section class="relative min-h-screen pt-32 sm:pt-36 md:pt-40 flex flex-col items-center bg-gradient-to-b from-casino-purple via-[#241554] to-[#1A0F36] overflow-hidden w-full">
+  <!-- Elementos flotantes decorativos -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="floating-element absolute top-1/4 left-10 w-12 h-12 opacity-30 animate-spin-slow">
+      <img src="/images/chips.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute top-2/3 right-12 w-16 h-16 opacity-20 animate-pulse-slow" style="animation-delay: 1s;">
+      <img src="/images/ace.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute bottom-1/4 left-1/3 w-14 h-14 opacity-25" style="animation-delay: 0.5s;">
+      <img src="/images/gambling.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute top-1/3 right-1/4 w-10 h-10 opacity-20" style="animation-delay: 1.5s;">
+      <img src="/images/ace.svg" alt="" class="w-full h-full" />
+    </div>
+  </div>
+  
+  <!-- Efecto de luz de fondo -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-lg max-h-lg bg-casino-gold/10 blur-[100px] rounded-full"></div>
+  
+  <!-- Textura de fondo unificada -->
+  <div class="absolute inset-0 bg-felt-pattern opacity-10"></div>
+  <div class="absolute inset-0 bg-dots-pattern opacity-5"></div>
+  
+  <div class="w-full px-5 max-w-4xl mx-auto flex flex-col items-center justify-center relative z-10 text-center">
+    <!-- TITLE -->
+    <h1 class="text-3xl sm:text-4xl md:text-5xl mb-10 text-white uppercase hero-title font-extrabold tracking-wide">
+      APROVECHA Y <span class="gradient-text">GANA TU BONO!</span>
+    </h1>
+    
+    <!-- Botón de WhatsApp visible arriba -->
+    <div class="mb-8 w-full max-w-sm mx-auto">
+      <a id="whatsapp-top-button" href={whatsappLink1} target="_blank" rel="noopener" class="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-xl transition-all hover:scale-105 shadow-lg w-full text-xl">
+        <svg width="28" height="28" viewBox="0 0 308 308" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458C233.168,179.508,230.845,178.393,227.904,176.981z" />
+          <path d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867C276.546,215.678,222.799,268.994,156.734,268.994z" />
+        </svg>
+        CREAR USUARIO AHORA
+      </a>
+    </div>
+    
+    <!-- Contenedor del juego de garra mecánica -->
+    <div class="claw-game-container relative h-[450px] sm:h-[500px] md:h-[550px] w-full flex flex-col items-center justify-center">
+      <div class="claw-machine bg-gradient-to-b from-[#352269] to-[#1A0F36] border-4 border-casino-gold/60 rounded-xl p-4 w-full max-w-lg mx-auto relative overflow-hidden">
+        <!-- Parte superior de la máquina -->
+        <div class="machine-top flex justify-between items-center mb-2">
+          <div class="machine-light w-6 h-6 rounded-full bg-red-500 animate-pulse-slow"></div>
+          <div class="machine-title text-white font-bold text-lg">ATRAPA TU BONO</div>
+          <div class="machine-light w-6 h-6 rounded-full bg-red-500 animate-pulse-slow"></div>
+        </div>
+        
+        <!-- Ventana de juego donde están los premios -->
+        <div id="game-window" class="game-window relative h-[300px] bg-[#15102E]/80 border-2 border-casino-gold/40 rounded-lg overflow-hidden">
+          <!-- Garra mecánica - Estructura actualizada -->
+          <div id="claw" class="claw absolute top-0 left-[50%] -translate-x-1/2 animate-move-claw z-20">
+            <!-- Base fija de la garra (parte superior) -->
+            <div class="claw-base w-6 h-10 bg-gray-400 rounded-t-lg"></div>
+            
+            <!-- Componente extensible (brazo y mano) -->
+            <div id="claw-extension" class="claw-extension flex flex-col items-center relative">
+              <!-- Brazo extensible de la garra -->
+              <div id="claw-arm" class="claw-arm w-1 h-20 bg-gray-300 transition-height duration-1000"></div>
+              
+              <!-- Parte de agarre (dedos) -->
+              <div id="claw-grab" class="claw-grab">
+                <div class="flex">
+                  <div id="claw-left-finger" class="claw-finger w-3 h-8 bg-gray-400 transform -rotate-45 origin-top-right transition-transform duration-300"></div>
+                  <div id="claw-right-finger" class="claw-finger w-3 h-8 bg-gray-400 transform rotate-45 origin-top-left transition-transform duration-300"></div>
+                </div>
+                
+                <!-- Contenedor para el premio agarrado -->
+                <div id="grabbed-prize-container" class="absolute top-full left-1/2 -translate-x-1/2 opacity-0 pointer-events-none"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Premios -->
+          <div id="prizes-container" class="prizes-container absolute bottom-0 left-0 w-full flex justify-around p-4">
+            <!-- Premio 1: Regalo -->
+            <div id="prize-1" class="prize" data-type="bonus">
+              <div class="prize-box w-20 h-20 bg-gradient-to-b from-casino-gold to-yellow-500 rounded-lg flex items-center justify-center shadow-glow">
+                <span class="text-4xl">🎁</span>
+              </div>
+            </div>
+            
+            <!-- Premio 2: Regalo -->
+            <div id="prize-2" class="prize" data-type="bonus">
+              <div class="prize-box w-20 h-20 bg-gradient-to-b from-[#FF5F6D] to-[#FFC371] rounded-lg flex items-center justify-center shadow-glow">
+                <span class="text-4xl">🎁</span>
+              </div>
+            </div>
+            
+            <!-- Premio 3: Regalo -->
+            <div id="prize-3" class="prize" data-type="bonus">
+              <div class="prize-box w-20 h-20 bg-gradient-to-b from-[#4776E6] to-[#8E54E9] rounded-lg flex items-center justify-center shadow-glow">
+                <span class="text-4xl">🎁</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Controles de la máquina -->
+        <div class="machine-controls mt-4 flex justify-center">
+          <button id="play-button" class="play-button bg-gradient-to-r from-casino-gold to-yellow-500 text-casino-purple hover:from-yellow-500 hover:to-casino-gold text-lg font-bold py-3 px-8 rounded-xl transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-2">
+            <span class="joystick-icon">🕹️</span>
+            JUGAR AHORA
+          </button>
+        </div>
+        
+        <!-- Indicador de intentos -->
+       
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal de bono a pantalla completa -->
+  <div id="bonus-modal" class="fixed inset-0 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-500">
+    <div class="modal-backdrop absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+    <div class="modal-card-container relative w-full h-full flex items-center justify-center">
+      <!-- Carta central animada -->
+      <div class="modal-card transform transition-all duration-700 scale-0">
+        <div class="modal-card-inner relative bg-gradient-to-b from-[#281552] to-[#1A0F36] rounded-xl border-4 border-casino-gold/60 shadow-2xl overflow-hidden w-full max-w-lg mx-auto">
+          <!-- Cabecera del modal -->
+          <div class="modal-header bg-gradient-to-r from-[#281552] to-[#1E1040] p-6 text-center border-b border-casino-gold/30 relative">
+            <button id="close-modal" class="absolute right-4 top-4 text-white hover:text-casino-gold transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <h2 id="modal-title" class="text-3xl font-bold text-white">¡<span class="bonus-name">BONO</span>!</h2>
+          </div>
+          
+          <!-- Contenido del modal -->
+          <div class="modal-content p-6">
+            <div class="bonus-icon-container flex justify-center mb-6">
+              <div class="bonus-icon w-24 h-24 rounded-full bg-gradient-to-br from-casino-gold/30 to-casino-gold/10 flex items-center justify-center">
+                <div id="modal-icon" class="text-5xl">🎁</div>
+              </div>
+            </div>
+            
+            <div class="bonus-details text-center mb-8">
+              <h3 id="modal-subtitle" class="text-xl text-white font-bold mb-4">¡Felicidades has ganado tu bono!</h3>
+              <p id="modal-description" class="text-white/90 text-lg mb-6">Hablanos al whatsapp pulsando el boton y crea tu usuario al instante</p>
+              
+              <div class="bonus-features space-y-4 text-left mb-8">
+                <div class="feature flex items-center">
+                  <div class="feature-icon w-10 h-10 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div id="feature-1" class="feature-text text-white/90">Válido para cualquier monto de carga</div>
+                </div>
+                
+                <div class="feature flex items-center">
+                  <div class="feature-icon w-10 h-10 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div id="feature-2" class="feature-text text-white/90">Sin requisitos adicionales</div>
+                </div>
+                
+                <div class="feature flex items-center">
+                  <div class="feature-icon w-10 h-10 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div id="feature-3" class="feature-text text-white/90">Actívalo inmediatamente al crear tu usuario</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Botones de acción -->
+            <div class="modal-actions flex flex-col space-y-4">
+              <a id="modal-cta" href={whatsappLink1} target="_blank" rel="noopener" class="cta-button w-full flex items-center justify-center gap-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-600 text-white text-xl font-bold py-4 px-6 rounded-xl transition-all hover:scale-105 shadow-xl">
+                <svg width="24" height="24" viewBox="0 0 308 308" fill="white" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458C233.168,179.508,230.845,178.393,227.904,176.981z" />
+                  <path d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867C276.546,215.678,222.799,268.994,156.734,268.994z" />
+                </svg>
+                CREAR USUARIO
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal de animación de victoria -->
+  <div id="win-animation" class="fixed inset-0 flex items-center justify-center z-40 opacity-0 pointer-events-none">
+    <div class="win-animation-container">
+      <div class="confetti-container"></div>
+      <div class="win-text text-5xl md:text-7xl font-bold text-white text-center animate-bounce">
+        ¡GANASTE! 🎉
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ pixelEvent }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Referencias a elementos del DOM
+    const bonusModal = document.getElementById('bonus-modal');
+    const modalCard = document.querySelector('.modal-card');
+    const closeModalBtn = document.getElementById('close-modal');
+    const mainWhatsappLink = document.querySelector('#modal-cta')?.getAttribute('href') || '';
+    const clawElement = document.getElementById('claw');
+    const clawArm = document.getElementById('claw-arm');
+    const clawLeftFinger = document.getElementById('claw-left-finger');
+    const clawRightFinger = document.getElementById('claw-right-finger');
+    const grabbedPrizeContainer = document.getElementById('grabbed-prize-container');
+    const playButton = document.getElementById('play-button');
+    const prizes = document.querySelectorAll('.prize');
+    const attemptsText = document.getElementById('attempts-text');
+    const winAnimation = document.getElementById('win-animation');
+    const gameWindow = document.getElementById('game-window');
+    
+    // Variables del juego
+    let isPlaying = false;
+    let gameCompleted = false;
+    
+    console.log('Juego de garra mecánica inicializado');
+    
+    // Configurar el botón de WhatsApp superior
+    const topWhatsappButton = document.getElementById('whatsapp-top-button');
+    if (topWhatsappButton) {
+      topWhatsappButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const eventToTrack = pixelEvent || 'Lead';
+        console.log('Tracking event desde botón superior:', eventToTrack);
+        
+        if (typeof fbq === 'function') {
+          fbq('track', eventToTrack);
+        }
+        
+        setTimeout(() => {
+          window.open(topWhatsappButton.href, '_blank');
+        }, 300);
+      });
+    }
+    
+    // Obtener el botón CTA
+    const ctaButton = document.getElementById('modal-cta');
+    
+    if (ctaButton) {
+      ctaButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const eventToTrack = pixelEvent || 'Lead';
+        console.log('Tracking event:', eventToTrack);
+        
+        if (typeof fbq === 'function') {
+          fbq('track', eventToTrack);
+        }
+        
+        setTimeout(() => {
+          window.location.href = ctaButton.href;
+        }, 300);
+      });
+    }
+    
+    // Datos de los bonos
+    const bonusData = {
+      'default': {
+        name: '10% BONO',
+        icon: '🎁',
+        subtitle: '¡Felicidades has ganado tu bono!',
+        description: 'Hablanos al whatsapp pulsando el boton y crea tu usuario al instante',
+        features: [
+          'Válido para cualquier monto de carga',
+          'Sin requisitos adicionales',
+          'Actívalo inmediatamente al crear tu usuario'
+        ],
+        ctaLink: ''
+      }
+    };
+    
+    // Función para mostrar el modal con los detalles del bono
+    function showBonusModal() {
+      const bonus = bonusData['default'];
+      
+      // Actualizar contenido del modal
+      const bonusNameElement = document.querySelector('.bonus-name');
+      if (bonusNameElement) bonusNameElement.textContent = bonus.name;
+      
+      const modalIcon = document.getElementById('modal-icon');
+      const modalSubtitle = document.getElementById('modal-subtitle');
+      const modalDescription = document.getElementById('modal-description');
+      const feature1 = document.getElementById('feature-1');
+      const feature2 = document.getElementById('feature-2');
+      const feature3 = document.getElementById('feature-3');
+      
+      if (modalIcon) modalIcon.textContent = bonus.icon;
+      if (modalSubtitle) modalSubtitle.textContent = bonus.subtitle;
+      if (modalDescription) modalDescription.textContent = bonus.description;
+      if (feature1) feature1.textContent = bonus.features[0];
+      if (feature2) feature2.textContent = bonus.features[1];
+      if (feature3) feature3.textContent = bonus.features[2];
+      
+      // Actualizar link de CTA
+      const ctaButton = document.getElementById('modal-cta');
+      if (ctaButton) {
+        ctaButton.href = mainWhatsappLink;
+      }
+      
+      // Mostrar el modal con animación
+      if (bonusModal) {
+        bonusModal.classList.remove('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          if (modalCard) modalCard.classList.add('scale-100');
+        }, 100);
+      }
+    }
+    
+    // Cerrar el modal
+    function closeModal() {
+      if (modalCard) modalCard.classList.remove('scale-100');
+      
+      setTimeout(() => {
+        if (bonusModal) bonusModal.classList.add('opacity-0', 'pointer-events-none');
+      }, 300);
+    }
+    
+    // Función para crear confeti
+    function createConfetti() {
+      const confettiContainer = document.querySelector('.confetti-container');
+      const colors = ['#FFD700', '#FF5F6D', '#4776E6', '#FFC371', '#8E54E9'];
+      
+      if (!confettiContainer) return;
+      
+      // Limpiar contenedor
+      confettiContainer.innerHTML = '';
+      
+      // Crear 50 elementos de confeti
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        confetti.style.animationDelay = Math.random() * 2 + 's';
+        confettiContainer.appendChild(confetti);
+      }
+    }
+    
+    // Función para mostrar la animación de victoria
+    function showWinAnimation() {
+      if (winAnimation) {
+        createConfetti();
+        winAnimation.classList.remove('opacity-0', 'pointer-events-none');
+        winAnimation.classList.add('opacity-100');
+        
+        setTimeout(() => {
+          winAnimation.classList.add('opacity-0', 'pointer-events-none');
+          winAnimation.classList.remove('opacity-100');
+          
+          // Mostrar el modal de bono después de la animación
+          setTimeout(() => {
+            showBonusModal();
+          }, 500);
+        }, 2000);
+      }
+    }
+    
+    // Detiene la animación de la garra y obtiene su posición exacta
+    function stopClawAnimation() {
+      if (!clawElement || !gameWindow) {
+        console.error("No se encontró la garra o la ventana del juego");
+        return null;
+      }
+      
+      // Importante: Debemos obtener las coordenadas antes de detener la animación
+      const clawRect = clawElement.getBoundingClientRect();
+      const gameRect = gameWindow.getBoundingClientRect();
+      
+      // Calcular posición relativa al contenedor del juego (no al viewport)
+      const clawX = clawRect.left - gameRect.left + (clawRect.width / 2);
+      
+      // Detener la animación
+      clawElement.style.animation = 'none';
+      
+      // Eliminar transformaciones para posicionar directamente
+      clawElement.style.transform = 'none';
+      clawElement.style.left = `${clawX}px`;
+      
+      console.log("Garra detenida en posición X:", clawX);
+      return clawX;
+    }
+    
+    // Encuentra el premio más cercano a la posición horizontal de la garra
+    function findClosestPrize(clawX) {
+      if (!gameWindow) {
+        console.error("No se encontró la ventana del juego");
+        return null;
+      }
+      
+      const gameRect = gameWindow.getBoundingClientRect();
+      let closestPrize = null;
+      let closestDistance = Infinity;
+      
+      prizes.forEach(prize => {
+        const prizeRect = prize.getBoundingClientRect();
+        // Centro del premio relativo al contenedor del juego
+        const prizeCenterX = prizeRect.left - gameRect.left + (prizeRect.width / 2);
+        const distance = Math.abs(prizeCenterX - clawX);
+        
+        // Debug
+        console.log(`Premio ${prize.id} en posición X: ${prizeCenterX}, distancia: ${distance}`);
+        
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestPrize = prize;
+        }
+      });
+      
+      console.log("Premio más cercano seleccionado:", closestPrize?.id);
+      return closestPrize;
+    }
+    
+    // Extiende el brazo de la garra para agarrar un premio
+    function grabPrize(prize, clawX) {
+      if (!prize || !clawArm || !clawElement || !gameWindow) {
+        console.error("Elementos necesarios no encontrados");
+        return;
+      }
+      
+      // Posicionar claw exactamente en el centro
+      const gameRect = gameWindow.getBoundingClientRect();
+      const prizeRect = prize.getBoundingClientRect();
+      
+      // Posición Y del premio relativa al contenedor
+      const prizeY = prizeRect.top - gameRect.top;
+      
+      console.log(`Extendiendo brazo a posición Y: ${prizeY}, desde X: ${clawX}`);
+      
+      // Asegurarse que la garra esté correctamente posicionada horizontalmente
+      clawElement.style.left = `${clawX}px`;
+      
+      // Extender el brazo
+      setTimeout(() => {
+        clawArm.style.height = `${prizeY - 40}px`; // Ajustar según necesidad
+        
+        // Cerrar los dedos
+        setTimeout(() => {
+          clawLeftFinger.style.transform = 'rotate(-30deg)';
+          clawRightFinger.style.transform = 'rotate(30deg)';
+          
+          // Crear clon del premio y adjuntarlo a la garra
+          setTimeout(() => {
+            const prizeBox = prize.querySelector('.prize-box');
+            const prizeClone = prizeBox.cloneNode(true);
+            prizeClone.style.width = '20px';
+            prizeClone.style.height = '20px';
+            
+            // Limpiar y añadir el premio
+            grabbedPrizeContainer.innerHTML = '';
+            grabbedPrizeContainer.appendChild(prizeClone);
+            grabbedPrizeContainer.style.opacity = '1';
+            
+            // Ocultar el premio original
+            prize.style.opacity = '0';
+            
+            // Retraer el brazo con el premio
+            setTimeout(() => {
+              clawArm.style.height = '20px';
+              
+              setTimeout(() => {
+                // Mostrar la animación de victoria
+                gameCompleted = true;
+                
+                // Mostrar animación de victoria
+                showWinAnimation();
+                
+                // Desactivar permanentemente el botón
+                playButton.disabled = true;
+                playButton.classList.add('opacity-50', 'cursor-not-allowed');
+                
+                // Cambiar el texto
+                attemptsText.textContent = '¡Felicidades! Has ganado tu bono';
+                
+                console.log('Juego completado - Victoria');
+                
+                // Abrir los dedos
+                setTimeout(() => {
+                  clawLeftFinger.style.transform = 'rotate(-45deg)';
+                  clawRightFinger.style.transform = 'rotate(45deg)';
+                  grabbedPrizeContainer.style.opacity = '0';
+                }, 500);
+              }, 1000);
+            }, 500);
+          }, 300);
+        }, 500);
+      }, 300);
+    }
+    
+    // Configurar el juego
+    if (playButton) {
+      playButton.addEventListener('click', () => {
+        // Verificar si el juego ya está completado o en progreso
+        if (isPlaying || gameCompleted) {
+          console.log('Juego ya completado o en progreso, acción ignorada');
+          return;
+        }
+        
+        // Marcar como en progreso
+        isPlaying = true;
+        playButton.disabled = true;
+        playButton.classList.add('opacity-50', 'cursor-not-allowed');
+        
+        console.log('Juego iniciado');
+        
+        // 1. Detener la animación de la garra y obtener su posición actual
+        const clawXPosition = stopClawAnimation();
+        
+        if (clawXPosition === null) {
+          console.error("Error al determinar posición de la garra");
+          isPlaying = false;
+          playButton.disabled = false;
+          playButton.classList.remove('opacity-50', 'cursor-not-allowed');
+          return;
+        }
+        
+        // 2. Encontrar el premio más cercano
+        const targetPrize = findClosestPrize(clawXPosition);
+        
+        if (!targetPrize) {
+          console.error("No se pudo encontrar un premio válido");
+          isPlaying = false;
+          playButton.disabled = false;
+          playButton.classList.remove('opacity-50', 'cursor-not-allowed');
+          return;
+        }
+        
+        // 3. Agarrar el premio
+        grabPrize(targetPrize, clawXPosition);
+      });
+    }
+    
+    // Evento para cerrar el modal
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener('click', closeModal);
+    }
+  });
+</script>
+
+<style>
+  /* Textura de fondo de mesa de casino */
+  .bg-felt-pattern {
+    background-image: 
+      radial-gradient(circle, rgba(25, 17, 45, 0.6) 1px, transparent 1px),
+      radial-gradient(circle, rgba(25, 17, 45, 0.6) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+  }
+
+  /* Patrón de puntos para fondo unificado */
+  .bg-dots-pattern {
+    background-image: 
+      radial-gradient(circle, rgba(255, 208, 112, 0.15) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+  
+  .gradient-text {
+    background-image: linear-gradient(45deg, #FFD700, #FFB627);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .gradient-text::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-image: linear-gradient(45deg, #FFD700, #FFB627);
+    border-radius: 2px;
+  }
+  
+  .hero-title {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.05em;
+  }
+  
+  /* Estilos para la máquina de garra */
+  .claw-machine {
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 215, 0, 0.2);
+  }
+  
+  /* Animación de movimiento continuo de la garra */
+  @keyframes move-claw {
+    0% {
+      left: 5%;
+      transform: translateX(0);
+    }
+    100% {
+      left: 85%;
+      transform: translateX(0);
+    }
+  }
+  
+  .animate-move-claw {
+    animation: move-claw 4s infinite alternate ease-in-out;
+  }
+  
+  .claw {
+    transition: left 1s ease-in-out;
+  }
+  
+  .claw-extension {
+    transition: all 0.5s ease;
+  }
+  
+  .claw-arm {
+    transition: height 1s ease-in-out;
+  }
+  
+  .transition-height {
+    transition-property: height;
+  }
+  
+  .prize-box {
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  }
+  
+  .prize:hover .prize-box {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  }
+  
+  .shadow-glow {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+  }
+  
+  /* Animación de confeti */
+  .confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .confetti {
+    position: absolute;
+    top: -10px;
+    width: 10px;
+    height: 20px;
+    opacity: 0.7;
+    transform-origin: center;
+    animation: confetti-fall linear forwards;
+  }
+  
+  @keyframes confetti-fall {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+  
+  /* Animación de victoria */
+  .win-animation-container {
+    animation: pop-in 0.5s forwards;
+  }
+  
+  .win-text {
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+  }
+  
+  /* Botón para jugar */
+  .play-button {
+    background: linear-gradient(45deg, #FFD700, #FFB627);
+    color: #241554;
+    font-weight: 700;
+    padding: 16px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(255, 215, 0, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .play-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 30px -5px rgba(255, 215, 0, 0.5);
+  }
+  
+  .play-button:active {
+    transform: translateY(1px);
+  }
+  
+  .joystick-icon {
+    font-size: 1.3rem;
+    animation: wiggle 2s infinite;
+  }
+  
+  @keyframes wiggle {
+    0%, 100% {
+      transform: rotate(-10deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+  }
+  
+  /* Modal de bono mejorado */
+  .modal-backdrop {
+    transition: opacity 0.5s ease;
+  }
+  
+  .modal-card {
+    transform-origin: center;
+    transform: scale(0);
+    transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 95%;
+    max-width: 600px;
+  }
+  
+  .modal-card.scale-100 {
+    transform: scale(1);
+  }
+  
+  .modal-card-inner {
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
+  }
+  
+  .bonus-icon {
+    animation: pulse-glow 2s infinite alternate;
+  }
+  
+  @keyframes pulse-glow {
+    0% {
+      box-shadow: 0 0 10px rgba(255, 208, 112, 0.5);
+    }
+    100% {
+      box-shadow: 0 0 30px rgba(255, 208, 112, 0.8);
+    }
+  }
+  
+  .casino-gold {
+    color: #FFD700;
+  }
+  
+  .text-casino-gold {
+    color: #FFD700;
+  }
+  
+  /* Botón de acción */
+  .cta-button {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(22, 163, 74, 0.5);
+    font-size: 1.2rem;
+    padding: 0.8rem;
+  }
+  
+  .cta-button svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  
+  .cta-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+  }
+  
+  /* Animaciones */
+  @keyframes shine {
+    0% {
+      left: -100%;
+      top: -100%;
+    }
+    100% {
+      left: 100%;
+      top: 100%;
+    }
+  }
+  
+  @keyframes pop-in {
+    0% {
+      transform: scale(0);
+    }
+    70% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse-slow 2s infinite;
+  }
+  
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .animate-pop-in {
+    animation: pop-in 0.5s forwards;
+  }
+  
+  /* Botón de cierre del modal */
+  #close-modal {
+    transition: transform 0.2s ease;
+  }
+  
+  #close-modal:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .prize-box {
+      width: 18px;
+      height: 18px;
+    }
+    
+    .prize-box span {
+      font-size: 3rem;
+    }
+    
+    .play-button {
+      font-size: 1.3rem;
+      padding: 16px 28px;
+    }
+    
+    .modal-card-inner {
+      width: 90%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .modal-content {
+      padding: 1.2rem;
+    }
+    
+    .bonus-icon {
+      width: 5rem;
+      height: 5rem;
+    }
+    
+    .cta-button {
+      padding: 0.6rem;
+      font-size: 1rem;
+    }
+    
+    .cta-button svg {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .prize-box {
+      width: 16px;
+      height: 16px;
+    }
+    
+    .prize-box span {
+      font-size: 2.5rem;
+    }
+    
+    .play-button {
+      font-size: 1.1rem;
+      padding: 14px 22px;
+    }
+    
+    .joystick-icon {
+      font-size: 1.3rem;
+    }
+    
+    .modal-content {
+      padding: 1rem;
+    }
+    
+    .bonus-icon {
+      width: 4rem;
+      height: 4rem;
+    }
+    
+    #modal-title {
+      font-size: 1.5rem;
+    }
+    
+    #modal-subtitle {
+      font-size: 1.2rem;
+    }
+    
+    #modal-description {
+      font-size: 0.9rem;
+    }
+    
+    .feature-text {
+      font-size: 0.8rem;
+    }
+    
+    .cta-button {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .cta-button svg {
+      width: 0.8rem;
+      height: 0.8rem;
+    }
+  }
+</style>
