@@ -1,0 +1,1634 @@
+---
+//heros/Hero(1).astro
+const { whatsappLink1, whatsappLink2, pixelEvent } = Astro.props;
+import '../styles/global.css';
+---
+
+<section class="relative min-h-screen pt-14 sm:pt-20 md:pt-32 pb-12 flex flex-col items-center justify-between bg-gradient-to-b from-casino-purple via-[#241554] to-[#1A0F36] overflow-hidden w-full mobile-margin">
+  <!-- Elementos flotantes decorativos -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="floating-element absolute top-1/4 left-10 w-12 h-12 opacity-30 animate-spin-slow">
+      <img src="/images/chips.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute top-2/3 right-12 w-16 h-16 opacity-20 animate-pulse-slow" style="animation-delay: 1s;">
+      <img src="/images/ace.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute bottom-1/4 left-1/3 w-14 h-14 opacity-25" style="animation-delay: 0.5s;">
+      <img src="/images/gambling.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute top-1/3 right-1/4 w-10 h-10 opacity-20" style="animation-delay: 1.5s;">
+      <img src="/images/ace.svg" alt="" class="w-full h-full" />
+    </div>
+  </div>
+  
+  <!-- Efecto de luz de fondo -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-lg max-h-lg bg-casino-gold/10 blur-[100px] rounded-full"></div>
+  
+  <!-- Textura de fondo unificada -->
+  <div class="absolute inset-0 bg-felt-pattern opacity-10"></div>
+  <div class="absolute inset-0 bg-dots-pattern opacity-5"></div>
+  
+  <div class="w-full px-5 max-w-4xl mx-auto flex flex-col items-center justify-center relative z-10 text-center h-full py-4">
+    <!-- TITLE -->
+    <h1 class="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-6 md:mb-8 text-white uppercase hero-title font-extrabold tracking-wide mt-6">
+      APROVECHA Y <span class="gradient-text">GANA TU BONO!</span>
+    </h1>
+    
+    <!-- Botón de WhatsApp visible arriba -->
+    <div class="mb-3 sm:mb-5 w-full max-w-sm mx-auto">
+      <a id="whatsapp-top-button" href={whatsappLink1} target="_blank" rel="noopener" class="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-xl transition-all hover:scale-105 shadow-lg w-full text-lg sm:text-xl">
+        <svg width="24" height="24" viewBox="0 0 308 308" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458C233.168,179.508,230.845,178.393,227.904,176.981z" />
+          <path d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867C276.546,215.678,222.799,268.994,156.734,268.994z" />
+        </svg>
+        CREAR USUARIO AHORA
+      </a>
+    </div>
+    
+    <!-- Juego de Poker -->
+    <div class="poker-game-container relative flex-1 w-full flex flex-col items-center justify-evenly py-2">
+      
+      <div class="poker-wrapper relative">
+        <!-- Corner decorations -->
+        <div class="corner-accent corner-accent--top-left"></div>
+        <div class="corner-accent corner-accent--top-right"></div>
+        <div class="corner-accent corner-accent--bottom-left"></div>
+        <div class="corner-accent corner-accent--bottom-right"></div>
+        
+        <!-- Overlay para cuando el juego ha finalizado -->
+        <div id="game-complete-overlay" class="game-complete-overlay display-none">
+          <div class="overlay-content">
+            <div class="win-icon">🃏</div>
+            <div class="win-message">¡Felicidades! Has armado una mano ganadora</div>
+            <div class="game-over-message">Juego completado</div>
+          </div>
+        </div>
+        
+        <!-- Área de cartas -->
+        <div class="poker-table">
+          <div class="poker-hand" id="poker-hand">
+            <!-- Las cartas se generan dinámicamente -->
+          </div>
+          <div id="hand-result" class="hand-result">
+            <span>Arma tu mano de póker</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="game-controls mt-5 mb-2 w-full flex flex-col items-center">
+        <button id="deal-button" class="deal-button bg-gradient-to-r from-casino-gold to-yellow-500 text-casino-purple hover:from-yellow-500 hover:to-casino-gold text-lg sm:text-xl md:text-2xl font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl transition-all hover:scale-105 shadow-2xl flex items-center justify-center gap-3">
+          <span class="cards-icon">🃏</span>
+          REPARTIR CARTAS
+        </button>
+        
+        <div class="bonus-controls mt-3 sm:mt-4 hidden w-full flex justify-center">
+          <button id="claim-bonus" class="claim-bonus-button bg-gradient-to-r from-green-600 to-green-500 text-white hover:from-green-500 hover:to-green-600 text-base sm:text-lg font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-xl transition-all hover:scale-105 shadow-xl">
+            RECLAMAR BONO <span id="bonus-amount" class="ml-1">0%</span>
+          </button>
+          
+          <button id="try-again" class="try-again-button bg-gradient-to-r from-blue-600 to-blue-500 text-white hover:from-blue-500 hover:to-blue-600 text-base sm:text-lg font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-xl transition-all hover:scale-105 shadow-xl ml-2">
+            INTENTAR OTRA VEZ
+          </button>
+        </div>
+      </div>
+      
+      <div class="instructions-container mt-2 mb-3">
+        <div id="game-instructions" class="game-instructions text-white/80 text-xs sm:text-sm md:text-base text-center w-full max-w-xs mx-auto px-2">
+          Presiona REPARTIR CARTAS para obtener una mano de póker y ganar tu bono
+        </div>
+        
+        <div id="attempts-counter" class="attempts-counter text-white/60 mt-1 sm:mt-2 text-xs sm:text-sm text-center w-full">
+          Intentos restantes: <span id="attempts-left">3</span>
+        </div>
+      </div>
+      
+      <!-- Decoración de cartas en la parte inferior -->
+      <div class="bottom-cards absolute bottom-0 left-0 right-0 flex justify-between opacity-30 pointer-events-none">
+        <img src="/images/card-deco-1.svg" alt="" class="w-16 h-16 transform -rotate-12" />
+        <img src="/images/card-deco-2.svg" alt="" class="w-16 h-16 transform rotate-12" />
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal de bono a pantalla completa -->
+  <div id="bonus-modal" class="fixed inset-0 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-500">
+    <div class="modal-backdrop absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+    <div class="modal-card-container relative w-full h-full flex items-center justify-center">
+      <!-- Carta central animada -->
+      <div class="modal-card transform transition-all duration-700 scale-0">
+        <div class="modal-card-inner relative bg-gradient-to-b from-[#281552] to-[#1A0F36] rounded-xl border-4 border-casino-gold/60 shadow-2xl overflow-hidden w-full max-w-lg mx-auto">
+          <!-- Cabecera del modal -->
+          <div class="modal-header bg-gradient-to-r from-[#281552] to-[#1E1040] p-6 text-center border-b border-casino-gold/30 relative">
+            <button id="close-modal" class="absolute right-4 top-4 text-white hover:text-casino-gold transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <h2 id="modal-title" class="text-3xl font-bold text-white">¡<span class="bonus-name">BONO</span>!</h2>
+          </div>
+          
+          <!-- Contenido del modal -->
+          <div class="modal-content p-6">
+            <div class="bonus-icon-container flex justify-center mb-6">
+              <div class="bonus-icon w-24 h-24 rounded-full bg-gradient-to-br from-casino-gold/30 to-casino-gold/10 flex items-center justify-center">
+                <div id="modal-icon" class="text-5xl">🎁</div>
+              </div>
+            </div>
+            
+            <div class="bonus-details text-center mb-8">
+              <h3 id="modal-subtitle" class="text-xl text-white font-bold mb-4">¡Felicidades has ganado tu bono!</h3>
+              <p id="modal-description" class="text-white/90 text-lg mb-6">Hablanos al whatsapp pulsando el boton y crea tu usuario al instante</p>
+              
+              <div class="bonus-features space-y-4 text-left mb-8">
+                <div class="feature flex items-center">
+                  <div class="feature-icon w-10 h-10 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div id="feature-1" class="feature-text text-white/90">Válido para cualquier monto de carga</div>
+                </div>
+                
+                <div class="feature flex items-center">
+                  <div class="feature-icon w-10 h-10 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div id="feature-2" class="feature-text text-white/90">Sin requisitos adicionales</div>
+                </div>
+                
+                <div class="feature flex items-center">
+                  <div class="feature-icon w-10 h-10 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div id="feature-3" class="feature-text text-white/90">Actívalo inmediatamente al crear tu usuario</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Botones de acción -->
+            <div class="modal-actions flex flex-col space-y-4">
+              <a id="modal-cta" href={whatsappLink1} target="_blank" rel="noopener" class="cta-button w-full flex items-center justify-center gap-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-600 text-white text-xl font-bold py-4 px-6 rounded-xl transition-all hover:scale-105 shadow-xl">
+                <svg width="24" height="24" viewBox="0 0 308 308" fill="white" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458C233.168,179.508,230.845,178.393,227.904,176.981z" />
+                  <path d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867C276.546,215.678,222.799,268.994,156.734,268.994z" />
+                </svg>
+                CREAR USUARIO
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ pixelEvent }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Referencias a elementos del DOM
+    const bonusModal = document.getElementById('bonus-modal');
+    const modalCard = document.querySelector('.modal-card');
+    const closeModalBtn = document.getElementById('close-modal');
+    const mainWhatsappLink = document.querySelector('#modal-cta')?.getAttribute('href') || '';
+    const dealButton = document.getElementById('deal-button');
+    const claimButton = document.getElementById('claim-bonus');
+    const tryAgainButton = document.getElementById('try-again');
+    const pokerHand = document.getElementById('poker-hand');
+    const handResult = document.getElementById('hand-result');
+    const gameCompleteOverlay = document.getElementById('game-complete-overlay');
+    const gameInstructions = document.getElementById('game-instructions');
+    const bonusControls = document.querySelector('.bonus-controls');
+    const bonusAmount = document.getElementById('bonus-amount');
+    const attemptsLeft = document.getElementById('attempts-left');
+    
+    // Variables de juego
+    let attemptCount = 0;
+    let isGameActive = true;
+    let gameCompleted = false;
+    let currentBonus = 0;
+    let currentHand = null;
+    
+    // Constantes para el juego
+    const SUITS = ['♥', '♦', '♠', '♣'];
+    const SUIT_MAP = {
+      '♥': { name: 'heart', color: '#E32322' },
+      '♦': { name: 'diamond', color: '#E32322' },
+      '♠': { name: 'spade', color: '#000000' },
+      '♣': { name: 'club', color: '#000000' }
+    };
+    const VALUES = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+    const HAND_RANKINGS = {
+      'Escalera Real': { bonus: 10, emoji: '👑' },
+      'Escalera de Color': { bonus: 9, emoji: '🌈' },
+      'Poker': { bonus: 8, emoji: '🔥' },
+      'Full House': { bonus: 7, emoji: '🏠' },
+      'Color': { bonus: 6, emoji: '🎨' },
+      'Escalera': { bonus: 5, emoji: '📈' },
+      'Trio': { bonus: 4, emoji: '🔱' },
+      'Doble Pareja': { bonus: 3, emoji: '👫' },
+      'Pareja': { bonus: 2, emoji: '👯' },
+      'Carta Alta': { bonus: 1, emoji: '🃏' }
+    };
+    
+    // Para depuración
+    console.log('Pixel event disponible:', pixelEvent);
+    console.log('Juego de poker inicializado');
+    
+    // Asegurarse de que los elementos del juego estén en el estado correcto al iniciar
+    function initGameState() {
+      console.log('Inicializando estado del juego');
+      
+      // Forzar que el overlay esté oculto al iniciar
+      if (gameCompleteOverlay) {
+        gameCompleteOverlay.style.display = 'none';
+        gameCompleteOverlay.classList.add('display-none');
+      }
+      
+      // Ocultar controles de bono inicialmente
+      if (bonusControls) {
+        bonusControls.classList.add('hidden');
+      }
+      
+      // Actualizar contador de intentos
+      if (attemptsLeft) {
+        attemptsLeft.textContent = '3';
+      }
+      
+      console.log('Estado del juego inicializado correctamente');
+    }
+    
+    // Función para crear una baraja de cartas
+    function createDeck() {
+      let deck = [];
+      for (let suit of SUITS) {
+        for (let value of VALUES) {
+          deck.push({ value, suit });
+        }
+      }
+      return deck;
+    }
+    
+    // Función para mezclar la baraja (algoritmo Fisher-Yates)
+    function shuffleDeck(deck) {
+      for (let i = deck.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [deck[i], deck[j]] = [deck[j], deck[i]];
+      }
+      return deck;
+    }
+    
+    // Función para repartir una mano de 5 cartas
+    function dealHand() {
+      let deck = shuffleDeck(createDeck());
+      return deck.slice(0, 5);
+    }
+    
+    // Función para evaluar una mano y determinar su rango
+    function evaluateHand(hand) {
+      // Ordenar la mano por valor para facilitar la evaluación
+      const sortedHand = [...hand].sort((a, b) => {
+        return VALUES.indexOf(a.value) - VALUES.indexOf(b.value);
+      });
+      
+      // Obtener frecuencias de valores y palos
+      const valueCounts = {};
+      const suitCounts = {};
+      
+      for (const card of sortedHand) {
+        valueCounts[card.value] = (valueCounts[card.value] || 0) + 1;
+        suitCounts[card.suit] = (suitCounts[card.suit] || 0) + 1;
+      }
+      
+      const valueFreq = Object.values(valueCounts);
+      const uniqueValues = Object.keys(valueCounts).length;
+      
+      // Comprobar color (flush)
+      const isFlush = Object.values(suitCounts).some(count => count === 5);
+      
+      // Comprobar escalera (straight)
+      let isStraight = false;
+      if (uniqueValues === 5) {
+        // Obtener índices de los valores en orden
+        const indices = sortedHand.map(card => VALUES.indexOf(card.value));
+        // Comprobar si son consecutivos
+        indices.sort((a, b) => a - b);
+        isStraight = indices[4] - indices[0] === 4 && uniqueValues === 5;
+        
+        // Caso especial: A-2-3-4-5
+        if (!isStraight && indices.includes(VALUES.indexOf('A'))) {
+          const specialStraight = [VALUES.indexOf('A'), VALUES.indexOf('2'), VALUES.indexOf('3'), VALUES.indexOf('4'), VALUES.indexOf('5')];
+          isStraight = specialStraight.every(value => indices.includes(value));
+        }
+      }
+      
+      // Evaluar la mano de mayor a menor rango
+      // Escalera Real (Royal Flush)
+      if (isFlush && isStraight) {
+        const values = sortedHand.map(card => card.value);
+        if (values.includes('10') && values.includes('J') && values.includes('Q') && values.includes('K') && values.includes('A')) {
+          return 'Escalera Real';
+        }
+        // Escalera de Color (Straight Flush)
+        return 'Escalera de Color';
+      }
+      
+      // Poker (Four of a Kind)
+      if (valueFreq.includes(4)) {
+        return 'Poker';
+      }
+      
+      // Full House (Three of a Kind + Pair)
+      if (valueFreq.includes(3) && valueFreq.includes(2)) {
+        return 'Full House';
+      }
+      
+      // Color (Flush)
+      if (isFlush) {
+        return 'Color';
+      }
+      
+      // Escalera (Straight)
+      if (isStraight) {
+        return 'Escalera';
+      }
+      
+      // Trio (Three of a Kind)
+      if (valueFreq.includes(3)) {
+        return 'Trio';
+      }
+      
+      // Doble Pareja (Two Pair)
+      if (valueFreq.filter(freq => freq === 2).length === 2) {
+        return 'Doble Pareja';
+      }
+      
+      // Pareja (One Pair)
+      if (valueFreq.includes(2)) {
+        return 'Pareja';
+      }
+      
+      // Carta Alta (High Card)
+      return 'Carta Alta';
+    }
+    
+    // Función para renderizar una mano en el DOM con cartas de poker estilo real
+    function renderHand(hand) {
+      if (!pokerHand) return;
+      
+      // Limpiar la mano actual
+      pokerHand.innerHTML = '';
+      
+      console.log('Renderizando cartas con estilo nuevo');
+      
+      // Verificar si estamos en mobile
+      const isMobile = window.innerWidth < 640;
+      const cardWidth = isMobile ? '40px' : '70px';
+      const cardHeight = isMobile ? '60px' : '100px';
+      const fontSize = isMobile ? '12px' : '16px';
+      
+      // Crear cada carta como HTML directo para evitar problemas con el renderizado dinámico
+      hand.forEach((card, index) => {
+        const suitInfo = SUIT_MAP[card.suit];
+        
+        // Crear estructura HTML completa para cada carta como string
+        const cardHtml = `
+          <div class="poker-card custom-card" style="animation-delay: ${index * 0.15}s; width: ${cardWidth}; height: ${cardHeight};">
+            <div class="card-inner">
+              <div class="card-value top-left" style="color: ${suitInfo.color}; font-size: ${fontSize};">${card.value}<br>${card.suit}</div>
+              <div class="card-value bottom-right" style="color: ${suitInfo.color}; font-size: ${fontSize};">${card.value}<br>${card.suit}</div>
+            </div>
+          </div>
+        `;
+        
+        // Insertar directamente la carta en el contenedor
+        pokerHand.insertAdjacentHTML('beforeend', cardHtml);
+      });
+      
+      console.log('Cartas renderizadas:', hand.map(card => `${card.value}${card.suit}`).join(', '));
+      
+      // Agregar estilos en línea para forzar el aspecto correcto de las cartas
+      const styleElement = document.createElement('style');
+      styleElement.textContent = `
+        .custom-card {
+          display: inline-block;
+          margin: 0 3px;
+          perspective: 1000px;
+          transform: scale(0);
+          animation: card-deal 0.5s forwards;
+          border-radius: 8px;
+        }
+        
+        .card-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          background-color: #ffffff !important;
+          border-radius: 8px !important;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+          border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-value {
+          position: absolute;
+          font-weight: bold;
+          line-height: 1;
+          text-align: center;
+        }
+        
+        .top-left {
+          top: 3px;
+          left: 3px;
+        }
+        
+        .bottom-right {
+          bottom: 3px;
+          right: 3px;
+          transform: rotate(180deg);
+        }
+        
+        @keyframes card-deal {
+          0% { transform: scale(0) translateY(-20px); }
+          70% { transform: scale(1.1) translateY(5px); }
+          100% { transform: scale(1) translateY(0); }
+        }
+        
+        @media (max-width: 640px) {
+          .poker-hand {
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+          }
+          
+          .custom-card {
+            margin: 0 2px;
+          }
+          
+          .top-left {
+            top: 2px;
+            left: 2px;
+          }
+          
+          .bottom-right {
+            bottom: 2px;
+            right: 2px;
+          }
+        }
+      `;
+      
+      // Insertar los estilos en el documento
+      document.head.appendChild(styleElement);
+    }
+    
+    // Función para actualizar el resultado de la mano
+    function updateHandResult(handType) {
+      if (!handResult || !HAND_RANKINGS[handType]) return;
+      
+      const { bonus, emoji } = HAND_RANKINGS[handType];
+      currentBonus = bonus;
+      
+      handResult.innerHTML = `
+        <div class="hand-name">${emoji} ${handType}</div>
+        <div class="bonus-value">Bono: ${bonus}%</div>
+      `;
+      
+      if (bonusAmount) {
+        bonusAmount.textContent = `${bonus}%`;
+      }
+    }
+    
+    // Función para repartir cartas
+    const dealCards = () => {
+      if (!isGameActive) {
+        console.log('Juego inactivo, no se pueden repartir cartas');
+        return;
+      }
+      
+      attemptCount++;
+      console.log(`Intento ${attemptCount} realizado`);
+      
+      // Actualizar contador de intentos
+      if (attemptsLeft) {
+        attemptsLeft.textContent = `${3 - attemptCount}`;
+      }
+      
+      // Generar mano aleatoria o predeterminada según el intento
+      let hand;
+      let handType;
+      
+      if (attemptCount === 3) {
+        // En el tercer intento, dar la mejor mano (Escalera Real)
+        hand = [
+          { value: '10', suit: '♥' },
+          { value: 'J', suit: '♥' },
+          { value: 'Q', suit: '♥' },
+          { value: 'K', suit: '♥' },
+          { value: 'A', suit: '♥' }
+        ];
+        handType = 'Escalera Real';
+      } else if (attemptCount === 2) {
+        // En el segundo intento, dar una mano intermedia (Full House o mejor)
+        const betterHands = ['Full House', 'Color', 'Escalera', 'Poker', 'Escalera de Color'];
+        const randomHand = betterHands[Math.floor(Math.random() * betterHands.length)];
+        
+        // Crear manos predefinidas para cada tipo
+        if (randomHand === 'Full House') {
+          hand = [
+            { value: 'K', suit: '♥' },
+            { value: 'K', suit: '♦' },
+            { value: 'K', suit: '♠' },
+            { value: 'Q', suit: '♥' },
+            { value: 'Q', suit: '♦' }
+          ];
+        } else if (randomHand === 'Color') {
+          hand = [
+            { value: '2', suit: '♥' },
+            { value: '5', suit: '♥' },
+            { value: '7', suit: '♥' },
+            { value: '10', suit: '♥' },
+            { value: 'K', suit: '♥' }
+          ];
+        } else if (randomHand === 'Escalera') {
+          hand = [
+            { value: '6', suit: '♥' },
+            { value: '7', suit: '♦' },
+            { value: '8', suit: '♠' },
+            { value: '9', suit: '♣' },
+            { value: '10', suit: '♥' }
+          ];
+        } else if (randomHand === 'Poker') {
+          hand = [
+            { value: 'A', suit: '♥' },
+            { value: 'A', suit: '♦' },
+            { value: 'A', suit: '♠' },
+            { value: 'A', suit: '♣' },
+            { value: 'K', suit: '♥' }
+          ];
+        } else {
+          // Escalera de Color
+          hand = [
+            { value: '6', suit: '♠' },
+            { value: '7', suit: '♠' },
+            { value: '8', suit: '♠' },
+            { value: '9', suit: '♠' },
+            { value: '10', suit: '♠' }
+          ];
+        }
+        
+        handType = randomHand;
+      } else {
+        // En el primer intento, dar una mano aleatoria pero más débil
+        hand = dealHand();
+        handType = evaluateHand(hand);
+        
+        // Si por casualidad salió una mano muy buena, cambiarla por una más débil
+        if (['Escalera Real', 'Escalera de Color', 'Poker', 'Full House', 'Color'].includes(handType)) {
+          hand = [
+            { value: '2', suit: '♥' },
+            { value: '7', suit: '♦' },
+            { value: '9', suit: '♠' },
+            { value: '9', suit: '♣' },
+            { value: 'K', suit: '♥' }
+          ];
+          handType = 'Pareja';
+        }
+      }
+      
+      // Guardar la mano actual
+      currentHand = hand;
+      
+      // Renderizar la mano
+      renderHand(hand);
+      
+      // Evaluar la mano y mostrar resultado
+      updateHandResult(handType);
+      
+      // Mostrar botones de reclamar/reintentar
+      if (bonusControls) {
+        bonusControls.classList.remove('hidden');
+      }
+      
+      // Desactivar el botón de repartir
+      if (dealButton) {
+        dealButton.classList.add('deal-button-disabled');
+        dealButton.disabled = true;
+      }
+      
+      // Actualizar instrucciones
+      if (gameInstructions) {
+        gameInstructions.textContent = "Puedes reclamar tu bono ahora o intentar obtener una mano mejor";
+      }
+    };
+    
+    // Función para reclamar el bono
+    function claimBonus() {
+      if (!isGameActive || gameCompleted) {
+        console.log('Juego inactivo o ya completado, no se puede reclamar bono');
+        return;
+      }
+      
+      console.log(`Bono reclamado: ${currentBonus}%`);
+      
+      // Marcar el juego como completado
+      gameCompleted = true;
+      
+      // Desactivar el juego
+      isGameActive = false;
+      
+      // Mostrar overlay y mensaje de victoria
+      if (gameCompleteOverlay) {
+        gameCompleteOverlay.style.display = 'flex';
+        gameCompleteOverlay.classList.remove('display-none');
+      }
+      
+      // Desactivar visualmente todos los botones
+      if (dealButton) {
+        dealButton.classList.add('deal-button-disabled');
+        dealButton.disabled = true;
+      }
+      
+      if (claimButton) {
+        claimButton.classList.add('claim-button-disabled');
+        claimButton.disabled = true;
+      }
+      
+      if (tryAgainButton) {
+        tryAgainButton.classList.add('try-button-disabled');
+        tryAgainButton.disabled = true;
+      }
+      
+      // Actualizar las instrucciones para indicar que el juego ha terminado
+      if (gameInstructions) {
+        gameInstructions.textContent = "¡Juego completado! Ya no puedes volver a jugar. Reclama tu bono ahora.";
+        gameInstructions.classList.add('game-over-instructions');
+      }
+      
+      // Añadir efecto de celebración
+      addConfettiEffect();
+      
+      // Mostrar modal después de un corto retraso
+      setTimeout(() => {
+        showBonusModal(currentBonus);
+      }, 1200);
+    }
+    
+    // Función para intentar otra vez
+    function tryAgain() {
+      if (!isGameActive || gameCompleted || attemptCount >= 3) {
+        console.log('No se puede volver a intentar, intentos agotados o juego completado');
+        return;
+      }
+      
+      console.log('Intentando de nuevo');
+      
+      // Ocultar botones de reclamar/reintentar
+      if (bonusControls) {
+        bonusControls.classList.add('hidden');
+      }
+      
+      // Habilitar el botón de repartir
+      if (dealButton) {
+        dealButton.classList.remove('deal-button-disabled');
+        dealButton.disabled = false;
+      }
+      
+      // Actualizar instrucciones
+      if (gameInstructions) {
+        gameInstructions.textContent = "Presiona REPARTIR CARTAS para obtener una nueva mano de póker";
+      }
+      
+      // Limpiar el área de cartas con animación
+      const cards = document.querySelectorAll('.poker-card');
+      cards.forEach((card, index) => {
+        setTimeout(() => {
+          card.style.transform = 'translateY(-50px) rotate(10deg)';
+          card.style.opacity = '0';
+        }, index * 100);
+      });
+      
+      setTimeout(() => {
+        if (pokerHand) {
+          pokerHand.innerHTML = '';
+        }
+        
+        if (handResult) {
+          handResult.innerHTML = '<span>Arma tu mano de póker</span>';
+        }
+      }, cards.length * 100 + 300);
+      
+      // Si es el último intento, actualizar instrucciones
+      if (attemptCount === 2) {
+        if (gameInstructions) {
+          gameInstructions.textContent = "¡Último intento! Presiona REPARTIR CARTAS para obtener tu mano final";
+        }
+      }
+    }
+    
+    // Efecto de confeti mejorado
+    const addConfettiEffect = () => {
+      const container = document.querySelector('.poker-wrapper');
+      if (!container) return;
+      
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti-piece';
+        confetti.style.setProperty('--x', (Math.random() * 200 - 100) + 'px');
+        confetti.style.setProperty('--y', (Math.random() * 200 - 100) + 'px');
+        confetti.style.setProperty('--rotation', Math.random() * 360 + 'deg');
+        confetti.style.setProperty('--size', Math.random() * 10 + 5 + 'px');
+        
+        // Más colores y variedad
+        const colors = ['#FFD700', '#FF9900', '#FF0000', '#9900FF', '#0099FF', '#22cc77', '#ff44aa'];
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        
+        container.appendChild(confetti);
+        
+        // Eliminar el confeti después de la animación
+        setTimeout(() => {
+          confetti.remove();
+        }, 2000);
+      }
+    };
+    
+    // Configurar el botón de WhatsApp superior
+    const topWhatsappButton = document.getElementById('whatsapp-top-button');
+    if (topWhatsappButton) {
+      topWhatsappButton.addEventListener('click', (e) => {
+        // Prevenir navegación inmediata
+        e.preventDefault();
+        
+        // Usar una variable local para el evento
+        const eventToTrack = pixelEvent || 'Lead';
+        
+        // Imprimir para depuración
+        console.log('Tracking event desde botón superior:', eventToTrack);
+        
+        // Enviar el evento si fbq está disponible
+        if (typeof fbq === 'function') {
+          fbq('track', eventToTrack);
+        }
+        
+        // Navegar después de un pequeño retraso
+        setTimeout(() => {
+          window.open(topWhatsappButton.href, '_blank');
+        }, 300);
+      });
+    }
+    
+    // Función para mostrar el modal con los detalles del bono
+    function showBonusModal(bonusValue = 0) {
+      const bonus = {
+        name: `${bonusValue}% BONO`,
+        icon: bonusValue === 10 ? '🏆' : '🎁',
+        subtitle: `¡Felicidades has ganado un bono del ${bonusValue}%!`,
+        description: 'Hablanos al whatsapp pulsando el boton y crea tu usuario al instante',
+        features: [
+          'Válido para cualquier monto de carga',
+          'Sin requisitos adicionales',
+          'Actívalo inmediatamente al crear tu usuario'
+        ],
+        ctaLink: ''
+      };
+      
+      // Actualizar contenido del modal
+      const bonusNameElement = document.querySelector('.bonus-name');
+      if (bonusNameElement) bonusNameElement.textContent = bonus.name;
+      
+      const modalIcon = document.getElementById('modal-icon');
+      const modalSubtitle = document.getElementById('modal-subtitle');
+      const modalDescription = document.getElementById('modal-description');
+      const feature1 = document.getElementById('feature-1');
+      const feature2 = document.getElementById('feature-2');
+      const feature3 = document.getElementById('feature-3');
+      
+      if (modalIcon) modalIcon.textContent = bonus.icon;
+      if (modalSubtitle) modalSubtitle.textContent = bonus.subtitle;
+      if (modalDescription) modalDescription.textContent = bonus.description;
+      if (feature1) feature1.textContent = bonus.features[0];
+      if (feature2) feature2.textContent = bonus.features[1];
+      if (feature3) feature3.textContent = bonus.features[2];
+      
+      // Actualizar link de CTA
+      const ctaButton = document.getElementById('modal-cta');
+      if (ctaButton) {
+        ctaButton.href = mainWhatsappLink;
+      }
+      
+      // Mostrar el modal con animación
+      if (bonusModal) {
+        bonusModal.classList.remove('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          if (modalCard) modalCard.classList.add('scale-100');
+        }, 100);
+      }
+    }
+    
+    // Cerrar el modal
+    function closeModal() {
+      if (modalCard) modalCard.classList.remove('scale-100');
+      
+      setTimeout(() => {
+        if (bonusModal) bonusModal.classList.add('opacity-0', 'pointer-events-none');
+      }, 300);
+    }
+    
+    // Obtener el botón CTA
+    const ctaButton = document.getElementById('modal-cta');
+    
+    if (ctaButton) {
+      ctaButton.addEventListener('click', (e) => {
+        // Prevenir navegación inmediata
+        e.preventDefault();
+        
+        // Usar una variable local para el evento
+        const eventToTrack = pixelEvent || 'Lead';
+        
+        // Imprimir para depuración
+        console.log('Tracking event:', eventToTrack);
+        
+        // Enviar el evento si fbq está disponible
+        if (typeof fbq === 'function') {
+          fbq('track', eventToTrack);
+        }
+        
+        // Navegar después de un pequeño retraso
+        setTimeout(() => {
+          window.open(ctaButton.href, '_blank');
+        }, 300);
+      });
+    }
+    
+    // Evento para cerrar el modal
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener('click', closeModal);
+    }
+    
+    // Configurar evento de clic para el botón de repartir
+    if (dealButton) {
+      dealButton.addEventListener('click', dealCards);
+    }
+    
+    // Configurar evento de clic para el botón de reclamar
+    if (claimButton) {
+      claimButton.addEventListener('click', claimBonus);
+    }
+    
+    // Configurar evento de clic para el botón de intentar de nuevo
+    if (tryAgainButton) {
+      tryAgainButton.addEventListener('click', tryAgain);
+    }
+    
+    // Inicializar el estado del juego
+    initGameState();
+    
+    // Ajustar para tamaños de pantalla
+    window.addEventListener('resize', () => {
+      // Si hay cartas en juego, volver a renderizarlas con el tamaño adecuado
+      if (currentHand) {
+        renderHand(currentHand);
+      }
+    });
+  });
+</script>
+
+<style>
+  /* Aplicar margen superior de 100px solo en dispositivos móviles */
+  @media (max-width: 639px) {
+    .mobile-margin {
+      margin-top: 80px;
+    }
+  }
+
+  /* Textura de fondo de mesa de casino */
+  .bg-felt-pattern {
+    background-image: 
+      radial-gradient(circle, rgba(25, 17, 45, 0.6) 1px, transparent 1px),
+      radial-gradient(circle, rgba(25, 17, 45, 0.6) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+  }
+
+  /* Patrón de puntos para fondo unificado */
+  .bg-dots-pattern {
+    background-image: 
+      radial-gradient(circle, rgba(255, 208, 112, 0.15) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+  
+  /* Clase robusta para ocultar elementos */
+  .display-none {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  
+  .gradient-text {
+    background-image: linear-gradient(45deg, #FFD700, #FFB627);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .gradient-text::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-image: linear-gradient(45deg, #FFD700, #FFB627);
+    border-radius: 2px;
+  }
+  
+  .hero-title {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.05em;
+  }
+  
+  /* Estilos del juego de poker */
+  .poker-game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .poker-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Aumentado de 500px a 600px */
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4), inset 0 0 40px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    overflow: visible;
+    background: linear-gradient(to bottom, #006400, #004d00);
+    padding: 15px;
+  }
+  
+  /* Añadir textura a la mesa de poker */
+  .poker-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E");
+    border-radius: inherit;
+    pointer-events: none;
+  }
+  
+  /* Línea decorativa en el borde */
+  .poker-wrapper::after {
+    content: '';
+    position: absolute;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    top: 5px;
+    left: 5px;
+    border: 1px dashed rgba(255, 215, 0, 0.2);
+    border-radius: 8px;
+    pointer-events: none;
+  }
+  
+  /* Esquinas decorativas */
+  .corner-accent {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    pointer-events: none;
+    z-index: 2;
+  }
+  
+  .corner-accent--top-left {
+    top: 5px;
+    left: 5px;
+    border-top: 2px solid rgba(255, 215, 0, 0.6);
+    border-left: 2px solid rgba(255, 215, 0, 0.6);
+    border-top-left-radius: 4px;
+  }
+  
+  .corner-accent--top-right {
+    top: 5px;
+    right: 5px;
+    border-top: 2px solid rgba(255, 215, 0, 0.6);
+    border-right: 2px solid rgba(255, 215, 0, 0.6);
+    border-top-right-radius: 4px;
+  }
+  
+  .corner-accent--bottom-left {
+    bottom: 5px;
+    left: 5px;
+    border-bottom: 2px solid rgba(255, 215, 0, 0.6);
+    border-left: 2px solid rgba(255, 215, 0, 0.6);
+    border-bottom-left-radius: 4px;
+  }
+  
+  .corner-accent--bottom-right {
+    bottom: 5px;
+    right: 5px;
+    border-bottom: 2px solid rgba(255, 215, 0, 0.6);
+    border-right: 2px solid rgba(255, 215, 0, 0.6);
+    border-bottom-right-radius: 4px;
+  }
+  
+  .poker-table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 215, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
+  }
+  
+  .poker-hand {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 12px;
+    min-height: 80px;
+    perspective: 1000px;
+  }
+  
+  /* Estilos mejorados de las cartas de poker */
+  .poker-card {
+    position: relative;
+    width: 40px;
+    height: 60px;
+    margin: 0 2px;
+    background-color: #FFFFFF !important;
+    border-radius: 6px !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    transform: scale(0);
+    transition: all 0.3s ease;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+  
+  .poker-card.card-dealt {
+    transform: scale(1);
+  }
+  
+  .poker-card.card-removed {
+    transform: translateY(-50px) rotate(10deg);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  }
+  
+  /* Estilos directos para elementos internos de la carta con gradiente */
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF !important;
+    background-image: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.05) 100%) !important;
+    border-radius: 6px !important;
+  }
+  
+  /* Valores de las cartas (índices) mejorados */
+  .card-value {
+    position: absolute !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    z-index: 10 !important;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .top-left {
+    top: 2px !important;
+    left: 2px !important;
+  }
+  
+  .bottom-right {
+    bottom: 2px !important;
+    right: 2px !important;
+    transform: rotate(180deg) !important;
+  }
+  
+  /* Animación mejorada para las cartas */
+  @keyframes card-deal {
+    0% { transform: scale(0) translateY(-20px); opacity: 0; }
+    70% { transform: scale(1.1) translateY(5px); opacity: 1; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+  }
+  
+  .custom-card {
+    animation: card-deal 0.5s forwards;
+  }
+  
+  /* Animación hover para las cartas */
+  .poker-card:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+    z-index: 5;
+    transition: all 0.2s ease;
+  }
+  
+  /* Resultados de mano mejorados */
+  .hand-result {
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    padding: 8px 6px;
+    margin-top: 8px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    animation: fade-in 0.5s ease-out;
+  }
+  
+  .hand-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .bonus-value {
+    font-size: 14px;
+    color: #FFD700;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+  }
+  
+  /* Overlay para cuando el juego se completa */
+  .game-complete-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    animation: fade-in 0.5s ease-out;
+  }
+  
+  .overlay-content {
+    text-align: center;
+    color: white;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    max-width: 80%;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .win-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+    animation: rotate-icon 1.5s infinite alternate;
+  }
+  
+  @keyframes rotate-icon {
+    0% { transform: rotate(-10deg); }
+    100% { transform: rotate(10deg); }
+  }
+  
+  .win-message {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.2;
+    margin-bottom: 6px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .game-over-message {
+    font-size: 12px;
+    color: #FFD700;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+  }
+  
+  .game-over-instructions {
+    color: #FFD700 !important;
+    font-weight: bold;
+    animation: pulse-text 2s infinite alternate;
+  }
+  
+  @keyframes pulse-text {
+    0% { opacity: 0.8; }
+    100% { opacity: 1; }
+  }
+  
+  /* Botones de control mejorados */
+  .game-controls {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .deal-button, .claim-bonus-button, .try-again-button {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .deal-button {
+    background: linear-gradient(45deg, #FFD700, #FFB627);
+    color: #241554;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px -4px rgba(255, 215, 0, 0.4), 0 0 10px rgba(255, 215, 0, 0.2);
+    animation: button-pulse 2s infinite alternate;
+  }
+  
+  @keyframes button-pulse {
+    0% {
+      box-shadow: 0 8px 15px -4px rgba(255, 215, 0, 0.4), 0 0 10px rgba(255, 215, 0, 0.2);
+    }
+    100% {
+      box-shadow: 0 8px 15px -4px rgba(255, 215, 0, 0.6), 0 0 15px rgba(255, 215, 0, 0.4);
+    }
+  }
+  
+  .deal-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 20px -5px rgba(255, 215, 0, 0.5);
+  }
+  
+  .deal-button:active {
+    transform: translateY(1px);
+  }
+  
+  .bonus-controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .claim-bonus-button {
+    animation: claim-button-pulse 2s infinite alternate;
+  }
+  
+  @keyframes claim-button-pulse {
+    0% {
+      box-shadow: 0 8px 15px -5px rgba(22, 163, 74, 0.4), 0 0 8px rgba(22, 163, 74, 0.2);
+    }
+    100% {
+      box-shadow: 0 8px 15px -5px rgba(22, 163, 74, 0.6), 0 0 12px rgba(22, 163, 74, 0.4);
+    }
+  }
+  
+  .try-again-button {
+    animation: try-button-pulse 2s infinite alternate;
+  }
+  
+  @keyframes try-button-pulse {
+    0% {
+      box-shadow: 0 8px 15px -5px rgba(37, 99, 235, 0.4), 0 0 8px rgba(37, 99, 235, 0.2);
+    }
+    100% {
+      box-shadow: 0 8px 15px -5px rgba(37, 99, 235, 0.6), 0 0 12px rgba(37, 99, 235, 0.4);
+    }
+  }
+  
+  .deal-button-disabled, .claim-button-disabled, .try-button-disabled {
+    background: linear-gradient(45deg, #888888, #666666) !important;
+    color: white !important;
+    transform: none !important;
+    cursor: not-allowed !important;
+    opacity: 0.8 !important;
+    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.3) !important;
+    position: relative !important;
+    animation: none !important;
+  }
+  
+  .cards-icon {
+    font-size: 1.4rem;
+    animation: bounce 2s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+  
+  .deal-button::after, .claim-bonus-button::after, .try-again-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+    pointer-events: none;
+  }
+  
+  /* Mejorar legibilidad de instrucciones */
+  .instructions-container {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .game-instructions {
+    margin-top: 0.5rem;
+    max-width: 280px;
+    line-height: 1.4;
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 6px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    animation: fade-in 0.5s ease-out;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  .attempts-counter {
+    font-size: 0.8rem;
+    text-align: center;
+    width: 100%;
+    animation: fade-in 0.5s ease-out;
+    transition: all 0.3s ease;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Modal de bono mejorado */
+  .modal-backdrop {
+    transition: opacity 0.5s ease;
+    backdrop-filter: blur(8px);
+  }
+  
+  .modal-card {
+    transform-origin: center;
+    transform: scale(0);
+    transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 95%;
+    max-width: 600px;
+  }
+  
+  .modal-card.scale-100 {
+    transform: scale(1);
+  }
+  
+  .modal-card-inner {
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(137, 86, 255, 0.3);
+    animation: glow 3s infinite alternate;
+  }
+  
+  @keyframes glow {
+    0% {
+      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(137, 86, 255, 0.2);
+    }
+    100% {
+      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(137, 86, 255, 0.4);
+    }
+  }
+  
+  .bonus-icon {
+    animation: pulse-glow 2s infinite alternate;
+  }
+  
+  @keyframes pulse-glow {
+    0% {
+      box-shadow: 0 0 10px rgba(255, 208, 112, 0.5);
+      transform: scale(1);
+    }
+    100% {
+      box-shadow: 0 0 30px rgba(255, 208, 112, 0.8);
+      transform: scale(1.05);
+    }
+  }
+  
+  .casino-gold {
+    color: #FFD700;
+  }
+  
+  .text-casino-gold {
+    color: #FFD700;
+  }
+  
+  /* Botón de acción mejorado */
+  .cta-button {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(22, 163, 74, 0.5);
+    font-size: 1.2rem;
+    padding: 0.8rem;
+    background: linear-gradient(45deg, #22C55E, #16A34A);
+    animation: cta-pulse 2s infinite alternate;
+  }
+  
+  @keyframes cta-pulse {
+    0% {
+      box-shadow: 0 0 15px rgba(22, 163, 74, 0.5);
+    }
+    100% {
+      box-shadow: 0 0 25px rgba(22, 163, 74, 0.7);
+    }
+  }
+  
+  .cta-button svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  
+  .cta-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+    pointer-events: none;
+  }
+  
+  /* Confeti para la animación de éxito mejorado */
+  .confetti-piece {
+    position: absolute;
+    width: var(--size, 10px);
+    height: var(--size, 10px);
+    background: #FFD700;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    border-radius: 2px;
+    animation: confetti-fly 2s forwards ease-out;
+    transform-origin: center center;
+    z-index: 30;
+  }
+  
+  @keyframes confetti-fly {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 1;
+      scale: 0;
+    }
+    10% {
+      scale: 1;
+    }
+    100% {
+      transform: translate(var(--x), var(--y)) rotate(var(--rotation));
+      opacity: 0;
+      scale: 0.5;
+    }
+  }
+  
+  /* Animaciones */
+  @keyframes shine {
+    0% {
+      left: -100%;
+      top: -100%;
+    }
+    100% {
+      left: 100%;
+      top: 100%;
+    }
+  }
+  
+  @keyframes pop-in {
+    0% {
+      transform: scale(0);
+    }
+    70% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse-slow 2s infinite;
+  }
+  
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .animate-pop-in {
+    animation: pop-in 0.5s forwards;
+  }
+  
+  /* Botón de cierre del modal */
+  #close-modal {
+    transition: transform 0.2s ease;
+  }
+  
+  #close-modal:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Adaptación responsive */
+  @media (min-width: 640px) {
+    .poker-card, .custom-card {
+      width: 60px;
+      height: 85px;
+    }
+    
+    .card-value {
+      font-size: 14px !important;
+    }
+    
+    .poker-hand {
+      min-height: 100px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .poker-card, .custom-card {
+      width: 70px;
+      height: 100px;
+    }
+    
+    .card-value {
+      font-size: 16px !important;
+    }
+    
+    .poker-hand {
+      min-height: 120px;
+    }
+  }
+  
+  /* Decoraciones de cartas inferiores */
+  .bottom-cards {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 10px;
+  }
+</style>
