@@ -1,0 +1,1160 @@
+---
+//heros/Hero(1).astro
+const { whatsappLink1, whatsappLink2, pixelEvent } = Astro.props;
+import '../styles/global.css';
+---
+
+<!-- Gold rain container at top level -->
+<div id="gold-rain-container" class="gold-rain-container"></div>
+
+<section class="relative min-h-screen pt-14 sm:pt-20 md:pt-32 pb-12 flex flex-col items-center justify-between bg-gradient-to-b from-casino-purple via-[#241554] to-[#1A0F36] overflow-hidden w-full mobile-margin">
+  <!-- Elementos flotantes decorativos -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="floating-element absolute top-1/4 left-10 w-12 h-12 opacity-30 animate-spin-slow">
+      <img src="/images/chips.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute top-2/3 right-12 w-16 h-16 opacity-20 animate-pulse-slow" style="animation-delay: 1s;">
+      <img src="/images/ace.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute bottom-1/4 left-1/3 w-14 h-14 opacity-25" style="animation-delay: 0.5s;">
+      <img src="/images/gambling.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute top-1/3 right-1/4 w-10 h-10 opacity-20" style="animation-delay: 1.5s;">
+      <img src="/images/ace.svg" alt="" class="w-full h-full" />
+    </div>
+  </div>
+  
+  <!-- Efecto de luz de fondo -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-lg max-h-lg bg-casino-gold/10 blur-[100px] rounded-full"></div>
+  
+  <!-- Textura de fondo unificada -->
+  <div class="absolute inset-0 bg-felt-pattern opacity-10"></div>
+  <div class="absolute inset-0 bg-dots-pattern opacity-5"></div>
+  
+  <div class="w-full px-5 max-w-4xl mx-auto flex flex-col items-center justify-center relative z-20 text-center h-full py-4">
+    <!-- TITLE -->
+    <h1 class="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-6 md:mb-8 text-white uppercase hero-title font-extrabold tracking-wide mt-6">
+      APROVECHA Y <span class="gradient-text">GANA TU BONO!</span>
+    </h1>
+    
+    <!-- Botón de WhatsApp visible arriba -->
+    <div class="mb-3 sm:mb-5 w-full max-w-sm mx-auto">
+      <a id="whatsapp-top-button" href={whatsappLink1} target="_blank" rel="noopener" class="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-xl transition-all hover:scale-105 shadow-lg w-full text-lg sm:text-xl">
+        <svg width="24" height="24" viewBox="0 0 308 308" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458C233.168,179.508,230.845,178.393,227.904,176.981z" />
+          <path d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867C276.546,215.678,222.799,268.994,156.734,268.994z" />
+        </svg>
+        CREAR USUARIO AHORA
+      </a>
+    </div>
+    
+    <!-- Contenedor principal del bono -->
+    <div class="bonus-main-container flex flex-col items-center justify-center mb-8 mx-auto max-w-[320px] sm:max-w-none">
+      <!-- Chip circular del bono - INCREASED SIZE -->
+      <div class="bonus-chip-container relative">
+        <div class="bonus-chip">
+          <div class="bonus-chip-inner">
+            <div class="bonus-content flex flex-col items-center justify-center">
+              <div class="bonus-label mb-1">BONO ACUMULADO</div>
+              <div class="bonus-value mb-2">10<span class="percentage">%</span></div>
+              <div class="timer-container mb-2">
+                <div class="timer-display">
+                  <span class="timer-icon">⏱️</span>
+                  <span id="countdown-timer">04:07</span>
+                </div>
+              </div>
+              <div class="bonus-urgency">
+                ¡Reclama antes de que<br>alguien más lo haga!
+              </div>
+            </div>
+          </div>
+          <!-- Efecto de borde brillante -->
+          <div class="chip-border"></div>
+        </div>
+      </div>
+      
+      <!-- Botón de reclamar -->
+      <div class="claim-button-container mt-8">
+        <button id="claim-button" class="claim-button flex items-center justify-center gap-2">
+          <span class="claim-icon">👑</span>
+          RECLAMAR BONO VIP
+        </button>
+      </div>
+      
+      <!-- Texto informativo -->
+      <div class="claim-info text-center mt-3">
+        Haz clic en RECLAMAR BONO VIP<br>para obtener tu bonificación
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal de bono - AJUSTADO PARA MOBILE -->
+  <div id="bonus-modal" class="fixed inset-0 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-500">
+    <div class="modal-backdrop absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+    <div class="modal-card-container relative w-full h-full flex items-center justify-center">
+      <!-- Carta central animada -->
+      <div class="modal-card transform transition-all duration-700 scale-0">
+        <div class="modal-card-inner relative bg-gradient-to-b from-[#281552] to-[#1A0F36] rounded-xl border-4 border-casino-gold/60 shadow-2xl overflow-hidden w-full max-w-lg mx-auto">
+          <!-- Cabecera del modal -->
+          <div class="modal-header bg-gradient-to-r from-[#281552] to-[#1E1040] p-4 text-center border-b border-casino-gold/30 relative">
+            <button id="close-modal" class="absolute right-3 top-3 text-white hover:text-casino-gold transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <h2 id="modal-title" class="text-2xl font-bold text-white">¡<span class="bonus-name">BONO VIP 10%</span>!</h2>
+          </div>
+          
+          <!-- Contenido del modal -->
+          <div class="modal-content p-4 max-h-[70vh] overflow-y-auto">
+            <div class="bonus-icon-container flex justify-center mb-4">
+              <div class="bonus-icon w-16 h-16 rounded-full bg-gradient-to-br from-casino-gold/30 to-casino-gold/10 flex items-center justify-center">
+                <div id="modal-icon" class="text-3xl">🏆</div>
+              </div>
+            </div>
+            
+            <div class="bonus-details text-center mb-4">
+              <h3 id="modal-subtitle" class="text-base text-white font-bold mb-2">¡Felicidades! Has obtenido acceso a un bono exclusivo del 10%</h3>
+              <p id="modal-description" class="text-white/90 text-sm mb-4">Háblanos al WhatsApp pulsando el botón y crea tu usuario al instante para activar tu bonificación VIP</p>
+              
+              <div class="bonus-features space-y-2 text-left mb-4">
+                <div class="feature flex items-center">
+                  <div class="feature-icon w-8 h-8 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div id="feature-1" class="feature-text text-white/90 text-sm">Válido para cualquier monto de carga</div>
+                </div>
+                
+                <div class="feature flex items-center">
+                  <div class="feature-icon w-8 h-8 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div id="feature-2" class="feature-text text-white/90 text-sm">Sin requisitos adicionales</div>
+                </div>
+                
+                <div class="feature flex items-center">
+                  <div class="feature-icon w-8 h-8 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div id="feature-3" class="feature-text text-white/90 text-sm">Actívalo inmediatamente al crear tu usuario</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Botones de acción -->
+            <div class="modal-actions flex flex-col space-y-4 pb-2">
+              <a id="modal-cta" href={whatsappLink1} target="_blank" rel="noopener" class="cta-button w-full flex items-center justify-center gap-2 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-600 text-white text-base font-bold py-3 px-4 rounded-xl transition-all hover:scale-105 shadow-xl">
+                <svg width="20" height="20" viewBox="0 0 308 308" fill="white" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458C233.168,179.508,230.845,178.393,227.904,176.981z" />
+                  <path d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867C276.546,215.678,222.799,268.994,156.734,268.994z" />
+                </svg>
+                CREAR USUARIO
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ pixelEvent }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Referencias a elementos del DOM
+    const bonusModal = document.getElementById('bonus-modal');
+    const modalCard = document.querySelector('.modal-card');
+    const closeModalBtn = document.getElementById('close-modal');
+    const mainWhatsappLink = document.querySelector('#modal-cta')?.getAttribute('href') || '';
+    const claimButton = document.getElementById('claim-button');
+    const countdownTimer = document.getElementById('countdown-timer');
+    const goldRainContainer = document.getElementById('gold-rain-container');
+    
+    console.log('[INIT] Starting VIP bonus interface');
+    
+    // Variables para el contador
+    let timerMinutes = 4;
+    let timerSeconds = 7;
+    let timerInterval;
+    let goldRainActive = false;
+    let screenWidth = window.innerWidth;
+    let screenHeight = window.innerHeight;
+    let rainInterval = null;
+    
+    // Actualizar dimensiones de pantalla cuando cambie el tamaño
+    window.addEventListener('resize', () => {
+      screenWidth = window.innerWidth;
+      screenHeight = window.innerHeight;
+      console.log(`[RESIZE] Screen dimensions updated: ${screenWidth}x${screenHeight}`);
+    });
+    
+    // Función mejorada para la lluvia de oro (durará solo 3 segundos)
+    function startGoldRain() {
+      if (!goldRainContainer) {
+        console.error('[ERROR] Gold rain container not found');
+        return;
+      }
+      
+      if (goldRainActive) {
+        console.log('[INFO] Gold rain already active, skipping');
+        return;
+      }
+      
+      console.log('[INFO] Starting gold rain animation (3 seconds duration)');
+      goldRainActive = true;
+      
+      // Limpiar cualquier partícula existente
+      goldRainContainer.innerHTML = '';
+      
+      // Crear partículas de oro/brillos
+      function createParticle() {
+        if (!goldRainActive) return;
+        
+        // Crear elemento para la partícula
+        const particle = document.createElement('div');
+        
+        // Datos aleatorios para esta partícula
+        const size = Math.random() * 8 + 4; // 4-12px
+        const posX = Math.random() * screenWidth; // Posición horizontal aleatoria en pixels
+        const duration = Math.random() * 4 + 3; // 3-7 segundos
+        
+        // Establecer estilos básicos de la partícula
+        particle.style.position = 'absolute';
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${posX}px`;
+        particle.style.top = '0';
+        particle.style.borderRadius = Math.random() > 0.3 ? '50%' : '0'; // Algunos son círculos, otros cuadrados
+        
+        // Color dorado con variaciones
+        const hue = 45 + Math.random() * 10; // 45-55 (dorado)
+        const saturation = 80 + Math.random() * 20; // 80-100%
+        const lightness = 50 + Math.random() * 20; // 50-70%
+        particle.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+        
+        // Añadir efecto de brillo a algunas partículas
+        if (Math.random() > 0.5) {
+          particle.style.boxShadow = `0 0 ${size/2}px hsl(${hue}, ${saturation}%, ${lightness}%)`;
+        }
+        
+        // Animación de caída
+        particle.style.animation = `particleFall ${duration}s linear forwards`;
+        
+        // Añadir al contenedor
+        goldRainContainer.appendChild(particle);
+        
+        // Eliminar después de que termine la animación
+        setTimeout(() => {
+          if (particle && particle.parentNode) {
+            particle.parentNode.removeChild(particle);
+          }
+        }, duration * 1000);
+      }
+      
+      // Crear partículas iniciales
+      for (let i = 0; i < 20; i++) {
+        setTimeout(createParticle, i * 50);
+      }
+      
+      // Generar partículas continuamente
+      rainInterval = setInterval(() => {
+        if (!goldRainActive) {
+          clearInterval(rainInterval);
+          rainInterval = null;
+          return;
+        }
+        
+        for (let i = 0; i < 3; i++) {
+          setTimeout(createParticle, i * 100);
+        }
+      }, 500);
+      
+      // Detener después de 3 segundos
+      setTimeout(() => {
+        stopGoldRain();
+        console.log('[INFO] Gold rain stopped automatically after 3 seconds');
+      }, 3000);
+      
+      console.log('[SUCCESS] Gold rain animation started');
+    }
+    
+    // Detener la lluvia de oro
+    function stopGoldRain() {
+      goldRainActive = false;
+      if (rainInterval) {
+        clearInterval(rainInterval);
+        rainInterval = null;
+      }
+      
+      // No limpiamos las partículas existentes para que completen su animación
+    }
+    
+    // Iniciar lluvia de oro inmediatamente al cargar
+    startGoldRain();
+    
+    // Función para actualizar el contador
+    function updateTimer() {
+      if (timerSeconds === 0) {
+        if (timerMinutes === 0) {
+          clearInterval(timerInterval);
+          return;
+        }
+        timerMinutes--;
+        timerSeconds = 59;
+      } else {
+        timerSeconds--;
+      }
+      
+      if (countdownTimer) {
+        // Formatear para mostrar siempre dos dígitos
+        const formattedMinutes = timerMinutes.toString().padStart(2, '0');
+        const formattedSeconds = timerSeconds.toString().padStart(2, '0');
+        countdownTimer.textContent = `${formattedMinutes}:${formattedSeconds}`;
+        
+        // Agregar efecto de urgencia cuando quede poco tiempo
+        if (timerMinutes === 0 && timerSeconds <= 30) {
+          countdownTimer.classList.add('urgent-timer');
+        }
+      }
+    }
+    
+    // Iniciar el contador
+    timerInterval = setInterval(updateTimer, 1000);
+    
+    // Función para celebrar con partículas especiales
+    function celebrateWithParticles() {
+      console.log('[INFO] Creating celebration particles');
+      goldRainActive = true;
+      
+      for (let i = 0; i < 100; i++) {
+        setTimeout(() => {
+          if (!goldRainActive) return;
+          
+          const particle = document.createElement('div');
+          
+          // Datos aleatorios para partícula de celebración
+          const size = Math.random() * 10 + 8; // Partículas más grandes 8-18px
+          const posX = Math.random() * screenWidth;
+          const posY = Math.random() * (screenHeight / 3); // Solo en el tercio superior
+          const hue = Math.random() > 0.7 ? 45 : 0; // Oro o blanco
+          const saturation = hue === 0 ? 0 : 80 + Math.random() * 20;
+          const lightness = hue === 0 ? 100 : 50 + Math.random() * 30;
+          const duration = Math.random() * 5 + 3;
+          
+          // Estilos
+          particle.style.position = 'absolute';
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          particle.style.left = `${posX}px`;
+          particle.style.top = `${posY}px`;
+          particle.style.borderRadius = '50%';
+          particle.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+          particle.style.boxShadow = `0 0 ${size}px hsl(${hue}, ${saturation}%, ${lightness}%)`;
+          particle.style.opacity = '0.9';
+          particle.style.animation = `celebrationParticle ${duration}s ease-out forwards`;
+          
+          goldRainContainer.appendChild(particle);
+          
+          // Limpiar
+          setTimeout(() => {
+            if (particle.parentNode) {
+              particle.parentNode.removeChild(particle);
+            }
+          }, duration * 1000);
+        }, i * 20);
+      }
+      
+      // Detener después de 3 segundos
+      setTimeout(() => {
+        goldRainActive = false;
+      }, 3000);
+    }
+    
+    // Función para mostrar el modal con los detalles del bono
+    function showBonusModal() {
+      console.log('[INFO] Showing bonus modal');
+      
+      // Asegurar que el modal se ajuste al tamaño de la pantalla
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+      
+      // Crear efecto de brillo al reclamar
+      const chipContainer = document.querySelector('.bonus-chip-container');
+      if (chipContainer) {
+        const glowEffect = document.createElement('div');
+        glowEffect.className = 'claim-glow-effect';
+        chipContainer.appendChild(glowEffect);
+        
+        setTimeout(() => {
+          glowEffect.remove();
+        }, 1000);
+      }
+      
+      // Llamar a la celebración
+      celebrateWithParticles();
+      
+      // Mostrar el modal con animación
+      if (bonusModal) {
+        bonusModal.classList.remove('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          if (modalCard) modalCard.classList.add('scale-100');
+          createConfettiEffect();
+        }, 100);
+      }
+      
+      console.log('[SUCCESS] Bonus modal displayed');
+    }
+    
+    // Crear efecto de confeti en el modal
+    function createConfettiEffect() {
+      const container = document.querySelector('.modal-card-inner');
+      if (!container) return;
+      
+      console.log('[INFO] Creating confetti inside modal');
+      
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.style.position = 'absolute';
+        confetti.style.width = `${Math.random() * 8 + 5}px`;
+        confetti.style.height = `${Math.random() * 8 + 5}px`;
+        confetti.style.top = '50%';
+        confetti.style.left = '50%';
+        confetti.style.backgroundColor = ['#FFD700', '#F5CC7F', '#E6B325', '#333333', '#222222'][Math.floor(Math.random() * 5)];
+        confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+        confetti.style.transform = 'translate(-50%, -50%)';
+        confetti.style.animation = `confettiSpread 2s forwards ease-out`;
+        confetti.style.setProperty('--angle', `${Math.random() * 360}deg`);
+        confetti.style.setProperty('--distance', `${Math.random() * 100 + 50}px`);
+        
+        container.appendChild(confetti);
+        
+        // Eliminar después de la animación
+        setTimeout(() => {
+          if (confetti.parentNode) {
+            confetti.parentNode.removeChild(confetti);
+          }
+        }, 2000);
+      }
+    }
+    
+    // Cerrar el modal
+    function closeModal() {
+      console.log('[INFO] Closing modal');
+      if (modalCard) modalCard.classList.remove('scale-100');
+      
+      setTimeout(() => {
+        if (bonusModal) bonusModal.classList.add('opacity-0', 'pointer-events-none');
+      }, 300);
+    }
+    
+    // Configurar botones CTA
+    const ctaButton = document.getElementById('modal-cta');
+    if (ctaButton) {
+      ctaButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const eventToTrack = pixelEvent || 'Lead';
+        console.log(`[TRACK] Tracking event: ${eventToTrack}`);
+        
+        if (typeof fbq === 'function') {
+          fbq('track', eventToTrack);
+        }
+        
+        setTimeout(() => {
+          window.open(ctaButton.href, '_blank');
+        }, 300);
+      });
+    }
+    
+    const topWhatsappButton = document.getElementById('whatsapp-top-button');
+    if (topWhatsappButton) {
+      topWhatsappButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const eventToTrack = pixelEvent || 'Lead';
+        console.log(`[TRACK] Tracking event from top button: ${eventToTrack}`);
+        
+        if (typeof fbq === 'function') {
+          fbq('track', eventToTrack);
+        }
+        
+        setTimeout(() => {
+          window.open(topWhatsappButton.href, '_blank');
+        }, 300);
+      });
+    }
+    
+    // Configurar evento de clic para botón de reclamar
+    if (claimButton) {
+      claimButton.addEventListener('click', () => {
+        console.log('[ACTION] Claiming bonus');
+        showBonusModal();
+      });
+    }
+    
+    // Evento para cerrar el modal
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener('click', closeModal);
+    }
+    
+    // Ajustar el modal al tamaño de la pantalla
+    window.addEventListener('resize', () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    });
+    
+    // Agregar efecto de pulso al chip periódicamente
+    function pulseChip() {
+      const chip = document.querySelector('.bonus-chip');
+      if (!chip) return;
+      
+      chip.classList.add('pulse-effect');
+      setTimeout(() => {
+        chip.classList.remove('pulse-effect');
+      }, 1000);
+    }
+    
+    // Iniciar el pulso
+    setInterval(pulseChip, 5000);
+    pulseChip(); // Ejecutar inmediatamente una vez
+    
+    console.log('[READY] VIP bonus interface initialized successfully');
+  });
+</script>
+
+<style>
+  /* Estilos generales y de fondo */
+  .mobile-margin {
+    margin-top: 0;
+  }
+  
+  @media (max-width: 639px) {
+    .mobile-margin {
+      margin-top: 30px;
+    }
+  }
+  
+  .bg-felt-pattern {
+    background-image: 
+      radial-gradient(circle, rgba(25, 17, 45, 0.6) 1px, transparent 1px),
+      radial-gradient(circle, rgba(25, 17, 45, 0.6) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+  }
+  
+  .bg-dots-pattern {
+    background-image: 
+      radial-gradient(circle, rgba(255, 208, 112, 0.15) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+  
+  .gradient-text {
+    background-image: linear-gradient(45deg, #FFD700, #FFB627);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .gradient-text::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-image: linear-gradient(45deg, #FFD700, #FFB627);
+    border-radius: 2px;
+  }
+  
+  .hero-title {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.05em;
+  }
+
+  /* Componente principal del bono */
+  .bonus-main-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+  
+  /* Estilos del chip de bono - INCREASED SIZE */
+  .bonus-chip-container {
+    width: 240px; /* Increased from 200px */
+    height: 240px; /* Increased from 200px */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    z-index: 5;
+  }
+  
+  @media (min-width: 640px) {
+    .bonus-chip-container {
+      width: 300px; /* Increased from 260px */
+      height: 300px; /* Increased from 260px */
+    }
+  }
+  
+  .bonus-chip {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.2);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .bonus-chip::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: 50%;
+  }
+  
+  /* Borde dorado del chip */
+  .chip-border {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 6px dashed rgba(255, 215, 0, 0.4);
+    box-sizing: border-box;
+    animation: rotate-slow 15s linear infinite;
+    pointer-events: none;
+  }
+  
+  @keyframes rotate-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Interior del chip */
+  .bonus-chip-inner {
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, rgba(30, 15, 50, 1), rgba(20, 5, 30, 1));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+  }
+  
+  .bonus-chip-inner::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    top: -25%;
+    left: -25%;
+    background: 
+      radial-gradient(
+        circle at center,
+        transparent 30%,
+        rgba(255, 215, 0, 0.05) 70%
+      );
+    z-index: 1;
+  }
+  
+  /* Efecto de brillos */
+  .bonus-chip-inner::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0) 45%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0) 55%,
+      transparent 100%
+    );
+    transform: rotate(45deg);
+    animation: shine-sweep 4s infinite ease-in-out;
+    pointer-events: none;
+  }
+  
+  @keyframes shine-sweep {
+    0% { transform: rotate(45deg) translateY(-100%); opacity: 0.3; }
+    50% { opacity: 0.1; }
+    100% { transform: rotate(45deg) translateY(100%); opacity: 0.3; }
+  }
+  
+  /* Contenido del bono - optimizado para mobile */
+  .bonus-content {
+    width: 100%;
+    height: 100%;
+    padding: 16px; /* Increased from 14px */
+    text-align: center;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @media (min-width: 640px) {
+    .bonus-content {
+      padding: 24px; /* Increased from 20px */
+    }
+  }
+  
+  .bonus-label {
+    font-size: 0.8rem; /* Increased from 0.75rem */
+    font-weight: 700;
+    color: #FFD700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 5px;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+  }
+  
+  @media (min-width: 640px) {
+    .bonus-label {
+      font-size: 0.95rem; /* Increased from 0.85rem */
+    }
+  }
+  
+  .bonus-value {
+    font-size: 4.5rem; /* Increased from 3.5rem */
+    font-weight: 900;
+    color: #FFD700;
+    line-height: 1;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 5px 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  
+  @media (min-width: 640px) {
+    .bonus-value {
+      font-size: 5.5rem; /* Increased from 4.5rem */
+      margin-bottom: 10px;
+    }
+  }
+  
+  .percentage {
+    font-size: 2.5rem; /* Increased from 2rem */
+    vertical-align: top;
+    margin-left: 2px;
+    position: relative;
+    top: 5px;
+  }
+  
+  @media (min-width: 640px) {
+    .percentage {
+      font-size: 3rem; /* Increased from 2.5rem */
+    }
+  }
+  
+  /* Timer */
+  .timer-container {
+    margin-bottom: 6px;
+  }
+  
+  @media (min-width: 640px) {
+    .timer-container {
+      margin-bottom: 10px;
+    }
+  }
+  
+  .timer-display {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 100px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    font-family: monospace;
+  }
+  
+  @media (min-width: 640px) {
+    .timer-display {
+      gap: 5px;
+      padding: 4px 12px;
+      font-size: 1rem;
+    }
+  }
+  
+  .timer-icon {
+    font-size: 0.8rem;
+  }
+  
+  @media (min-width: 640px) {
+    .timer-icon {
+      font-size: 0.9rem;
+    }
+  }
+  
+  .urgent-timer {
+    color: #ff4c4c;
+    animation: pulse-timer 0.8s infinite alternate;
+  }
+  
+  @keyframes pulse-timer {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+  }
+  
+  /* Mensaje de urgencia */
+  .bonus-urgency {
+    font-size: 0.75rem; /* Increased for better readability */
+    color: white;
+    max-width: 95%;
+    line-height: 1.3;
+    opacity: 0.9;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    animation: pulse-message 2s infinite;
+  }
+  
+  @media (min-width: 640px) {
+    .bonus-urgency {
+      font-size: 0.85rem;
+      max-width: 90%;
+    }
+  }
+  
+  @keyframes pulse-message {
+    0%, 100% { opacity: 0.9; }
+    50% { opacity: 1; color: rgba(255, 215, 0, 0.9); }
+  }
+  
+  /* Botón de reclamar */
+  .claim-button-container {
+    width: 100%;
+    max-width: 300px;
+    margin: 15px auto 10px;
+  }
+  
+  .claim-button {
+    background: linear-gradient(to right, #FFD700, #FFA500);
+    color: black;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 12px 24px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 215, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    animation: pulse-button 2s infinite alternate;
+  }
+  
+  .claim-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 215, 0, 0.3);
+  }
+  
+  .claim-button:active {
+    transform: translateY(1px);
+  }
+  
+  @keyframes pulse-button {
+    0% {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 215, 0, 0.2);
+    }
+    100% {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.4);
+    }
+  }
+  
+  .claim-icon {
+    font-size: 1.2rem;
+    margin-right: 5px;
+    animation: float-icon 2s infinite alternate;
+  }
+  
+  @keyframes float-icon {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-4px); }
+  }
+  
+  /* Efecto de brillo en el botón */
+  .claim-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: button-shine 3s infinite;
+  }
+  
+  @keyframes button-shine {
+    0% { left: -100%; top: -100%; }
+    100% { left: 100%; top: 100%; }
+  }
+  
+  /* Texto informativo */
+  .claim-info {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 10px;
+    line-height: 1.4;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Modal de bono */
+  .modal-backdrop {
+    transition: opacity 0.5s ease;
+    backdrop-filter: blur(8px);
+  }
+  
+  .modal-card {
+    transform-origin: center;
+    transform: scale(0);
+    transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 90%;
+    max-width: 400px; /* Reduced for better mobile fit */
+  }
+  
+  .modal-card.scale-100 {
+    transform: scale(1);
+  }
+  
+  /* Optimizado para mobile */
+  .modal-card-inner {
+    max-height: calc(100vh - 40px);
+    max-height: calc(var(--vh, 1vh) * 100 - 40px);
+    overflow-y: auto;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(137, 86, 255, 0.3);
+    animation: glow 3s infinite alternate;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @keyframes glow {
+    0% {
+      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(137, 86, 255, 0.2);
+    }
+    100% {
+      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(137, 86, 255, 0.4);
+    }
+  }
+  
+  .modal-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .modal-actions {
+    margin-top: auto;
+  }
+  
+  .bonus-icon {
+    animation: pulse-glow 2s infinite alternate;
+  }
+  
+  @keyframes pulse-glow {
+    0% {
+      box-shadow: 0 0 10px rgba(255, 208, 112, 0.5);
+      transform: scale(1);
+    }
+    100% {
+      box-shadow: 0 0 30px rgba(255, 208, 112, 0.8);
+      transform: scale(1.05);
+    }
+  }
+  
+  /* Decoraciones de fondo */
+  .bottom-decorations {
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10%;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* Lluvia de oro - implementación simplificada */
+  .gold-rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1000;
+  }
+  
+  /* Animaciones de keyframes */
+  @keyframes particleFall {
+    0% {
+      top: -10px;
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 0.7;
+    }
+    100% {
+      top: 100vh;
+      opacity: 0;
+    }
+  }
+  
+  @keyframes celebrationParticle {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    80% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(0) translateY(100px);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes confettiSpread {
+    0% {
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(0.5) rotate(var(--angle)) translate(var(--distance));
+      opacity: 0;
+    }
+  }
+  
+  /* Efecto de brillo al reclamar */
+  .claim-glow-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.7) 0%, rgba(255, 215, 0, 0) 70%);
+    z-index: 50;
+    animation: expand-glow 1s ease-out forwards;
+    pointer-events: none;
+  }
+  
+  @keyframes expand-glow {
+    0% {
+      width: 0;
+      height: 0;
+      opacity: 0.8;
+    }
+    100% {
+      width: 400px;
+      height: 400px;
+      opacity: 0;
+    }
+  }
+  
+  /* Efecto de pulso para el chip */
+  .pulse-effect {
+    animation: pulse-chip 1s ease-out;
+  }
+  
+  @keyframes pulse-chip {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.2);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.4);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.2);
+    }
+  }
+  
+  /* Botón de acción en el modal */
+  .cta-button {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(22, 163, 74, 0.5);
+    font-size: 1.1rem;
+    padding: 0.8rem;
+    background: linear-gradient(45deg, #22C55E, #16A34A);
+    animation: cta-pulse 2s infinite alternate;
+  }
+  
+  @keyframes cta-pulse {
+    0% {
+      box-shadow: 0 0 15px rgba(22, 163, 74, 0.5);
+    }
+    100% {
+      box-shadow: 0 0 25px rgba(22, 163, 74, 0.7);
+    }
+  }
+  
+  .cta-button svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  
+  .cta-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+    pointer-events: none;
+  }
+</style>
