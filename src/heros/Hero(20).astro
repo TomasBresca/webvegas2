@@ -1,0 +1,989 @@
+---
+//heros/Hero(1).astro
+const { whatsappLink1, whatsappLink2, pixelEvent } = Astro.props;
+import '../styles/global.css';
+---
+
+<section class="relative min-h-screen pt-14 sm:pt-20 md:pt-32 pb-12 flex flex-col items-center justify-between bg-gradient-to-b from-casino-purple via-[#241554] to-[#1A0F36] overflow-hidden w-full mobile-margin">
+  <!-- Elementos flotantes decorativos -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="floating-element absolute top-1/4 left-10 w-12 h-12 opacity-30 animate-spin-slow">
+      <img src="/images/chips.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute top-2/3 right-12 w-16 h-16 opacity-20 animate-pulse-slow" style="animation-delay: 1s;">
+      <img src="/images/ace.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute bottom-1/4 left-1/3 w-14 h-14 opacity-25" style="animation-delay: 0.5s;">
+      <img src="/images/gambling.svg" alt="" class="w-full h-full" />
+    </div>
+    <div class="floating-element absolute top-1/3 right-1/4 w-10 h-10 opacity-20" style="animation-delay: 1.5s;">
+      <img src="/images/ace.svg" alt="" class="w-full h-full" />
+    </div>
+  </div>
+  
+  <!-- Efecto de luz de fondo -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-lg max-h-lg bg-casino-gold/10 blur-[100px] rounded-full"></div>
+  
+  <!-- Textura de fondo unificada -->
+  <div class="absolute inset-0 bg-felt-pattern opacity-10"></div>
+  <div class="absolute inset-0 bg-dots-pattern opacity-5"></div>
+  
+  <div class="w-full px-5 max-w-4xl mx-auto flex flex-col items-center justify-center relative z-10 text-center h-full py-4">
+    <!-- TITLE -->
+    <h1 class="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-6 md:mb-8 text-white uppercase hero-title font-extrabold tracking-wide mt-6">
+      APROVECHA Y <span class="gradient-text">GANA TU BONO!</span>
+    </h1>
+    
+    <!-- Botón de WhatsApp visible arriba -->
+    <div class="mb-3 sm:mb-5 w-full max-w-sm mx-auto">
+      <a id="whatsapp-top-button" href={whatsappLink1} target="_blank" rel="noopener" class="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-xl transition-all hover:scale-105 shadow-lg w-full text-lg sm:text-xl">
+        <svg width="24" height="24" viewBox="0 0 308 308" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458C233.168,179.508,230.845,178.393,227.904,176.981z" />
+          <path d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867C276.546,215.678,222.799,268.994,156.734,268.994z" />
+        </svg>
+        CREAR USUARIO AHORA
+      </a>
+    </div>
+    
+    <!-- Ficha de Casino VIP -->
+    <div class="casino-chip-container relative flex-1 w-full flex flex-col items-center justify-center py-6">
+      <!-- Cartas decorativas de fondo -->
+      
+      <div class="casino-chip-wrapper relative z-10">
+        <!-- Ficha VIP dorada flotante con efectos mejorados para mobile -->
+        <div class="vip-chip">
+          <!-- Capa de brillo exterior -->
+          <div class="chip-glow"></div>
+          
+          <div class="chip-inner">
+            <!-- Anillos concéntricos -->
+            <div class="chip-ring outer-ring"></div>
+            <div class="chip-ring middle-ring"></div>
+            <div class="chip-ring inner-ring"></div>
+            
+            <!-- Centro de la ficha -->
+            <div class="chip-center">
+              <div class="vip-crown">👑</div>
+              <div class="vip-text">VIP</div>
+              <div class="chip-shine"></div>
+            </div>
+            
+            <!-- Decoraciones -->
+            <div class="chip-decoration">
+              <div class="chip-dot" style="transform: rotate(0deg) translateX(90px);"></div>
+              <div class="chip-dot" style="transform: rotate(45deg) translateX(90px);"></div>
+              <div class="chip-dot" style="transform: rotate(90deg) translateX(90px);"></div>
+              <div class="chip-dot" style="transform: rotate(135deg) translateX(90px);"></div>
+              <div class="chip-dot" style="transform: rotate(180deg) translateX(90px);"></div>
+              <div class="chip-dot" style="transform: rotate(225deg) translateX(90px);"></div>
+              <div class="chip-dot" style="transform: rotate(270deg) translateX(90px);"></div>
+              <div class="chip-dot" style="transform: rotate(315deg) translateX(90px);"></div>
+            </div>
+          </div>
+          
+          <!-- Reflexión de luz animada -->
+          <div class="light-reflection"></div>
+          
+          <!-- Destellos aleatorios -->
+          <div class="sparkle sparkle-1"></div>
+          <div class="sparkle sparkle-2"></div>
+          <div class="sparkle sparkle-3"></div>
+        </div>
+        
+        <!-- Texto debajo de la ficha -->
+        <div class="chip-message">
+          <p class="text-white text-xl font-bold my-5">¡Reclama tu bono exclusivo ahora!</p>
+        </div>
+        
+        <!-- Botón para reclamar bono -->
+        <div class="flex justify-center mb-3">
+          <button id="claim-bonus" class="claim-bonus-button bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:from-yellow-500 hover:to-yellow-700 text-xl font-bold py-4 px-8 rounded-xl transition-all hover:scale-105 shadow-xl">
+            RECLAMAR BONO VIP
+          </button>
+        </div>
+        
+        <!-- Instrucciones -->
+        <div class="instructions-container mt-4">
+          <div id="bonus-instructions" class="text-white/90 text-sm text-center w-full max-w-xs mx-auto px-2">
+            Presiona el botón para reclamar tu bono exclusivo del 10%
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal de bono a pantalla completa -->
+  <div id="bonus-modal" class="fixed inset-0 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-500">
+    <div class="modal-backdrop absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+    <div class="modal-card-container relative w-full h-full flex items-center justify-center">
+      <!-- Carta central animada -->
+      <div class="modal-card transform transition-all duration-700 scale-0">
+        <div class="modal-card-inner relative bg-gradient-to-b from-[#281552] to-[#1A0F36] rounded-xl border-4 border-casino-gold/60 shadow-2xl overflow-hidden w-full max-w-lg mx-auto">
+          <!-- Cabecera del modal -->
+          <div class="modal-header bg-gradient-to-r from-[#281552] to-[#1E1040] p-6 text-center border-b border-casino-gold/30 relative">
+            <button id="close-modal" class="absolute right-4 top-4 text-white hover:text-casino-gold transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <h2 id="modal-title" class="text-3xl font-bold text-white">¡<span class="bonus-name">BONO 10%</span>!</h2>
+          </div>
+          
+          <!-- Contenido del modal -->
+          <div class="modal-content p-6">
+            <div class="bonus-icon-container flex justify-center mb-6">
+              <div class="bonus-icon w-24 h-24 rounded-full bg-gradient-to-br from-casino-gold/30 to-casino-gold/10 flex items-center justify-center">
+                <div id="modal-icon" class="text-5xl">🏆</div>
+              </div>
+            </div>
+            
+            <div class="bonus-details text-center mb-8">
+              <h3 id="modal-subtitle" class="text-xl text-white font-bold mb-4">¡Felicidades has ganado un bono del 10%!</h3>
+              <p id="modal-description" class="text-white/90 text-lg mb-6">Hablanos al whatsapp pulsando el boton y crea tu usuario al instante</p>
+              
+              <div class="bonus-features space-y-4 text-left mb-8">
+                <div class="feature flex items-center">
+                  <div class="feature-icon w-10 h-10 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div id="feature-1" class="feature-text text-white/90">Válido para cualquier monto de carga</div>
+                </div>
+                
+                <div class="feature flex items-center">
+                  <div class="feature-icon w-10 h-10 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div id="feature-2" class="feature-text text-white/90">Sin requisitos adicionales</div>
+                </div>
+                
+                <div class="feature flex items-center">
+                  <div class="feature-icon w-10 h-10 bg-casino-gold/20 rounded-full flex items-center justify-center text-white mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div id="feature-3" class="feature-text text-white/90">Actívalo inmediatamente al crear tu usuario</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Botones de acción -->
+            <div class="modal-actions flex flex-col space-y-4">
+              <a id="modal-cta" href={whatsappLink1} target="_blank" rel="noopener" class="cta-button w-full flex items-center justify-center gap-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-600 text-white text-xl font-bold py-4 px-6 rounded-xl transition-all hover:scale-105 shadow-xl">
+                <svg width="24" height="24" viewBox="0 0 308 308" fill="white" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458C233.168,179.508,230.845,178.393,227.904,176.981z" />
+                  <path d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867C276.546,215.678,222.799,268.994,156.734,268.994z" />
+                </svg>
+                CREAR USUARIO
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ pixelEvent }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Referencias a elementos del DOM
+    const bonusModal = document.getElementById('bonus-modal');
+    const modalCard = document.querySelector('.modal-card');
+    const closeModalBtn = document.getElementById('close-modal');
+    const mainWhatsappLink = document.querySelector('#modal-cta')?.getAttribute('href') || '';
+    const claimButton = document.getElementById('claim-bonus');
+    
+    // Para depuración
+    console.log('Inicializando componente de bono VIP mejorado...');
+    console.log('Pixel event disponible:', pixelEvent);
+    
+    // Animación adicional para la ficha VIP
+    const vipChip = document.querySelector('.vip-chip');
+    let hoverEffect = false;
+    
+    if (vipChip) {
+      // Añadir efecto de levitación
+      setInterval(() => {
+        if (!hoverEffect) {
+          vipChip.style.transform = `translateY(${Math.sin(Date.now() / 1000) * 8}px) rotate(${Math.sin(Date.now() / 2000) * 3}deg)`;
+        }
+      }, 50);
+      
+      // Añadir efecto al pasar el mouse o tocar
+      vipChip.addEventListener('mouseenter', activateChipHover);
+      vipChip.addEventListener('touchstart', activateChipHover);
+      
+      vipChip.addEventListener('mouseleave', deactivateChipHover);
+      vipChip.addEventListener('touchend', deactivateChipHover);
+      
+      function activateChipHover() {
+        hoverEffect = true;
+        vipChip.style.transform = 'translateY(-10px) scale(1.05)';
+        vipChip.style.boxShadow = '0 25px 50px rgba(255, 215, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.3)';
+        vipChip.classList.add('chip-hover');
+      }
+      
+      function deactivateChipHover() {
+        hoverEffect = false;
+        vipChip.classList.remove('chip-hover');
+        vipChip.style.boxShadow = '0 15px 35px rgba(255, 215, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.2)';
+      }
+      
+      // Efecto de brillo aleatorio en la ficha
+      setInterval(() => {
+        const lightReflection = document.querySelector('.light-reflection');
+        if (lightReflection) {
+          const randomX = Math.floor(Math.random() * 100) - 50;
+          const randomY = Math.floor(Math.random() * 100) - 50;
+          
+          lightReflection.style.left = `calc(50% + ${randomX}px)`;
+          lightReflection.style.top = `calc(50% + ${randomY}px)`;
+          lightReflection.style.opacity = '0';
+          
+          setTimeout(() => {
+            lightReflection.style.opacity = '0.7';
+            
+            setTimeout(() => {
+              lightReflection.style.opacity = '0';
+            }, 500);
+          }, 100);
+        }
+      }, 3000);
+      
+      // Animar destellos aleatorios
+      const animateSparkles = () => {
+        const sparkles = document.querySelectorAll('.sparkle');
+        sparkles.forEach((sparkle, index) => {
+          // Posición aleatoria alrededor de la ficha
+          const angle = Math.random() * 360;
+          const distance = 60 + Math.random() * 80;
+          const x = Math.cos(angle * Math.PI / 180) * distance;
+          const y = Math.sin(angle * Math.PI / 180) * distance;
+          
+          // Configurar el destello
+          sparkle.style.left = `calc(50% + ${x}px)`;
+          sparkle.style.top = `calc(50% + ${y}px)`;
+          sparkle.style.opacity = '0';
+          sparkle.style.transform = 'scale(0)';
+          
+          // Animación con retraso según el índice
+          setTimeout(() => {
+            sparkle.style.opacity = '1';
+            sparkle.style.transform = 'scale(1)';
+            
+            setTimeout(() => {
+              sparkle.style.opacity = '0';
+              sparkle.style.transform = 'scale(0)';
+            }, 600);
+          }, 1000 + index * 800);
+        });
+        
+        // Repetir la animación
+        setTimeout(animateSparkles, 3000);
+      };
+      
+      // Iniciar animación de destellos
+      animateSparkles();
+    }
+    
+    // Función para añadir efecto de confeti
+    const addConfettiEffect = () => {
+      const container = document.querySelector('.casino-chip-wrapper');
+      if (!container) return;
+      
+      console.log('Añadiendo efecto de confeti...');
+      
+      for (let i = 0; i < 60; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti-piece';
+        confetti.style.setProperty('--x', (Math.random() * 300 - 150) + 'px');
+        confetti.style.setProperty('--y', (Math.random() * 300 - 150) + 'px');
+        confetti.style.setProperty('--rotation', Math.random() * 360 + 'deg');
+        confetti.style.setProperty('--size', Math.random() * 10 + 5 + 'px');
+        
+        // Más colores y variedad
+        const colors = ['#FFD700', '#FF9900', '#FF0000', '#9900FF', '#0099FF', '#22cc77', '#ff44aa'];
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        
+        container.appendChild(confetti);
+        
+        // Eliminar el confeti después de la animación
+        setTimeout(() => {
+          confetti.remove();
+        }, 3000);
+      }
+    };
+    
+    // Configurar el botón de WhatsApp superior
+    const topWhatsappButton = document.getElementById('whatsapp-top-button');
+    if (topWhatsappButton) {
+      topWhatsappButton.addEventListener('click', (e) => {
+        // Prevenir navegación inmediata
+        e.preventDefault();
+        
+        // Usar una variable local para el evento
+        const eventToTrack = pixelEvent || 'Lead';
+        
+        // Imprimir para depuración
+        console.log('Tracking event desde botón superior:', eventToTrack);
+        
+        // Enviar el evento si fbq está disponible
+        if (typeof fbq === 'function') {
+          fbq('track', eventToTrack);
+        }
+        
+        // Navegar después de un pequeño retraso
+        setTimeout(() => {
+          window.open(topWhatsappButton.href, '_blank');
+        }, 300);
+      });
+    }
+    
+    // Función para mostrar el modal con los detalles del bono
+    function showBonusModal() {
+      console.log('Mostrando modal del bono VIP 10%');
+      
+      // Actualizar link de CTA
+      const ctaButton = document.getElementById('modal-cta');
+      if (ctaButton) {
+        ctaButton.href = mainWhatsappLink;
+      }
+      
+      // Mostrar el modal con animación
+      if (bonusModal) {
+        bonusModal.classList.remove('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          if (modalCard) modalCard.classList.add('scale-100');
+        }, 100);
+      }
+      
+      // Añadir efecto de confeti
+      addConfettiEffect();
+    }
+    
+    // Cerrar el modal
+    function closeModal() {
+      if (modalCard) modalCard.classList.remove('scale-100');
+      
+      setTimeout(() => {
+        if (bonusModal) bonusModal.classList.add('opacity-0', 'pointer-events-none');
+      }, 300);
+    }
+    
+    // Obtener el botón CTA
+    const ctaButton = document.getElementById('modal-cta');
+    
+    if (ctaButton) {
+      ctaButton.addEventListener('click', (e) => {
+        // Prevenir navegación inmediata
+        e.preventDefault();
+        
+        // Usar una variable local para el evento
+        const eventToTrack = pixelEvent || 'Lead';
+        
+        // Imprimir para depuración
+        console.log('Tracking event:', eventToTrack);
+        
+        // Enviar el evento si fbq está disponible
+        if (typeof fbq === 'function') {
+          fbq('track', eventToTrack);
+        }
+        
+        // Navegar después de un pequeño retraso
+        setTimeout(() => {
+          window.open(ctaButton.href, '_blank');
+        }, 300);
+      });
+    }
+    
+    // Evento para cerrar el modal
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener('click', closeModal);
+    }
+    
+    // Configurar evento de clic para el botón de reclamar bono
+    if (claimButton) {
+      claimButton.addEventListener('click', () => {
+        console.log('Bono VIP reclamado');
+        showBonusModal();
+      });
+    }
+  });
+</script>
+
+<style>
+
+  /* Textura de fondo de mesa de casino */
+  .bg-felt-pattern {
+    background-image: 
+      radial-gradient(circle, rgba(25, 17, 45, 0.6) 1px, transparent 1px),
+      radial-gradient(circle, rgba(25, 17, 45, 0.6) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+  }
+
+  /* Patrón de puntos para fondo unificado */
+  .bg-dots-pattern {
+    background-image: 
+      radial-gradient(circle, rgba(255, 208, 112, 0.15) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+  
+  .gradient-text {
+    background-image: linear-gradient(45deg, #FFD700, #FFB627);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .gradient-text::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-image: linear-gradient(45deg, #FFD700, #FFB627);
+    border-radius: 2px;
+  }
+  
+  .hero-title {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.05em;
+  }
+  
+  /* Estilos para la ficha VIP mejorada */
+  .casino-chip-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .casino-chip-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    padding: 15px;
+  }
+  
+  /* Ficha VIP dorada mejorada */
+  .vip-chip {
+    position: relative;
+    width: 220px; /* Aumentado el tamaño para mobile */
+    height: 220px; /* Aumentado el tamaño para mobile */
+    border-radius: 50%;
+    background: linear-gradient(145deg, #111111, #222222);
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.2);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    z-index: 10;
+    margin-bottom: 16px;
+  }
+  
+  /* Capa de brillo alrededor de la ficha */
+  .chip-glow {
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, rgba(255, 215, 0, 0) 70%);
+    top: -5%;
+    left: -5%;
+    animation: pulse-glow 2s infinite alternate;
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  .chip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+  }
+  
+  .chip-ring {
+    position: absolute;
+    border-radius: 50%;
+  }
+  
+  .outer-ring {
+    width: 100%;
+    height: 100%;
+    border: 10px solid #FFD700;
+    box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.5);
+    animation: rotate-slow 20s linear infinite;
+    background: linear-gradient(145deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.2));
+  }
+  
+  .middle-ring {
+    width: 85%;
+    height: 85%;
+    border: 4px dashed rgba(255, 215, 0, 0.7);
+    animation: rotate-slow-reverse 15s linear infinite;
+  }
+  
+  .inner-ring {
+    width: 75%;
+    height: 75%;
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.8) 0%, #000000 70%);
+  }
+  
+  .chip-center {
+    position: relative;
+    width: 70%;
+    height: 70%;
+    background: linear-gradient(145deg, #000000, #111111);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #FFD700;
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    overflow: hidden;
+  }
+  
+  .vip-crown {
+    font-size: 22px;
+    margin-bottom: -8px;
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.8));
+    transform: translateY(0);
+    animation: float-crown 2s ease-in-out infinite;
+  }
+  
+  @keyframes float-crown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+  
+  .vip-text {
+    position: relative;
+    font-size: 54px;
+    font-weight: 800;
+    color: #FFD700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    letter-spacing: 2px;
+    margin-top: -5px;
+    background: linear-gradient(to bottom, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    z-index: 2;
+  }
+  
+  /* Efecto de brillo sobre el texto VIP */
+  .chip-shine {
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 120%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    animation: shine-effect 3s infinite;
+    z-index: 3;
+  }
+  
+  @keyframes shine-effect {
+    0% { left: -120%; }
+    20% { left: 120%; }
+    100% { left: 120%; }
+  }
+  
+  .chip-decoration {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: rotate-slow 30s linear infinite;
+  }
+  
+  .chip-dot {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(145deg, #FFD700, #FFA500);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    margin-left: -12px;
+    margin-top: -12px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  }
+  
+  /* Reflexión de luz animada */
+  .light-reflection {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 15;
+    filter: blur(3px);
+  }
+  
+  /* Destellos alrededor de la ficha */
+  .sparkle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #FFD700, 0 0 20px rgba(255, 215, 0, 0.5);
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.6s ease-out;
+    z-index: 5;
+    pointer-events: none;
+    filter: blur(0.5px);
+  }
+  
+  .sparkle::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: inherit;
+    transform: scale(1.2);
+    opacity: 0.6;
+    z-index: -1;
+  }
+  
+  /* Efectos de hover para la ficha */
+  .vip-chip:hover, .chip-hover {
+    transform: translateY(-10px) scale(1.05);
+  }
+  
+  .vip-chip:hover .vip-text, .chip-hover .vip-text {
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+  }
+  
+  .vip-chip:hover .chip-dot, .chip-hover .chip-dot {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 1);
+  }
+  
+  /* Animaciones para la ficha */
+  @keyframes rotate-slow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes rotate-slow-reverse {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+  }
+  
+  .chip-message {
+    margin-top: 10px;
+    text-align: center;
+    animation: pulse-text 2s infinite alternate;
+  }
+  
+  @keyframes pulse-text {
+    0% { opacity: 0.8; transform: scale(0.98); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  
+  /* Botón de reclamar bono mejorado */
+  .claim-bonus-button {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    color: #000000;
+    font-size: 1.2rem;
+    font-weight: 800;
+    padding: 14px 28px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4), 0 10px 20px -10px rgba(255, 215, 0, 0.6);
+    transition: all 0.3s ease;
+    animation: button-pulse 2s infinite alternate;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  @keyframes button-pulse {
+    0% {
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.4), 0 10px 20px -10px rgba(255, 215, 0, 0.6);
+    }
+    100% {
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.6), 0 10px 25px -8px rgba(255, 215, 0, 0.8);
+    }
+  }
+  
+  .claim-bonus-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6), 0 15px 30px -10px rgba(255, 215, 0, 0.7);
+  }
+  
+  .claim-bonus-button:active {
+    transform: translateY(1px);
+  }
+  
+  .claim-bonus-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+    pointer-events: none;
+  }
+  
+  @keyframes shine {
+    0% {
+      left: -100%;
+      top: -100%;
+    }
+    100% {
+      left: 100%;
+      top: 100%;
+    }
+  }
+  
+  /* Modal de bono mejorado */
+  .modal-backdrop {
+    transition: opacity 0.5s ease;
+    backdrop-filter: blur(8px);
+  }
+  
+  .modal-card {
+    transform-origin: center;
+    transform: scale(0);
+    transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 95%;
+    max-width: 600px;
+  }
+  
+  .modal-card.scale-100 {
+    transform: scale(1);
+  }
+  
+  .modal-card-inner {
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(137, 86, 255, 0.3);
+    animation: glow 3s infinite alternate;
+  }
+  
+  @keyframes glow {
+    0% {
+      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(137, 86, 255, 0.2);
+    }
+    100% {
+      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(137, 86, 255, 0.4);
+    }
+  }
+  
+  .bonus-icon {
+    animation: pulse-glow 2s infinite alternate;
+  }
+  
+  @keyframes pulse-glow {
+    0% {
+      box-shadow: 0 0 10px rgba(255, 208, 112, 0.5);
+      transform: scale(1);
+    }
+    100% {
+      box-shadow: 0 0 30px rgba(255, 208, 112, 0.8);
+      transform: scale(1.05);
+    }
+  }
+  
+  /* Botón de acción mejorado */
+  .cta-button {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(22, 163, 74, 0.5);
+    font-size: 1.2rem;
+    padding: 0.8rem;
+    background: linear-gradient(45deg, #22C55E, #16A34A);
+    animation: cta-pulse 2s infinite alternate;
+  }
+  
+  @keyframes cta-pulse {
+    0% {
+      box-shadow: 0 0 15px rgba(22, 163, 74, 0.5);
+    }
+    100% {
+      box-shadow: 0 0 25px rgba(22, 163, 74, 0.7);
+    }
+  }
+  
+  .cta-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+    pointer-events: none;
+  }
+  
+  /* Confeti para la animación de éxito mejorado */
+  .confetti-piece {
+    position: absolute;
+    width: var(--size, 10px);
+    height: var(--size, 10px);
+    background: #FFD700;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    border-radius: 2px;
+    animation: confetti-fly 3s forwards ease-out;
+    transform-origin: center center;
+    z-index: 30;
+  }
+  
+  @keyframes confetti-fly {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 1;
+      scale: 0;
+    }
+    10% {
+      scale: 1;
+    }
+    100% {
+      transform: translate(var(--x), var(--y)) rotate(var(--rotation));
+      opacity: 0;
+      scale: 0.5;
+    }
+  }
+  
+  /* Cartas de fondo mejoradas */
+  .cards-background {
+    z-index: 0;
+    opacity: 0.2;
+    pointer-events: none;
+    transition: all 0.5s ease;
+  }
+  
+  .card-bg {
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.4));
+    opacity: 0.8;
+    transition: all 0.5s ease;
+  }
+  
+  .vip-chip:hover ~ .cards-background,
+  .chip-hover ~ .cards-background {
+    opacity: 0.3;
+  }
+  
+  .vip-chip:hover ~ .cards-background .card-left,
+  .chip-hover ~ .cards-background .card-left {
+    transform: translateY(-50%) translateX(-5px) rotate(-15deg);
+  }
+  
+  .vip-chip:hover ~ .cards-background .card-right,
+  .chip-hover ~ .cards-background .card-right {
+    transform: translateY(-50%) translateX(5px) rotate(15deg);
+  }
+  
+  /* Definición de variables de color para la paleta de casino */
+  :root {
+    --casino-gold: #FFD700;
+    --casino-purple: #241554;
+  }
+  
+  /* Adaptaciones para móvil */
+  @media (max-width: 480px) {
+    .vip-chip {
+      width: 220px; /* Mantener tamaño grande para móvil */
+      height: 220px; /* Mantener tamaño grande para móvil */
+      margin-bottom: 16px;
+    }
+    
+    .vip-text {
+      font-size: 52px; /* Texto más grande para móvil */
+    }
+    
+    .vip-crown {
+      font-size: 22px;
+    }
+    
+    .chip-dot {
+      width: 20px;
+      height: 20px;
+      margin-left: -10px;
+      margin-top: -10px;
+    }
+    
+    .outer-ring {
+      border-width: 8px;
+    }
+    
+    .claim-bonus-button {
+      padding: 14px 24px;
+      font-size: 1.1rem;
+    }
+    
+    .chip-message p {
+      padding: 0 10px;
+    }
+  }
+  
+  /* Mejoras adicionales para pantallas más grandes */
+  @media (min-width: 768px) {
+    .vip-chip {
+      width: 240px;
+      height: 240px;
+    }
+    
+    .vip-text {
+      font-size: 58px;
+    }
+    
+    .vip-crown {
+      font-size: 24px;
+    }
+  }
+</style>
