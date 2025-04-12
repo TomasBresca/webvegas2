@@ -19,7 +19,21 @@ import Hero05 from '../Heros/Hero(5).astro';
 import Hero06 from '../Heros/Hero(6).astro';
 import Hero07 from '../Heros/Hero(7).astro';
 import Hero08 from '../Heros/Hero(8).astro';
-import Hero09 from '../Heros/Hero.astro';
+import Hero09 from '../Heros/Hero(9).astro';
+import Hero10 from '../Heros/Hero(10).astro';
+import Hero11 from '../Heros/Hero(11).astro';
+import Hero12 from '../Heros/Hero(12).astro';
+import Hero13 from '../Heros/Hero(13).astro';
+import Hero14 from '../Heros/Hero(14).astro';
+import Hero15 from '../Heros/Hero(15).astro';
+import Hero16 from '../Heros/Hero(16).astro';
+import Hero17 from '../Heros/Hero(17).astro';
+import Hero18 from '../Heros/Hero(18).astro';
+import Hero19 from '../Heros/Hero(19).astro';
+import Hero20 from '../Heros/Hero(20).astro';
+import Hero21 from '../Heros/Hero(21).astro';
+import Hero22 from '../Heros/Hero(22).astro';
+import Hero23 from '../Heros/Hero(23).astro';
 
 // Definimos las rutas estáticas que se generarán
 export function getStaticPaths() {
@@ -32,7 +46,21 @@ export function getStaticPaths() {
     { params: { id: '06' } },
     { params: { id: '07' } },
     { params: { id: '08' } },
-    { params: { id: '09' } }
+    { params: { id: '09' } },
+    { params: { id: '10' } },
+    { params: { id: '11' } },
+    { params: { id: '12' } },
+    { params: { id: '13' } },
+    { params: { id: '14' } },
+    { params: { id: '15' } },
+    { params: { id: '16' } },
+    { params: { id: '17' } },
+    { params: { id: '18' } },
+    { params: { id: '19' } },
+    { params: { id: '20' } },
+    { params: { id: '21' } },
+    { params: { id: '22' } },
+    { params: { id: '23' } },
   ];
 }
 
@@ -42,12 +70,15 @@ export function getStaticPaths() {
 const { id } = Astro.params;
 
 // Tipo de versión válida
-type VersionId = '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09';
+type VersionId = '01' | '02' | '03' | '04' | '05' | '06' 
+                | '07' | '08' | '09' | '10' | '11' | '12' | '13' |
+                 '14' | '15' | '16' | '17' | '18' | '19' | '20' | '21' | '22' | '23';
 
 // Comprobar si el ID es una versión válida
 function isValidVersion(id: string | undefined): id is VersionId {
   return Boolean(
-    id && ['01', '02', '03', '04', '05', '06', '07', '08', '09'].includes(id)
+    id && ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10' , '11' ,
+     '12' , '13' , '14' , '15' , '16' , '17' , '18' , '19' , '20' , '21' , '22', '23'].includes(id)
   );
 }
 
@@ -120,6 +151,104 @@ const versions = {
     whatsappLink2: 'https://wa.me/5491135198071?text=Holaa%20quiero%20crear%20mi%20cuenta',
     registrationLink: 'https://wa.me/5491135198071?text=Holaa%20quiero%20crear%20mi%20cuenta',
     pixelEvent: 'Lead09'
+  },
+  '10': {
+    hero: Hero10,
+    whatsappLink1: "TODO AGREGAR NUMERO DE WASAP",
+    whatsappLink2: "TODO AGREGAR NUMERO DE WASAP",
+    registrationLink: "TODO AGREGAR NUMERO DE WASAP",
+    pixelEvent: 'Lead10'
+  },
+  '11': {
+    hero: Hero11,
+    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
+    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    pixelEvent: 'Lead11'
+  },
+  '12': {
+    hero: Hero12,
+    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
+    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    pixelEvent: 'Lead12'
+  },
+  '13': {
+    hero: Hero13,
+    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
+    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    pixelEvent: 'Lead13'
+  },
+  '14': {
+    hero: Hero14,
+    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
+    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    pixelEvent: 'Lead14'
+  },
+  '15': {
+    hero: Hero15,
+    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
+    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    pixelEvent: 'Lead15'
+  },
+  '16': {
+    hero: Hero16,
+    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
+    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    pixelEvent: 'Lead16'
+  },
+  '17': {
+    hero: Hero17,
+    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
+    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    pixelEvent: 'Lead17'
+  },
+  '18': {
+    hero: Hero18,
+    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
+    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    pixelEvent: 'Lead18'
+  },
+  '19': {
+    hero: Hero19,
+    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
+    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    pixelEvent: 'Lead19'
+  },
+  '20': {
+    hero: Hero20,
+    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
+    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    pixelEvent: 'Lead20'
+  },
+  '21': {
+    hero: Hero21,
+    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
+    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    pixelEvent: 'Lead21'
+  },
+  '22': {
+    hero: Hero22,
+    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
+    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    pixelEvent: 'Lead22'
+  },
+  '23': {
+    hero: Hero23,
+    whatsappLink1: 'https://wa.me/5492233464125?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    whatsappLink2: 'https://wa.me/5491123716937?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    registrationLink: 'https://wa.me/5491123716937?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    pixelEvent: 'Lead23'
   }
 };
 
