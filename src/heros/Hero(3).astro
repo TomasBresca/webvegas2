@@ -171,19 +171,19 @@ import '../styles/global.css';
   let currentIndex = 0;
   
   // Formatear número como moneda
-  const formatCurrency = (amount) => {
+  const formatCurrency = (amount: any) => {
     return '$' + amount.toLocaleString('en-US');
   };
   
   // Animación de contador
-  const animateCounter = (elementId, start, end, duration = 1000) => {
+  const animateCounter = (elementId: any, start: any, end: any, duration = 1000) => {
     const element = document.getElementById(elementId);
     if (!element) return;
     
     const startTime = performance.now();
     const change = end - start;
     
-    const updateCounter = (currentTime) => {
+    const updateCounter = (currentTime: any) => {
       const elapsedTime = currentTime - startTime;
       
       if (elapsedTime > duration) {
@@ -205,7 +205,7 @@ import '../styles/global.css';
   };
   
   // Actualizar calculadora
-  const updateCalculator = (amount) => {
+  const updateCalculator = (amount: any) => {
     const bonus = Math.round(amount * 0.1);
     const total = amount + bonus;
     
