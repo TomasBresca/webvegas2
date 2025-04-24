@@ -6,10 +6,10 @@ import '../styles/global.css';
 <section class="relative min-h-screen flex flex-col items-center justify-center pt-16 md:pt-20 pb-4 md:pb-10 bg-gradient-to-b from-casino-purple to-[#1A0F36] overflow-hidden w-full">
   <!-- Elementos flotantes decorativos -->
   <div class="absolute inset-0 pointer-events-none">
-    <div class="floating-element absolute top-1/4 left-10 w-12 h-12 opacity-30 animate-spin-slow">
+    <div class="floating-element absolute top-1/4 left-10 w-12 h-12 opacity-30">
       <img src="/images/chips.svg" alt="" class="w-full h-full" />
     </div>
-    <div class="floating-element absolute top-2/3 right-12 w-16 h-16 opacity-20 animate-pulse-slow">
+    <div class="floating-element absolute top-2/3 right-12 w-16 h-16 opacity-20">
       <img src="/images/ace.svg" alt="" class="w-full h-full" />
     </div>
   </div>
@@ -158,6 +158,26 @@ import '../styles/global.css';
   
   .vs-symbol {
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  }
+  
+  /* Animaciones para elementos flotantes */
+  .floating-element:nth-child(1) {
+    animation: floatElement1 6s ease-in-out infinite;
+  }
+  
+  .floating-element:nth-child(2) {
+    animation: floatElement2 9s ease-in-out infinite;
+  }
+  
+  @keyframes floatElement1 {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-15px) rotate(5deg); }
+    66% { transform: translateY(5px) rotate(-5deg); }
+  }
+  
+  @keyframes floatElement2 {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(-8deg); }
   }
 </style>
 
