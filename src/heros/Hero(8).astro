@@ -20,6 +20,12 @@ import '../styles/global.css';
     <div class="floating-element absolute bottom-1/5 right-1/3 w-12 h-12 opacity-25" style="animation-delay: 2s;">
       <img src="/images/chips.svg" alt="" class="w-full h-full" />
     </div>
+    
+    <!-- Elementos de luz fluida -->
+    <div class="fluid-red absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-red-600/10 blur-3xl"></div>
+    <div class="fluid-blue absolute -bottom-[10%] -right-[10%] w-[50%] h-[50%] rounded-full bg-blue-600/10 blur-3xl"></div>
+    <div class="fluid-red-small absolute top-[30%] left-[30%] w-[30%] h-[30%] rounded-full bg-red-600/10 blur-3xl"></div>
+    <div class="fluid-blue-small absolute bottom-[30%] right-[30%] w-[30%] h-[30%] rounded-full bg-blue-600/10 blur-3xl"></div>
   </div>
   
   <div class="w-full px-4 md:px-6 max-w-7xl mx-auto flex flex-col items-center justify-center relative z-10 py-8">
@@ -39,10 +45,16 @@ import '../styles/global.css';
       <div id="closed-box" class="relative transition-all duration-500 transform">
         <div class="treasure-chest relative cursor-pointer mx-auto text-center">
           <!-- Efecto de luz alrededor del cofre -->
-          <div class="absolute -inset-4 bg-casino-gold/30 rounded-2xl blur-xl opacity-75 animate-pulse-slow"></div>
+          <div class="absolute -inset-8 bg-casino-gold/30 rounded-full blur-xl opacity-75 animate-pulse-slow"></div>
           
           <!-- Cofre animado -->
           <div class="relative treasure-breath">
+            <!-- Rayos de luz desde atrás del cofre -->
+            <div class="treasure-rays absolute -inset-12 z-0"></div>
+            
+            <!-- Efecto starburst -->
+            <div class="starburst absolute -inset-10 z-0"></div>
+            
             <img src="/images/cofre.webp" alt="Cofre del tesoro" class="w-64 h-auto mx-auto relative z-10" />
           </div>
           
@@ -150,9 +162,115 @@ import '../styles/global.css';
                  0 0 15px rgba(255, 208, 112, 0.3);
   }
   
+  /* Efecto de rayos de luz para el cofre */
+  .treasure-rays {
+    background-image: repeating-conic-gradient(
+      from 0deg,
+      rgba(255, 215, 0, 0.2) 0deg,
+      rgba(255, 215, 0, 0) 5deg,
+      rgba(255, 215, 0, 0) 10deg,
+      rgba(255, 215, 0, 0.2) 15deg
+    );
+    border-radius: 100%;
+    opacity: 0.7;
+    animation: rotate-rays 10s linear infinite;
+  }
+  
+  /* Efecto starburst para el cofre */
+  .starburst {
+    background-image: linear-gradient(
+        rgba(255, 215, 0, 0.2) 0%, 
+        rgba(255, 215, 0, 0) 50%, 
+        rgba(255, 215, 0, 0.2) 100%
+      ),
+      linear-gradient(
+        90deg, 
+        rgba(255, 215, 0, 0.2) 0%, 
+        rgba(255, 215, 0, 0) 50%, 
+        rgba(255, 215, 0, 0.2) 100%
+      ),
+      radial-gradient(
+        circle at center,
+        rgba(255, 215, 0, 0.3) 0%,
+        rgba(255, 215, 0, 0) 70%
+      );
+    border-radius: 100%;
+    opacity: 0.7;
+    animation: pulse-starburst 5s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-starburst {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+    50% { transform: scale(1.2) rotate(45deg); opacity: 0.8; }
+  }
+  
+  @keyframes rotate-rays {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Animación del pulso lento para el brillo del cofre */
+  .animate-pulse-slow {
+    animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.75; transform: scale(1.1); }
+  }
+  
   @keyframes breathe {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
+  }
+  
+  /* Animaciones para los elementos de luz fluida */
+  .fluid-red {
+    animation: fluidMove1 7s ease-in-out infinite;
+  }
+  
+  .fluid-blue {
+    animation: fluidMove2 8s ease-in-out infinite;
+  }
+  
+  .fluid-red-small {
+    animation: fluidMove3 6s ease-in-out infinite;
+  }
+  
+  .fluid-blue-small {
+    animation: fluidMove4 5s ease-in-out infinite;
+  }
+  
+  @keyframes fluidMove1 {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(15%, 15%) rotate(90deg); }
+    50% { transform: translate(0, 15%) rotate(180deg); }
+    75% { transform: translate(-15%, 15%) rotate(270deg); }
+    100% { transform: translate(0, 0) rotate(360deg); }
+  }
+  
+  @keyframes fluidMove2 {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(-15%, -15%) rotate(-90deg); }
+    50% { transform: translate(0, -15%) rotate(-180deg); }
+    75% { transform: translate(15%, -15%) rotate(-270deg); }
+    100% { transform: translate(0, 0) rotate(-360deg); }
+  }
+  
+  @keyframes fluidMove3 {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(-15%, 15%) rotate(90deg); }
+    50% { transform: translate(-15%, 0) rotate(180deg); }
+    75% { transform: translate(-15%, -15%) rotate(270deg); }
+    100% { transform: translate(0, 0) rotate(360deg); }
+  }
+  
+  @keyframes fluidMove4 {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(15%, -15%) rotate(-90deg); }
+    50% { transform: translate(15%, 0) rotate(-180deg); }
+    75% { transform: translate(15%, 15%) rotate(-270deg); }
+    100% { transform: translate(0, 0) rotate(-360deg); }
   }
   
   .countdown-container {

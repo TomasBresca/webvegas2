@@ -3,6 +3,14 @@ const { whatsappLink1, whatsappLink2, pixelEvent } = Astro.props;
 import '../styles/global.css';
 ---
 <section class="relative min-h-screen flex items-center pt-24 md:pt-16 pb-6 bg-casino-purple overflow-hidden w-full">
+  <!-- Efectos de luz fluida en el fondo -->
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    <div class="fluid-light fluid-red"></div>
+    <div class="fluid-light fluid-blue"></div>
+    <div class="fluid-light fluid-red-small"></div>
+    <div class="fluid-light fluid-blue-small"></div>
+  </div>
+
   <!-- Elementos flotantes decorativos -->
   <div class="absolute inset-0 pointer-events-none">
     <div class="floating-element absolute top-1/4 left-10 w-12 h-12 opacity-30 animate-spin-slow">
@@ -154,6 +162,88 @@ import '../styles/global.css';
     0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
     30% { transform: translateY(-15px) rotate(10deg) scale(1.1); }
     60% { transform: translateY(8px) rotate(-5deg) scale(0.95); }
+  }
+
+  /* Estilos para efectos de luz fluida */
+  .fluid-light {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+  }
+  
+  .fluid-red {
+    background: radial-gradient(circle, rgba(255, 50, 50, 1) 0%, rgba(180, 0, 0, 0.8) 60%, rgba(100, 0, 0, 0) 100%);
+    width: 40vw;
+    height: 40vw;
+    max-width: 500px;
+    max-height: 500px;
+    top: 25%;
+    left: 15%;
+    animation: fluidMove1 6s ease-in-out infinite alternate;
+  }
+  
+  .fluid-blue {
+    background: radial-gradient(circle, rgba(50, 100, 255, 1) 0%, rgba(0, 40, 180, 0.8) 60%, rgba(0, 0, 100, 0) 100%);
+    width: 45vw;
+    height: 45vw;
+    max-width: 550px;
+    max-height: 550px;
+    top: 10%;
+    right: 15%;
+    animation: fluidMove2 7s ease-in-out infinite alternate;
+  }
+  
+  .fluid-red-small {
+    background: radial-gradient(circle, rgba(255, 50, 50, 1) 0%, rgba(180, 0, 0, 0.8) 60%, rgba(100, 0, 0, 0) 100%);
+    width: 35vw;
+    height: 35vw;
+    max-width: 400px;
+    max-height: 400px;
+    bottom: 15%;
+    left: 10%;
+    animation: fluidMove3 6s ease-in-out infinite alternate;
+  }
+  
+  .fluid-blue-small {
+    background: radial-gradient(circle, rgba(50, 100, 255, 1) 0%, rgba(0, 40, 180, 0.8) 60%, rgba(0, 0, 100, 0) 100%);
+    width: 30vw;
+    height: 30vw;
+    max-width: 350px;
+    max-height: 350px;
+    top: 20%;
+    right: 5%;
+    animation: fluidMove4 8s ease-in-out infinite alternate;
+  }
+  
+  @keyframes fluidMove1 {
+    0% { transform: translate(-15%, -15%) rotate(0deg); }
+    25% { transform: translate(0%, 15%) rotate(90deg); }
+    50% { transform: translate(15%, 0%) rotate(180deg); }
+    75% { transform: translate(0%, -15%) rotate(270deg); }
+    100% { transform: translate(-15%, -15%) rotate(360deg); }
+  }
+  
+  @keyframes fluidMove2 {
+    0% { transform: translate(15%, 15%) rotate(0deg); }
+    25% { transform: translate(0%, -15%) rotate(-90deg); }
+    50% { transform: translate(-15%, 0%) rotate(-180deg); }
+    75% { transform: translate(0%, 15%) rotate(-270deg); }
+    100% { transform: translate(15%, 15%) rotate(-360deg); }
+  }
+  
+  @keyframes fluidMove3 {
+    0% { transform: translate(-12%, -12%) rotate(0deg); }
+    33% { transform: translate(12%, 0%) rotate(120deg); }
+    66% { transform: translate(0%, 12%) rotate(240deg); }
+    100% { transform: translate(-12%, -12%) rotate(360deg); }
+  }
+  
+  @keyframes fluidMove4 {
+    0% { transform: translate(12%, 12%) rotate(0deg); }
+    33% { transform: translate(-12%, 0%) rotate(-120deg); }
+    66% { transform: translate(0%, -12%) rotate(-240deg); }
+    100% { transform: translate(12%, 12%) rotate(-360deg); }
   }
 </style>
 
