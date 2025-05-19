@@ -1,5 +1,4 @@
 ---
-//pages/index.astro
 // Importamos los componentes necesarios
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
@@ -295,6 +294,11 @@ const pixelToken = '1654651481848094';
     />
   </noscript>
   <!-- End Facebook Pixel Code -->
+  
+  <!-- Manychat -->
+  <script src="//widget.manychat.com/2686937_1c05d.js" defer="defer"></script>
+  <script src="https://mccdn.me/assets/js/widget.js" defer="defer"></script>
+  <!-- End Manychat -->
 
   <Navbar registrationLink={registrationLink} />
   
@@ -312,4 +316,4 @@ const pixelToken = '1654651481848094';
   <Soporte whatsappLink1={whatsappLink1} whatsappLink2={whatsappLink2} />
   
   <Footer registrationLink={registrationLink} whatsappLink1={whatsappLink1} whatsappLink2={whatsappLink2} />
-</Layout> 
+</Layout>

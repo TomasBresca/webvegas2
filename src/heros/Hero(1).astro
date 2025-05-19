@@ -1,5 +1,4 @@
 ---
-//heros/Hero(1).astro
 const { whatsappLink1, whatsappLink2, pixelEvent } = Astro.props;
 import '../styles/global.css';
 ---
@@ -207,6 +206,32 @@ import '../styles/global.css';
     // Para depuración
     console.log('Pixel event disponible:', pixelEvent);
     
+    // Función para disparar eventos de tracking
+    function trackConversionEvent(eventName) {
+      // Tracking de Facebook Pixel
+      if (typeof fbq === 'function') {
+        fbq('track', eventName);
+        console.log('Facebook Pixel event tracked:', eventName);
+      }
+      
+      // Tracking de ManyChat - asegurarse que el objeto MC_PIXEL existe antes de usarlo
+      if (window.MC_PIXEL && typeof window.MC_PIXEL.fireLogConversionEvent === 'function') {
+        window.MC_PIXEL.fireLogConversionEvent(eventName);
+        console.log('ManyChat event tracked:', eventName);
+      } else {
+        console.log('ManyChat pixel no disponible aún, reintentando...');
+        // Reintentar en caso de que ManyChat no se haya cargado completamente
+        setTimeout(() => {
+          if (window.MC_PIXEL && typeof window.MC_PIXEL.fireLogConversionEvent === 'function') {
+            window.MC_PIXEL.fireLogConversionEvent(eventName);
+            console.log('ManyChat event tracked (retried):', eventName);
+          } else {
+            console.log('ManyChat pixel no disponible después del reintento');
+          }
+        }, 1000);
+      }
+    }
+    
     // Configurar el botón de WhatsApp superior
     const topWhatsappButton = document.getElementById('whatsapp-top-button');
     if (topWhatsappButton) {
@@ -220,10 +245,8 @@ import '../styles/global.css';
         // Imprimir para depuración
         console.log('Tracking event desde botón superior:', eventToTrack);
         
-        // Enviar el evento si fbq está disponible
-        if (typeof fbq === 'function') {
-          fbq('track', eventToTrack);
-        }
+        // Disparar eventos de tracking
+        trackConversionEvent(eventToTrack);
         
         // Navegar después de un pequeño retraso
         setTimeout(() => {
@@ -246,10 +269,8 @@ import '../styles/global.css';
         // Imprimir para depuración
         console.log('Tracking event:', eventToTrack);
         
-        // Enviar el evento si fbq está disponible
-        if (typeof fbq === 'function') {
-          fbq('track', eventToTrack);
-        }
+        // Disparar eventos de tracking
+        trackConversionEvent(eventToTrack);
         
         // Navegar después de un pequeño retraso
         setTimeout(() => {
