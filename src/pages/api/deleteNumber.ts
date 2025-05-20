@@ -1,7 +1,7 @@
-// src/pages/api/updateNumber.ts
+// src/pages/api/deleteNumber.ts
 export const prerender = false;
 import type { APIRoute } from 'astro';
-import { validateToken, updateWhatsAppNumber } from '../../data/auth';
+import { validateToken, deleteWhatsAppNumber } from '../../data/auth';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -24,7 +24,7 @@ export const POST: APIRoute = async ({ request }) => {
     
     // Procesar solicitud
     const body = await request.json();
-    const { heroId, number } = body;
+    const { heroId } = body;
     
     if (!heroId || typeof heroId !== 'number' || heroId < 1 || heroId > 23) {
       return new Response(JSON.stringify({ error: 'ID de Hero inválido' }), {
@@ -33,25 +33,14 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
     
-    if (!number || typeof number !== 'string' || !/^\d+$/.test(number)) {
-      return new Response(JSON.stringify({ error: 'Número inválido: debe contener solo dígitos' }), {
-        status: 400,
-        headers: { 'Content-Type': 'application/json' }
-      });
-    }
-    
-    await updateWhatsAppNumber(heroId, number);
+    await deleteWhatsAppNumber(heroId);
     
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     });
   } catch (error) {
-    console.error('Error al actualizar número:', error);
-    return new Response(JSON.stringify({ 
-      error: 'Error en el servidor', 
-      details: error instanceof Error ? error.message : 'Error desconocido' 
-    }), {
+    return new Response(JSON.stringify({ error: 'Error en el servidor' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
     });

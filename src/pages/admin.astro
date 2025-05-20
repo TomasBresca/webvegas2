@@ -2,7 +2,7 @@
 // src/pages/admin.astro
 export const prerender = false;
 import Layout from '../layouts/Layout.astro';
-import { validateToken, getWhatsAppNumber } from '../data/auth';
+import { validateToken, getAllWhatsAppNumbers } from '../data/auth';
 
 // Verificar autenticación
 const token = Astro.cookies.get('auth_token')?.value;
@@ -10,41 +10,83 @@ if (!token || !validateToken(token)) {
   return Astro.redirect('/admin-login');
 }
 
-// Obtener número actual
-const currentNumber = await getWhatsAppNumber();
+// Obtener todos los números
+const whatsappNumbers = await getAllWhatsAppNumbers();
 ---
 
 <Layout title="Panel de Administración">
-  <main class="container mx-auto py-10 px-4 max-w-md">
-    <h1 class="text-2xl font-bold mb-6 text-center">Panel de Administración</h1>
+  <main class="container mx-auto py-8 px-4 max-w-4xl">
+    <h1 class="text-3xl font-bold mb-6 text-center">Panel de Administración</h1>
     
-    <div class="bg-white p-6 rounded-lg shadow-md">
-      <form id="updateForm" class="mb-6">
-        <div class="mb-4">
-          <label for="whatsappNumber" class="block text-gray-700 mb-2">Número de WhatsApp:</label>
+    <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+      <h2 class="text-xl font-bold mb-4">Números de WhatsApp</h2>
+      
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white border border-gray-200">
+          <thead>
+            <tr>
+              <th class="py-2 px-4 border-b text-left">Hero ID</th>
+              <th class="py-2 px-4 border-b text-left">Número</th>
+              <th class="py-2 px-4 border-b text-center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="numbers-table">
+            {whatsappNumbers.map((number, index) => (
+              <tr class="hover:bg-gray-50">
+                <td class="py-2 px-4 border-b">{index + 1}</td>
+                <td class="py-2 px-4 border-b">
+                  <input 
+                    type="text" 
+                    value={number} 
+                    data-hero-id={index + 1}
+                    class="whatsapp-number-input w-full px-2 py-1 border border-gray-300 rounded"
+                  />
+                </td>
+                <td class="py-2 px-4 border-b text-center">
+                  <button 
+                    data-hero-id={index + 1} 
+                    class="update-number bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded mr-2"
+                  >
+                    Actualizar
+                  </button>
+                  <button 
+                    data-hero-id={index + 1} 
+                    class="delete-number bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
+                  >
+                    Restaurar
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="mt-6">
+        <h3 class="font-bold mb-2">Agregar Nuevo Número</h3>
+        <div class="flex space-x-2">
           <input 
             type="text" 
-            id="whatsappNumber" 
-            value={currentNumber}
-            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
+            id="new-number" 
+            placeholder="Nuevo número de WhatsApp" 
+            class="flex-1 px-3 py-2 border border-gray-300 rounded"
           />
-          <p class="text-sm text-gray-500 mt-1">Solo números, sin símbolos (ej: 541112345678)</p>
+          <button 
+            id="add-number" 
+            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"
+          >
+            Agregar
+          </button>
         </div>
-        
-        <button 
-          type="submit" 
-          class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300"
-        >
-          Actualizar Número
-        </button>
-        
-        <div id="statusMessage" class="mt-4 text-center hidden"></div>
-      </form>
+      </div>
       
+      <div id="status-message" class="mt-4 p-3 hidden"></div>
+    </div>
+    
+    <div class="text-center">
       <button 
-        id="logoutButton"
-        class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300"
+        id="logout-button"
+        class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded"
       >
         Cerrar Sesión
       </button>
@@ -53,10 +95,6 @@ const currentNumber = await getWhatsAppNumber();
 </Layout>
 
 <script>
-  const updateForm = document.getElementById('updateForm') as HTMLFormElement;
-  const statusMessage = document.getElementById('statusMessage') as HTMLDivElement;
-  const logoutButton = document.getElementById('logoutButton') as HTMLButtonElement;
-  
   // Obtener token
   function getToken() {
     return document.cookie
@@ -65,21 +103,97 @@ const currentNumber = await getWhatsAppNumber();
       ?.split('=')[1];
   }
   
-  updateForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  // Mostrar mensaje de estado
+  function showStatus(message: string, type: 'success' | 'error') {
+    const statusMessage = document.getElementById('status-message');
+    if (!statusMessage) return;
     
-    const numberInput = document.getElementById('whatsappNumber') as HTMLInputElement;
-    const number = numberInput.value.trim();
+    statusMessage.textContent = message;
+    statusMessage.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
     
-    if (!/^\d+$/.test(number)) {
-      showStatus('El número debe contener solo dígitos', 'error');
-      return;
+    if (type === 'success') {
+      statusMessage.classList.add('bg-green-100', 'text-green-800');
+    } else {
+      statusMessage.classList.add('bg-red-100', 'text-red-800');
     }
-    
+  }
+  
+  // Actualizar número
+  async function updateNumber(heroId: number, number: string) {
     try {
       const token = getToken();
+      if (!token) {
+        window.location.href = '/admin-login';
+        return;
+      }
       
       const response = await fetch('/api/updateNumber', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ heroId, number })
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok && data.success) {
+        showStatus(`Número para Hero ${heroId} actualizado correctamente`, 'success');
+      } else {
+        showStatus(data.error || 'Error al actualizar número', 'error');
+      }
+    } catch (error) {
+      showStatus('Error de conexión', 'error');
+    }
+  }
+  
+  // Eliminar número (restaurar a valor por defecto)
+  async function deleteNumber(heroId: number) {
+    try {
+      const token = getToken();
+      if (!token) {
+        window.location.href = '/admin-login';
+        return;
+      }
+      
+      const response = await fetch('/api/deleteNumber', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ heroId })
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok && data.success) {
+        showStatus(`Número para Hero ${heroId} restaurado a valor predeterminado`, 'success');
+        
+        // Actualizar la interfaz
+        const input = document.querySelector(`input[data-hero-id="${heroId}"]`) as HTMLInputElement;
+        if (input) {
+          input.value = "5491123456789";
+        }
+      } else {
+        showStatus(data.error || 'Error al restaurar número', 'error');
+      }
+    } catch (error) {
+      showStatus('Error de conexión', 'error');
+    }
+  }
+  
+  // Agregar nuevo número
+  async function addNumber(number: string) {
+    try {
+      const token = getToken();
+      if (!token) {
+        window.location.href = '/admin-login';
+        return;
+      }
+      
+      const response = await fetch('/api/createNumber', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -91,23 +205,78 @@ const currentNumber = await getWhatsAppNumber();
       const data = await response.json();
       
       if (response.ok && data.success) {
-        showStatus('Número actualizado correctamente', 'success');
+        showStatus('Nuevo número agregado correctamente', 'success');
+        window.location.reload(); // Recargar para mostrar el nuevo número
       } else {
-        showStatus(data.error || 'Error al actualizar', 'error');
+        showStatus(data.error || 'Error al agregar número', 'error');
       }
     } catch (error) {
       showStatus('Error de conexión', 'error');
     }
-  });
-  
-  logoutButton.addEventListener('click', () => {
-    document.cookie = 'auth_token=; path=/; max-age=0';
-    window.location.href = '/admin-login';
-  });
-  
-  function showStatus(message: string, type: 'success' | 'error') {
-    statusMessage.textContent = message;
-    statusMessage.classList.remove('hidden', 'text-red-500', 'text-green-500');
-    statusMessage.classList.add(type === 'success' ? 'text-green-500' : 'text-red-500');
   }
+  
+  // Eventos
+  document.addEventListener('DOMContentLoaded', () => {
+    // Botones de actualizar
+    document.querySelectorAll('.update-number').forEach(button => {
+      button.addEventListener('click', () => {
+        const heroId = parseInt((button as HTMLElement).dataset.heroId || '0');
+        const input = document.querySelector(`input[data-hero-id="${heroId}"]`) as HTMLInputElement;
+        
+        if (heroId && input) {
+          const number = input.value.trim();
+          
+          if (!/^\d+$/.test(number)) {
+            showStatus('El número debe contener solo dígitos', 'error');
+            return;
+          }
+          
+          updateNumber(heroId, number);
+        }
+      });
+    });
+    
+    // Botones de eliminar
+    document.querySelectorAll('.delete-number').forEach(button => {
+      button.addEventListener('click', () => {
+        const heroId = parseInt((button as HTMLElement).dataset.heroId || '0');
+        
+        if (heroId) {
+          if (confirm(`¿Restaurar el número del Hero ${heroId} al valor predeterminado?`)) {
+            deleteNumber(heroId);
+          }
+        }
+      });
+    });
+    
+    // Botón agregar
+    const addButton = document.getElementById('add-number');
+    if (addButton) {
+      addButton.addEventListener('click', () => {
+        const input = document.getElementById('new-number') as HTMLInputElement;
+        const number = input.value.trim();
+        
+        if (!number) {
+          showStatus('Ingrese un número', 'error');
+          return;
+        }
+        
+        if (!/^\d+$/.test(number)) {
+          showStatus('El número debe contener solo dígitos', 'error');
+          return;
+        }
+        
+        addNumber(number);
+      });
+    }
+    
+    // Botón cerrar sesión
+    const logoutButton = document.getElementById('logout-button');
+    if (logoutButton) {
+      logoutButton.addEventListener('click', () => {
+        document.cookie = 'auth_token=; path=/; max-age=0';
+        window.location.href = '/admin-login';
+      });
+    }
+  });
 </script>

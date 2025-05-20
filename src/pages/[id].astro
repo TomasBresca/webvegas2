@@ -1,5 +1,5 @@
 ---
-// Cambiar a renderizado en servidor para permitir carga dinámica
+// src/pages/[id].astro
 export const prerender = false;
 
 // Importamos los componentes necesarios
@@ -38,9 +38,6 @@ import Hero22 from '../heros/Hero(22).astro';
 import Hero23 from '../heros/Hero(23).astro';
 import Hero24 from '../heros/Hero(24).astro';
 
-// Ya no necesitamos getStaticPaths() porque ahora es dinámico
-// export function getStaticPaths() {...}
-
 // Importamos la función para obtener el número de WhatsApp
 import { getWhatsAppNumber } from '../data/auth';
 
@@ -65,194 +62,153 @@ if (!isValidVersion(id)) {
   return Astro.redirect('/01');
 }
 
-// Obtener el número de WhatsApp dinámicamente
-let defaultWhatsAppNumber = '';
+// Convertir ID a número de hero (01 -> 1, 02 -> 2, etc.)
+const heroId = parseInt(id);
+
+// Obtener el número de WhatsApp para este hero
+let whatsappNumber = '';
 try {
-  defaultWhatsAppNumber = await getWhatsAppNumber();
+  whatsappNumber = await getWhatsAppNumber(heroId);
 } catch (error) {
-  console.error('Error al obtener el número de WhatsApp:', error);
-  defaultWhatsAppNumber = '5492233464125'; // Número de respaldo por defecto
+  console.error(`Error al obtener número para Hero ${heroId}:`, error);
+  whatsappNumber = '5491123456789'; // Número por defecto
 }
 
-// Crear URL de WhatsApp con el texto predefinido
-const createWhatsAppLink = (number: string) => 
-  `https://wa.me/${number}?text=Holaa%20quiero%20crear%20mi%20cuenta`;
+// Crear enlaces de WhatsApp
+const whatsappText = 'Holaa%20quiero%20crear%20mi%20cuenta';
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
+
+// Mapeo de componentes de Hero
+const heroComponents = {
+  '01': Hero01,
+  '02': Hero02,
+  '03': Hero03,
+  '04': Hero04,
+  '05': Hero05,
+  '06': Hero06,
+  '07': Hero07,
+  '08': Hero08,
+  '09': Hero09,
+  '10': Hero10,
+  '11': Hero11,
+  '12': Hero12,
+  '13': Hero13,
+  '14': Hero14,
+  '15': Hero15,
+  '16': Hero16,
+  '17': Hero17,
+  '18': Hero18,
+  '19': Hero19,
+  '20': Hero20,
+  '21': Hero21,
+  '22': Hero22,
+  '23': Hero23,
+  '24': Hero24
+};
 
 // Configuración para cada versión
 const versions = {
   '01': {
     hero: Hero01,
-    whatsappLink1: 'https://wa.me/5492233464125?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    whatsappLink2: 'https://wa.me/5491123716937?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    registrationLink: 'https://wa.me/5491123716937?text=Holaa%20quiero%20crear%20mi%20cuenta',
     pixelEvent: 'Lead01'
   },
   '02': {
     hero: Hero02,
-    whatsappLink1: 'https://wa.me/5491131582726?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    whatsappLink2: 'https://wa.me/5491134943198?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    registrationLink: 'https://wa.me/5491134943198?text=Holaa%20quiero%20crear%20mi%20cuenta',
     pixelEvent: 'Lead02'
   },
   '03': {
     hero: Hero03,
-    whatsappLink1: 'https://wa.me/5491155608678?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    whatsappLink2: 'https://wa.me/5491126092243?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    registrationLink: 'https://wa.me/5491126092243?text=Holaa%20quiero%20crear%20mi%20cuenta',
     pixelEvent: 'Lead03'
   },
   '04': {
     hero: Hero04,
-    whatsappLink1: 'https://wa.me/5493442684863?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    whatsappLink2: 'https://wa.me/5493442684863?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    registrationLink: 'https://wa.me/5493442684863?text=Holaa%20quiero%20crear%20mi%20cuenta',
     pixelEvent: 'Lead04'
   },
   '05': {
     hero: Hero05,
-    whatsappLink1: 'https://wa.me/5491126737466?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    whatsappLink2: 'https://wa.me/5491126737466?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    registrationLink: 'https://wa.me/5491126737466?text=Holaa%20quiero%20crear%20mi%20cuenta',
     pixelEvent: 'Lead05'
   },
   '06': {
     hero: Hero06,
-    whatsappLink1: 'https://wa.me/5491130994384?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    whatsappLink2: 'https://wa.me/5491130994384?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    registrationLink: 'https://wa.me/5491130994384?text=Holaa%20quiero%20crear%20mi%20cuenta',
     pixelEvent: 'Lead06'
   },
   '07': {
     hero: Hero07,
-    whatsappLink1: 'https://wa.me/5492216921136?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    whatsappLink2: 'https://wa.me/5492216815409?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    registrationLink: 'https://wa.me/5492216815409?text=Holaa%20quiero%20crear%20mi%20cuenta',
     pixelEvent: 'Lead07'
   },
   '08': {
     hero: Hero08,
-    whatsappLink1: 'https://wa.me/5491155837639?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    whatsappLink2: 'https://wa.me/5493584443572?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    registrationLink: 'https://wa.me/5493584443572?text=Holaa%20quiero%20crear%20mi%20cuenta',
     pixelEvent: 'Lead08'
   },
   '09': {
     hero: Hero09,
-    whatsappLink1: 'https://wa.me/5492252449304?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    whatsappLink2: 'https://wa.me/5491135198071?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    registrationLink: 'https://wa.me/5491135198071?text=Holaa%20quiero%20crear%20mi%20cuenta',
     pixelEvent: 'Lead09'
   },
   '10': {
     hero: Hero10,
-    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
-    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
-    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead10'
   },
   '11': {
     hero: Hero11,
-    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
-    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
-    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead11'
   },
   '12': {
     hero: Hero12,
-    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
-    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
-    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead12'
   },
   '13': {
     hero: Hero13,
-    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
-    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
-    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead13'
   },
   '14': {
     hero: Hero14,
-    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
-    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
-    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead14'
   },
   '15': {
     hero: Hero15,
-    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
-    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
-    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead15'
   },
   '16': {
     hero: Hero16,
-    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
-    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
-    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead16'
   },
   '17': {
     hero: Hero17,
-    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
-    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
-    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead17'
   },
   '18': {
     hero: Hero18,
-    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
-    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
-    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead18'
   },
   '19': {
     hero: Hero19,
-    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
-    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
-    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead19'
   },
   '20': {
     hero: Hero20,
-    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
-    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
-    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead20'
   },
   '21': {
     hero: Hero21,
-    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
-    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
-    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead21'
   },
   '22': {
     hero: Hero22,
-    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
-    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
-    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead22'
   },
   '23': {
     hero: Hero23,
-    whatsappLink1: 'https://wa.me/5492233464125?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    whatsappLink2: 'https://wa.me/5491123716937?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    registrationLink: 'https://wa.me/5491123716937?text=Holaa%20quiero%20crear%20mi%20cuenta',
     pixelEvent: 'Lead23'
   },
   '24': {
     hero: Hero24,
-    whatsappLink1: 'https://wa.me/5492233464125?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    whatsappLink2: 'https://wa.me/5491123716937?text=Holaa%20quiero%20crear%20mi%20cuenta',
-    registrationLink: 'https://wa.me/5491123716937?text=Holaa%20quiero%20crear%20mi%20cuenta',
     pixelEvent: 'Lead24'
   }
 };
 
-// Obtener la configuración para la versión actual (ahora sabemos que es válida)
+// Obtener la configuración para la versión actual
 const version = versions[id];
-const { hero: HeroComponent, whatsappLink1, whatsappLink2, registrationLink, pixelEvent } = version;
+const { hero: HeroComponent, pixelEvent } = version;
 
 // Token de Facebook Pixel
 const pixelToken = '1654651481848094';
@@ -299,20 +255,24 @@ const pixelToken = '1654651481848094';
   <script src="https://mccdn.me/assets/js/widget.js" defer="defer"></script>
   <!-- End Manychat -->
 
-  <Navbar registrationLink={registrationLink} />
+  <Navbar registrationLink={whatsappLink} />
   
-  <!-- Renderiza el Hero específico para esta versión -->
-  <HeroComponent whatsappLink1={whatsappLink1} whatsappLink2={whatsappLink2} pixelEvent={pixelEvent}/>
+  <!-- Renderiza el Hero específico para esta versión con el número de WhatsApp -->
+  <HeroComponent 
+    whatsappLink1={whatsappLink} 
+    whatsappLink2={whatsappLink} 
+    pixelEvent={pixelEvent}
+  />
   
   <Beneficios />
   
-  <Promociones registrationLink={registrationLink} />
+  <Promociones registrationLink={whatsappLink} />
   
-  <Juegos registrationLink={registrationLink} />
+  <Juegos registrationLink={whatsappLink} />
   
-  <Registro registrationLink={registrationLink} />
+  <Registro registrationLink={whatsappLink} />
   
-  <Soporte whatsappLink1={whatsappLink1} whatsappLink2={whatsappLink2} />
+  <Soporte whatsappLink1={whatsappLink} whatsappLink2={whatsappLink} />
   
-  <Footer registrationLink={registrationLink} whatsappLink1={whatsappLink1} whatsappLink2={whatsappLink2} />
+  <Footer registrationLink={whatsappLink} whatsappLink1={whatsappLink} whatsappLink2={whatsappLink} />
 </Layout>

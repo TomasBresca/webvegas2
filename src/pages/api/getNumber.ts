@@ -1,17 +1,18 @@
-// src/pages/api/getNumber.ts
+// src/pages/api/getNumbers.ts
 export const prerender = false;
 import type { APIRoute } from 'astro';
-import { getWhatsAppNumber } from '../../data/auth';
+import { getAllWhatsAppNumbers } from '../../data/auth';
 
 export const GET: APIRoute = async () => {
   try {
-    const number = await getWhatsAppNumber();
-    return new Response(JSON.stringify({ number }), {
+    const numbers = await getAllWhatsAppNumbers();
+    
+    return new Response(JSON.stringify({ numbers }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     });
   } catch (error) {
-    return new Response(JSON.stringify({ error: 'Error al obtener número' }), {
+    return new Response(JSON.stringify({ error: 'Error al obtener números' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
     });
