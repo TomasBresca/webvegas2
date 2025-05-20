@@ -1,4 +1,7 @@
 ---
+// Cambiar a renderizado en servidor para permitir carga dinámica
+export const prerender = false;
+
 // Importamos los componentes necesarios
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
@@ -34,36 +37,11 @@ import Hero21 from '../heros/Hero(21).astro';
 import Hero22 from '../heros/Hero(22).astro';
 import Hero23 from '../heros/Hero(23).astro';
 
-// Definimos las rutas estáticas que se generarán
-export function getStaticPaths() {
-  return [
-    { params: { id: '01' } },
-    { params: { id: '02' } },
-    { params: { id: '03' } },
-    { params: { id: '04' } },
-    { params: { id: '05' } },
-    { params: { id: '06' } },
-    { params: { id: '07' } },
-    { params: { id: '08' } },
-    { params: { id: '09' } },
-    { params: { id: '10' } },
-    { params: { id: '11' } },
-    { params: { id: '12' } },
-    { params: { id: '13' } },
-    { params: { id: '14' } },
-    { params: { id: '15' } },
-    { params: { id: '16' } },
-    { params: { id: '17' } },
-    { params: { id: '18' } },
-    { params: { id: '19' } },
-    { params: { id: '20' } },
-    { params: { id: '21' } },
-    { params: { id: '22' } },
-    { params: { id: '23' } },
-  ];
-}
+// Ya no necesitamos getStaticPaths() porque ahora es dinámico
+// export function getStaticPaths() {...}
 
-
+// Importamos la función para obtener el número de WhatsApp
+import { getWhatsAppNumber } from '../data/auth';
 
 // Obtener el parámetro de la URL
 const { id } = Astro.params;
@@ -85,6 +63,19 @@ function isValidVersion(id: string | undefined): id is VersionId {
 if (!isValidVersion(id)) {
   return Astro.redirect('/01');
 }
+
+// Obtener el número de WhatsApp dinámicamente
+let defaultWhatsAppNumber = '';
+try {
+  defaultWhatsAppNumber = await getWhatsAppNumber();
+} catch (error) {
+  console.error('Error al obtener el número de WhatsApp:', error);
+  defaultWhatsAppNumber = '5492233464125'; // Número de respaldo por defecto
+}
+
+// Crear URL de WhatsApp con el texto predefinido
+const createWhatsAppLink = (number: string) => 
+  `https://wa.me/${number}?text=Holaa%20quiero%20crear%20mi%20cuenta`;
 
 // Configuración para cada versión
 const versions = {
@@ -153,93 +144,93 @@ const versions = {
   },
   '10': {
     hero: Hero10,
-    whatsappLink1: "TODO AGREGAR NUMERO DE WASAP",
-    whatsappLink2: "TODO AGREGAR NUMERO DE WASAP",
-    registrationLink: "TODO AGREGAR NUMERO DE WASAP",
+    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
+    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
+    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead10'
   },
   '11': {
     hero: Hero11,
-    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
-    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
-    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
+    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
+    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead11'
   },
   '12': {
     hero: Hero12,
-    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
-    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
-    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
+    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
+    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead12'
   },
   '13': {
     hero: Hero13,
-    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
-    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
-    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
+    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
+    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead13'
   },
   '14': {
     hero: Hero14,
-    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
-    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
-    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
+    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
+    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead14'
   },
   '15': {
     hero: Hero15,
-    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
-    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
-    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
+    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
+    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead15'
   },
   '16': {
     hero: Hero16,
-    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
-    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
-    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
+    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
+    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead16'
   },
   '17': {
     hero: Hero17,
-    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
-    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
-    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
+    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
+    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead17'
   },
   '18': {
     hero: Hero18,
-    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
-    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
-    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
+    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
+    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead18'
   },
   '19': {
     hero: Hero19,
-    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
-    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
-    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
+    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
+    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead19'
   },
   '20': {
     hero: Hero20,
-    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
-    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
-    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
+    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
+    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead20'
   },
   '21': {
     hero: Hero21,
-    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
-    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
-    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
+    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
+    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead21'
   },
   '22': {
     hero: Hero22,
-    whatsappLink1: 'TODO AGREGAR NUMERO DE WASAP',
-    whatsappLink2: 'TODO AGREGAR NUMERO DE WASAP',
-    registrationLink: 'TODO AGREGAR NUMERO DE WASAP',
+    whatsappLink1: createWhatsAppLink(defaultWhatsAppNumber),
+    whatsappLink2: createWhatsAppLink(defaultWhatsAppNumber),
+    registrationLink: createWhatsAppLink(defaultWhatsAppNumber),
     pixelEvent: 'Lead22'
   },
   '23': {
