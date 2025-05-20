@@ -1,0 +1,737 @@
+---
+const { whatsappLink1, whatsappLink2, pixelEvent } = Astro.props;
+import '../styles/global.css';
+---
+
+<section class="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-8 bg-gradient-to-b from-[#111111] to-[#000000] overflow-hidden w-full">
+  <!-- Premium particles animation -->
+  <div class="premium-particles absolute inset-0 z-0 overflow-hidden pointer-events-none"></div>
+  
+  <!-- Falling coins animation - reduced count for mobile -->
+  <div class="falling-coins-container absolute inset-0 z-20 overflow-hidden pointer-events-none">
+    <div class="falling-coin"></div>
+    <div class="falling-coin mobile-hidden"></div>
+    <div class="falling-coin"></div>
+    <div class="falling-coin mobile-hidden"></div>
+    <div class="falling-coin"></div>
+    <div class="falling-coin mobile-hidden"></div>
+  </div>
+  
+  <!-- Luxury light effects -->
+  <div class="absolute inset-0 z-0">
+    <div class="luxury-glow-primary"></div>
+    <div class="luxury-glow-secondary"></div>
+  </div>
+  
+  <!-- Decorative elements -->
+  <div class="absolute inset-0 pointer-events-none z-10">
+    <div class="floating-element absolute top-1/4 left-10 w-16 h-16 opacity-60 mobile-hidden">
+      <img src="/images/chips.svg" alt="" class="w-full h-full gold-filter" />
+    </div>
+    <div class="floating-element absolute top-2/3 right-12 w-20 h-20 opacity-50">
+      <img src="/images/ace.svg" alt="" class="w-full h-full gold-filter" />
+    </div>
+    <div class="floating-element absolute bottom-1/4 left-1/4 w-14 h-14 opacity-40 mobile-hidden">
+      <img src="/images/diamond.svg" alt="" class="w-full h-full gold-filter" />
+    </div>
+    <div class="floating-element absolute top-1/3 right-1/4 w-18 h-18 opacity-30 mobile-hidden">
+      <img src="/images/crown.svg" alt="" class="w-full h-full gold-filter" />
+    </div>
+  </div>
+  
+  <!-- Central content container -->
+  <div class="relative z-10 w-full max-w-md mx-auto px-4 mt-4">
+    <!-- Logo/Header -->
+    <div class="flex justify-center mb-6 md:mb-8">
+      <div class="premium-logo">
+        <h1 class="text-4xl md:text-5xl font-bold text-center vegas-text">
+          <span class="vegas-animated-text font-serif tracking-wider">LAS VEGAS</span>
+        </h1>
+        <div class="h-1.5 w-48 mx-auto mt-2 bg-gradient-to-r from-[#D4AF37]/20 via-[#FFD700] to-[#D4AF37]/20 animate-shimmer"></div>
+      </div>
+    </div>
+    
+    <!-- Main card -->
+    <div class="premium-card relative bg-black/90 border-2 border-[#FFD700]/60 rounded-lg shadow-xl p-6 md:p-8 backdrop-blur-md animate-card-glow">
+      <!-- Card header with luxury pattern -->
+      <div class="absolute top-0 left-0 right-0 h-24 overflow-hidden rounded-t-lg">
+        <div class="luxury-pattern opacity-30 h-full w-full"></div>
+      </div>
+      
+      <!-- Gold corners -->
+      <div class="absolute top-0 left-0 w-10 h-10 md:w-12 md:h-12 border-t-2 border-l-2 border-[#FFD700] rounded-tl-lg"></div>
+      <div class="absolute top-0 right-0 w-10 h-10 md:w-12 md:h-12 border-t-2 border-r-2 border-[#FFD700] rounded-tr-lg"></div>
+      <div class="absolute bottom-0 left-0 w-10 h-10 md:w-12 md:h-12 border-b-2 border-l-2 border-[#FFD700] rounded-bl-lg"></div>
+      <div class="absolute bottom-0 right-0 w-10 h-10 md:w-12 md:h-12 border-b-2 border-r-2 border-[#FFD700] rounded-br-lg"></div>
+      
+      <!-- Main content -->
+      <div class="relative z-10">
+        <!-- Nuevo badge -->
+        <div class="nuevo-badge absolute -top-4 -right-4 md:-top-5 md:-right-5 bg-gradient-to-r from-[#FFD700] to-[#FFC107] text-black text-xs font-bold px-3 py-1 md:px-4 md:py-1.5 rounded-full shadow-xl animate-pulse-subtle">
+          NUEVO
+        </div>
+        
+        <!-- Enhanced Header text -->
+        <div class="enhanced-title-container flex justify-center items-center mb-5 mt-3 md:mb-6 md:mt-4 relative h-16 md:h-18">
+          <div class="title-glow absolute inset-0 rounded-lg -z-10"></div>
+          <div class="title-background absolute inset-0 bg-black/40 rounded-lg border border-[#FFD700]/50 -z-5"></div>
+          <h2 class="text-xl md:text-2xl font-bold text-center px-4 flex items-center justify-center w-full h-full relative z-10">
+            <span class="fire-emoji">🔥</span> 
+            <span class="mx-2 enhanced-gold-text">CREA TU USUARIO HOY</span> 
+            <span class="fire-emoji">🔥</span>
+          </h2>
+        </div>
+        
+        <!-- Subtitle -->
+        <h3 class="text-lg md:text-xl text-white font-semibold text-center mb-4 md:mb-6">
+          <span class="gold-gradient-text">RETIROS ILIMITADOS</span>
+        </h3>
+        
+        <!-- Call to action text -->
+        <p class="text-white/90 text-center text-sm mb-6 md:mb-8 animate-shimmer-text">¡COBRA TUS GANANCIAS AL INSTANTE!</p>
+        
+        <!-- Name input field -->
+        <div class="mb-6 md:mb-8 relative">
+          <input 
+            id="name-input"
+            type="text" 
+            placeholder="Ingresa tu nombre" 
+            class="w-full py-3 md:py-4 px-4 bg-[#0a0a0a]/80 text-white border-2 border-[#D4AF37]/60 rounded-lg focus:outline-none focus:border-[#FFD700] focus:ring-2 focus:ring-[#FFD700]/30 text-center transition-all duration-300"
+          />
+          <div class="input-shine"></div>
+        </div>
+        <a
+          id="cta-button" 
+          href={whatsappLink1} 
+          target="_blank" 
+          rel="noopener" 
+          class="luxury-button w-full flex items-center justify-center gap-3 bg-gradient-to-r from-[#FFD700] to-[#D4AF37] text-black text-lg md:text-xl font-extrabold py-4 md:py-5 px-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-xl mb-6 md:mb-8 relative overflow-hidden"
+        >
+          <span class="relative z-10 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-7 md:w-7" fill="black" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            ¡CREAR CUENTA AHORA!
+          </span>
+          <div class="button-shine"></div>
+        </a>
+        
+        <!-- Features list -->
+        <div class="space-y-3 md:space-y-4">
+          <div class="flex items-center bg-gradient-to-r from-black/40 to-black/10 p-2 rounded-md border-l-2 border-[#FFD700]">
+            <div class="text-[#FFD700] mr-3 animate-pulse-subtle">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <p class="text-white text-sm font-medium">DEPÓSITO MÍNIMO $300</p>
+          </div>
+          <div class="flex items-center bg-gradient-to-r from-black/40 to-black/10 p-2 rounded-md border-l-2 border-[#FFD700]">
+            <div class="text-[#FFD700] mr-3 animate-pulse-subtle">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <p class="text-white text-sm font-medium">PAGOS EN 5 MINUTOS</p>
+          </div>
+          <div class="flex items-center bg-gradient-to-r from-black/40 to-black/10 p-2 rounded-md border-l-2 border-[#FFD700]">
+            <div class="text-[#FFD700] mr-3 animate-pulse-subtle">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <p class="text-white text-sm font-medium">SOPORTE 24/7</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Background luxury pattern -->
+  <div class="absolute inset-0 bg-luxury-pattern opacity-10"></div>
+</section>
+
+<style>
+  /* Premium background pattern */
+  .bg-luxury-pattern {
+    background-image: 
+      repeating-linear-gradient(45deg, rgba(255, 215, 0, 0.15) 0, rgba(255, 215, 0, 0.15) 1px, transparent 0, transparent 50%);
+    background-size: 20px 20px;
+  }
+  
+  /* Enhanced LAS VEGAS text animation */
+  .vegas-animated-text {
+    background: linear-gradient(to right, #FFD700, #F5F5DC, #FFD700, #D4AF37);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: vegas-text-animation 8s linear infinite;
+    text-shadow: 
+      0 0 5px rgba(255, 215, 0, 0.5),
+      0 0 10px rgba(255, 215, 0, 0.3),
+      0 0 15px rgba(255, 215, 0, 0.2);
+    position: relative;
+    display: inline-block;
+  }
+  
+  .vegas-animated-text::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -10%;
+    right: -10%;
+    bottom: -30%;
+    background: radial-gradient(ellipse at center, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    animation: vegas-glow 4s ease-in-out infinite;
+    z-index: -1;
+    border-radius: 50%;
+    filter: blur(10px);
+  }
+  
+  @keyframes vegas-text-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  @keyframes vegas-glow {
+    0%, 100% { opacity: 0.1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.1); }
+  }
+  
+  /* Enhanced title container */
+  .enhanced-title-container {
+    padding: 2px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+  }
+  
+  .title-glow {
+    background: radial-gradient(circle at center, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+    filter: blur(10px);
+    animation: title-glow-animation 3s infinite alternate;
+  }
+  
+  @keyframes title-glow-animation {
+    0% { opacity: 0.6; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1.05); }
+  }
+  
+  .enhanced-gold-text {
+    background: linear-gradient(to right, #FFD700, #FFC107, #D4AF37, #FFC107, #FFD700);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 
+      0 0 5px rgba(255, 215, 0, 0.5),
+      0 0 10px rgba(255, 215, 0, 0.3);
+    animation: enhanced-text-animation 5s linear infinite;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Fire emoji - completely static, no effects */
+  .fire-emoji {
+    display: inline-block;
+    font-style: normal;
+    color: initial;
+    text-shadow: none;
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    filter: none;
+  }
+  
+  .animate-title-pulse {
+    animation: title-pulse 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes title-pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.03); }
+  }
+  
+  @keyframes enhanced-text-animation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+  
+  /* Rotating sparkle icons */
+  .rotate-animation {
+    display: inline-block;
+    animation: rotate-sparkle 3s linear infinite;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    will-change: transform;
+    text-rendering: geometricPrecision;
+  }
+  
+  .rotate-animation-reverse {
+    display: inline-block;
+    animation: rotate-sparkle-reverse 3s linear infinite;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    will-change: transform;
+    text-rendering: geometricPrecision;
+  }
+  
+  @keyframes rotate-sparkle {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+  }
+  
+  @keyframes rotate-sparkle-reverse {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(-180deg) scale(1.2); }
+    100% { transform: rotate(-360deg) scale(1); }
+  }
+  
+  /* Luxury glow effects - fixed positioning and z-index */
+  .luxury-glow-primary {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle at center, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
+    opacity: 0.8;
+    animation: pulse-glow 5s ease-in-out infinite alternate;
+    z-index: 0;
+  }
+  
+  .luxury-glow-secondary {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(218, 165, 32, 0.1) 0%, transparent 60%);
+    opacity: 0.6;
+    animation: pulse-glow 7s ease-in-out infinite alternate-reverse;
+    z-index: 0;
+  }
+  
+  @keyframes pulse-glow {
+    0% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+  }
+  
+  /* Gold gradient text */
+  .gold-gradient-text {
+    background: linear-gradient(to bottom, #FFD700, #D4AF37, #BF953F);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0px 0px 10px rgba(255, 215, 0, 0.4);
+  }
+  
+  .vegas-text {
+    letter-spacing: 1px;
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
+  }
+  
+  /* Gold filter for SVG images */
+  .gold-filter {
+    filter: invert(83%) sepia(39%) saturate(664%) hue-rotate(359deg) brightness(105%) contrast(107%) drop-shadow(0 0 3px rgba(255, 215, 0, 0.6));
+  }
+  
+  /* Luxury pattern */
+  .luxury-pattern {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(255, 215, 0, 0.2) 0px,
+      rgba(255, 215, 0, 0.2) 1px,
+      transparent 1px,
+      transparent 6px
+    );
+  }
+  
+  /* Premium card with subtle shadow effect and animation */
+  .premium-card {
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.8), 
+                0 0 15px rgba(255, 215, 0, 0.3);
+  }
+  
+  @keyframes card-glow {
+    0%, 100% { box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 215, 0, 0.3); }
+    50% { box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 215, 0, 0.5); }
+  }
+  
+  .animate-card-glow {
+    animation: card-glow 5s ease-in-out infinite;
+  }
+  
+  /* Button effects */
+  .luxury-button {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5),
+                0 0 30px rgba(255, 215, 0, 0.2);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .luxury-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+    transform: translateX(-100%);
+    z-index: 0;
+  }
+  
+  .luxury-button:hover:before {
+    transform: translateX(100%);
+  }
+  
+  .button-shine {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: button-shine 3s infinite;
+    z-index: 0;
+  }
+  
+  @keyframes button-shine {
+    0% {
+      left: -100%;
+      top: -100%;
+    }
+    100% {
+      left: 100%;
+      top: 100%;
+    }
+  }
+  
+  .input-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+    animation: input-shine 3s infinite;
+    z-index: 0;
+  }
+  
+  @keyframes input-shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  /* Animation utilities */
+  .animate-shimmer {
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite linear;
+  }
+  
+  .animate-shimmer-text {
+    animation: shimmer-text 3s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+  }
+  
+  @keyframes shimmer-text {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+  
+  .animate-pulse-subtle {
+    animation: pulse-subtle 2s infinite ease-in-out;
+  }
+  
+  @keyframes pulse-subtle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+  }
+  
+  /* Floating casino elements animation */
+  .floating-element:nth-child(1) {
+    animation: floatElement1 8s ease-in-out infinite;
+  }
+  
+  .floating-element:nth-child(2) {
+    animation: floatElement2 12s ease-in-out infinite;
+  }
+  
+  .floating-element:nth-child(3) {
+    animation: floatElement3 10s ease-in-out infinite;
+  }
+  
+  .floating-element:nth-child(4) {
+    animation: floatElement4 9s ease-in-out infinite;
+  }
+  
+  @keyframes floatElement1 {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-15px) rotate(5deg); }
+    66% { transform: translateY(5px) rotate(-5deg); }
+  }
+  
+  @keyframes floatElement2 {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(-8deg); }
+  }
+  
+  @keyframes floatElement3 {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(15px) rotate(-5deg); }
+    66% { transform: translateY(-8px) rotate(8deg); }
+  }
+  
+  @keyframes floatElement4 {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(12px) rotate(10deg); }
+  }
+  
+  /* Sparkle icon animation */
+  .sparkle-icon {
+    display: inline-block;
+    animation: sparkle 2s infinite;
+    backface-visibility: hidden;
+    will-change: transform;
+    text-rendering: geometricPrecision;
+  }
+  
+  @keyframes sparkle {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 1; }
+  }
+  
+  /* Nuevo badge animation */
+  .nuevo-badge {
+    position: absolute;
+    animation: badge-pulse 3s infinite;
+    z-index: 20;
+  }
+  
+  @keyframes badge-pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+    50% { transform: scale(1.1); box-shadow: 0 0 15px rgba(255, 215, 0, 0.7); }
+  }
+  
+  /* Premium particles */
+  .premium-particles {
+    background-image: radial-gradient(circle, rgba(255, 215, 0, 0.3) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+  
+  /* Falling coins animation - improved for mobile */
+  .falling-coins-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .falling-coin {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Ccircle cx='256' cy='256' r='248' fill='%23000000' stroke='%23FFD700' stroke-width='8'/%3E%3Ccircle cx='256' cy='256' r='200' fill='%23000000' stroke='%23FFD700' stroke-width='8'/%3E%3Ctext x='256' y='285' font-family='Arial' font-size='150' font-weight='bold' text-anchor='middle' fill='%23FFD700'%3E$%3C/text%3E%3C/svg%3E");
+    background-size: contain;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6));
+  }
+  
+  .falling-coin:nth-child(1) {
+    left: 15%;
+    animation: coinFall 15s 0s infinite;
+    width: 35px;
+    height: 35px;
+  }
+  
+  .falling-coin:nth-child(2) {
+    left: 35%;
+    animation: coinFall 18s 2s infinite;
+    width: 28px;
+    height: 28px;
+  }
+  
+  .falling-coin:nth-child(3) {
+    left: 65%;
+    animation: coinFall 16s 5s infinite;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .falling-coin:nth-child(4) {
+    left: 50%;
+    animation: coinFall 20s 7s infinite;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .falling-coin:nth-child(5) {
+    left: 80%;
+    animation: coinFall 17s 1s infinite;
+    width: 38px;
+    height: 38px;
+  }
+  
+  .falling-coin:nth-child(6) {
+    left: 25%;
+    animation: coinFall 19s 4s infinite;
+    width: 34px;
+    height: 34px;
+  }
+  
+  @keyframes coinFall {
+    0% {
+      top: -5%;
+      transform: translateX(0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.9;
+    }
+    100% {
+      top: 105%;
+      transform: translateX(20px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+  /* Media queries for responsive design */
+  @media (max-width: 768px) {
+    .mobile-hidden {
+      display: none;
+    }
+    
+    .falling-coin {
+      /* Make coins larger on mobile */
+      opacity: 0.85;
+    }
+  }
+</style>
+
+<script>
+  declare const fbq: any;
+  declare global {
+    interface Window {
+      pixelEvent: string;
+    }
+  }
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    // Logging for debugging
+    console.log('[VIPCasino] Initializing premium components');
+    
+    // Add coin rotation and glow effects
+    const coins = document.querySelectorAll('.falling-coin');
+    coins.forEach((coin, index) => {
+      // Randomize initial rotation and scale slightly
+      const randomRotation = Math.random() * 360;
+      const randomScale = 0.9 + Math.random() * 0.3;
+      const coinElement = coin as HTMLElement;
+      
+      coinElement.style.transform = `rotate(${randomRotation}deg) scale(${randomScale})`;
+      console.log(`[VIPCasino] Coin ${index} initialized with rotation: ${randomRotation}deg and scale: ${randomScale}`);
+    });
+    
+    // Add premium hover effects to the CTA button
+    const ctaButton = document.getElementById('cta-button');
+    const nameInput = document.getElementById('name-input') as HTMLInputElement;
+    
+    if (ctaButton && nameInput) {
+      console.log('[VIPCasino] Setting up interactive elements');
+      
+      // Handle button hover effects
+      ctaButton.addEventListener('mouseenter', () => {
+        ctaButton.style.transform = 'scale(1.05)';
+        ctaButton.style.boxShadow = '0 0 20px rgba(255, 215, 0, 0.7), 0 0 40px rgba(255, 215, 0, 0.3)';
+      });
+      
+      ctaButton.addEventListener('mouseleave', () => {
+        ctaButton.style.transform = 'scale(1)';
+        ctaButton.style.boxShadow = '0 0 15px rgba(255, 215, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.2)';
+      });
+      
+      // Handle WhatsApp link with name
+      ctaButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Get the base link and the name
+        const baseLink = ctaButton.getAttribute('href') || '';
+        const name = nameInput.value.trim();
+        
+        // Modify the WhatsApp link to include the name
+        let finalLink = baseLink;
+        if (name) {
+          // Check if the link already has parameters
+          if (finalLink.includes('?')) {
+            finalLink += ' Mi nombre es ' + name;
+          } else {
+            // Extract text part
+            const textMatch = finalLink.match(/text=([^&]*)/);
+            if (textMatch && textMatch[1]) {
+              const decodedText = decodeURIComponent(textMatch[1]);
+              const newText = decodedText + '. Mi nombre es ' + name;
+              finalLink = finalLink.replace(textMatch[0], 'text=' + encodeURIComponent(newText));
+            } else {
+              // If no text parameter, append it
+              finalLink += (finalLink.includes('?') ? '&' : '?') + 'text=Mi nombre es ' + encodeURIComponent(name);
+            }
+          }
+        }
+        
+        console.log('[VIPCasino] Redirecting to WhatsApp with name: ', name);
+        
+        // Track pixel event if available
+        if (typeof fbq === 'function') {
+          const eventToTrack = window.pixelEvent || 'Lead';
+          fbq('track', eventToTrack);
+          console.log('[VIPCasino] Tracked pixel event:', eventToTrack);
+        }
+        
+        // Navigate with a small delay
+        setTimeout(() => {
+          window.location.href = finalLink;
+        }, 300);
+      });
+    } else {
+      console.error('[VIPCasino] Critical elements not found');
+    }
+    
+    // Add subtle animations to input field
+    const inputField = document.querySelector('input');
+    if (inputField) {
+      inputField.addEventListener('focus', () => {
+        inputField.style.boxShadow = '0 0 15px rgba(255, 215, 0, 0.4)';
+      });
+      
+      inputField.addEventListener('blur', () => {
+        inputField.style.boxShadow = 'none';
+      });
+    }
+  });
+</script>
+
+<script define:vars={{ pixelEvent }}>
+  // Make pixelEvent available globally for the script above
+  window.pixelEvent = pixelEvent;
+</script>

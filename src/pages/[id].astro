@@ -36,6 +36,7 @@ import Hero20 from '../heros/Hero(20).astro';
 import Hero21 from '../heros/Hero(21).astro';
 import Hero22 from '../heros/Hero(22).astro';
 import Hero23 from '../heros/Hero(23).astro';
+import Hero24 from '../heros/Hero(24).astro';
 
 // Ya no necesitamos getStaticPaths() porque ahora es dinámico
 // export function getStaticPaths() {...}
@@ -49,13 +50,13 @@ const { id } = Astro.params;
 // Tipo de versión válida
 type VersionId = '01' | '02' | '03' | '04' | '05' | '06' 
                 | '07' | '08' | '09' | '10' | '11' | '12' | '13' |
-                 '14' | '15' | '16' | '17' | '18' | '19' | '20' | '21' | '22' | '23';
+                 '14' | '15' | '16' | '17' | '18' | '19' | '20' | '21' | '22' | '23' | '24';
 
 // Comprobar si el ID es una versión válida
 function isValidVersion(id: string | undefined): id is VersionId {
   return Boolean(
     id && ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10' , '11' ,
-     '12' , '13' , '14' , '15' , '16' , '17' , '18' , '19' , '20' , '21' , '22', '23'].includes(id)
+     '12' , '13' , '14' , '15' , '16' , '17' , '18' , '19' , '20' , '21' , '22', '23', '24'].includes(id)
   );
 }
 
@@ -239,6 +240,13 @@ const versions = {
     whatsappLink2: 'https://wa.me/5491123716937?text=Holaa%20quiero%20crear%20mi%20cuenta',
     registrationLink: 'https://wa.me/5491123716937?text=Holaa%20quiero%20crear%20mi%20cuenta',
     pixelEvent: 'Lead23'
+  },
+  '24': {
+    hero: Hero24,
+    whatsappLink1: 'https://wa.me/5492233464125?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    whatsappLink2: 'https://wa.me/5491123716937?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    registrationLink: 'https://wa.me/5491123716937?text=Holaa%20quiero%20crear%20mi%20cuenta',
+    pixelEvent: 'Lead24'
   }
 };
 
