@@ -151,6 +151,30 @@ const entries = await getAllWhatsAppEntries();
     }
   }
   
+  // Actualizar el estado visual de la entrada
+  function updateEntryStatus(row: HTMLTableRowElement, isModified: boolean): void {
+    const updateButton = row.querySelector('.update-entry') as HTMLButtonElement;
+    const numberInput = row.querySelector('.whatsapp-number-input') as HTMLInputElement;
+    const heroIdInput = row.querySelector('.hero-id-input') as HTMLInputElement;
+    
+    // Reset classes first
+    updateButton.classList.remove('bg-blue-500', 'hover:bg-blue-600', 'bg-green-500', 'hover:bg-green-600');
+    
+    if (isModified) {
+      // Unsaved state - blue
+      updateButton.classList.add('bg-blue-500', 'hover:bg-blue-600');
+      updateButton.textContent = 'Actualizar';
+      numberInput.classList.add('border-blue-500');
+      heroIdInput.classList.add('border-blue-500');
+    } else {
+      // Saved state - green
+      updateButton.classList.add('bg-green-500', 'hover:bg-green-600');
+      updateButton.textContent = 'Guardado';
+      numberInput.classList.remove('border-blue-500');
+      heroIdInput.classList.remove('border-blue-500');
+    }
+  }
+  
   // Actualizar entrada
   async function updateEntry(oldHeroId: number, newHeroId: number, number: string): Promise<boolean> {
     try {
@@ -292,6 +316,32 @@ async function deleteEntry(heroId: number): Promise<boolean> {
   
   // Eventos
   document.addEventListener('DOMContentLoaded', () => {
+    // Marcar todas las filas como guardadas inicialmente
+    document.querySelectorAll('tbody tr').forEach((row) => {
+      updateEntryStatus(row as HTMLTableRowElement, false);
+    });
+    
+    // Rastrear cambios en inputs de número y heroId
+    document.querySelectorAll('.whatsapp-number-input, .hero-id-input').forEach((inputElement) => {
+      const input = inputElement as HTMLInputElement;
+      // Almacenar valor original como atributo de datos
+      input.dataset.originalValue = input.value;
+      
+      input.addEventListener('input', () => {
+        const row = input.closest('tr') as HTMLTableRowElement;
+        if (!row) return;
+        
+        const numberInput = row.querySelector('.whatsapp-number-input') as HTMLInputElement;
+        const heroIdInput = row.querySelector('.hero-id-input') as HTMLInputElement;
+        
+        // Verificar si algún input ha sido modificado
+        const numberModified = numberInput.value !== numberInput.dataset.originalValue;
+        const heroIdModified = heroIdInput.value !== heroIdInput.dataset.originalValue;
+        
+        updateEntryStatus(row, numberModified || heroIdModified);
+      });
+    });
+    
     // Botones de actualizar
     document.querySelectorAll('.update-entry').forEach((buttonElement) => {
       const button = buttonElement as HTMLButtonElement;
@@ -314,11 +364,18 @@ async function deleteEntry(heroId: number): Promise<boolean> {
             button.setAttribute('data-hero-id', newHeroId.toString());
             heroIdInput.setAttribute('data-original-hero-id', newHeroId.toString());
             
+            // Actualizar valores originales almacenados
+            heroIdInput.dataset.originalValue = heroIdInput.value;
+            numberInput.dataset.originalValue = numberInput.value;
+            
             // Actualizar también el botón de eliminar
             const deleteButton = row.querySelector('.delete-entry') as HTMLButtonElement | null;
             if (deleteButton) {
               deleteButton.setAttribute('data-hero-id', newHeroId.toString());
             }
+            
+            // Actualizar estado visual a guardado
+            updateEntryStatus(row as HTMLTableRowElement, false);
             
             console.log(`Entrada actualizada: Hero ID ${oldHeroId} -> ${newHeroId}, Número: ${number}`);
           }

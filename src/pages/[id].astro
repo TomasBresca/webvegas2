@@ -12,61 +12,49 @@ import Registro from '../components/Registro.astro';
 import Soporte from '../components/Soporte.astro';
 import Footer from '../components/Footer.astro';
 
-// Importamos todos los Heroes disponibles
-import Hero01 from '../heros/Hero(1).astro';
-import Hero02 from '../heros/Hero(2).astro';
-import Hero03 from '../heros/Hero(3).astro';
-import Hero04 from '../heros/Hero(4).astro';
-import Hero05 from '../heros/Hero(5).astro';
-import Hero06 from '../heros/Hero(6).astro';
-import Hero07 from '../heros/Hero(7).astro';
-import Hero08 from '../heros/Hero(8).astro';
-import Hero09 from '../heros/Hero(9).astro';
-import Hero10 from '../heros/Hero(10).astro';
-import Hero11 from '../heros/Hero(11).astro';
-import Hero12 from '../heros/Hero(12).astro';
-import Hero13 from '../heros/Hero(13).astro';
-import Hero14 from '../heros/Hero(14).astro';
-import Hero15 from '../heros/Hero(15).astro';
-import Hero16 from '../heros/Hero(16).astro';
-import Hero17 from '../heros/Hero(17).astro';
-import Hero18 from '../heros/Hero(18).astro';
-import Hero19 from '../heros/Hero(19).astro';
-import Hero20 from '../heros/Hero(20).astro';
-import Hero21 from '../heros/Hero(21).astro';
-import Hero22 from '../heros/Hero(22).astro';
-import Hero23 from '../heros/Hero(23).astro';
-import Hero24 from '../heros/Hero(24).astro';
-
 // Importamos la función para obtener el número de WhatsApp
 import { getWhatsAppNumber } from '../data/auth';
+
+// Importar dinámicamente todos los componentes Hero
+const heroModules = import.meta.glob('../heros/Hero(*).astro');
+
+// Definir tipos para evitar errores de TypeScript
+type HeroComponentImport = () => Promise<{ default: any }>;
+type HeroComponentsMap = Record<string, HeroComponentImport>;
+
+// Preparar mapa de componentes Hero y lista de versiones válidas
+const heroComponents: HeroComponentsMap = {};
+const validVersions: string[] = [];
+
+// Procesamos las rutas de los módulos para extraer los IDs
+Object.keys(heroModules).forEach(path => {
+  const matches = path.match(/Hero\((\d+)\)\.astro$/);
+  if (matches && matches[1]) {
+    const num = parseInt(matches[1]);
+    const paddedId = num.toString().padStart(2, '0');
+    validVersions.push(paddedId);
+    heroComponents[paddedId] = heroModules[path] as HeroComponentImport;
+  }
+});
+
+// Ordenamos las versiones para consistencia
+validVersions.sort();
 
 // Obtener el parámetro de la URL
 const { id } = Astro.params;
 
-// Tipo de versión válida
-type VersionId = '01' | '02' | '03' | '04' | '05' | '06' | 
-                '07' | '08' | '09' | '10' | '11' | '12' | '13' |
-                '14' | '15' | '16' | '17' | '18' | '19' | '20' | '21' | '22' | '23' | '24';
-
-// Tipo para componentes Hero
-type HeroComponentType = typeof Hero01;
-
 // Comprobar si el ID es una versión válida
-function isValidVersion(id: string | undefined): id is VersionId {
-  return Boolean(
-    id && ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11',
-     '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'].includes(id)
-  );
+function isValidVersion(id: string | undefined): boolean {
+  return Boolean(id && validVersions.includes(id));
 }
 
 // Si el ID no es válido, redirigir a la versión predeterminada
 if (!isValidVersion(id)) {
-  return Astro.redirect('/01');
+  return Astro.redirect(`/${validVersions[0] || '01'}`);
 }
 
 // Convertir ID a número de hero (01 -> 1, 02 -> 2, etc.)
-const heroId = parseInt(id);
+const heroId = parseInt(id || '0');
 
 // Obtener el número de WhatsApp para este hero
 let whatsappNumber = '';
@@ -82,36 +70,8 @@ try {
 const whatsappText = 'Holaa%20quiero%20crear%20mi%20cuenta';
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
 
-// Mapeo de componentes de Hero
-const heroComponents: Record<VersionId, HeroComponentType> = {
-  '01': Hero01,
-  '02': Hero02,
-  '03': Hero03,
-  '04': Hero04,
-  '05': Hero05,
-  '06': Hero06,
-  '07': Hero07,
-  '08': Hero08,
-  '09': Hero09,
-  '10': Hero10,
-  '11': Hero11,
-  '12': Hero12,
-  '13': Hero13,
-  '14': Hero14,
-  '15': Hero15,
-  '16': Hero16,
-  '17': Hero17,
-  '18': Hero18,
-  '19': Hero19,
-  '20': Hero20,
-  '21': Hero21,
-  '22': Hero22,
-  '23': Hero23,
-  '24': Hero24,
-};
-
-// Obtener el componente Hero correspondiente
-const HeroComponent = heroComponents[id];
+// Cargar dinámicamente el componente Hero correspondiente
+const HeroComponent = id ? (await heroComponents[id]()).default : null;
 
 // Configuración de eventos de pixel para cada versión
 const pixelEvent = `Lead${id}`;
@@ -164,11 +124,13 @@ const pixelToken = '1654651481848094';
   <Navbar registrationLink={whatsappLink} />
   
   <!-- Renderiza el Hero específico para esta versión con el número de WhatsApp -->
-  <HeroComponent 
-    whatsappLink1={whatsappLink} 
-    whatsappLink2={whatsappLink} 
-    pixelEvent={pixelEvent}
-  />
+  {HeroComponent && (
+    <HeroComponent 
+      whatsappLink1={whatsappLink} 
+      whatsappLink2={whatsappLink} 
+      pixelEvent={pixelEvent}
+    />
+  )}
   
   <Beneficios />
   
