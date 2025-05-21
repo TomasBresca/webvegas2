@@ -45,15 +45,18 @@ import { getWhatsAppNumber } from '../data/auth';
 const { id } = Astro.params;
 
 // Tipo de versión válida
-type VersionId = '01' | '02' | '03' | '04' | '05' | '06' 
-                | '07' | '08' | '09' | '10' | '11' | '12' | '13' |
-                 '14' | '15' | '16' | '17' | '18' | '19' | '20' | '21' | '22' | '23' | '24';
+type VersionId = '01' | '02' | '03' | '04' | '05' | '06' | 
+                '07' | '08' | '09' | '10' | '11' | '12' | '13' |
+                '14' | '15' | '16' | '17' | '18' | '19' | '20' | '21' | '22' | '23' | '24';
+
+// Tipo para componentes Hero
+type HeroComponentType = typeof Hero01;
 
 // Comprobar si el ID es una versión válida
 function isValidVersion(id: string | undefined): id is VersionId {
   return Boolean(
-    id && ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10' , '11' ,
-     '12' , '13' , '14' , '15' , '16' , '17' , '18' , '19' , '20' , '21' , '22', '23', '24'].includes(id)
+    id && ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11',
+     '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'].includes(id)
   );
 }
 
@@ -69,6 +72,7 @@ const heroId = parseInt(id);
 let whatsappNumber = '';
 try {
   whatsappNumber = await getWhatsAppNumber(heroId);
+  console.log(`Hero ${heroId} usando número WhatsApp: ${whatsappNumber}`);
 } catch (error) {
   console.error(`Error al obtener número para Hero ${heroId}:`, error);
   whatsappNumber = '5491123456789'; // Número por defecto
@@ -79,7 +83,7 @@ const whatsappText = 'Holaa%20quiero%20crear%20mi%20cuenta';
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
 
 // Mapeo de componentes de Hero
-const heroComponents = {
+const heroComponents: Record<VersionId, HeroComponentType> = {
   '01': Hero01,
   '02': Hero02,
   '03': Hero03,
@@ -103,112 +107,14 @@ const heroComponents = {
   '21': Hero21,
   '22': Hero22,
   '23': Hero23,
-  '24': Hero24
+  '24': Hero24,
 };
 
-// Configuración para cada versión
-const versions = {
-  '01': {
-    hero: Hero01,
-    pixelEvent: 'Lead01'
-  },
-  '02': {
-    hero: Hero02,
-    pixelEvent: 'Lead02'
-  },
-  '03': {
-    hero: Hero03,
-    pixelEvent: 'Lead03'
-  },
-  '04': {
-    hero: Hero04,
-    pixelEvent: 'Lead04'
-  },
-  '05': {
-    hero: Hero05,
-    pixelEvent: 'Lead05'
-  },
-  '06': {
-    hero: Hero06,
-    pixelEvent: 'Lead06'
-  },
-  '07': {
-    hero: Hero07,
-    pixelEvent: 'Lead07'
-  },
-  '08': {
-    hero: Hero08,
-    pixelEvent: 'Lead08'
-  },
-  '09': {
-    hero: Hero09,
-    pixelEvent: 'Lead09'
-  },
-  '10': {
-    hero: Hero10,
-    pixelEvent: 'Lead10'
-  },
-  '11': {
-    hero: Hero11,
-    pixelEvent: 'Lead11'
-  },
-  '12': {
-    hero: Hero12,
-    pixelEvent: 'Lead12'
-  },
-  '13': {
-    hero: Hero13,
-    pixelEvent: 'Lead13'
-  },
-  '14': {
-    hero: Hero14,
-    pixelEvent: 'Lead14'
-  },
-  '15': {
-    hero: Hero15,
-    pixelEvent: 'Lead15'
-  },
-  '16': {
-    hero: Hero16,
-    pixelEvent: 'Lead16'
-  },
-  '17': {
-    hero: Hero17,
-    pixelEvent: 'Lead17'
-  },
-  '18': {
-    hero: Hero18,
-    pixelEvent: 'Lead18'
-  },
-  '19': {
-    hero: Hero19,
-    pixelEvent: 'Lead19'
-  },
-  '20': {
-    hero: Hero20,
-    pixelEvent: 'Lead20'
-  },
-  '21': {
-    hero: Hero21,
-    pixelEvent: 'Lead21'
-  },
-  '22': {
-    hero: Hero22,
-    pixelEvent: 'Lead22'
-  },
-  '23': {
-    hero: Hero23,
-    pixelEvent: 'Lead23'
-  },
-  '24': {
-    hero: Hero24,
-    pixelEvent: 'Lead24'
-  }
-};
+// Obtener el componente Hero correspondiente
+const HeroComponent = heroComponents[id];
 
-// Obtener la configuración para la versión actual
-const version = versions[id];
-const { hero: HeroComponent, pixelEvent } = version;
+// Configuración de eventos de pixel para cada versión
+const pixelEvent = `Lead${id}`;
 
 // Token de Facebook Pixel
 const pixelToken = '1654651481848094';

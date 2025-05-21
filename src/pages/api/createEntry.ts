@@ -1,7 +1,7 @@
-// src/pages/api/updateNumber.ts
+// src/pages/api/createEntry.ts
 export const prerender = false;
 import type { APIRoute } from 'astro';
-import { validateToken, updateWhatsAppNumber } from '../../data/auth';
+import { validateToken, createWhatsAppEntry } from '../../data/auth';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -26,7 +26,7 @@ export const POST: APIRoute = async ({ request }) => {
     const body = await request.json();
     const { heroId, number } = body;
     
-    if (!heroId || typeof heroId !== 'number' || heroId < 1 || heroId > 23) {
+    if (!heroId || typeof heroId !== 'number') {
       return new Response(JSON.stringify({ error: 'ID de Hero inválido' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' }
@@ -40,17 +40,16 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
     
-    await updateWhatsAppNumber(heroId, number);
+    await createWhatsAppEntry(heroId, number);
     
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     });
   } catch (error) {
-    console.error('Error al actualizar número:', error);
+    console.error('Error creating entry:', error);
     return new Response(JSON.stringify({ 
-      error: 'Error en el servidor', 
-      details: error instanceof Error ? error.message : 'Error desconocido' 
+      error: error instanceof Error ? error.message : 'Error en el servidor' 
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
