@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import crypto from 'node:crypto';
 
 interface WhatsAppEntry {
   heroId: number; 
@@ -15,12 +16,29 @@ export interface Config {
 
 interface JWTPayload {
   username: string;
+  csrfToken: string;
   iat: number;
   exp: number;
 }
 
+interface RateLimitEntry {
+  count: number;
+  firstAttempt: number;
+  lastAttempt: number;
+  blocked: boolean;
+}
+
 const configPath = path.join(process.cwd(), 'whatsappNumbers.json');
 const SALT_ROUNDS = 12;
+
+// Rate limiting configuration
+const MAX_ATTEMPTS = 5;
+const WINDOW_TIME = 15 * 60 * 1000; // 15 minutes
+const BLOCK_TIME = 60 * 60 * 1000; // 1 hour after max attempts
+const rateLimitStore = new Map<string, RateLimitEntry>();
+
+// CSRF token store
+const csrfTokenStore = new Map<string, { token: string; expires: number }>();
 
 // FUNCIÓN CORREGIDA PARA ASTRO - ACCESO DIRECTO A VARIABLES ESPECÍFICAS
 const getEnvVar = (name: string, defaultValue?: string): string => {
@@ -64,6 +82,7 @@ const JWT_SECRET: string = getEnvVar('JWT_SECRET');
 const ADMIN_USERNAME: string = getEnvVar('ADMIN_USERNAME');
 const ADMIN_PASSWORD_HASH: string = getEnvVar('ADMIN_PASSWORD_HASH');
 const DEFAULT_NUMBER: string = getEnvVar('DEFAULT_WHATSAPP_NUMBER');
+const NODE_ENV: string = getEnvVar('NODE_ENV', 'production');
 
 // VALIDACIONES CRÍTICAS DE ARRANQUE
 const validateEnvironment = (): void => {
@@ -100,6 +119,122 @@ const validateEnvironment = (): void => {
 
 // EJECUTAR VALIDACIÓN AL IMPORTAR EL MÓDULO
 validateEnvironment();
+
+// Rate limiting functions
+export function checkRateLimit(identifier: string): { allowed: boolean; retryAfter?: number } {
+  const now = Date.now();
+  const entry = rateLimitStore.get(identifier);
+  
+  if (!entry) {
+    return { allowed: true };
+  }
+  
+  // Clean up old entries
+  if (now - entry.lastAttempt > BLOCK_TIME) {
+    rateLimitStore.delete(identifier);
+    return { allowed: true };
+  }
+  
+  // If blocked, check if block time has passed
+  if (entry.blocked) {
+    const timeLeft = BLOCK_TIME - (now - entry.lastAttempt);
+    if (timeLeft > 0) {
+      return { 
+        allowed: false, 
+        retryAfter: Math.ceil(timeLeft / 1000) 
+      };
+    } else {
+      rateLimitStore.delete(identifier);
+      return { allowed: true };
+    }
+  }
+  
+  // Check if within window
+  if (now - entry.firstAttempt > WINDOW_TIME) {
+    // Reset window
+    rateLimitStore.set(identifier, {
+      count: 1,
+      firstAttempt: now,
+      lastAttempt: now,
+      blocked: false
+    });
+    return { allowed: true };
+  }
+  
+  // Within window, check attempts
+  if (entry.count >= MAX_ATTEMPTS) {
+    entry.blocked = true;
+    entry.lastAttempt = now;
+    return { 
+      allowed: false, 
+      retryAfter: Math.ceil(BLOCK_TIME / 1000) 
+    };
+  }
+  
+  return { allowed: true };
+}
+
+export function recordLoginAttempt(identifier: string, success: boolean): void {
+  const now = Date.now();
+  
+  if (success) {
+    rateLimitStore.delete(identifier);
+    return;
+  }
+  
+  const entry = rateLimitStore.get(identifier);
+  
+  if (!entry) {
+    rateLimitStore.set(identifier, {
+      count: 1,
+      firstAttempt: now,
+      lastAttempt: now,
+      blocked: false
+    });
+  } else {
+    entry.count++;
+    entry.lastAttempt = now;
+    
+    if (entry.count >= MAX_ATTEMPTS) {
+      entry.blocked = true;
+    }
+  }
+}
+
+// CSRF token functions
+export function generateCSRFToken(sessionId: string): string {
+  const token = crypto.randomBytes(32).toString('hex');
+  const expires = Date.now() + (60 * 60 * 1000); // 1 hour
+  
+  csrfTokenStore.set(sessionId, { token, expires });
+  
+  // Clean up expired tokens
+  for (const [key, value] of csrfTokenStore.entries()) {
+    if (value.expires < Date.now()) {
+      csrfTokenStore.delete(key);
+    }
+  }
+  
+  return token;
+}
+
+export function validateCSRFToken(sessionId: string, token: string): boolean {
+  const stored = csrfTokenStore.get(sessionId);
+  
+  if (!stored) {
+    return false;
+  }
+  
+  if (stored.expires < Date.now()) {
+    csrfTokenStore.delete(sessionId);
+    return false;
+  }
+  
+  return crypto.timingSafeEqual(
+    Buffer.from(stored.token),
+    Buffer.from(token)
+  );
+}
 
 export async function readConfig(): Promise<Config> {
   try {
@@ -179,13 +314,18 @@ export async function verifyCredentials(username: string, password: string): Pro
   }
 }
 
-export function generateToken(username: string): string {
+export function generateToken(username: string, csrfToken: string): string {
   if (!username || typeof username !== 'string') {
     throw new Error('Username debe ser una string válida para generar token');
   }
   
+  if (!csrfToken || typeof csrfToken !== 'string') {
+    throw new Error('CSRF token debe ser una string válida');
+  }
+  
   const payload = {
     username: username.trim(),
+    csrfToken,
     iat: Math.floor(Date.now() / 1000),
     exp: Math.floor(Date.now() / 1000) + (60 * 60) // 1 hora
   };
@@ -197,11 +337,11 @@ export function generateToken(username: string): string {
   });
 }
 
-export function validateToken(token: string): boolean {
+export function validateToken(token: string): { valid: boolean; payload?: JWTPayload } {
   try {
     if (!token || typeof token !== 'string') {
       console.error('Token inválido o vacío');
-      return false;
+      return { valid: false };
     }
     
     const decoded = jwt.verify(token, JWT_SECRET, {
@@ -212,16 +352,36 @@ export function validateToken(token: string): boolean {
     
     if (!decoded.username || typeof decoded.username !== 'string') {
       console.error('Token no contiene username válido');
-      return false;
+      return { valid: false };
+    }
+    
+    if (!decoded.csrfToken || typeof decoded.csrfToken !== 'string') {
+      console.error('Token no contiene CSRF token');
+      return { valid: false };
     }
     
     const isValid = decoded.username === ADMIN_USERNAME;
     console.log(`Token validation: ${isValid ? 'SUCCESS' : 'FAILED'}`);
-    return isValid;
+    return { valid: isValid, payload: decoded };
   } catch (error) {
     console.error('Token validation error:', error);
-    return false;
+    return { valid: false };
   }
+}
+
+export function getSecureCookieOptions(isSecure: boolean = true): string {
+  const options = [
+    'HttpOnly',
+    'SameSite=Strict',
+    'Path=/',
+    'Max-Age=3600' // 1 hour
+  ];
+  
+  if (isSecure && NODE_ENV === 'production') {
+    options.push('Secure');
+  }
+  
+  return options.join('; ');
 }
 
 export async function getAllWhatsAppEntries(): Promise<WhatsAppEntry[]> {

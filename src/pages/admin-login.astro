@@ -8,6 +8,12 @@ const token = Astro.cookies.get('auth_token')?.value;
 if (token) {
   return Astro.redirect('/admin');
 }
+
+// Security headers
+Astro.response.headers.set('X-Content-Type-Options', 'nosniff');
+Astro.response.headers.set('X-Frame-Options', 'DENY');
+Astro.response.headers.set('X-XSS-Protection', '1; mode=block');
+Astro.response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
 ---
 
 <Layout title="Login Administrador">
@@ -39,7 +45,8 @@ if (token) {
       
       <button 
         type="submit" 
-        class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300"
+        class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+        id="submitButton"
       >
         Iniciar Sesión
       </button>
@@ -52,25 +59,7 @@ if (token) {
 <script>
   const loginForm = document.getElementById('loginForm') as HTMLFormElement;
   const errorMessage = document.getElementById('errorMessage') as HTMLDivElement;
-  
-  // Función para establecer cookie segura
-  function setSecureCookie(name: string, value: string, maxAge: number): void {
-    const isSecure = window.location.protocol === 'https:';
-    const cookieOptions = [
-      `${name}=${value}`,
-      'path=/',
-      `max-age=${maxAge}`,
-      'SameSite=Strict'
-    ];
-    
-    if (isSecure) {
-      cookieOptions.push('Secure');
-    }
-    
-    // Nota: HttpOnly no se puede establecer desde JavaScript por seguridad
-    // Esto debería manejarse desde el servidor en producción
-    document.cookie = cookieOptions.join('; ');
-  }
+  const submitButton = document.getElementById('submitButton') as HTMLButtonElement;
   
   loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -85,6 +74,10 @@ if (token) {
       return;
     }
     
+    // Disable submit button
+    submitButton.disabled = true;
+    submitButton.textContent = 'Iniciando sesión...';
+    
     try {
       const response = await fetch('/api/login', {
         method: 'POST',
@@ -96,9 +89,11 @@ if (token) {
       
       const data = await response.json();
       
-      if (response.ok && data.token) {
-        // Establecer cookie segura
-        setSecureCookie('auth_token', data.token, 3600); // 1 hora
+      if (response.ok && data.success) {
+        // Store CSRF token in sessionStorage for use in admin panel
+        if (data.csrfToken) {
+          sessionStorage.setItem('csrfToken', data.csrfToken);
+        }
         
         // Limpiar formulario
         (document.getElementById('username') as HTMLInputElement).value = '';
@@ -106,6 +101,15 @@ if (token) {
         
         // Redirigir
         window.location.href = '/admin';
+      } else if (response.status === 429) {
+        errorMessage.textContent = data.error || 'Demasiados intentos fallidos';
+        errorMessage.classList.remove('hidden');
+        
+        // Show retry time if available
+        if (data.retryAfter) {
+          const minutes = Math.ceil(data.retryAfter / 60);
+          errorMessage.textContent += `. Intenta nuevamente en ${minutes} minuto${minutes > 1 ? 's' : ''}.`;
+        }
       } else {
         errorMessage.textContent = data.error || 'Error de autenticación';
         errorMessage.classList.remove('hidden');
@@ -117,6 +121,10 @@ if (token) {
       console.error('Login error:', error);
       errorMessage.textContent = 'Error de conexión. Intenta nuevamente.';
       errorMessage.classList.remove('hidden');
+    } finally {
+      // Re-enable submit button
+      submitButton.disabled = false;
+      submitButton.textContent = 'Iniciar Sesión';
     }
   });
   

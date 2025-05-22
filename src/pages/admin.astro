@@ -2,7 +2,7 @@
 // src/pages/admin.astro
 export const prerender = false;
 import Layout from '../layouts/Layout.astro';
-import { validateToken, getAllWhatsAppEntries } from '../data/auth';
+import { validateToken, getAllWhatsAppEntries, generateCSRFToken } from '../data/auth';
 
 // Interfaz para entradas WhatsApp
 interface WhatsAppEntry {
@@ -12,17 +12,38 @@ interface WhatsAppEntry {
 
 // Verificar autenticación
 const token = Astro.cookies.get('auth_token')?.value;
-if (!token || !validateToken(token)) {
+const sessionId = Astro.cookies.get('session_id')?.value;
+
+if (!token || !sessionId) {
   return Astro.redirect('/admin-login');
 }
 
+const tokenValidation = validateToken(token);
+if (!tokenValidation.valid || !tokenValidation.payload) {
+  return Astro.redirect('/admin-login');
+}
+
+// Generar nuevo CSRF token
+const csrfToken = generateCSRFToken(sessionId);
+
 // Obtener todas las entradas
 const entries = await getAllWhatsAppEntries();
+
+// Security headers
+Astro.response.headers.set('X-Content-Type-Options', 'nosniff');
+Astro.response.headers.set('X-Frame-Options', 'DENY');
+Astro.response.headers.set('X-XSS-Protection', '1; mode=block');
+Astro.response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+Astro.response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate, private');
+Astro.response.headers.set('Pragma', 'no-cache');
+Astro.response.headers.set('Expires', '0');
 ---
 
 <Layout title="Panel de Administración">
   <main class="container mx-auto py-8 px-4 max-w-4xl">
     <h1 class="text-3xl font-bold mb-6 text-center">Panel de Administración</h1>
+    
+    <input type="hidden" id="csrf-token" value={csrfToken} />
     
     <div class="bg-white p-6 rounded-lg shadow-md mb-8">
       <h2 class="text-xl font-bold mb-4">Números de WhatsApp</h2>
@@ -128,12 +149,13 @@ const entries = await getAllWhatsAppEntries();
     error?: string;
   }
 
-  // Obtener token con tipo correcto
-  function getToken(): string | undefined {
-    return document.cookie
-      .split('; ')
-      .find((row: string) => row.startsWith('auth_token='))
-      ?.split('=')[1];
+  // Obtener CSRF token
+  function getCSRFToken(): string {
+    const tokenElement = document.getElementById('csrf-token') as HTMLInputElement | null;
+    if (!tokenElement || !tokenElement.value) {
+      throw new Error('CSRF token not found');
+    }
+    return tokenElement.value;
   }
   
   // Mostrar mensaje de estado
@@ -178,15 +200,11 @@ const entries = await getAllWhatsAppEntries();
   // Actualizar entrada
   async function updateEntry(oldHeroId: number, newHeroId: number, number: string): Promise<boolean> {
     try {
-      const token = getToken();
-      if (!token) {
-        window.location.href = '/admin-login';
-        return false;
-      }
+      const csrfToken = getCSRFToken();
       
       // Validación
       if (newHeroId < 1) {
-        showStatus('Hero ID debe ser mayot a 1', 'error');
+        showStatus('Hero ID debe ser mayor a 1', 'error');
         return false;
       }
       
@@ -198,10 +216,9 @@ const entries = await getAllWhatsAppEntries();
       const response = await fetch('/api/updateEntry', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ oldHeroId, newHeroId, number })
+        body: JSON.stringify({ oldHeroId, newHeroId, number, csrfToken })
       });
       
       const data = await response.json() as ApiResponse;
@@ -221,62 +238,52 @@ const entries = await getAllWhatsAppEntries();
   }
   
   // Eliminar entrada
-async function deleteEntry(heroId: number): Promise<boolean> {
-  try {
-    console.log(`Attempting to delete entry for Hero ID: ${heroId}`);
-    
-    const token = getToken();
-    if (!token) {
-      console.error("No authentication token found");
-      window.location.href = '/admin-login';
+  async function deleteEntry(heroId: number): Promise<boolean> {
+    try {
+      console.log(`Attempting to delete entry for Hero ID: ${heroId}`);
+      
+      const csrfToken = getCSRFToken();
+      
+      // Add validation
+      if (!heroId || heroId < 1) {
+        console.error(`Invalid heroId: ${heroId}`);
+        showStatus('ID de Hero inválido', 'error');
+        return false;
+      }
+      
+      console.log(`Sending delete request for Hero ID: ${heroId}`);
+      const response = await fetch('/api/deleteEntry', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ heroId, csrfToken })
+      });
+      
+      console.log(`Delete API response status: ${response.status}`);
+      const data = await response.json() as ApiResponse;
+      console.log(`Delete API response data:`, data);
+      
+      if (response.ok && data.success) {
+        console.log(`Successfully deleted entry for Hero ID: ${heroId}`);
+        showStatus(`Entrada eliminada correctamente`, 'success');
+        return true;
+      } else {
+        console.error(`Error deleting entry: ${data.error || 'Unknown error'}`);
+        showStatus(data.error || 'Error al eliminar entrada', 'error');
+        return false;
+      }
+    } catch (error) {
+      console.error('Error executing delete request:', error);
+      showStatus('Error de conexión', 'error');
       return false;
     }
-    
-    // Add validation
-    if (!heroId || heroId < 1) {
-      console.error(`Invalid heroId: ${heroId}`);
-      showStatus('ID de Hero inválido', 'error');
-      return false;
-    }
-    
-    console.log(`Sending delete request for Hero ID: ${heroId}`);
-    const response = await fetch('/api/deleteEntry', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      },
-      body: JSON.stringify({ heroId })
-    });
-    
-    console.log(`Delete API response status: ${response.status}`);
-    const data = await response.json() as ApiResponse;
-    console.log(`Delete API response data:`, data);
-    
-    if (response.ok && data.success) {
-      console.log(`Successfully deleted entry for Hero ID: ${heroId}`);
-      showStatus(`Entrada eliminada correctamente`, 'success');
-      return true;
-    } else {
-      console.error(`Error deleting entry: ${data.error || 'Unknown error'}`);
-      showStatus(data.error || 'Error al eliminar entrada', 'error');
-      return false;
-    }
-  } catch (error) {
-    console.error('Error executing delete request:', error);
-    showStatus('Error de conexión', 'error');
-    return false;
   }
-}
   
   // Crear entrada
   async function createEntry(heroId: number, number: string): Promise<boolean> {
     try {
-      const token = getToken();
-      if (!token) {
-        window.location.href = '/admin-login';
-        return false;
-      }
+      const csrfToken = getCSRFToken();
       
       // Validación
       if (!heroId || heroId < 1 ) {
@@ -292,10 +299,9 @@ async function deleteEntry(heroId: number): Promise<boolean> {
       const response = await fetch('/api/createEntry', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ heroId, number })
+        body: JSON.stringify({ heroId, number, csrfToken })
       });
       
       const data = await response.json() as ApiResponse;
@@ -431,10 +437,27 @@ async function deleteEntry(heroId: number): Promise<boolean> {
     // Botón cerrar sesión
     const logoutButton = document.getElementById('logout-button') as HTMLButtonElement | null;
     if (logoutButton) {
-      logoutButton.addEventListener('click', () => {
-        document.cookie = 'auth_token=; path=/; max-age=0';
-        console.log('Sesión cerrada');
-        window.location.href = '/admin-login';
+      logoutButton.addEventListener('click', async () => {
+        try {
+          // Clear cookies through server request
+          const response = await fetch('/api/logout', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          });
+          
+          if (response.ok) {
+            console.log('Sesión cerrada');
+            window.location.href = '/admin-login';
+          } else {
+            // Fallback
+            window.location.href = '/admin-login';
+          }
+        } catch (error) {
+          console.error('Logout error:', error);
+          window.location.href = '/admin-login';
+        }
       });
     }
   });
