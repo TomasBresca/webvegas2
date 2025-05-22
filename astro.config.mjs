@@ -14,6 +14,9 @@ export default defineConfig({
   vite: {
     ssr: {
       noExternal: ['@astrojs/*']
+    },
+    define: {
+      'process.env': process.env
     }
   }
 });

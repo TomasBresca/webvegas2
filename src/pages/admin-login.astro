@@ -20,6 +20,7 @@ if (token) {
         <input 
           type="text" 
           id="username" 
+          autocomplete="username"
           class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
           required
         />
@@ -30,6 +31,7 @@ if (token) {
         <input 
           type="password" 
           id="password" 
+          autocomplete="current-password"
           class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
           required
         />
@@ -51,11 +53,37 @@ if (token) {
   const loginForm = document.getElementById('loginForm') as HTMLFormElement;
   const errorMessage = document.getElementById('errorMessage') as HTMLDivElement;
   
+  // Función para establecer cookie segura
+  function setSecureCookie(name: string, value: string, maxAge: number): void {
+    const isSecure = window.location.protocol === 'https:';
+    const cookieOptions = [
+      `${name}=${value}`,
+      'path=/',
+      `max-age=${maxAge}`,
+      'SameSite=Strict'
+    ];
+    
+    if (isSecure) {
+      cookieOptions.push('Secure');
+    }
+    
+    // Nota: HttpOnly no se puede establecer desde JavaScript por seguridad
+    // Esto debería manejarse desde el servidor en producción
+    document.cookie = cookieOptions.join('; ');
+  }
+  
   loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
-    const username = (document.getElementById('username') as HTMLInputElement).value;
+    const username = (document.getElementById('username') as HTMLInputElement).value.trim();
     const password = (document.getElementById('password') as HTMLInputElement).value;
+    
+    // Validación básica del lado cliente
+    if (!username || !password) {
+      errorMessage.textContent = 'Todos los campos son requeridos';
+      errorMessage.classList.remove('hidden');
+      return;
+    }
     
     try {
       const response = await fetch('/api/login', {
@@ -69,16 +97,35 @@ if (token) {
       const data = await response.json();
       
       if (response.ok && data.token) {
-        // Guardar token y redirigir
-        document.cookie = `auth_token=${data.token}; path=/; max-age=3600`;
+        // Establecer cookie segura
+        setSecureCookie('auth_token', data.token, 3600); // 1 hora
+        
+        // Limpiar formulario
+        (document.getElementById('username') as HTMLInputElement).value = '';
+        (document.getElementById('password') as HTMLInputElement).value = '';
+        
+        // Redirigir
         window.location.href = '/admin';
       } else {
         errorMessage.textContent = data.error || 'Error de autenticación';
         errorMessage.classList.remove('hidden');
+        
+        // Limpiar password en caso de error
+        (document.getElementById('password') as HTMLInputElement).value = '';
       }
     } catch (error) {
-      errorMessage.textContent = 'Error de conexión';
+      console.error('Login error:', error);
+      errorMessage.textContent = 'Error de conexión. Intenta nuevamente.';
       errorMessage.classList.remove('hidden');
     }
+  });
+  
+  // Limpiar mensajes de error cuando el usuario empiece a escribir
+  document.getElementById('username')?.addEventListener('input', () => {
+    errorMessage.classList.add('hidden');
+  });
+  
+  document.getElementById('password')?.addEventListener('input', () => {
+    errorMessage.classList.add('hidden');
   });
 </script>
