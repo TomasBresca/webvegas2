@@ -1,0 +1,1132 @@
+---
+//Hero(25).astro
+const { whatsappLink1, whatsappLink2, pixelEvent } = Astro.props;
+import '../styles/global.css';
+---
+
+<section class="iphone-14-pro-max-1">
+  <!-- Contenedor interno para mejor control de posicionamiento -->
+  <div class="hero-content-wrapper">
+    <!-- Imagen de fondo con la chica -->
+    <div class="fondo-foto-chica-container">
+      <div class="fondo-foto-chica-placeholder"><img src="/Hero(25)/fondo-foto-chica@2xAncho.png" alt="Background"/></div>
+    </div>
+
+    <!-- Logo del Jester/Joker 
+    <div class="jokercabeza-container">
+      <div class="jokercabeza-placeholder"><img src="/Hero(25)/jokercabeza@2x.png" alt="Joker Logo"/></div>
+    </div>-->
+
+    <!-- Billetes de dinero flotantes -->
+    <div class="money-container money-0000-dollar-10-container">
+      <div class="money-placeholder"><img src="/Hero(25)/money-0000-dollar-10@2x.png" alt="Money"/></div>
+    </div>
+
+    <div class="money-container money-0001-dollar-9-container">
+      <div class="money-placeholder"><img src="/Hero(25)/money-0001-dollar-9@2x.png" alt="Money"/></div>
+    </div>
+
+    <div class="money-container money-0002-dollar-8-container">
+      <div class="money-placeholder"><img src="/Hero(25)/money-0002-dollar-8@2x.png" alt="Money"/></div>
+    </div>
+
+    <div class="money-container money-0003-dollar-7-container">
+      <div class="money-placeholder"><img src="/Hero(25)/money-0003-dollar-7@2x.png" alt="Money"/></div>
+    </div>
+
+    <div class="money-container money-0004-dollar-6-container">
+      <div class="money-placeholder"><img src="/Hero(25)/money-0004-dollar-6@2x.png" alt="Money"/></div>
+    </div>
+
+    <div class="money-container money-0007-dollar-3-container">
+      <div class="money-placeholder"><img src="/Hero(25)/money-0007-dollar-3@2x.png" alt="Money"/></div>
+    </div>
+
+    <div class="money-container money-0005-dollar-5-container">
+      <div class="money-placeholder"><img src="/Hero(25)/money-0005-dollar-5@2x.png" alt="Money"/></div>
+    </div>
+
+    <div class="money-container money-0006-dollar-4-container">
+      <div class="money-placeholder"><img src="/Hero(25)/money-0006-dollar-4@2x.png" alt="Money"/></div>
+    </div>
+
+    <!-- Logo Vegas -->
+    <div class="logo-vegas-container">
+      <div class="logo-vegas-placeholder"><img src="/Hero(25)/logo-vegas@2x.png" alt="Vegas Logo"/></div>
+    </div>
+
+    <!-- Texto abajo -->
+    <div class="texto-abajo-container">
+      <div class="texto-abajo-placeholder"><img src="/Hero(25)/texto-abajo@2x.png" alt="Bottom Text"/></div>
+    </div>
+
+    <!-- 24HS ABIERTO -->
+    <div class="hs-abierto-rectangulo-container">
+      <div class="hs-abierto-placeholder"><img src="/Hero(25)/24hsAbierto.png" alt="24HS ABIERTO"/></div>
+    </div>
+
+    <!-- Botón de WhatsApp -->
+    <a
+      id="cta-button" 
+      href={whatsappLink1} 
+      target="_blank" 
+      rel="noopener" 
+      class="hablanos-ahora-wpp-button-container"
+    >
+      <div class="hablanos-ahora-placeholder">
+        <img src="/Hero(25)/hablanos-ahora-wpp-button@2x.png" alt="WhatsApp Button"/>
+      </div>
+    </a>
+
+    <!-- Calculadora de Bonus Oculta (mantiene funcionalidad) -->
+    <div class="hidden">
+      <div id="deposit-amount">$1,000</div>
+      <div id="bonus-amount">$100</div>
+      <div id="total-amount">$1,100</div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ======================================== */
+/* VARIABLES CSS */
+/* ======================================== */
+:root {
+  --color-slateblue: #0942b4;
+  --max-content-width: 1920px;
+  --mobile-padding: 15px;
+  --desktop-padding: 40px;
+}
+
+/* ======================================== */
+/* ESTILOS BASE Y CONTENEDORES */
+/* ======================================== */
+.iphone-14-pro-max-1 {
+  position: relative;
+  background-color: var(--color-slateblue);
+  width: 100%;
+  height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ======================================== */
+/* ELEMENTOS COMUNES */
+/* ======================================== */
+
+/* Fondo foto chica */
+.fondo-foto-chica-container {
+  position: absolute;
+  z-index: 1;
+}
+
+.fondo-foto-chica-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fondo-foto-chica-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Logo Joker */
+.jokercabeza-container {
+  position: absolute;
+  animation: joker-cabeza 3s ease-in-out infinite;
+  z-index: 3;
+}
+
+.jokercabeza-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jokercabeza-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Billetes de dinero - Clase base */
+.money-container {
+  position: absolute;
+  z-index: 2;
+}
+
+.money-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float-money 3s ease-in-out infinite;
+}
+
+.money-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Logo Vegas */
+.logo-vegas-container {
+  position: absolute;
+  z-index: 3;
+}
+
+.logo-vegas-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-vegas-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Texto abajo */
+.texto-abajo-container {
+  position: absolute;
+  z-index: 3;
+}
+
+.texto-abajo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.texto-abajo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 24HS ABIERTO */
+.hs-abierto-rectangulo-container {
+  animation: hs-abierto 2s ease-in-out infinite;
+  z-index: 4;
+}
+
+.hs-abierto-placeholder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #FFD700, #FFA500, #FF6347, #FF1493, #8A2BE2, #4B0082);
+  background-size: 300% 300%;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-2deg);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  animation: gradient-shift 3s ease infinite;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.hs-abierto-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.hs-abierto-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 3px;
+  background: linear-gradient(45deg, #4B0082, #8A2BE2, #FF1493, #FF6347, #FFA500, #FFD700);
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  z-index: -1;
+}
+
+/* Botón WhatsApp */
+.hablanos-ahora-wpp-button-container {
+  position: absolute;
+  text-decoration: none;
+  z-index: 5;
+}
+
+.hablanos-ahora-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hablanos-ahora-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ======================================== */
+/* ANIMACIONES */
+/* ======================================== */
+@keyframes joker-cabeza {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0deg);
+  }
+}
+
+@keyframes hs-abierto {
+  0%, 100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-2deg);
+  }
+}
+
+@keyframes float-money {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Elementos ocultos */
+.hidden {
+  display: none;
+}
+
+/* ======================================== */
+/* MOBILE (0px - 767px) */
+/* ======================================== */
+@media (max-width: 767px) {
+  .iphone-14-pro-max-1 {
+    min-height: 100vh;
+  }
+
+  /* Fondo */
+  .fondo-foto-chica-container {
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180%;
+    height: 45%;
+  }
+
+  /* Elementos principales centrados */
+  .jokercabeza-container {
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 275px;
+  }
+
+  .hs-abierto-rectangulo-container {
+    top: 37%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 135px;
+    width: min(300px, 80vw);
+    margin-bottom: 10%;
+  }
+
+  .hablanos-ahora-wpp-button-container {
+    top: 52%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 380px;
+    height: 82px;
+  }
+
+  .logo-vegas-container {
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    height: 65px;
+  }
+
+  .texto-abajo-container {
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 95px;
+  }
+
+  /* Billetes de dinero - Mobile */
+  .money-0000-dollar-10-container {
+    top: 5%;
+    right: 5%;
+    width: 60px;
+    height: 60px;
+  }
+
+  .money-0001-dollar-9-container {
+    top: 2%;
+    left: 5%;
+    width: 35px;
+    height: 60px;
+  }
+
+  .money-0002-dollar-8-container {
+    top: 20%;
+    right: 10%;
+    width: 80px;
+    height: 70px;
+  }
+
+  .money-0003-dollar-7-container {
+    right: -10%;
+    bottom: 20%;
+    width: 150px;
+    height: 130px;
+  }
+
+  .money-0004-dollar-6-container {
+    top: 8%;
+    left: 35%;
+    width: 35px;
+    height: 45px;
+  }
+
+  .money-0007-dollar-3-container {
+    top: 42%;
+    left: -5%;
+    width: 70px;
+    height: 120px;
+  }
+
+  .money-0005-dollar-5-container {
+    bottom: 5%;
+    left: -8%;
+    width: 120px;
+    height: 155px;
+  }
+
+  .money-0006-dollar-4-container {
+    right: -15%;
+    bottom: -10%;
+    width: 180px;
+    height: 230px;
+  }
+}
+
+/* ======================================== */
+/* TABLET (768px - 1023px) */
+/* ======================================== */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .iphone-14-pro-max-1 {
+    min-height: 100vh;
+  }
+
+  /* Fondo */
+  .fondo-foto-chica-container {
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140%;
+    height: 50%;
+  }
+
+  /* Elementos principales centrados */
+  .jokercabeza-container {
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+    height: 330px;
+  }
+
+  .hs-abierto-rectangulo-container {
+    top: 36%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(300px, 80vw);
+    margin-bottom: 10%;
+    height: 165px;
+  }
+
+  .hablanos-ahora-wpp-button-container {
+    top: 53%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 450px;
+    height: 95px;
+  }
+
+  .logo-vegas-container {
+    top: 67%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+    height: 85px;
+  }
+
+  .texto-abajo-container {
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 370px;
+    height: 115px;
+  }
+
+  /* Billetes de dinero - Tablet */
+  .money-0000-dollar-10-container {
+    top: 8%;
+    right: 10%;
+    width: 90px;
+    height: 90px;
+  }
+
+  .money-0001-dollar-9-container {
+    top: 5%;
+    left: 8%;
+    width: 50px;
+    height: 90px;
+  }
+
+  .money-0002-dollar-8-container {
+    top: 22%;
+    right: 15%;
+    width: 110px;
+    height: 100px;
+  }
+
+  .money-0003-dollar-7-container {
+    right: -5%;
+    bottom: 18%;
+    width: 200px;
+    height: 180px;
+  }
+
+  .money-0004-dollar-6-container {
+    top: 10%;
+    left: 40%;
+    width: 50px;
+    height: 65px;
+  }
+
+  .money-0007-dollar-3-container {
+    top: 45%;
+    left: 2%;
+    width: 100px;
+    height: 175px;
+  }
+
+  .money-0005-dollar-5-container {
+    bottom: 3%;
+    left: -3%;
+    width: 160px;
+    height: 210px;
+  }
+
+  .money-0006-dollar-4-container {
+    right: -8%;
+    bottom: -8%;
+    width: 250px;
+    height: 320px;
+  }
+}
+
+/* ======================================== */
+/* DESKTOP (1024px+) */
+/* ======================================== */
+@media (min-width: 1024px) {
+  .iphone-14-pro-max-1 {
+    min-height: 932px;
+  }
+
+  /* Overlay para mejorar visibilidad */
+  .iphone-14-pro-max-1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(9, 66, 180, 0.3) 0%, rgba(9, 66, 180, 0.7) 50%, rgba(9, 66, 180, 0.9) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Fondo */
+  .fondo-foto-chica-container {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+  }
+
+  .fondo-foto-chica-placeholder img {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+
+  /* Elementos principales centrados */
+  .jokercabeza-container {
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(280px, 20vw);
+    height: auto;
+    aspect-ratio: 223/307;
+    max-width: 350px;
+  }
+
+  .hs-abierto-rectangulo-container {
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(400px, 80vw);
+    margin-bottom: 10%;
+    height: auto;
+    aspect-ratio: 346/158;
+    max-width: 480px;
+  }
+
+  .hablanos-ahora-wpp-button-container {
+    top: 52%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(480px, 33vw);
+    height: auto;
+    aspect-ratio: 427/92;
+    max-width: 550px;
+  }
+
+  .logo-vegas-container {
+    top: 66%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(340px, 24vw);
+    height: auto;
+    aspect-ratio: 294/78;
+    max-width: 400px;
+  }
+
+  .texto-abajo-container {
+    bottom: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(400px, 28vw);
+    height: auto;
+    aspect-ratio: 348/109;
+    max-width: 460px;
+  }
+
+  /* Billetes de dinero - Desktop */
+  .money-0000-dollar-10-container {
+    top: 5%;
+    right: 12%;
+    width: min(140px, 8vw);
+    height: min(140px, 8vw);
+  }
+
+  .money-0001-dollar-9-container {
+    top: 8%;
+    left: 8%;
+    width: min(110px, 7vw);
+    height: min(150px, 9vw);
+  }
+
+  .money-0002-dollar-8-container {
+    top: 25%;
+    left: 33%;
+    width: min(160px, 10vw);
+    height: min(140px, 9vw);
+  }
+
+  .money-0003-dollar-7-container {
+    right: 3%;
+    bottom: 22%;
+    width: min(240px, 14vw);
+    height: min(210px, 12vw);
+  }
+
+  .money-0004-dollar-6-container {
+    top: 10%;
+    right: 28%;
+    width: min(80px, 5vw);
+    height: min(100px, 6vw);
+  }
+
+  .money-0007-dollar-3-container {
+    top: 45%;
+    left: 3%;
+    width: min(150px, 9vw);
+    height: min(260px, 15vw);
+  }
+
+  .money-0005-dollar-5-container {
+    bottom: 8%;
+    left: 5%;
+    width: min(190px, 12vw);
+    height: min(250px, 15vw);
+  }
+
+  .money-0006-dollar-4-container {
+    right: 2%;
+    bottom: 3%;
+    width: min(280px, 17vw);
+    height: min(360px, 22vw);
+  }
+
+  /* Efectos hover para desktop */
+  .hablanos-ahora-wpp-button-container:hover {
+    transform: translateX(-50%) translateY(-5px);
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+  }
+
+  .hablanos-ahora-wpp-button-container:hover .hablanos-ahora-placeholder {
+    transform: scale(1.08);
+  }
+
+  .jokercabeza-container:hover {
+    animation-duration: 1.5s;
+    filter: drop-shadow(0 0 20px rgba(255,215,0,0.4));
+  }
+
+  .hs-abierto-rectangulo-container:hover {
+    animation-duration: 1.5s;
+    filter: drop-shadow(0 0 25px rgba(255,20,147,0.5));
+  }
+
+  .money-placeholder {
+    transition: transform 0.3s ease;
+  }
+
+  .money-placeholder:hover {
+    transform: scale(1.2) rotate(15deg);
+    filter: brightness(1.2);
+  }
+}
+
+/* ======================================== */
+/* DESKTOP GRANDE (1440px+) */
+/* ======================================== */
+@media (min-width: 1440px) {
+  /* Imagen de fondo */
+  .fondo-foto-chica-container {
+    height: 55%;
+  }
+
+  /* Elementos principales más grandes */
+  .jokercabeza-container {
+    width: 320px;
+    max-width: 380px;
+  }
+
+  .hs-abierto-rectangulo-container {
+    width: 440px;
+    max-width: 520px;
+  }
+
+  .hablanos-ahora-wpp-button-container {
+    width: 500px;
+    max-width: 580px;
+  }
+
+  .logo-vegas-container {
+    width: 360px;
+    max-width: 420px;
+  }
+
+  .texto-abajo-container {
+    width: 420px;
+    max-width: 480px;
+  }
+
+  /* Billetes más grandes */
+  .money-0000-dollar-10-container {
+    width: 170px;
+    height: 170px;
+  }
+
+  .money-0001-dollar-9-container {
+    width: 140px;
+    height: 190px;
+  }
+
+  .money-0002-dollar-8-container {
+    width: 200px;
+    height: 180px;
+  }
+
+  .money-0003-dollar-7-container {
+    width: 280px;
+    height: 250px;
+  }
+
+  .money-0004-dollar-6-container {
+    width: 100px;
+    height: 130px;
+  }
+
+  .money-0007-dollar-3-container {
+    width: 190px;
+    height: 320px;
+  }
+
+  .money-0005-dollar-5-container {
+    width: 240px;
+    height: 310px;
+  }
+
+  .money-0006-dollar-4-container {
+    width: 340px;
+    height: 430px;
+  }
+}
+
+/* ======================================== */
+/* ULTRA WIDE (1920px+) */
+/* ======================================== */
+@media (min-width: 1920px) {
+  /* Limitar el ancho máximo del contenido */
+  .hero-content-wrapper {
+    max-width: 1920px;
+  }
+
+  /* Overlay más sutil */
+  .iphone-14-pro-max-1::before {
+    background: linear-gradient(to bottom, rgba(9, 66, 180, 0.2) 0%, rgba(9, 66, 180, 0.6) 40%, rgba(9, 66, 180, 0.85) 100%);
+  }
+
+  /* Imagen de fondo */
+  .fondo-foto-chica-container {
+    height: 60%;
+  }
+
+  .fondo-foto-chica-placeholder img {
+    object-position: center 25%;
+  }
+
+  /* Tamaños máximos para elementos principales */
+  .jokercabeza-container {
+    top: 8%;
+    width: 380px;
+    max-width: 450px;
+  }
+
+  .hs-abierto-rectangulo-container {
+    top: 33%;
+    width: 520px;
+    max-width: 580px;
+  }
+
+  .hablanos-ahora-wpp-button-container {
+    top: 50%;
+    width: 600px;
+    max-width: 650px;
+  }
+
+  .logo-vegas-container {
+    top: 65%;
+    width: 450px;
+    max-width: 500px;
+  }
+
+  .texto-abajo-container {
+    bottom: 5%;
+    width: 500px;
+    max-width: 550px;
+  }
+
+  /* Billetes con tamaños máximos */
+  .money-0000-dollar-10-container {
+    width: 200px;
+    height: 200px;
+    max-width: 220px;
+    max-height: 220px;
+  }
+
+  .money-0001-dollar-9-container {
+    width: 170px;
+    height: 230px;
+    max-width: 190px;
+    max-height: 250px;
+  }
+
+  .money-0002-dollar-8-container {
+    width: 250px;
+    height: 220px;
+    max-width: 280px;
+    max-height: 250px;
+  }
+
+  .money-0003-dollar-7-container {
+    width: 350px;
+    height: 300px;
+    max-width: 380px;
+    max-height: 330px;
+  }
+
+  .money-0004-dollar-6-container {
+    width: 140px;
+    height: 180px;
+    max-width: 160px;
+    max-height: 200px;
+  }
+
+  .money-0007-dollar-3-container {
+    width: 250px;
+    height: 420px;
+    max-width: 280px;
+    max-height: 450px;
+  }
+
+  .money-0005-dollar-5-container {
+    width: 320px;
+    height: 400px;
+    max-width: 350px;
+    max-height: 430px;
+  }
+
+  .money-0006-dollar-4-container {
+    width: 420px;
+    height: 520px;
+    max-width: 450px;
+    max-height: 550px;
+  }
+
+  /* Mejoras visuales */
+  .hs-abierto-placeholder {
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4), 0 0 30px rgba(255,105,180,0.5);
+  }
+
+  .hablanos-ahora-placeholder {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  }
+
+  .hablanos-ahora-wpp-button-container:hover .hablanos-ahora-placeholder {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3), 0 0 20px rgba(37,211,102,0.4);
+  }
+}
+
+/* ======================================== */
+/* 4K Y SUPERIOR (2560px+) */
+/* ======================================== */
+@media (min-width: 2560px) {
+  .hero-content-wrapper {
+    max-width: 2560px;
+  }
+
+  /* Escalar proporcionalmente todos los elementos */
+  .jokercabeza-container,
+  .hs-abierto-rectangulo-container,
+  .hablanos-ahora-wpp-button-container,
+  .logo-vegas-container,
+  .texto-abajo-container {
+    transform: translateX(-50%) scale(1.3);
+  }
+
+  .hablanos-ahora-wpp-button-container:hover {
+    transform: translateX(-50%) scale(1.3) translateY(-8px);
+  }
+
+  .money-container {
+    transform: scale(1.4);
+  }
+
+  .money-placeholder:hover {
+    transform: scale(1.4) rotate(15deg);
+  }
+
+  /* Imagen de fondo para 4K */
+  .fondo-foto-chica-container {
+    height: 65%;
+  }
+}
+</style>
+
+<script>
+interface CalculatorElements {
+  deposit: HTMLElement | null;
+  bonus: HTMLElement | null;
+  total: HTMLElement | null;
+}
+
+interface CounterAnimationParams {
+  elementId: string;
+  start: number;
+  end: number;
+  duration?: number;
+}
+
+// Valores actuales
+let currentDeposit: number = 0;
+let currentBonus: number = 0;
+let currentTotal: number = 0;
+
+// Montos a rotar
+const amounts: readonly number[] = [1000, 5000, 10000, 70000] as const;
+let currentIndex: number = 0;
+
+// Formatear número como moneda
+const formatCurrency = (amount: number): string => {
+  return '$' + amount.toLocaleString('en-US');
+};
+
+// Animación de contador
+const animateCounter = ({ elementId, start, end, duration = 1000 }: CounterAnimationParams): number => {
+  const element: HTMLElement | null = document.getElementById(elementId);
+  if (!element) return end;
+  
+  const startTime: number = performance.now();
+  const change: number = end - start;
+  
+  const updateCounter = (currentTime: number): void => {
+    const elapsedTime: number = currentTime - startTime;
+    
+    if (elapsedTime > duration) {
+      element.textContent = formatCurrency(end);
+      return;
+    }
+    
+    // Cálculo con efecto de easing
+    const progress: number = elapsedTime / duration;
+    const easedProgress: number = -Math.cos(progress * Math.PI) / 2 + 0.5;
+    const currentValue: number = Math.round(start + change * easedProgress);
+    
+    element.textContent = formatCurrency(currentValue);
+    requestAnimationFrame(updateCounter);
+  };
+  
+  requestAnimationFrame(updateCounter);
+  return end;
+};
+
+// Actualizar calculadora
+const updateCalculator = (amount: number): void => {
+  const bonus: number = Math.round(amount * 0.1);
+  const total: number = amount + bonus;
+  
+  // Guardar valores para próxima animación
+  currentDeposit = animateCounter({ elementId: 'deposit-amount', start: currentDeposit, end: amount });
+  currentBonus = animateCounter({ elementId: 'bonus-amount', start: currentBonus, end: bonus });
+  currentTotal = animateCounter({ elementId: 'total-amount', start: currentTotal, end: total });
+};
+
+// Verificar elementos de la calculadora
+const getCalculatorElements = (): CalculatorElements => ({
+  deposit: document.getElementById('deposit-amount'),
+  bonus: document.getElementById('bonus-amount'),
+  total: document.getElementById('total-amount')
+});
+
+// Inicializar
+document.addEventListener('DOMContentLoaded', (): void => {
+  const elements: CalculatorElements = getCalculatorElements();
+  
+  // Verificar que los elementos existen
+  if (!elements.deposit || !elements.bonus || !elements.total) {
+    console.warn('Calculator elements not found');
+    return;
+  }
+  
+  // Configurar valor inicial
+  setTimeout((): void => {
+    updateCalculator(amounts[0]);
+  }, 500);
+  
+  // Iniciar ciclo de rotación
+  setInterval((): void => {
+    currentIndex = (currentIndex + 1) % amounts.length;
+    updateCalculator(amounts[currentIndex]);
+  }, 4000); // Cambiar cada 4 segundos para permitir animación completa
+});
+</script>
+
+<script define:vars={{ pixelEvent }}>
+document.addEventListener('DOMContentLoaded', () => {
+  // Para depuración
+  console.log('Pixel event disponible:', pixelEvent);
+  
+  // Obtener el botón CTA
+  const ctaButton = document.getElementById('cta-button');
+  
+  if (!ctaButton) {
+    console.warn('CTA button not found');
+    return;
+  }
+  
+  ctaButton.addEventListener('click', (e)  => {
+    // Prevenir navegación inmediata
+    e.preventDefault();
+    
+    // Usar una variable local para el evento
+    const eventToTrack = pixelEvent || 'Lead';
+    
+    // Imprimir para depuración
+    console.log('Tracking event:', eventToTrack);
+    
+    // Enviar el evento si fbq está disponible
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', eventToTrack);
+    }
+    
+    // Navegar después de un pequeño retraso
+    setTimeout(() => {
+      const href = ctaButton.href;
+      if (href) {
+        window.location.href = href;
+      }
+    }, 300);
+  });
+});
+</script>
