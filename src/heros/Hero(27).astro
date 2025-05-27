@@ -1,0 +1,498 @@
+---
+const { whatsappLink1, whatsappLink2, pixelEvent } = Astro.props;
+import '../styles/global.css';
+---
+<section class="hero-container">
+  <!-- Fondo principal -->
+  <img class="fondo-icon" alt="" src="/Hero(27)/fondo.png" />
+
+  <!-- Elementos decorativos de fondo -->
+  <div class="background-elements">
+    <img
+      class="diamantes-y-cerezas-icon"
+      alt=""
+      src="/Hero(27)/Diamantes_y_cerezas.png"
+    />
+    <img
+      class="monedas-copia-icon"
+      alt=""
+      src="/Hero(27)/Monedas_copia.png"
+    />
+  </div>
+
+  <!-- Contenedor principal con flexbox -->
+  <div class="main-content">
+    <!-- Sección de elementos centrales con texto superpuesto -->
+    <div class="central-elements">
+      <img class="joker-y-celus-icon" alt="" src="/Hero(27)/JokerYCelus.png" />
+      <img
+        class="aca-vivis-la-mejor-experiencia-icon"
+        alt="Acá vivis la mejor experiencia"
+        src="/Hero(27)/Aca_vivis_la_mejor_experiencia.png"
+      />
+    </div>
+
+    <!-- Botón de WhatsApp -->
+    <div class="button-section">
+      <a id="whatsapp-btn-1" href={whatsappLink1} target="_blank" rel="noopener" class="whatsapp-button">
+        <div class="whatsapp-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+          </svg>
+        </div>
+        <span class="whatsapp-text">HÁBLANOS AHORA</span>
+      </a>
+    </div>
+
+    <!-- Logo Vegas -->
+    <div class="logo-section">
+      <img class="logo-vegas-icon" alt="Las Vegas" src="/Hero(27)/LOGO_VEGAS.png" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-container {
+    position: relative;
+    background-color: #000;
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+  }
+
+  .fondo-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  .background-elements {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 2;
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  .diamantes-y-cerezas-icon {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: auto;
+    height: 100vh;
+    min-width: 120vw;
+    object-fit: cover;
+    animation: floatGently 6s ease-in-out infinite;
+    z-index: 2;
+  }
+
+  .monedas-copia-icon {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: auto;
+    height: 100vh;
+    min-width: 120vw;
+    object-fit: cover;
+    animation: floatGently 6s ease-in-out infinite;
+    animation-delay: 1s;
+    z-index: 2;
+  }
+
+  .main-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1vh 5vw;
+    box-sizing: border-box;
+    gap: 1vh;
+  }
+
+  .central-elements {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30vh;
+  }
+
+  .joker-y-celus-icon {
+    width: 80vw;
+    max-width: 600px;
+    height: auto;
+    object-fit: contain;
+    animation: floatGently 6s ease-in-out infinite;
+    animation-delay: 0.5s;
+    z-index: 3;
+  }
+
+  .aca-vivis-la-mejor-experiencia-icon {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50vw;
+    max-width: 300px;
+    height: auto;
+    object-fit: contain;
+    z-index: 10;
+  }
+
+  .button-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 15;
+  }
+
+  /* Botón de WhatsApp personalizado */
+  .whatsapp-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 80vw;
+    height: 9vh;
+    max-width: 427px;
+    max-height: 73px;
+    min-width: 240px;
+    min-height: 50px;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    border-radius: 50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: pulse 2.5s ease-in-out infinite;
+    filter: drop-shadow(0 0 15px rgba(37, 211, 102, 0.6));
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .whatsapp-button:hover {
+    transform: scale(1.08) translateY(-2px);
+    animation-play-state: paused;
+    filter: drop-shadow(0 0 25px rgba(37, 211, 102, 0.8));
+    background: linear-gradient(135deg, #2ee673 0%, #15a085 100%);
+  }
+
+  .whatsapp-icon {
+    width: 24px;
+    height: 24px;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .whatsapp-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .whatsapp-text {
+    color: white;
+    font-weight: bold;
+    font-size: clamp(18px, 5vw, 24px);
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+  }
+
+  .logo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .logo-vegas-icon {
+    width: 60vw;
+    max-width: 280px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Animaciones */
+  @keyframes floatGently {
+    0%, 100% { 
+      transform: translateY(0) rotate(0deg); 
+    }
+    50% { 
+      transform: translateY(-15px) rotate(2deg); 
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-content {
+      padding: 0.5vh 3vw;
+      gap: 0.5vh;
+    }
+
+    .central-elements {
+      height: 25vh;
+    }
+
+    .joker-y-celus-icon {
+      width: 85vw;
+      max-width: 500px;
+    }
+
+    .aca-vivis-la-mejor-experiencia-icon {
+      width: 70vw;
+      max-width: 320px;
+      bottom: 12%;
+    }
+
+    .whatsapp-button {
+      width: 85vw;
+      height: 8vh;
+      min-width: 200px;
+      min-height: 45px;
+      gap: 8px;
+    }
+
+    .whatsapp-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .logo-vegas-icon {
+      width: 65vw;
+    }
+
+    .diamantes-y-cerezas-icon,
+    .monedas-copia-icon {
+      height: 100vh;
+      min-width: 120vw;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .main-content {
+      padding: 0.5vh 2vw;
+      gap: 0.5vh;
+    }
+
+    .central-elements {
+      height: 20vh;
+    }
+
+    .joker-y-celus-icon {
+      width: 90vw;
+      max-width: 450px;
+    }
+
+    .aca-vivis-la-mejor-experiencia-icon {
+      width: 80vw;
+      max-width: 320px;
+      bottom: 5%;
+    }
+
+    .whatsapp-button {
+      width: 90vw;
+      height: 7vh;
+      min-width: 180px;
+      min-height: 40px;
+      gap: 6px;
+    }
+
+    .whatsapp-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .logo-vegas-icon {
+      width: 70vw;
+    }
+
+    .diamantes-y-cerezas-icon,
+    .monedas-copia-icon {
+      height: 100vh;
+      min-width: 120vw;
+    }
+  }
+
+  /* Utility classes */
+  .hidden {
+    display: none !important;
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-center {
+    justify-content: center;
+  }
+
+  .gap-2 {
+    gap: 0.5rem;
+  }
+
+  .bg-green-600 {
+    background-color: #059669;
+  }
+
+  .hover\:bg-green-700:hover {
+    background-color: #047857;
+  }
+
+  .text-white {
+    color: white;
+  }
+
+  .font-bold {
+    font-weight: bold;
+  }
+
+  .py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .rounded-lg {
+    border-radius: 0.5rem;
+  }
+
+  .transition-all {
+    transition: all 0.3s ease;
+  }
+
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
+
+  .shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .h-6 {
+    height: 1.5rem;
+  }
+
+  .w-6 {
+    width: 1.5rem;
+  }
+
+  .inline {
+    display: inline;
+  }
+</style>
+
+<script>
+  // Cuenta regresiva de 15 minutos
+  let totalSeconds = 15 * 60;
+  const minutesElement = document.getElementById('minutes');
+  const secondsElement = document.getElementById('seconds');
+  
+  function updateTimer() {
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    
+    if (minutesElement) {
+      minutesElement.textContent = minutes.toString().padStart(2, '0');
+    }
+    
+    if (secondsElement) {
+      secondsElement.textContent = seconds.toString().padStart(2, '0');
+    }
+    
+    if (totalSeconds > 0) {
+      totalSeconds--;
+      setTimeout(updateTimer, 1000);
+    } else {
+      // Opcional: redirigir o mostrar mensaje cuando termine la cuenta regresiva
+      const countdownContainer = document.querySelector('.countdown-container');
+      if (countdownContainer) {
+        countdownContainer.innerHTML = 
+          '<div class="text-center w-full"><span class="text-white font-bold text-lg">¡BONO EXPIRADO!</span></div>';
+      }
+    }
+  }
+  
+  // Iniciar la cuenta regresiva cuando se carga la página
+  window.addEventListener('load', updateTimer);
+</script>
+
+<script define:vars={{ pixelEvent }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Para depuración
+    console.log('Pixel event disponible:', pixelEvent);
+    
+    // Obtener los botones
+    const whatsappBtn1 = document.getElementById('whatsapp-btn-1');
+    const whatsappBtn2 = document.getElementById('whatsapp-btn-2');
+    
+    // Función para manejar el clic y enviar evento de Pixel
+    const handleButtonClick = (e, btnElement) => {
+      e.preventDefault();
+      
+      // Usar una variable local para el evento
+      const eventToTrack = pixelEvent || 'Lead';
+      
+      // Imprimir para depuración
+      console.log('Tracking event:', eventToTrack);
+      
+      // Enviar el evento si fbq está disponible
+      if (typeof fbq === 'function') {
+        fbq('track', eventToTrack);
+      }
+      
+      // Navegar después de un pequeño retraso
+      setTimeout(() => {
+        window.location.href = btnElement.href;
+      }, 300);
+    };
+    
+    // Agregar event listeners a ambos botones
+    if (whatsappBtn1) {
+      whatsappBtn1.addEventListener('click', (e) => handleButtonClick(e, whatsappBtn1));
+    }
+    
+    if (whatsappBtn2) {
+      whatsappBtn2.addEventListener('click', (e) => handleButtonClick(e, whatsappBtn2));
+    }
+  });
+</script>
