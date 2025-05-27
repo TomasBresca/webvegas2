@@ -1,0 +1,547 @@
+---
+const { whatsappLink1, whatsappLink2, pixelEvent } = Astro.props;
+import '../styles/global.css';
+---
+
+<section class="hero-container">
+  <!-- Fondo principal -->
+  <img class="fondo-icon" alt="" src="/Hero(28)/fondo.png" />
+  
+  <!-- Degradado negro en la parte inferior -->
+  <img class="degradado-negro-icon" alt="" src="/Hero(28)/degradado_negro.png" />
+  
+  <!-- Contenedor principal centrado -->
+  <div class="main-content">
+    <!-- Sección superior -->
+    <div class="top-section">
+      <!-- Texto "¡PREMIOS EN EL ACTO!" centrado -->
+      <img class="premiosenelacto-icon" alt="" src="/Hero(28)/PREMIOSENELACTO.png" />
+      
+      <!-- Moneda superior derecha -->
+      <img class="moneda2-icon" alt="" src="/Hero(28)/moneda2.png" />
+      
+      <!-- Símbolo +18 - ahora debajo del texto a la izquierda -->
+      <img class="plus18-icon" alt="" src="/Hero(28)/+18.png" />
+      
+      <!-- Joker - ahora debajo del texto a la derecha -->
+      <img class="joker-icon" alt="" src="/Hero(28)/joker.png" />
+    </div>
+    
+    <!-- Sección central -->
+    <div class="center-section">
+      <!-- Moneda izquierda -->
+      <img class="moneda1-icon" alt="" src="/Hero(28)/moneda1.png" />
+      
+      <!-- Personaje principal centrado -->
+      <img class="olympuszeus-icon" alt="" src="/Hero(28)/OLYMPUSZEUS.png" />
+    </div>
+    
+    <!-- Sección inferior -->
+    <div class="bottom-section">
+      <!-- Botón rojo con funcionalidad de WhatsApp -->
+      <div class="boton-container">
+        <a href={whatsappLink1} target="_blank" rel="noopener">
+          <img class="botonrojo-icon" alt="" src="/Hero(28)/BOTONROJO.png" />
+        </a>        
+      </div>
+      <!-- Logo de Las Vegas centrado -->
+      <img class="logo-vegas-icon" alt="" src="/Hero(28)/LOGO_VEGAS.png" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    background-color: #000;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Fondo principal */
+  .fondo-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+  
+  /* Degradado negro inferior */
+  .degradado-negro-icon {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    object-fit: cover;
+    z-index: 2;
+  }
+  
+  /* Contenedor principal */
+  .main-content {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-width: 430px;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1vh 10px;
+    z-index: 3;
+    box-sizing: border-box;
+  }
+  
+  /* Sección superior */
+  .top-section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+    z-index: 4;
+    flex-shrink: 0;
+  }
+  
+  /* Texto "¡PREMIOS EN EL ACTO!" */
+  .premiosenelacto-icon {
+    width: 100%;
+    max-width: min(420px, 90vw);
+    height: auto;
+    max-height: 15vh;
+    object-fit: contain;
+    z-index: 10;
+    animation: glow 2s ease-in-out infinite alternate;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+    position: relative;
+  }
+  
+  /* Símbolo +18 - ahora debajo del texto a la izquierda */
+  .plus18-icon {
+    position: absolute;
+    top: 20vh;
+    left: 20px;
+    width: min(100px, 8vw);
+    height: min(100px, 8vw);
+    object-fit: cover;
+    z-index: 5;
+  }
+  
+  /* Joker - ahora debajo del texto a la derecha */
+  .joker-icon {
+    position: absolute;
+    top: 20vh;
+    right: 20px;
+    width: min(150px, 12vw);
+    height: min(150px, 12vw);
+    object-fit: cover;
+    z-index: 5;
+    animation: float2 4s linear infinite;
+  }
+  
+  /* Moneda superior derecha - ahora centrada */
+  .moneda2-icon {
+    position: absolute;
+    top: 1vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(120px, 10vw);
+    height: min(125px, 10vw);
+    object-fit: cover;
+    z-index: 5;
+    animation: float2 3.5s ease-in-out infinite;
+  }
+  
+  /* Sección central */
+  .center-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+    margin-top: 0;
+    min-height: 0;
+    overflow: hidden;
+  }
+  
+  /* Personaje principal */
+  .olympuszeus-icon {
+    padding-top: 0;
+    width: 100%;
+    max-width: min(600px, 90vw);
+    height: auto;
+    max-height: 50vh;
+    object-fit: contain;
+    z-index: 3;
+  }
+  
+  /* Moneda izquierda */
+  .moneda1-icon {
+    position: absolute;
+    left: -15px;
+    bottom: 80px;
+    width: 110px;
+    height: 120px;
+    object-fit: cover;
+    z-index: 4;
+    animation: float1 3s ease-in-out infinite;
+  }
+  
+  /* Sección inferior */
+  .bottom-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2vh;
+    width: 100%;
+    margin-bottom: 0;
+    margin-top: 0;
+    z-index: 10;
+    flex-shrink: 0;
+  }
+  
+  /* Contenedor del botón */
+  .boton-container {
+    position: relative;
+    width: 100%;
+    max-width: min(450px, 90vw);
+    height: min(160px, 15vh);
+    z-index: 15;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: containerAttention 4s ease-in-out infinite;
+  }
+  
+  .boton-container:hover {
+    animation-play-state: paused;
+  }
+  
+  /* Botón rojo */
+  .botonrojo-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    display: block;
+    margin: 0 auto;
+    z-index: 15;
+    position: relative;
+    animation: buttonPulse 2s ease-in-out infinite, buttonGlow 3s ease-in-out infinite alternate;
+  }
+  
+  .botonrojo-icon:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2) drop-shadow(0 0 20px rgba(255, 193, 7, 0.8));
+    animation-play-state: paused;
+  }
+  
+  .botonrojo-icon:active {
+    transform: scale(0.95);
+  }
+  
+  /* Botones invisibles de WhatsApp */
+  .botones-whatsapp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .whatsapp-btn-invisible {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 7;
+    border-radius: 20px;
+  }
+  
+  .whatsapp-btn {
+    border-radius: 20px;
+  }
+  
+  /* Logo de Las Vegas */
+  .logo-vegas-icon {
+    width: 85%;
+    max-width: min(300px, 70vw);
+    height: auto;
+    max-height: 10vh;
+    object-fit: contain;
+    z-index: 12;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  /* Animaciones */
+  @keyframes float1 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+  }
+  
+  @keyframes float2 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(-5deg); }
+  }
+  
+  @keyframes glow {
+    0% { filter: brightness(1) drop-shadow(0 0 5px rgba(255, 193, 7, 0.5)); }
+    100% { filter: brightness(1.2) drop-shadow(0 0 15px rgba(255, 193, 7, 0.8)); }
+  }
+  
+  @keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes buttonPulse {
+    0%, 100% { 
+      transform: scale(1);
+      filter: brightness(1);
+    }
+    50% { 
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+  }
+  
+  @keyframes buttonGlow {
+    0% { 
+      filter: brightness(1) drop-shadow(0 0 10px rgba(255, 0, 0, 0.3));
+    }
+    100% { 
+      filter: brightness(1.15) drop-shadow(0 0 25px rgba(255, 0, 0, 0.6)) drop-shadow(0 0 35px rgba(255, 193, 7, 0.4));
+    }
+  }
+  
+  @keyframes buttonBounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0) scale(1);
+    }
+    40% {
+      transform: translateY(-8px) scale(1.02);
+    }
+    60% {
+      transform: translateY(-4px) scale(1.01);
+    }
+  }
+  
+  @keyframes containerAttention {
+    0%, 85%, 100% {
+      transform: translateY(0);
+    }
+    90%, 95% {
+      transform: translateY(-5px);
+    }
+    92.5% {
+      transform: translateY(-8px);
+    }
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-content {
+      padding: 8px;
+    }
+    
+    .top-section {
+      margin-top: -5px;
+    }
+    
+    .premiosenelacto-icon {
+      margin-top: 50px;
+      margin-bottom: 15px;
+      width: 95%;
+      max-width: 380px;
+    }
+    
+    .plus18-icon {
+      width: 85px;
+      height: 85px;
+      top: 130px;
+      left: 15px;
+    }
+    
+    .joker-icon {
+      top: 130px;
+      width: 125px;
+      height: 125px;
+      right: 15px;
+    }
+    
+    .moneda2-icon {
+      width: 100px;
+      height: 105px;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .center-section {
+      margin-top: -60px;
+    }
+    
+    .olympuszeus-icon {
+      padding-top: 30px;
+      width: 115%;
+      max-width: 520px;
+    }
+    
+    .moneda1-icon {
+      width: 95px;
+      height: 105px;
+      left: -10px;
+      bottom: 60px;
+    }
+    
+    .bottom-section {
+      margin-top: -90px;
+      margin-bottom: 30px;
+      gap: 25px;
+    }
+    
+    .boton-container {
+      height: 140px;
+      width: 95%;
+      max-width: 400px;
+    }
+    
+    .logo-vegas-icon {
+      width: 80%;
+      max-width: 260px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .main-content {
+      padding: 5px;
+    }
+    
+    .top-section {
+      margin-top: 0px;
+    }
+    
+    .premiosenelacto-icon {
+      margin-top: 40px;
+      margin-bottom: 10px;
+      width: 90%;
+      max-width: 340px;
+    }
+    
+    .plus18-icon {
+      width: 75px;
+      height: 75px;
+      top: 110px;
+      left: 12px;
+    }
+    
+    .joker-icon {
+      top: 110px;
+      width: 105px;
+      height: 105px;
+      right: 12px;
+    }
+    
+    .moneda2-icon {
+      width: 100px;
+      height: 105px;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .center-section {
+      margin-top: -40px;
+    }
+    
+    .olympuszeus-icon {
+      padding-top: 20px;
+      width: 110%;
+      max-width: 460px;
+    }
+    
+    .moneda1-icon {
+      width: 80px;
+      height: 90px;
+      left: -5px;
+      bottom: 50px;
+    }
+    
+    .bottom-section {
+      margin-top: -70px;
+      margin-bottom: 25px;
+      gap: 20px;
+    }
+    
+    .boton-container {
+      height: 120px;
+      width: 90%;
+      max-width: 360px;
+    }
+    
+    .logo-vegas-icon {
+      width: 75%;
+      max-width: 230px;
+    }
+  }
+</style>
+
+<script define:vars={{ pixelEvent }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Para depuración
+    console.log('Pixel event disponible:', pixelEvent);
+    
+    // Obtener los botones
+    const whatsappBtn1 = document.getElementById('whatsapp-btn-1');
+    
+    // Función para manejar el clic y enviar evento de Pixel
+    const handleButtonClick = (e, btnElement) => {
+      e.preventDefault();
+      
+      // Usar una variable local para el evento
+      const eventToTrack = pixelEvent || 'Lead';
+      
+      // Imprimir para depuración
+      console.log('Tracking event:', eventToTrack);
+      
+      // Enviar el evento si fbq está disponible
+      if (typeof fbq === 'function') {
+        fbq('track', eventToTrack);
+      }
+      
+      // Navegar después de un pequeño retraso
+      setTimeout(() => {
+        window.location.href = btnElement.href;
+      }, 300);
+    };
+    
+    // Agregar event listeners a ambos botones
+    if (whatsappBtn1) {
+      whatsappBtn1.addEventListener('click', (e) => handleButtonClick(e, whatsappBtn1));
+    }
+    
+    if (whatsappBtn2) {
+      whatsappBtn2.addEventListener('click', (e) => handleButtonClick(e, whatsappBtn2));
+    }
+  });
+</script>
