@@ -1,0 +1,363 @@
+---
+const { whatsappLink1, pixelEvent } = Astro.props;
+import '../styles/global.css';
+---
+<section class="hero-container">
+  <!-- Fondo principal -->
+  <div class="background-wrapper">
+    <img class="background-image" alt="Fondo" src="/Hero(31)/fondo.jpg" />
+  </div>
+  
+  <!-- Monedas decorativas -->
+  <img class="monedas-top-left" alt="" src="/Hero(31)/monedas_top_left.png" />
+  <img class="monedas-top-right" alt="" src="/Hero(31)/monedas_top_right.png" />
+  
+  <!-- Logo Las Vegas -->
+  <img class="las-vegas-logo" alt="" src="/Hero(31)/lasvegaslogo.png" />
+  
+  <!-- Botón WhatsApp -->
+  <a href={whatsappLink1} id="whatsapp-btn-1" class="whatsapp-button">
+    <img class="whatsapp-img" src="/Hero(31)/boton_whatsapp.png" alt="Botón WhatsApp" />
+  </a>
+  
+  <!-- Imagen central de personajes -->
+  <img class="characters-image" alt="" src="/Hero(31)/celu_y_pjs.png" />
+  
+  <!-- Rectángulo dorado para el premio -->
+  <div class="prize-container">
+    <div class="golden-rectangle-wrapper">
+      <img class="golden-rectangle" alt="Rectángulo dorado" src="/Hero(31)/Rectangulo_dorado.png" />
+    </div>
+  </div>
+  
+  <!-- Iconos inferiores -->
+  <div class="bottom-icons">
+    <img class="age-icon" alt="" src="/Hero(31)/+18.png" />
+    <img class="cherry-icon" alt="" src="/Hero(31)/cerezas.png" />
+  </div>
+</section>
+
+<style>
+  @keyframes float {
+    0% {
+      transform: translateY(0) translateX(-50%);
+    }
+    50% {
+      transform: translateY(-10px) translateX(-50%);
+    }
+    100% {
+      transform: translateY(0) translateX(-50%);
+    }
+  }
+
+  @keyframes floatBtn {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes floatIcon {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .background-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+  }
+  
+  .background-image {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .monedas-top-left {
+    position: absolute;
+    top: 20px;
+    left: -30px;
+    width: 300px;
+    height: auto;
+    object-fit: contain;
+    z-index: 1;
+  }
+  
+  .monedas-top-right {
+    position: absolute;
+    top: 20px;
+    right: -30px;
+    width: 300px;
+    height: auto;
+    object-fit: contain;
+    z-index: 1;
+  }
+  
+  .las-vegas-logo {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px; /* Increased from 300px to 400px */
+    height: auto;
+    object-fit: contain;
+    z-index: 2;
+  }
+  
+  .whatsapp-button {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    top: 260px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .whatsapp-button:hover {
+    transform: translateX(-50%) scale(1.05);
+  }
+  
+  .characters-image {
+    position: absolute;
+    top: 30%; /* Changed to 50% for vertical centering */
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%); /* Added translateY for vertical centering */
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    object-fit: contain;
+    z-index: 2;
+    animation: float 4s ease-in-out infinite; /* Added floating animation */
+  }
+  
+  .prize-container {
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 650px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .golden-rectangle-wrapper {
+    position: relative;
+    width: 280%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+  }
+  
+  .golden-rectangle {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    min-height: auto;
+    object-fit: contain;
+    z-index: 1;
+  }
+  
+  .prize-amount {
+    font-size: 48px;
+    font-weight: bold;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 5px;
+  }
+  
+  .prize-subtitle {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .bottom-icons {
+    position: absolute;
+    width: 100%;
+    bottom: 15px;
+    display: flex;
+    gap: 100px;
+    z-index: 3;
+  }
+  
+  .age-icon,
+  .cherry-icon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    bottom: 0%;
+    animation: floatIcon 2s ease-in-out infinite;
+  }
+
+  .age-icon {
+    right: 5%;
+  }
+
+  .cherry-icon {
+    left: 5%;
+  }
+  
+  /* Responsive Design */
+  @media (min-width: 1024px) {
+    .characters-image {
+      max-width: 90%;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .characters-image {
+      max-width: 1000px;
+    }
+  }
+  
+  @media (min-width: 1400px) {
+    .characters-image {
+      max-width: 1000px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .las-vegas-logo {
+      width: 100%; /* Increased from 250px to 320px */
+      top: 80px;
+    }
+    
+    .whatsapp-button {
+      width: 100%;
+      top: 360px;
+    }
+    
+    .characters-image {
+      width: 95%;
+    }
+    
+    .prize-container {
+      bottom: 90px;
+      width: 100%;
+      max-width: 650px;
+    }
+    
+    .bottom-icons {
+      gap: 60px;
+      bottom: 10px;
+    }
+    
+    .age-icon,
+    .cherry-icon {
+      width: 50px;
+      height: 50px;
+    }
+    
+    .monedas-top-left,
+    .monedas-top-right {
+      width: 300px;
+      height: auto;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .las-vegas-logo {
+      width: 280px; /* Increased from 200px to 280px */
+      top: 80px;
+    }
+    
+    .whatsapp-button {
+      top: 150px;
+      padding: 12px 25px;
+    }
+
+    .prize-container {
+      bottom: 80px;
+      width: 100%;
+    }
+    
+    .prize-amount {
+      font-size: 28px;
+    }
+    
+    .prize-subtitle {
+      font-size: 12px;
+    }
+    
+    .bottom-icons {
+      bottom: 5px;
+    }
+  }
+  
+  .whatsapp-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    animation: floatBtn 3s ease-in-out infinite;
+  }
+</style>
+
+<script define:vars={{ pixelEvent }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('Pixel event disponible:', pixelEvent);
+    
+    const whatsappBtn1 = document.getElementById('whatsapp-btn-1');
+    const whatsappBtn2 = document.getElementById('whatsapp-btn-2');
+    
+    const handleButtonClick = (e, btnElement) => {
+      e.preventDefault();
+      const eventToTrack = pixelEvent || 'Lead';
+      console.log('Tracking event:', eventToTrack);
+      
+      if (typeof fbq === 'function') {
+        fbq('track', eventToTrack);
+      }
+      
+      setTimeout(() => {
+        window.location.href = btnElement.href;
+      }, 300);
+    };
+    
+    if (whatsappBtn1) {
+      whatsappBtn1.addEventListener('click', (e) => handleButtonClick(e, whatsappBtn1));
+    }
+    
+    if (whatsappBtn2) {
+      whatsappBtn2.addEventListener('click', (e) => handleButtonClick(e, whatsappBtn2));
+    }
+  });
+</script>
