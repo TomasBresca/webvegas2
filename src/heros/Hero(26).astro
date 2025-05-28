@@ -12,9 +12,11 @@ import '../styles/global.css';
     
     <!-- Header con logo y jokers -->
     <div class="header-section">
-      <img class="jokercabeza-left" alt="" src="/Hero(26)/JOKERCABEZA.png" />
-      <img class="logo-vegas" alt="" src="/Hero(26)/LOGO_VEGAS.png" />
-      <img class="jokercabeza-right" alt="" src="/Hero(26)/JOKERCABEZA.png" />
+      <div class="header-content">
+        <img class="jokercabeza-left" alt="" src="/Hero(26)/JOKERCABEZA.png" />
+        <img class="logo-vegas" alt="" src="/Hero(26)/LOGO_VEGAS.png" />
+        <img class="jokercabeza-right" alt="" src="/Hero(26)/JOKERCABEZA.png" />
+      </div>
     </div>
 
     <!-- Sección de badges superiores -->
@@ -30,8 +32,11 @@ import '../styles/global.css';
 
     <!-- Sección de textos laterales -->
     <div class="side-texts-section">
-      <img class="lo-que-buscabas" alt="" src="/Hero(26)/Lo_que_buscabas.png" />
-      <img class="todo-al-instante" alt="" src="/Hero(26)/todo_al_instante.png" />
+      <div class="side-texts-content">
+        <img class="lo-que-buscabas" alt="" src="/Hero(26)/Lo_que_buscabas.png" />
+        <div class="spacer"></div>
+        <img class="todo-al-instante" alt="" src="/Hero(26)/todo_al_instante.png" />
+      </div>
     </div>
 
     <!-- Sección inferior -->
@@ -52,22 +57,14 @@ import '../styles/global.css';
   </div>
 </div>
 
-<style>
+<style scoped>
 body {
   margin: 0;
   line-height: normal;
   overflow-x: hidden;
 }
 
-/* Animaciones de flotación */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
+
 
 @keyframes floatSlow {
   0%, 100% {
@@ -153,9 +150,15 @@ body {
   z-index: 10;
 }
 
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
 .jokercabeza-left {
-  position: absolute;
-  left: 0;
   width: 12vw;
   height: 10vh;
   max-width: 60px;
@@ -165,11 +168,10 @@ body {
   object-fit: contain;
   animation: float 3s ease-in-out infinite;
   animation-delay: 0.5s;
+  flex-shrink: 0;
 }
 
 .jokercabeza-right {
-  position: absolute;
-  right: 0;
   width: 12vw;
   height: 10vh;
   max-width: 60px;
@@ -179,6 +181,7 @@ body {
   object-fit: contain;
   animation: float 3s ease-in-out infinite;
   animation-delay: 1s;
+  flex-shrink: 0;
 }
 
 .logo-vegas {
@@ -190,6 +193,7 @@ body {
   min-height: 20px;
   object-fit: contain;
   animation: floatGentle 4s ease-in-out infinite;
+  flex-shrink: 0;
 }
 
 /* Badges Section */
@@ -264,12 +268,23 @@ body {
   z-index: 10;
   flex-shrink: 0;
   overflow: visible;
-  gap: 6vw;
+}
+
+.side-texts-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.spacer {
+  flex: 1;
 }
 
 .lo-que-buscabas {
   width: 35vw;
-  height: 11vh;
+  height: auto;
   max-width: 170px;
   max-height: 96px;
   min-width: 80px;
@@ -277,11 +292,12 @@ body {
   object-fit: contain;
   animation: float 3.2s ease-in-out infinite;
   animation-delay: 0.4s;
+  flex-shrink: 0;
 }
 
 .todo-al-instante {
   width: 32vw;
-  height: 11vh;
+  height: auto;
   max-width: 150px;
   max-height: 96px;
   min-width: 80px;
@@ -289,9 +305,8 @@ body {
   object-fit: contain;
   animation: float 3.2s ease-in-out infinite;
   animation-delay: 0.9s;
+  flex-shrink: 0;
 }
-
-
 
 /* Bottom Section */
 .bottom-section {
@@ -484,6 +499,8 @@ body {
   
   // Iniciar la cuenta regresiva cuando se carga la página
   window.addEventListener('load', updateTimer);
+  
+  console.log('Timer initialized successfully');
 </script>
 
 <script define:vars={{ pixelEvent }}>
@@ -507,6 +524,9 @@ body {
       // Enviar el evento si fbq está disponible
       if (typeof fbq === 'function') {
         fbq('track', eventToTrack);
+        console.log('Facebook Pixel event sent successfully');
+      } else {
+        console.warn('Facebook Pixel (fbq) not available');
       }
       
       // Navegar después de un pequeño retraso
@@ -518,6 +538,9 @@ body {
     // Agregar event listener al botón
     if (whatsappBtn1) {
       whatsappBtn1.addEventListener('click', (e) => handleButtonClick(e, whatsappBtn1));
+      console.log('WhatsApp button event listener attached');
+    } else {
+      console.error('WhatsApp button not found');
     }
   });
 </script>

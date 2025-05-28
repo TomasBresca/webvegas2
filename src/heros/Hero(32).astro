@@ -1,0 +1,227 @@
+---
+const { whatsappLink1,  pixelEvent } = Astro.props;
+import '../styles/global.css';
+---
+<section class="hero-container">
+  <img class="fondo-icon" alt="" src="./public/fondo@2x.png" />
+  
+  <img class="brillo-center-icon" alt="" src="./public/brillo-center@2x.png" />
+  
+  <img class="mujer-y-celulares-icon" alt="" src="./public/mujer-y-celulares@2x.png" />
+  
+  <img class="degradado-icon" alt="" src="./public/degradado@2x.png" />
+  
+  <img class="emojisjoker-icon" alt="" src="./public/emojisjoker@2x.png" />
+  
+  <img class="superwin-icon" alt="" src="./public/superwin@2x.png" />
+  
+  <img class="teextranamos-icon" alt="" src="./public/teextranamos@2x.png" />
+  
+  <img class="fichasdoradas-icon" alt="" src="./public/fichasdoradas@2x.png" />
+  
+  <a href={whatsappLink1} id="whatsapp-btn-1" class="whatsapp-button">
+    <img class="boton-whatsapp-icon" alt="Pedinos tu cuenta" src="./public/boton-whatsapp@2x.png" />
+  </a>
+  
+  <a href={whatsappLink1} id="whatsapp-btn-2" class="whatsapp-button-secondary">
+    <img class="boton-whatsapp-icon-2" alt="Pedinos tu cuenta" src="./public/boton-whatsapp@2x.png" />
+  </a>
+  
+  <img class="logovegas-icon" alt="" src="./public/logovegas@2x.png" />
+</section>
+
+<style>
+  .hero-container {
+    position: relative;
+    background-color: var(--color-white, #fff);
+    width: 100%;
+    height: 1536px;
+    overflow: hidden;
+  }
+
+  .fondo-icon {
+    position: absolute;
+    top: 1px;
+    left: -1458px;
+    width: 2738px;
+    height: 1536px;
+    object-fit: cover;
+  }
+
+  .brillo-center-icon {
+    position: absolute;
+    top: -956px;
+    left: -1573px;
+    width: 3895px;
+    height: 3895px;
+    object-fit: cover;
+  }
+
+  .mujer-y-celulares-icon {
+    position: absolute;
+    top: 421px;
+    left: -101px;
+    width: 932px;
+    height: 1115px;
+    object-fit: cover;
+  }
+
+  .degradado-icon {
+    position: absolute;
+    bottom: 0;
+    left: -175px;
+    width: 1080px;
+    height: 306px;
+    object-fit: cover;
+  }
+
+  .emojisjoker-icon {
+    position: absolute;
+    top: 42px;
+    left: -101px;
+    width: 932px;
+    height: 698px;
+    object-fit: cover;
+  }
+
+  .superwin-icon {
+    position: absolute;
+    top: 991px;
+    left: 80px;
+    width: 627px;
+    height: 289px;
+    object-fit: cover;
+  }
+
+  .teextranamos-icon {
+    position: absolute;
+    top: 153px;
+    left: 0;
+    width: 730px;
+    height: 170px;
+    object-fit: cover;
+  }
+
+  .fichasdoradas-icon {
+    position: absolute;
+    top: 137px;
+    left: -246px;
+    width: 1151px;
+    height: 1024px;
+    object-fit: cover;
+  }
+
+  .whatsapp-button,
+  .whatsapp-button-secondary {
+    position: absolute;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .whatsapp-button {
+    top: 347px;
+    left: 10px;
+  }
+
+  .whatsapp-button-secondary {
+    top: 500px;
+    left: 10px;
+  }
+
+  .boton-whatsapp-icon,
+  .boton-whatsapp-icon-2 {
+    width: 711px;
+    height: 125px;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+  }
+
+  .whatsapp-button:hover .boton-whatsapp-icon,
+  .whatsapp-button-secondary:hover .boton-whatsapp-icon-2 {
+    transform: scale(1.05);
+  }
+
+  .logovegas-icon {
+    position: absolute;
+    bottom: 62px;
+    left: 104px;
+    width: 522px;
+    height: 139px;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    .hero-container {
+      height: 100vh;
+      min-height: 1536px;
+    }
+
+    .fondo-icon,
+    .brillo-center-icon,
+    .mujer-y-celulares-icon,
+    .degradado-icon,
+    .emojisjoker-icon,
+    .superwin-icon,
+    .teextranamos-icon,
+    .fichasdoradas-icon {
+      transform: scale(0.8);
+      transform-origin: center;
+    }
+
+    .whatsapp-button,
+    .whatsapp-button-secondary {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .boton-whatsapp-icon,
+    .boton-whatsapp-icon-2 {
+      width: 90%;
+      max-width: 400px;
+      height: auto;
+    }
+  }
+</style>
+
+<script define:vars={{ pixelEvent }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Para depuración
+    console.log('Pixel event disponible:', pixelEvent);
+    
+    // Obtener los botones
+    const whatsappBtn1 = document.getElementById('whatsapp-btn-1');
+    const whatsappBtn2 = document.getElementById('whatsapp-btn-2');
+    
+    // Función para manejar el clic y enviar evento de Pixel
+    const handleButtonClick = (e, btnElement) => {
+      e.preventDefault();
+      
+      // Usar una variable local para el evento
+      const eventToTrack = pixelEvent || 'Lead';
+      
+      // Imprimir para depuración
+      console.log('Tracking event:', eventToTrack);
+      
+      // Enviar el evento si fbq está disponible
+      if (typeof fbq === 'function') {
+        fbq('track', eventToTrack);
+      }
+      
+      // Navegar después de un pequeño retraso
+      setTimeout(() => {
+        window.location.href = btnElement.href;
+      }, 300);
+    };
+    
+    // Agregar event listeners a ambos botones
+    if (whatsappBtn1) {
+      whatsappBtn1.addEventListener('click', (e) => handleButtonClick(e, whatsappBtn1));
+    }
+    
+    if (whatsappBtn2) {
+      whatsappBtn2.addEventListener('click', (e) => handleButtonClick(e, whatsappBtn2));
+    }
+  });
+</script>
