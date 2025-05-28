@@ -1,0 +1,332 @@
+---
+const { whatsappLink1, whatsappLink2, pixelEvent } = Astro.props;
+import '../styles/global.css';
+---
+<div class="hero-viewport-flex">
+  <div class="hero-bg">
+      <img class="hero-bg-radial-shadow" src="/Hero(30)/radial_shadow.png" alt="Radial Shadow" />
+  </div>
+  
+  <!-- Billetes y monedas reducidos -->
+  <!-- Esquina superior izquierda -->
+  <img class="hero-billete hero-billete-1" src="/Hero(30)/money-top-left.png" alt="Billete" />
+  
+  <!-- Esquina superior derecha -->
+  <img class="hero-billete hero-billete-2" src="/Hero(30)/money-top-right.png" alt="Billete" />
+  
+  <!-- Monedas a pantalla completa -->
+  <div class="hero-moneda-container">
+    <img class="hero-moneda hero-moneda-1" src="/Hero(30)/monedas.png" alt="Moneda" />
+  </div>
+  
+  <!-- Money random -->
+  <img class="hero-billete hero-billete-3" src="/Hero(30)/money.png" alt="Billete" />
+
+  <div class="hero-content-flex">
+    <img class="hero-probalamejorplataforma" src="/Hero(30)/probalamejorplataforma.png" alt="Proba la mejor plataforma" />
+    <img class="hero-cuentagratis" src="/Hero(30)/cuentagratis_retiroalinstante.png" alt="Cuenta gratis y retiro al instante" />
+    <a id="whatsapp-btn-1" href={whatsappLink1} target="_blank" rel="noopener" class="hero-wpp-btn">
+      <div class="whatsapp-icon"></div>
+      <span>HABLANOS AHORA</span>
+    </a>
+    <div class="hero-celuymano-container">
+      <img class="hero-celuymano" src="/Hero(30)/celuymano.png" alt="Mockup Celular" />
+    </div>
+    <div class="hero-logo-container">
+      <img class="hero-logo" src="/Hero(30)/logovegaas.png" alt="Logo Vegas" />
+    </div>
+    <img class="hero-18" src="/Hero(30)/+18.png" alt="+18" />
+  </div>
+</div>
+
+<style>
+.hero-viewport-flex {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #000;
+}
+.hero-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  object-fit: cover;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  background: linear-gradient(45deg, rgba(90,66,236,255) 0%, rgba(9,187,254,255) 100%);
+  overflow: visible;
+}
+.hero-bg-radial-shadow {
+  top: 0; 
+  left: 0; 
+  width: 100vh; 
+  height: 100vh;
+  object-fit: contain;
+  z-index: 2;
+  animation: rotate 15s linear infinite;
+}
+.hero-content-flex {
+  position: relative;
+  z-index: 99999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  gap: 12px;
+  height: 100vh;
+  overflow: visible;
+  padding-top: 2vh;
+}
+.hero-probalamejorplataforma {
+  width: 90%;
+  max-width: 350px;
+  margin-top: 11%;
+  z-index: 99999999;
+}
+.hero-cuentagratis {
+  width: 85%;
+  max-width: 320px;
+  margin-top: 4px;
+}
+.hero-wpp-btn {
+  margin: 8px 0 0 0;
+  width: 90%;
+  max-width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  background-color: #25D366;
+  border-radius: 30px;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: pulse 1.5s ease-in-out infinite, glow 2s ease-in-out infinite;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.hero-wpp-btn:hover {
+  transform: scale(1.05);
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  background-color: #20bc59;
+}
+.hero-wpp-btn span {
+  margin-left: 8px;
+}
+.whatsapp-icon {
+  width: 24px;
+  height: 24px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='white' d='M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.hero-celuymano-container {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.hero-celuymano {
+  height: 70%;
+  width: auto;
+  object-fit: contain;
+  max-width: none;
+}
+.hero-logo-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  position: relative;
+  z-index: 3;
+}
+.hero-logo {
+  width: 50%;
+  max-width: 240px;
+  margin: 0 0 44px 0;
+}
+.hero-18 {
+  width: 40px;
+  height: 40px;
+  bottom: 8px;
+  right: 8px;
+  position: absolute;
+  z-index: 3;
+}
+
+/* Billetes y monedas por TODA la pantalla */
+.hero-billete {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.9;
+}
+.hero-moneda-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 50000;
+}
+.hero-moneda {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* Monedas a pantalla completa */
+.hero-moneda-1 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  top: 0;
+  left: 0;
+  animation: float-coins 3.5s ease-in-out infinite alternate;
+}
+
+/* Esquina superior izquierda */
+.hero-billete-1 {
+  top: -7%; left: -2%; width: 300px; height: auto; rm: rotate(-20deg);
+  animation: float-1 4s ease-in-out infinite alternate;
+}
+
+/* Esquina superior derecha */
+.hero-billete-2 {
+  top: -7%; right: -2%; width: 300px; transform: rotate(25deg);
+  animation: float-3 5s ease-in-out infinite alternate;
+}
+
+/* Lado izquierdo medio */
+.hero-billete-3 {
+  top: 40%; left: 0%; width: 95px; transform: rotate(-30deg);
+  animation: float-5 4.8s ease-in-out infinite alternate;
+}
+
+/* Animaciones */
+@keyframes float-1 { 0% { transform: translateY(0) rotate(-20deg); } 100% { transform: translateY(15px) rotate(-15deg); } }
+@keyframes float-coins { 0% { transform: scale(1.02); } 100% { transform: scale(1); } }
+@keyframes float-3 { 0% { transform: translateY(0) rotate(25deg); } 100% { transform: translateY(18px) rotate(30deg); } }
+@keyframes float-5 { 0% { transform: translateY(0) rotate(-30deg); } 100% { transform: translateY(20px) rotate(-25deg); } }
+@keyframes float-8 { 0% { transform: translateY(0) rotate(-25deg); } 100% { transform: translateY(-14px) rotate(-20deg); } }
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Nuevas animaciones para el botón de WhatsApp */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 5px rgba(37, 211, 102, 0.7); }
+  50% { box-shadow: 0 0 15px rgba(37, 211, 102, 0.9); }
+  100% { box-shadow: 0 0 5px rgba(37, 211, 102, 0.7); }
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0) scale(1.05); }
+  20%, 80% { transform: translate3d(2px, 0, 0) scale(1.05); }
+  30%, 50%, 70% { transform: translate3d(-3px, 0, 0) scale(1.05); }
+  40%, 60% { transform: translate3d(3px, 0, 0) scale(1.05); }
+}
+
+@media (max-width: 500px) {
+  .hero-content-flex { 
+    max-width: 95vw; 
+    gap: 8px;
+    padding-top: 1vh;
+    z-index: 99999999;
+  }
+  .hero-probalamejorplataforma, .hero-cuentagratis, .hero-wpp-btn { 
+    max-width: 95vw; 
+  }
+  .hero-logo {
+    max-width: 95vw;
+    width: 65%;
+  }
+  /* Reducir tamaño de billetes en móvil */
+  .hero-billete-1, .hero-billete-2, .hero-billete-3 {
+    width: 250px;
+  }
+  /* Las monedas siguen ocupando toda la pantalla en móvil */
+  .hero-moneda-1 {
+    width: 100%;
+    height: 100%;
+  }
+}
+</style>
+
+<script>
+  // Cuenta regresiva de 15 minutos
+  let totalSeconds = 15 * 60;
+  const minutesElement = document.getElementById('minutes');
+  const secondsElement = document.getElementById('seconds');
+  function updateTimer() {
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    if (minutesElement) {
+      minutesElement.textContent = minutes.toString().padStart(2, '0');
+    }
+    if (secondsElement) {
+      secondsElement.textContent = seconds.toString().padStart(2, '0');
+    }
+    if (totalSeconds > 0) {
+      totalSeconds--;
+      setTimeout(updateTimer, 1000);
+    } else {
+      const countdownContainer = document.querySelector('.countdown-container');
+      if (countdownContainer) {
+        countdownContainer.innerHTML = '<div class="text-center w-full"><span class="text-white font-bold text-lg">¡BONO EXPIRADO!</span></div>';
+      }
+    }
+  }
+  window.addEventListener('load', updateTimer);
+</script>
+<script define:vars={{ pixelEvent }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const whatsappBtn1 = document.getElementById('whatsapp-btn-1');
+    const handleButtonClick = (e, btnElement) => {
+      e.preventDefault();
+      const eventToTrack = pixelEvent || 'Lead';
+      if (typeof fbq === 'function') {
+        fbq('track', eventToTrack);
+      }
+      setTimeout(() => {
+        window.location.href = btnElement.href;
+      }, 300);
+    };
+    if (whatsappBtn1) {
+      whatsappBtn1.addEventListener('click', (e) => handleButtonClick(e, whatsappBtn1));
+    }
+  });
+</script>
