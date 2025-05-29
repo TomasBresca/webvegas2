@@ -1,0 +1,493 @@
+---
+const { whatsappLink1, pixelEvent } = Astro.props;
+import '../styles/global.css';
+---
+<section class="hero-container">
+  <!-- Background elements - covers full screen -->
+  <img class="fondo-rojo-degradado" alt="" src="/Hero(33)/fondo.jpg" />
+  
+  <!-- Floating casino chips - positioned absolutely relative to container -->
+  <img class="ficha-azul-1" alt="" src="/Hero(33)/fichines.png" />
+  
+  <!-- Content wrapper - centers all content vertically using flexbox -->
+  <div class="content-wrapper">
+    <!-- Main title text - first in flex order -->
+    <img class="titulo-y-characters" alt="PAGOS AL INSTANTE" src="/Hero(33)/texto_y_pjs.png" />
+
+    <!-- WhatsApp button - second in flex order, directly below title -->
+    <a href={whatsappLink1} id="whatsapp-btn-1" class="whatsapp-button">
+      <img class="boton-whatsapp" alt="PEDINOS TU CUENTA" src="/Hero(33)/boton_whatsapp.png" />
+      <div class="whatsapp-glow"></div>
+    </a>
+    
+    <!-- Bottom content group - contains logo and 24hs text -->
+    <div class="bottom-content">
+      <!-- Logo Las Vegas Game -->
+      <img class="logo-las-vegas" alt="LAS VEGAS GAME" src="/Hero(33)/logovegas.png" />
+      
+      <!-- 24 hours text -->
+      <img class="texto-24hs-abierto" alt="24HS ABIERTO" src="/Hero(33)/24hsabierto.png" />
+    </div>
+  </div>
+
+  <!-- 18+ icon - positioned absolutely at bottom right -->
+  <img class="icono-18-mas" alt="18+" src="/Hero(33)/+18.png" />
+</section>
+
+<style>
+  /* Main container - uses flexbox for perfect centering */
+  .hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--color-blue-dark);
+    /* Flexbox setup for centering the main content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Background image - covers full screen, positioned behind content */
+  .fondo-rojo-degradado {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    /* Gentle gradient wave animation */
+    animation: gradientWave 12s ease-in-out infinite;
+  }
+
+  /* Floating casino chips - positioned relative to main container */
+  .ficha-azul-1 {
+    position: absolute;
+    top: 0%;
+    right: 35%;
+    width: auto;
+    height: 100vh; /* Adjusted to be proportional */
+    object-fit: contain;
+    z-index: 2;
+    animation: floatChip1 4s ease-in-out infinite, rotateChip 8s linear infinite;
+  }
+
+  /* Content wrapper - flexbox container that gets centered by parent */
+  .content-wrapper {
+    /* Remove absolute positioning to allow flexbox centering */
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    z-index: 3;
+    /* Flexbox properties for vertical centering of child elements */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem; /* Space between main elements */
+    padding: 2rem;
+  }
+
+  /* Main title - now uses flexbox positioning instead of absolute */
+  .titulo-y-characters {
+    width: auto;
+    max-width: 1000px;
+    height: auto;
+    object-fit: contain;
+    /* Title entrance animation */
+    animation: titleExplosion 1.8s ease-out 1.2s both, titleGlow 4s ease-in-out infinite 3s;
+  }
+
+  /* WhatsApp button - positioned in flex flow */
+  .whatsapp-button {
+    position: relative; /* Changed from absolute to relative */
+    width: auto;
+    max-width: 700px;
+    text-decoration: none;
+    cursor: pointer;
+    /* Hero button entrance animation */
+    animation: buttonHeroEntrance 2s ease-out 1.8s both;
+  }
+
+  .boton-whatsapp {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    /* Combined animations for attention-grabbing effect */
+    animation: 
+      buttonFloat 2.5s ease-in-out infinite,
+      buttonPulse 3s ease-in-out infinite,
+      buttonShine 4s ease-in-out infinite;
+    /* Dramatic shadow effect */
+    filter: drop-shadow(0 10px 30px rgba(37, 211, 102, 0.5));
+  }
+
+  .whatsapp-glow {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    background: radial-gradient(circle, rgba(37, 211, 102, 0.4) 0%, transparent 70%);
+    border-radius: 25px;
+    z-index: -1;
+    animation: glowPulse 2.5s ease-in-out infinite alternate;
+  }
+
+  .whatsapp-button:hover .boton-whatsapp {
+    transform: scale(1.1) rotate(3deg);
+    filter: drop-shadow(0 15px 40px rgba(37, 211, 102, 0.7)) saturate(1.3);
+  }
+
+  .whatsapp-button:hover .whatsapp-glow {
+    animation: glowIntense 0.6s ease-in-out infinite alternate;
+  }
+
+  /* Bottom content group - contains logo and 24hs text */
+  .bottom-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  /* Logo Las Vegas Game - now in flex flow */
+  .logo-las-vegas {
+    width: auto;
+    max-width: 350px;
+    height: auto;
+    object-fit: contain;
+    /* Elegant logo entrance */
+    animation: logoSlideUp 1.5s ease-out 2.2s both, logoGlow 6s ease-in-out infinite 4s;
+  }
+
+  /* 24 hours text - now positioned in flex flow */
+  .texto-24hs-abierto {
+    margin-top: 150px;
+    width: auto;
+    max-width: 800px;
+    height: auto;
+    object-fit: contain;
+    animation: textSlideIn 1.2s ease-out 2.5s both;
+  }
+
+  /* Age restriction icon - stays absolutely positioned at bottom right */
+  .icono-18-mas {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    z-index: 4;
+    animation: iconPop 1s ease-out 3s both;
+  }
+
+  /* === ANIMATION KEYFRAMES === */
+
+  /* Background animations */
+  @keyframes gradientWave {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-3px); }
+  }
+
+  /* Floating chip animations */
+  @keyframes floatChip1 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(10deg); }
+  }
+
+  @keyframes rotateChip {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Title animations */
+  @keyframes titleExplosion {
+    0% {
+      opacity: 0;
+      transform: scale(0.2) rotate(-10deg);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.2) rotate(2deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+  }
+
+  @keyframes titleGlow {
+    0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.5)); }
+    50% { filter: drop-shadow(0 0 20px rgba(255, 255, 0, 0.8)); }
+  }
+
+  /* WhatsApp button animations */
+  @keyframes buttonHeroEntrance {
+    0% {
+      opacity: 0;
+      transform: scale(0.3) translateY(-50px) rotate(-15deg);
+    }
+    60% {
+      opacity: 0.9;
+      transform: scale(1.15) translateY(-8px) rotate(3deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0) rotate(0deg);
+    }
+  }
+
+  @keyframes buttonFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-6px) rotate(1deg); }
+    50% { transform: translateY(-10px) rotate(0deg); }
+    75% { transform: translateY(-4px) rotate(-1deg); }
+  }
+
+  @keyframes buttonPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+  }
+
+  @keyframes buttonShine {
+    0% { filter: brightness(1) saturate(1); }
+    50% { filter: brightness(1.1) saturate(1.2); }
+    100% { filter: brightness(1) saturate(1); }
+  }
+
+  @keyframes glowPulse {
+    0% {
+      opacity: 0.6;
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 0.9;
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes glowIntense {
+    0% {
+      opacity: 0.9;
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1.4);
+    }
+  }
+
+  /* Logo and text animations */
+  @keyframes logoSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes logoGlow {
+    0%, 100% { filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.3)); }
+    50% { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6)); }
+  }
+
+  @keyframes textSlideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes iconPop {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    70% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Responsive design for mobile devices - ELEMENTOS MUCHO MÁS GRANDES */
+  @media (max-width: 768px) {
+    .hero-container {
+      height: 100vh;
+      min-height: 700px; /* Aumentado para acomodar elementos más grandes */
+    }
+
+    .content-wrapper {
+      padding: 1.5rem; /* Aumentado el padding */
+      gap: 2.5rem; /* Aumentado el gap entre elementos */
+      max-width: 95%; /* Permite que el contenedor use más espacio */
+    }
+
+    /* TÍTULO - Mucho más grande en mobile */
+    .titulo-y-characters {
+      max-width: 140%; /* Aumentado significativamente */
+      width: 140%; /* Forzamos que use todo el ancho disponible */
+    }
+
+    /* BOTÓN DE WHATSAPP - Mucho más grande en mobile */
+    .whatsapp-button {
+      max-width: 100%; /* Aumentado significativamente de 85% */
+      width: 100%; /* Forzamos que use más ancho */
+    }
+
+    /* LOGO LAS VEGAS - Mucho más grande en mobile */
+    .logo-las-vegas {
+      max-width: 85%; /* Aumentado significativamente de 80% */
+      width: 85%; /* Forzamos que use más ancho */
+    }
+
+    /* TEXTO 24HS - Mucho más grande en mobile */
+    .texto-24hs-abierto {
+      max-width: 95%; /* Mantenido grande */
+      width: 95%; /* Forzamos que use todo el ancho disponible */
+      margin-top: 100px; /* Reducido un poco el margin-top para dar más espacio */
+    }
+
+    /* FICHAS FLOTANTES - Más grandes en mobile */
+    .ficha-azul-1 {
+      top: 0%;
+      right: 0%; /* Movido más hacia el centro */
+      height: 120vh; /* Aumentado significativamente */
+      width: auto;
+    }
+
+    /* ÍCONO 18+ - Mucho más grande en mobile */
+    .icono-18-mas {
+      bottom: 2%;
+      right: 2%;
+      width: 100px; /* Aumentado significativamente de 60px */
+      height: 100px; /* Aumentado significativamente de 60px */
+    }
+
+    /* BOTTOM CONTENT - Más espacio entre elementos */
+    .bottom-content {
+      gap: 2rem; /* Aumentado el gap */
+      margin-top: 2rem; /* Aumentado el margin-top */
+      width: 100%; /* Asegurar que use todo el ancho */
+    }
+
+    /* Ajustes adicionales para mejor visualización en mobile */
+    .whatsapp-glow {
+      top: -20px; /* Aumentado el glow effect */
+      left: -20px;
+      right: -20px;
+      bottom: -20px;
+    }
+
+    /* Reduce animation intensity on mobile but keep them visible */
+    .boton-whatsapp {
+      animation-duration: 3s, 4s, 5s;
+      /* Mantener las animaciones pero con duración ajustada */
+    }
+  }
+
+  /* Para pantallas muy pequeñas (menos de 480px) - elementos aún más grandes */
+  @media (max-width: 480px) {
+    .content-wrapper {
+      gap: 3rem; /* Gap aún mayor */
+      padding: 1rem;
+    }
+
+    .titulo-y-characters {
+      max-width: 98%; /* Casi todo el ancho disponible */
+      width: 98%;
+    }
+
+    .whatsapp-button {
+      max-width: 95%; /* Casi todo el ancho disponible */
+      width: 95%;
+    }
+
+    .logo-las-vegas {
+      max-width: 90%; /* Casi todo el ancho disponible */
+      width: 90%;
+    }
+
+    .texto-24hs-abierto {
+      max-width: 98%; /* Casi todo el ancho disponible */
+      width: 98%;
+      margin-top: 80px; /* Reducido para dar más espacio */
+    }
+
+    .icono-18-mas {
+      width: 120px; /* Aún más grande en pantallas muy pequeñas */
+      height: 120px;
+    }
+
+    .ficha-azul-1 {
+      height: 140vh; /* Aún más grande */
+      right: -5%; /* Posicionado para mejor visibilidad */
+    }
+  }
+
+  /* Reduce animations for users who prefer less motion */
+  @media (prefers-reduced-motion: reduce) {
+    .boton-whatsapp {
+      animation: buttonPulse 4s ease-in-out infinite;
+    }
+    
+    .ficha-azul-1 {
+      animation: none;
+    }
+    
+    .whatsapp-glow {
+      animation: glowPulse 4s ease-in-out infinite;
+    }
+  }
+</style>
+
+<script define:vars={{ pixelEvent }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Debug logging for pixel event tracking
+    console.log('Pixel event available:', pixelEvent);
+    
+    // Get WhatsApp button element
+    const whatsappBtn1 = document.getElementById('whatsapp-btn-1');
+    
+    // Function to handle button click and send pixel event
+    const handleButtonClick = (e, btnElement) => {
+      e.preventDefault();
+      
+      // Use local variable for the event tracking
+      const eventToTrack = pixelEvent || 'Lead';
+      
+      // Debug logging
+      console.log('Tracking event:', eventToTrack);
+      
+      // Send pixel event if fbq is available
+      if (typeof fbq === 'function') {
+        fbq('track', eventToTrack);
+      }
+      
+      // Navigate after small delay to ensure pixel tracking
+      setTimeout(() => {
+        window.location.href = btnElement.href;
+      }, 300);
+    };
+    
+    // Add event listener to WhatsApp buttons
+    if (whatsappBtn1) {
+      whatsappBtn1.addEventListener('click', (e) => handleButtonClick(e, whatsappBtn1));
+    }
+  });
+</script>
