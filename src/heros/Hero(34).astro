@@ -1,0 +1,350 @@
+---
+const { whatsappLink1, pixelEvent } = Astro.props;
+import '../styles/global.css';
+---
+<section class="hero-container">
+  <!-- Background - solid black -->
+  <div class="background-overlay"></div>
+  
+  <!-- Main content wrapper -->
+  <div class="content-wrapper">
+    <!-- Top title -->
+    <div class="top-title">
+      <img class="title-text" alt="EN LAS VEGAS GANÁS TODOS LOS DÍAS" src="/Hero(34)/EN_LAS_VEGAS_GANAS.png" />
+    </div>
+    
+    <!-- WhatsApp button -->
+    <a href={whatsappLink1} id="whatsapp-btn-1" class="whatsapp-button">
+      <img class="whatsapp-btn-img" alt="PEDINOS TU CUENTA" src="/Hero(34)/BOTONROJO2.png" />
+    </a>
+    
+    <!-- Main content area with phone and text -->
+    <div class="main-content">
+      <!-- Left side text overlay -->
+      <div class="left-text-section">
+        <!-- Games indicator -->
+        <div class="games-indicator">
+          <img class="games-text" alt="+2000 JUEGOS" src="/Hero(34)/celuytexto.png" />
+        </div>
+        
+        <!-- Prize text -->
+        <div class="prize-text">
+          <img class="prize-img" alt="LLEVATE TODOS LOS PREMIOS" src="/Hero(34)/celuytexto.png" />
+        </div>
+        
+        <!-- Las Vegas logo -->
+        <div class="vegas-logo">
+          <img class="logo-img" alt="LAS VEGAS GAME" src="/Hero(34)/logovegas.png" />
+        </div>
+      </div>
+      
+      <!-- Phone display -->
+      <div class="phone-section">
+        <img class="phone-img" alt="Casino game display" src="/Hero(34)/celuytexto.png" />
+      </div>
+    </div>
+    
+    <!-- Decorative elements -->
+    <img class="star-decoration" alt="" src="/Hero(34)/emojisjoker.png" />
+    <img class="joker-decoration" alt="" src="/Hero(34)/joker.png" />
+  </div>
+</section>
+
+<style>
+  /* Main container setup */
+  .hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000000;
+  }
+
+  /* Black background overlay */
+  .background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    z-index: 1;
+  }
+
+  /* Content wrapper - contains all elements */
+  .content-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Top title styling */
+  .top-title {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .title-text {
+    width: auto;
+    max-width: 700px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* WhatsApp button styling */
+  .whatsapp-button {
+    display: block;
+    margin: 0 auto 30px;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+  }
+
+  .whatsapp-btn-img {
+    width: auto;
+    max-width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  .whatsapp-button:hover .whatsapp-btn-img {
+    transform: scale(1.05);
+  }
+
+  /* Main content area - phone and text side by side */
+  .main-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    position: relative;
+  }
+
+  /* Left text section */
+  .left-text-section {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-left: 40px;
+  }
+
+  /* Games indicator */
+  .games-indicator {
+    position: relative;
+  }
+
+  .games-text {
+    width: auto;
+    max-width: 200px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Prize text */
+  .prize-text {
+    position: relative;
+  }
+
+  .prize-img {
+    width: auto;
+    max-width: 350px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Vegas logo */
+  .vegas-logo {
+    position: relative;
+    margin-top: 20px;
+  }
+
+  .logo-img {
+    width: auto;
+    max-width: 250px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Phone section */
+  .phone-section {
+    position: relative;
+    z-index: 4;
+    margin-right: 40px;
+  }
+
+  .phone-img {
+    width: auto;
+    max-width: 400px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Decorative elements */
+  .star-decoration {
+    position: absolute;
+    top: 40%;
+    left: 5%;
+    width: 60px;
+    height: auto;
+    object-fit: contain;
+    z-index: 3;
+  }
+
+  .joker-decoration {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+    z-index: 3;
+  }
+
+  /* Mobile responsive design */
+  @media (max-width: 768px) {
+    .content-wrapper {
+      padding: 10px;
+    }
+
+    .top-title {
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+
+    .title-text {
+      max-width: 90%;
+    }
+
+    .whatsapp-button {
+      margin-bottom: 20px;
+    }
+
+    .whatsapp-btn-img {
+      max-width: 300px;
+    }
+
+    .main-content {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .left-text-section {
+      padding-left: 20px;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+
+    .games-text {
+      max-width: 150px;
+    }
+
+    .prize-img {
+      max-width: 280px;
+    }
+
+    .logo-img {
+      max-width: 200px;
+    }
+
+    .phone-section {
+      margin-right: 0;
+      margin-top: 20px;
+    }
+
+    .phone-img {
+      max-width: 300px;
+    }
+
+    .star-decoration {
+      top: 20%;
+      left: 2%;
+      width: 40px;
+    }
+
+    .joker-decoration {
+      top: 15%;
+      left: auto;
+      right: 5%;
+      width: 70px;
+    }
+  }
+
+  /* Extra small devices */
+  @media (max-width: 480px) {
+    .title-text {
+      max-width: 95%;
+    }
+
+    .whatsapp-btn-img {
+      max-width: 250px;
+    }
+
+    .games-text {
+      max-width: 120px;
+    }
+
+    .prize-img {
+      max-width: 240px;
+    }
+
+    .logo-img {
+      max-width: 180px;
+    }
+
+    .phone-img {
+      max-width: 250px;
+    }
+
+    .left-text-section {
+      padding-left: 10px;
+    }
+  }
+</style>
+
+<script define:vars={{ pixelEvent }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Debug logging for pixel event tracking
+    console.log('Pixel event available:', pixelEvent);
+    
+    // Get WhatsApp button element
+    const whatsappBtn1 = document.getElementById('whatsapp-btn-1');
+    
+    // Function to handle button click and send pixel event
+    const handleButtonClick = (e, btnElement) => {
+      e.preventDefault();
+      
+      // Use local variable for the event tracking
+      const eventToTrack = pixelEvent || 'Lead';
+      
+      // Debug logging
+      console.log('Tracking event:', eventToTrack);
+      
+      // Send pixel event if fbq is available
+      if (typeof fbq === 'function') {
+        fbq('track', eventToTrack);
+      }
+      
+      // Navigate after small delay to ensure pixel tracking
+      setTimeout(() => {
+        window.location.href = btnElement.href;
+      }, 300);
+    };
+    
+    // Add event listener to WhatsApp buttons
+    if (whatsappBtn1) {
+      whatsappBtn1.addEventListener('click', (e) => handleButtonClick(e, whatsappBtn1));
+    }
+  });
+</script>
