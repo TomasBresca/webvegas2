@@ -3,184 +3,576 @@ const { whatsappLink1,  pixelEvent } = Astro.props;
 import '../styles/global.css';
 ---
 <section class="hero-container">
-  <img class="fondo-icon" alt="" src="./public/fondo@2x.png" />
+  <!-- Background elements -->
+  <div class="background-elements">
+    <img class="fondo-icon" alt="" src="/Hero(32)/fondo.png" />
+    <img class="brillo-center-icon" alt="" src="/Hero(32)/brillo_center.png" />
+    <img class="degradado-icon" alt="" src="/Hero(32)/degradado.png" />
+  </div>
   
-  <img class="brillo-center-icon" alt="" src="./public/brillo-center@2x.png" />
+  <!-- Floating elements with fixed 100vh height -->
+  <div class="floating-elements">
+    <div class="floating-wrapper">
+      <img class="emojisjoker-icon" alt="" src="/Hero(32)/emojisjoker.png" />
+      <img class="fichasdoradas-icon" alt="" src="/Hero(32)/fichasdoradas.png" />
+    </div>
+  </div>
   
-  <img class="mujer-y-celulares-icon" alt="" src="./public/mujer-y-celulares@2x.png" />
+  <!-- Woman photo positioned at bottom but extending upward -->
+  <div class="woman-container">
+    <img class="mujer-y-celulares-icon" alt="" src="/Hero(32)/mujer_y_celulares.png" />
+  </div>
   
-  <img class="degradado-icon" alt="" src="./public/degradado@2x.png" />
-  
-  <img class="emojisjoker-icon" alt="" src="./public/emojisjoker@2x.png" />
-  
-  <img class="superwin-icon" alt="" src="./public/superwin@2x.png" />
-  
-  <img class="teextranamos-icon" alt="" src="./public/teextranamos@2x.png" />
-  
-  <img class="fichasdoradas-icon" alt="" src="./public/fichasdoradas@2x.png" />
-  
-  <a href={whatsappLink1} id="whatsapp-btn-1" class="whatsapp-button">
-    <img class="boton-whatsapp-icon" alt="Pedinos tu cuenta" src="./public/boton-whatsapp@2x.png" />
-  </a>
-  
-  <a href={whatsappLink1} id="whatsapp-btn-2" class="whatsapp-button-secondary">
-    <img class="boton-whatsapp-icon-2" alt="Pedinos tu cuenta" src="./public/boton-whatsapp@2x.png" />
-  </a>
-  
-  <img class="logovegas-icon" alt="" src="./public/logovegas@2x.png" />
+  <!-- Main content container with flex layout -->
+  <div class="content-container">
+    <div class="top-content">
+      <img class="teextranamos-icon" alt="" src="/Hero(32)/teextranamos.png" />
+      
+      <a href={whatsappLink1} id="whatsapp-btn-1" class="whatsapp-button">
+        <img class="boton-whatsapp-icon" alt="Pedinos tu cuenta" src="/Hero(32)/boton_whatsapp.png" />
+        <div class="whatsapp-glow"></div>
+      </a>
+    </div>
+    
+    <div class="bottom-content">
+      <img class="superwin-icon" alt="" src="/Hero(32)/superwin.png" />
+    </div>
+    <div class="logovegas-icon-container">
+      <img class="logovegas-icon" alt="" src="/Hero(32)/logovegas.png" />
+    </div>
+
+  </div>
 </section>
 
 <style>
   .hero-container {
     position: relative;
-    background-color: var(--color-white, #fff);
     width: 100%;
-    height: 1536px;
+    height: 100vh;
     overflow: hidden;
+  }
+
+  .background-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  .floating-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+  }
+
+  /* Reordered to put woman container before content container in the DOM */
+  .woman-container {
+    position: absolute;
+    bottom: 0; /* Ensure flush with bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 80vh; /* Dramatically increased to reach the WhatsApp button */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Align to bottom */
+    z-index: 5;
+    overflow: visible; /* Allow image to overflow as needed */
+    /* Animación de entrada suave para la mujer */
+    animation: slideUpFadeHero32 1.5s ease-out 0.5s both;
+  }
+
+  .mujer-y-celulares-icon {
+    height: 80vh; /* Matching container height */
+    width: auto;
+    max-width: none;
+    object-fit: contain;
+    object-position: bottom; /* Anchor to bottom */
+    margin-bottom: 0; /* Ensure no space at bottom */
+  }
+
+  .content-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    z-index: 10; /* Higher z-index to ensure content appears above the woman */
+    box-sizing: border-box;
+  }
+
+  .top-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 18vh; /* Keep as is to maintain top spacing */
+    position: relative;
+    z-index: 15; /* Ensure visibility above woman image */
+  }
+
+  .bottom-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2vh;
+    margin-bottom: 20vh; /* Reduced to work with the larger woman image */
+    position: relative;
+    z-index: 15; /* Ensure visibility above woman image */
   }
 
   .fondo-icon {
     position: absolute;
-    top: 1px;
-    left: -1458px;
-    width: 2738px;
-    height: 1536px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    /* Sutil animación de zoom para el fondo */
+    animation: subtleZoomHero32 20s ease-in-out infinite alternate;
   }
 
   .brillo-center-icon {
     position: absolute;
-    top: -956px;
-    left: -1573px;
-    width: 3895px;
-    height: 3895px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
     object-fit: cover;
-  }
-
-  .mujer-y-celulares-icon {
-    position: absolute;
-    top: 421px;
-    left: -101px;
-    width: 932px;
-    height: 1115px;
-    object-fit: cover;
+    /* Animación de pulso y rotación muy suave para el brillo central */
+    animation: pulseGlowHero32 4s ease-in-out infinite, rotateSlowlyHero32 30s linear infinite;
   }
 
   .degradado-icon {
     position: absolute;
     bottom: 0;
-    left: -175px;
-    width: 1080px;
-    height: 306px;
+    left: 0;
+    width: 100%;
+    height: auto;
     object-fit: cover;
+    z-index: 3; /* Above background but below content */
+    /* Animación sutil de ondas */
+    animation: waveEffectHero32 8s ease-in-out infinite;
   }
 
   .emojisjoker-icon {
     position: absolute;
-    top: 42px;
-    left: -101px;
-    width: 932px;
-    height: 698px;
-    object-fit: cover;
-  }
-
-  .superwin-icon {
-    position: absolute;
-    top: 991px;
-    left: 80px;
-    width: 627px;
-    height: 289px;
-    object-fit: cover;
-  }
-
-  .teextranamos-icon {
-    position: absolute;
-    top: 153px;
+    width: 100%;
+    height: 100vh;
+    object-fit: contain;
+    top: 0;
     left: 0;
-    width: 730px;
-    height: 170px;
-    object-fit: cover;
+    /* Animación flotante con movimiento orbital */
+    animation: floatOrbitHero32 3s ease-in-out infinite, fadeInScaleHero32 1s ease-out 0.3s both;
   }
 
   .fichasdoradas-icon {
     position: absolute;
-    top: 137px;
-    left: -246px;
-    width: 1151px;
-    height: 1024px;
-    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+    object-fit: contain;
+    top: 0;
+    left: 0;
+    /* Animación flotante en dirección opuesta con rotación */
+    animation: floatOrbitReverseHero32 3s ease-in-out infinite, fadeInScaleHero32 1s ease-out 0.6s both, sparkleRotateHero32 2s linear infinite;
   }
 
-  .whatsapp-button,
-  .whatsapp-button-secondary {
-    position: absolute;
-    display: block;
-    text-decoration: none;
-    cursor: pointer;
-    z-index: 10;
+  .teextranamos-icon {
+    width: auto;
+    max-width: 80%;
+    height: auto;
+    max-height: 15vh;
+    object-fit: contain;
+    margin-bottom: 2vh;
+    /* Animación de entrada dramática */
+    animation: bounceInDownHero32 1.2s ease-out 0.2s both;
   }
 
   .whatsapp-button {
-    top: 347px;
-    left: 10px;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    width: auto;
+    max-width: 80%;
+    position: relative;
+    z-index: 20; /* Highest z-index to ensure button is always clickable */
+    /* Animación de entrada espectacular */
+    animation: heroEntranceHero32 1.5s ease-out 1s both;
   }
 
-  .whatsapp-button-secondary {
-    top: 500px;
-    left: 10px;
+  .boton-whatsapp-icon {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    /* Combinación de múltiples animaciones para máximo impacto */
+    animation: 
+      floatIntenseHero32 2s ease-in-out infinite,
+      pulseButtonHero32 3s ease-in-out infinite,
+      shineHero32 4s ease-in-out infinite;
+    /* Efecto de sombra dramática */
+    filter: drop-shadow(0 8px 25px rgba(37, 211, 102, 0.4));
   }
 
-  .boton-whatsapp-icon,
-  .boton-whatsapp-icon-2 {
-    width: 711px;
-    height: 125px;
-    object-fit: cover;
-    transition: transform 0.2s ease;
+  /* Elemento de brillo adicional para el botón de WhatsApp */
+  .whatsapp-glow {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle, rgba(37, 211, 102, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+    animation: glowPulseHero32 2s ease-in-out infinite alternate;
   }
 
-  .whatsapp-button:hover .boton-whatsapp-icon,
-  .whatsapp-button-secondary:hover .boton-whatsapp-icon-2 {
-    transform: scale(1.05);
+  .whatsapp-button:hover .boton-whatsapp-icon {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 12px 35px rgba(37, 211, 102, 0.6)) saturate(1.2);
+  }
+
+  .whatsapp-button:hover .whatsapp-glow {
+    animation: glowPulseIntenseHero32 0.5s ease-in-out infinite alternate;
+  }
+
+  .superwin-icon {
+    width: auto;
+    max-width: 80%;
+    height: auto;
+    max-height: 15vh;
+    object-fit: contain;
+    margin-bottom: 2vh;
+    /* Animación de entrada desde abajo */
+    animation: slideUpBounceHero32 1s ease-out 1.2s both;
+  }
+
+  .logovegas-icon-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh; /* Space above the logo */
   }
 
   .logovegas-icon {
     position: absolute;
-    bottom: 62px;
-    left: 104px;
-    width: 522px;
-    height: 139px;
-    object-fit: cover;
+    bottom: 0;
+    width: auto;
+    max-width: 70%;
+    height: auto;
+    max-height: 10vh;
+    object-fit: contain;
+    /* Animación sutil de aparición */
+    animation: fadeInUpHero32 1s ease-out 1.5s both;
+  }
+
+  /* === DEFINICIÓN DE ANIMACIONES === */
+
+  /* Animación principal del botón WhatsApp - flotación intensa */
+  @keyframes floatIntenseHero32 {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-8px) rotate(1deg);
+    }
+    50% {
+      transform: translateY(-12px) rotate(0deg);
+    }
+    75% {
+      transform: translateY(-6px) rotate(-1deg);
+    }
+  }
+
+  /* Pulso del botón para llamar la atención */
+  @keyframes pulseButtonHero32 {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  /* Efecto de brillo que atraviesa el botón */
+  @keyframes shineHero32 {
+    0% {
+      background-position: -100% 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
+
+  /* Brillo del aura del botón */
+  @keyframes glowPulseHero32 {
+    0% {
+      opacity: 0.5;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 0.8;
+      transform: scale(1.1);
+    }
+  }
+
+  /* Brillo intenso en hover */
+  @keyframes glowPulseIntenseHero32 {
+    0% {
+      opacity: 0.8;
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1.3);
+    }
+  }
+
+  /* Entrada heroica del botón */
+  @keyframes heroEntranceHero32 {
+    0% {
+      opacity: 0;
+      transform: scale(0.3) translateY(-50px) rotate(-10deg);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.1) translateY(-10px) rotate(5deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0) rotate(0deg);
+    }
+  }
+
+  /* Animaciones para elementos de contenido */
+  @keyframes bounceInDownHero32 {
+    0% {
+      opacity: 0;
+      transform: translateY(-60px) scale(0.8);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(10px) scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes slideUpBounceHero32 {
+    0% {
+      opacity: 0;
+      transform: translateY(50px) scale(0.9);
+    }
+    70% {
+      opacity: 1;
+      transform: translateY(-10px) scale(1.05);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes fadeInUpHero32 {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUpFadeHero32 {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+
+  @keyframes fadeInScaleHero32 {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Animaciones para elementos flotantes */
+  @keyframes floatOrbitHero32 {
+    0%, 100% {
+      transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    25% {
+      transform: translateX(10px) translateY(-15px) rotate(2deg);
+    }
+    50% {
+      transform: translateX(-5px) translateY(-20px) rotate(0deg);
+    }
+    75% {
+      transform: translateX(-10px) translateY(-10px) rotate(-2deg);
+    }
+  }
+
+  @keyframes floatOrbitReverseHero32 {
+    0%, 100% {
+      transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    25% {
+      transform: translateX(-8px) translateY(-12px) rotate(-1deg);
+    }
+    50% {
+      transform: translateX(5px) translateY(-18px) rotate(1deg);
+    }
+    75% {
+      transform: translateX(12px) translateY(-8px) rotate(2deg);
+    }
+  }
+
+  @keyframes sparkleRotateHero32 {
+    0% {
+      filter: hue-rotate(0deg) brightness(1);
+    }
+    50% {
+      filter: hue-rotate(30deg) brightness(1.1);
+    }
+    100% {
+      filter: hue-rotate(0deg) brightness(1);
+    }
+  }
+
+  /* Animaciones para elementos de fondo */
+  @keyframes subtleZoomHero32 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.03);
+    }
+  }
+
+  @keyframes pulseGlowHero32 {
+    0%, 100% {
+      opacity: 0.8;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.02);
+    }
+  }
+
+  @keyframes rotateSlowlyHero32 {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+  @keyframes waveEffectHero32 {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
   }
 
   @media (max-width: 768px) {
-    .hero-container {
-      height: 100vh;
-      min-height: 1536px;
-    }
-
-    .fondo-icon,
-    .brillo-center-icon,
-    .mujer-y-celulares-icon,
-    .degradado-icon,
+    .floating-elements, 
+    .floating-wrapper,
     .emojisjoker-icon,
-    .superwin-icon,
-    .teextranamos-icon,
     .fichasdoradas-icon {
-      transform: scale(0.8);
-      transform-origin: center;
+      height: 100vh;
+    }
+    
+    .top-content {
+      padding-top: 12vh;
+    }
+    
+    .bottom-content {
+      padding-bottom: 1vh;
+      margin-bottom: 15vh; /* Adjusted for mobile */
+    }
+    
+    .woman-container {
+      height: 80vh; /* Still very large but adjusted for mobile proportions */
+    }
+    
+    .mujer-y-celulares-icon {
+      height: 80vh; /* Matching container height */
+      object-position: bottom;
+    }
+    
+    .teextranamos-icon {
+      max-height: 12vh;
+      margin-bottom: 1vh;
+    }
+    
+    .superwin-icon {
+      max-height: 12vh;
+      margin-bottom: 1vh;
+    }
+    
+    .logovegas-icon {
+      max-height: 8vh;
     }
 
-    .whatsapp-button,
-    .whatsapp-button-secondary {
-      left: 50%;
-      transform: translateX(-50%);
+    /* Ajustes de animación para móvil */
+    .boton-whatsapp-icon {
+      animation-duration: 2.5s, 3.5s, 5s; /* Animaciones más suaves en móvil */
     }
+    
+    .emojisjoker-icon,
+    .fichasdoradas-icon {
+      animation-duration: 18s, 1.2s, 25s; /* Más lentas en móvil */
+    }
+  }
 
-    .boton-whatsapp-icon,
-    .boton-whatsapp-icon-2 {
-      width: 90%;
-      max-width: 400px;
-      height: auto;
+  /* Reducir animaciones para usuarios que prefieren menos movimiento */
+  @media (prefers-reduced-motion: reduce) {
+    .boton-whatsapp-icon {
+      animation: pulseButtonHero32 4s ease-in-out infinite;
+    }
+    
+    .emojisjoker-icon,
+    .fichasdoradas-icon,
+    .brillo-center-icon,
+    .fondo-icon {
+      animation: none;
+    }
+    
+    .whatsapp-glow {
+      animation: glowPulseHero32 3s ease-in-out infinite;
     }
   }
 </style>
