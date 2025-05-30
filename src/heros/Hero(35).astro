@@ -1,0 +1,302 @@
+---
+const { whatsappLink1, whatsappLink2, pixelEvent } = Astro.props;
+import '../styles/global.css';
+---
+
+<div class="hero-container">
+  <!-- Imagen de fondo con position absolute y altura completa -->
+  <img src="/Hero(35)/forest_bg.png" alt="Fondo Bosque" class="fondo" /> 
+  <img src="/Hero(35)/hoyestudiadesuerte.png" alt="Titulo" class="title" />
+  <!-- Contenedor de monedas flotantes con posiciones random -->
+  <div class="gold_coin_rain">
+    <img src="/Hero(35)/gold_coin.png" alt="Moneda de Oro" class="gold_coin" /> 
+    <img src="/Hero(35)/gold_coin.png" alt="Moneda de Oro" class="gold_coin" /> 
+    <img src="/Hero(35)/gold_coin.png" alt="Moneda de Oro" class="gold_coin" /> 
+    <img src="/Hero(35)/gold_coin.png" alt="Moneda de Oro" class="gold_coin" /> 
+    <img src="/Hero(35)/gold_coin.png" alt="Moneda de Oro" class="gold_coin" /> 
+  </div>
+  
+  <!-- Pilas de oro posicionadas en esquinas inferiores -->
+  <img src="/Hero(35)/gold_pile_bottom_right.png" alt="Pila de Oro" class="gold_pile gold_pile_left" /> 
+  <img src="/Hero(35)/gold_pile_bottom_right.png" alt="Pila de Oro" class="gold_pile gold_pile_right" /> 
+  <!-- Personaje centrado usando flexbox -->
+  <img src="/Hero(35)/character.png" alt="Personaje" class="character" /> 
+
+  <!-- Botón de WhatsApp -->
+  <div class="whatsapp-section">
+    <a id="whatsapp-btn-1" href={whatsappLink1} target="_blank" rel="noopener" class="whatsapp-button">
+      <div class="whatsapp-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+        </svg>
+      </div>
+      <span class="whatsapp-text">HÁBLANOS HOY</span>
+    </a>
+  </div>
+</div>
+
+<style scoped>
+body {
+  margin: 0;
+  line-height: normal;
+  overflow-x: hidden;
+}
+
+@keyframes pulseHero35 {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* Contenedor principal configurado con flexbox para centrar el personaje */
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Imagen de fondo con position absolute, altura completa y centrada */
+.fondo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Título centrado vertical y horizontalmente */
+.title {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  height: auto;
+  z-index: 20;
+}
+
+/* Personaje centrado automáticamente por el flexbox del contenedor */
+.character {
+  position: relative;
+  z-index: 3;
+  max-width: 600px;
+  max-height: 100%;
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+/* Contenedor de monedas posicionado de forma absoluta */
+.gold_coin_rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Estilos base para todas las monedas: 50px y position absolute */
+.gold_coin {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  animation: floatGentle 3s ease-in-out infinite;
+}
+
+/* Posicionamiento random para cada moneda usando nth-child */
+.gold_coin:nth-child(1) {
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.gold_coin:nth-child(2) {
+  top: 25%;
+  right: 15%;
+  animation-delay: 0.8s;
+}
+
+.gold_coin:nth-child(3) {
+  top: 45%;
+  left: 20%;
+  animation-delay: 1.6s;
+}
+
+.gold_coin:nth-child(4) {
+  top: 35%;
+  right: 25%;
+  animation-delay: 2.4s;
+}
+
+.gold_coin:nth-child(5) {
+  top: 60%;
+  left: 80%;
+  animation-delay: 3.2s;
+}
+
+/* Estilos base para las pilas de oro: 25vw y position absolute */
+.gold_pile {
+  position: absolute;
+  bottom: 5%;
+  width: 100vw;
+  max-width: 600px;
+  height: auto;
+  z-index: 2;
+}
+
+/* Pila de oro en esquina inferior izquierda */
+.gold_pile_left {
+  left: -10%;
+}
+
+/* Pila de oro en esquina inferior derecha */
+.gold_pile_right {
+  right: -10%;
+}
+
+/* WhatsApp Section */
+.whatsapp-section {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: visible;
+  z-index: 10;
+}
+
+/* Botón de WhatsApp personalizado */
+.whatsapp-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 80vw;
+  height: 9vh;
+  max-width: 700px;
+  max-height: 73px;
+  min-width: 240px;
+  min-height: 50px;
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: pulse 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px rgba(220, 38, 38, 0.6));
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.whatsapp-button:hover {
+  transform: translate(-50%, -50%) scale(1.08) translateY(-2px);
+  animation-play-state: paused;
+  filter: drop-shadow(0 0 25px rgba(220, 38, 38, 0.8));
+  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+}
+
+.whatsapp-icon {
+  width: 24px;
+  height: 24px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.whatsapp-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.whatsapp-text {
+  color: white;
+  font-weight: bold;
+  font-size: clamp(18px, 5vw, 24px);
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+}
+
+/* Animaciones existentes conservadas */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+</style>
+
+<script define:vars={{ pixelEvent }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Para depuración
+    console.log('Pixel event disponible:', pixelEvent);
+    
+    // Obtener el botón
+    const whatsappBtn1 = document.getElementById('whatsapp-btn-1');
+    
+    // Función para manejar el clic y enviar evento de Pixel
+    const handleButtonClick = (e, btnElement) => {
+      e.preventDefault();
+      
+      // Usar una variable local para el evento
+      const eventToTrack = pixelEvent || 'Lead';
+      
+      // Imprimir para depuración
+      console.log('Tracking event:', eventToTrack);
+      
+      // Enviar el evento si fbq está disponible
+      if (typeof fbq === 'function') {
+        fbq('track', eventToTrack);
+        console.log('Facebook Pixel event sent successfully');
+      } else {
+        console.warn('Facebook Pixel (fbq) not available');
+      }
+      
+      // Navegar después de un pequeño retraso
+      setTimeout(() => {
+        window.location.href = btnElement.href;
+      }, 300);
+    };
+    
+    // Agregar event listener al botón
+    if (whatsappBtn1) {
+      whatsappBtn1.addEventListener('click', (e) => handleButtonClick(e, whatsappBtn1));
+      console.log('WhatsApp button event listener attached');
+    } else {
+      console.error('WhatsApp button not found');
+    }
+  });
+</script>
